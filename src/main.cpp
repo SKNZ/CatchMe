@@ -15,7 +15,7 @@ using namespace std;
 
 namespace Console
 {
-    enum Colors : unsigned
+    enum struct Colors : unsigned
     {
         KDefault    = 0,
         KBlack      = 30,
@@ -28,7 +28,7 @@ namespace Console
         KLightGray  = 37
     };
 	
-	enum BackgroundColors : unsigned
+	enum struct BackgroundColors : unsigned
     {
         KDefault    = 0,
         KBlack      = 40,
@@ -42,12 +42,14 @@ namespace Console
     };
 	
 	// This allows passing Colors directly to cout !
-	operator<< (std::ostream& os, const Colors& Color) {
-		return os << "\033[" << unsigned (Color) << "m";
+	std::ostream& operator<< (std::ostream& os, const Colors& Color)
+	{
+		return os << "\033[" << static_cast<unsigned> (Color) << "m";
 	}
 	
-	operator<< (std::ostream& os, const BackgroundColors& Color) {
-		return os << "\033[" << unsigned (Color) << "m";
+	std::ostream& operator<< (std::ostream& os, const BackgroundColors& Color)
+	{
+		return os << "\033[" << static_cast<unsigned> (Color) << "m";
 	}
 
     void ClearScreen ()
@@ -79,28 +81,28 @@ namespace Game
         void ShowMatrix(const CMatrix & Matrix)
         {
             ClearScreen();
-            cout << Color::KDefault;
+            cout << Colors::KDefault;
 
             for (unsigned i = 0; i < SizeX + 2; ++i)
-                cout << Color::KGreen << ' ';
+                cout << Colors::KGreen << ' ';
             
             cout << endl;
 
             for (CLine Line : Matrix)
             {
-                cout << Color::KGreen << ' ' << Color::KDefault;
+                cout << Colors::KGreen << ' ' << Colors::KDefault;
 
                 for (char C : Line)
                     cout << C;
 
-                cout << Color::KGreen << ' ' << endl;
+                cout << Colors::KGreen << ' ' << endl;
             }
 
             for (unsigned i = 0; i < SizeX + 2; ++i)
                 cout << ' ';
 
             cout << endl;
-            cout << Color::KDefault;
+            cout << Colors::KDefault;
         }
 
     }
