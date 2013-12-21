@@ -35,4 +35,7 @@ namespace Console
     std::ostream& operator<< (std::ostream& os, const BackgroundColors& Color);
     void ClearScreen ();
     void ClearInputBuffer ();
+    void Initialize ();
+    void Destroy ();
+    char GetSingleChar ();
 }

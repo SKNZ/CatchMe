@@ -4,6 +4,7 @@
 #include <iostream>
 #include <limits>
 #include <thread>
+#include <ncurses.h>
 
 using namespace std;
 
@@ -17,8 +18,8 @@ namespace
         {
             cout << "How many players do want you to play with ("<< KMinPlayerCount << "-" << KMaxPlayerCount <<") ? " << flush;
 
-            char c = cin.get ();
-            Console::ClearInputBuffer();
+            char c = getch ();
+            //Console::ClearInputBuffer();
 
             if (!isdigit (c))
             {
@@ -115,8 +116,7 @@ namespace
     
     bool HandleMovement(CPosition& PlayerPosition, const unsigned CurrentPlayer)
     {
-        char Opcode = cin.get ();
-        Console::ClearInputBuffer ();
+        char Opcode = Console::GetSingleChar ();
 
         size_t Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find(Opcode);
 
@@ -168,11 +168,13 @@ int Game::Run ()
     unsigned    PlayerCount = 0;
     unsigned    CurrentPlayer = 0; // Whose turn it is
     CMatrix     Matrix;
-
+    
+    Console::Initialize();
+    
     GetPlayerCount (PlayerCount);
     InitializePlayerPositions (PlayerPositions, PlayerCount, KMatrixSize);
     InitializeMatrix (Matrix, KMatrixSize, PlayerPositions, (*KTokens.rbegin ()));
-
+    
     for (;;)
     {
         UI::ShowMatrix (Matrix);
@@ -187,6 +189,7 @@ int Game::Run ()
         if (CurrentPlayer >= PlayerCount)
             CurrentPlayer = 0;
     }
-
+    
+    Console::Destroy();
     return 0;
 }

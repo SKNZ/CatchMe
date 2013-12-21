@@ -36,10 +36,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sknz/Projet
+CMAKE_SOURCE_DIR = ../
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sknz/Projet/build
+CMAKE_BINARY_DIR = ../build
 
 #=============================================================================
 # Targets provided globally by CMake.

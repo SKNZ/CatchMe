@@ -7,8 +7,10 @@ set(EXECUTABLE_OUTPUT_PATH bin)
 # This makes our project Linux and GCC only, at least until CMake implements better C++11 support...
 ADD_DEFINITIONS(
 	-std=c++11
-	-lncurses
 )
+
+SET(CURSES_NEED_NCURSES TRUE)
+FIND_PACKAGE(Curses)
 
 file(
 	GLOB_RECURSE
@@ -21,3 +23,5 @@ add_executable(
 	CatchMe
 	${source_files}
 )
+
+target_link_libraries(CatchMe ncurses)
