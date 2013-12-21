@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/sknz/Projet/src/Console.h
+iostream
+-
+
+/home/sknz/Projet/src/Game.cpp
+Game.h
+/home/sknz/Projet/src/Game.h
+GameUI.h
+/home/sknz/Projet/src/GameUI.h
+iostream
+-
+limits
+-
+thread
+-
+
+/home/sknz/Projet/src/Game.h
+string
+-
+vector
+-
+map
+-
+utility
+-
+chrono
+-
+
+/home/sknz/Projet/src/GameUI.h
+utility
+-
+map
+-
+Console.h
+/home/sknz/Projet/src/Console.h
+Game.h
+/home/sknz/Projet/src/Game.h
+

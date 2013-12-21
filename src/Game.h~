@@ -28,10 +28,10 @@ namespace Game
     typedef std::vector<CPosition>  CPositions;
 
     // Constants
-    const std::pair<unsigned, unsigned> KMatrixSize              = { 10, 20 }; // X, Y
-    const unsigned                      KMaxPlayerCount          = 4;
-    const unsigned                      KMinPlayerCount          = 2; // @todo This should be lowered to one if/once the "Player vs Computer" mode is ready.
-    const std::chrono::milliseconds     KErrorMessageDisplayTime(2000);
+    const std::pair<unsigned, unsigned> MatrixSize              = { 10, 20 }; // X, Y
+    const unsigned                      MaxPlayerCount          = 4;
+    const unsigned                      MinPlayerCount          = 2; // @todo This should be lowered to one if/once the "Player vs Computer" mode is ready.
+    const std::chrono::milliseconds     ErrorMessageDisplayTime(2000);
 
     // List of all the possible tokens
     const std::vector<char> KTokens =

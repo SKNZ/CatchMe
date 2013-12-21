@@ -1,3 +1,0 @@
-D:/IUT/PROGE/proj/sln/CMakeFiles/ALL_BUILD.dir
-D:/IUT/PROGE/proj/sln/CMakeFiles/CatchMe.dir
-D:/IUT/PROGE/proj/sln/CMakeFiles/ZERO_CHECK.dir
