@@ -169,7 +169,7 @@ int Game::Run ()
     unsigned    CurrentPlayer = 0; // Whose turn it is
     CMatrix     Matrix;
     
-    Console::Initialize();
+    //Console::Initialize();
     
     GetPlayerCount (PlayerCount);
     InitializePlayerPositions (PlayerPositions, PlayerCount, KMatrixSize);
@@ -191,5 +191,6 @@ int Game::Run ()
     }
     
     Console::Destroy();
+
     return 0;
 }
