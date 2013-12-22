@@ -28,7 +28,7 @@ namespace Game
     typedef std::vector<CPosition>  CPositions;
 
     // Constants
-    const std::pair<unsigned, unsigned> KMatrixSize              = { 10, 20 }; // X, Y
+    const std::pair<unsigned, unsigned> KMatrixSize              = { 10, 20 }; // Y, X
     const unsigned                      KMaxPlayerCount          = 4;
     const unsigned                      KMinPlayerCount          = 2; // @todo This should be lowered to one if/once the "Player vs Computer" mode is ready.
 
@@ -40,7 +40,14 @@ namespace Game
      *          and not for technical problems (such as exceptions reports).
      * 
      */
-    const std::chrono::milliseconds     KErrorMessageDisplayTime(2000); // The duration during which the game will be suspended to let the player read the error message.
+    const std::chrono::milliseconds     KErrorMessageDisplayTime(2000);
+
+    /**
+     * 
+     * The interval between each render loop.
+     * 
+     */
+    const std::chrono::milliseconds     KErrorMessageDisplayTime(100);
 
     /**
      *

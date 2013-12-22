@@ -6,10 +6,13 @@
  * @brief  Main file - Runnable
  *
 **/
-#include "Console.h"
 #include "Game.h"
+#include <ncurses.h>
+
 
 int main (/*int argc, char** argv*/)
 {
     return Game::Run ();
+    
+    return 0;
 }

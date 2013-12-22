@@ -22,9 +22,8 @@ namespace
         do
         {
             cout << "How many players do want you to play with ("<< KMinPlayerCount << "-" << KMaxPlayerCount <<") ? " << flush;
-
-            char c = cin.get ();
-            Console::ClearInputBuffer();
+            
+            char c = cin.get();
 
             if (!isdigit (c))
             {
@@ -129,7 +128,7 @@ namespace
             if (!hardWalls)
                 PlayerPosition.first = MatrixSize.first - 1; 
             else beep();
-        else if (PlayerPosition.first + DiffX > MatrixSize.first)
+        else if (PlayerPosition.first + DiffX > MatrixSize.first - 1)
             if (!hardWalls)
                 PlayerPosition.first = 0;
             else beep();
@@ -140,7 +139,7 @@ namespace
             if (!hardWalls)
                 PlayerPosition.second = MatrixSize.second - 1;
             else beep();
-        else if (PlayerPosition.second + DiffY > MatrixSize.second)
+        else if (PlayerPosition.second + DiffY > MatrixSize.second - 1)
             if (!hardWalls)
                 PlayerPosition.second = 0;
             else beep();
@@ -156,7 +155,6 @@ namespace
     bool HandleMovement(CPosition& PlayerPosition, const unsigned CurrentPlayer)
     {
         char Opcode = cin.get ();
-        Console::ClearInputBuffer();
 
         size_t Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find(Opcode);
 
@@ -210,12 +208,16 @@ int Game::Run ()
     unsigned    CurrentPlayer = 0; // Whose turn it is
     CMatrix     Matrix;
     
+    Console::DisableCanonicalInputMode ();
+    
     GetPlayerCount (PlayerCount);
     InitializePlayerPositions (PlayerPositions, PlayerCount, KMatrixSize);
     InitializeMatrix (Matrix, KMatrixSize, PlayerPositions, (*KTokens.rbegin ()));
     
     for (;;)
     {
+        this_thread::sleep_for (KRenderLoopInterval); // Render loop interval
+
         UI::ShowMatrix (Matrix);
         UI::ShowControls (CurrentPlayer);
         
