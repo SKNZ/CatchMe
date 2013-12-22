@@ -13,32 +13,17 @@ void Classic1v1::GetSize (CPosition& Size)
 
 void Classic1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesX MoveX, const PlayerMovesY MoveY)
 {
-    bool hardWalls = true;
-
     int DiffX = static_cast<int> (MoveX);
     int DiffY = static_cast<int> (MoveY);
     
-    // Make him pop on the other side if he leaves the boundaries
     if (PlayerPosition.first + DiffX < 0)
-        if (!hardWalls)
             PlayerPosition.first = MatrixSize.first - 1; 
-        else beep();
-    else if (PlayerPosition.first + DiffX > MatrixSize.first - 1)
-        if (!hardWalls)
-            PlayerPosition.first = 0;
-        else beep();
-    else
+    else if (PlayerPosition.first + DiffX < MatrixSize.first - 1)
         PlayerPosition.first += DiffX;
 
     if (PlayerPosition.second + DiffY < 0)
-        if (!hardWalls)
             PlayerPosition.second = MatrixSize.second - 1;
-        else beep();
-    else if (PlayerPosition.second + DiffY > MatrixSize.second - 1)
-        if (!hardWalls)
-            PlayerPosition.second = 0;
-        else beep();
-    else
+    else if (PlayerPosition.second + DiffY < MatrixSize.second - 1)
         PlayerPosition.second += DiffY;
 }
 
@@ -55,12 +40,6 @@ void Classic1v1::InitializePlayerPositions (CPositions& PlayerPositions, const u
                 break;
             case 1:
                 PlayerPositions[1] = { MaxSize.first - 1, 0 }; // Bottom left
-                break;
-            case 2:
-                PlayerPositions[2] = { 0, 0 }; // Top left
-                break;
-            case 3:
-                PlayerPositions[3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
                 break;
         }
     }
