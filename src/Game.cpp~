@@ -1,3 +1,12 @@
+/**
+ * @author F. Narenji
+ *
+ * @date   19/12/2013
+ *
+ * @brief  Game implementation, movement, render matrix, main loop
+ *
+**/
+#include "Menu.h"
 #include "Game.h"
 #include "GameUI.h"
 
@@ -7,8 +16,6 @@
 #include <ncurses.h>
 
 using namespace std;
-
-termios t;
 
 namespace
 {
@@ -21,29 +28,12 @@ namespace
      **/
     void GetPlayerCount (unsigned& PlayerCount)
     {
-        do
-        {
-            cout << "How many players do want you to play with ("<< KMinPlayerCount << "-" << KMaxPlayerCount <<") ? " << flush;
-            
-            char c = cin.get();
-
-            if (!isdigit (c))
-            {
-                cerr << "You must enter a digit." << endl;
-                continue;
-            }
-
-            PlayerCount = c - '0'; // Digits in the ASCII table are sorted in ascending order.
-
-            if (PlayerCount < KMinPlayerCount || PlayerCount > KMaxPlayerCount)
-            {
-                cerr << "The player count must be between " << KMinPlayerCount << " and " << KMaxPlayerCount << "." << endl;
-                PlayerCount = 0;
-            }
-            else
-                cout << "There will be " << PlayerCount << " players." << endl;
-
-        } while (0 == PlayerCount);
+        Menu::Clear();
+        Menu::AddItem("1 player", [&PlayerCount]() { PlayerCount = 1; });
+        Menu::AddItem("2 players", [&PlayerCount]() { PlayerCount = 2; });
+        Menu::AddItem("3 players", [&PlayerCount]() { PlayerCount = 3; });
+        Menu::AddItem("4 players", [&PlayerCount]() { PlayerCount = 4; });
+        Menu::Run();
     }
 
     /**

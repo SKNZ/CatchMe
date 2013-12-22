@@ -1,3 +1,11 @@
+/**
+ * @author F. Narenji
+ *
+ * @date   22/12/2013
+ *
+ * @brief  Main game header, contains tokens, controls, movement enums, typedefs & player count and size constants
+ *
+**/
 #pragma once
 
 #include <string>
@@ -47,7 +55,7 @@ namespace Game
      * The interval between each render loop.
      * 
      */
-    const std::chrono::milliseconds     KErrorMessageDisplayTime(100);
+    const std::chrono::milliseconds     KRenderLoopInterval(100);
 
     /**
      *

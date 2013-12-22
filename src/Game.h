@@ -1,3 +1,11 @@
+/**
+ * @author F. Narenji
+ *
+ * @date   22/12/2013
+ *
+ * @brief  Main game header, contains tokens, controls, movement enums, player count and size constants
+ *
+**/
 #pragma once
 
 #include <string>

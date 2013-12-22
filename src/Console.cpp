@@ -21,7 +21,7 @@ void Console::ClearScreen ()
     cout << "\033[H\033[2J";
 }
 
-void Console::GetScreenSize(int& x, int& y)
+void Console::GetScreenSize(unsigned& x, unsigned& y)
 {
     winsize w;
 
