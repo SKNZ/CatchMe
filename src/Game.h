@@ -14,32 +14,19 @@
 #include <utility>
 #include <chrono>
 
+#include "GameMode.h"
+#include "GameModes/Classic1v1.h"
+
 namespace Game
 {
-    enum struct PlayerMovesX : int
-    {
-        KUp   = -1,
-        KStay = 0,
-        KDown = 1,
-    };
-
-    enum struct PlayerMovesY : int
-    {
-        KLeft  = -1,
-        KStay  = 0,
-        KRight = 1,
-    };
-    
-    typedef std::vector<char>       CLine;
-    typedef std::vector<CLine>      CMatrix;
-    typedef std::pair<int, int>     CPosition;
-    typedef std::vector<CPosition>  CPositions;
-
-    // Constants
-    const std::pair<unsigned, unsigned> KMatrixSize              = { 10, 20 }; // Y, X
+     // Constants
     const unsigned                      KMaxPlayerCount          = 4;
     const unsigned                      KMinPlayerCount          = 2; // @todo This should be lowered to one if/once the "Player vs Computer" mode is ready.
-
+    const std::vector<SGameMode>        KGameModes = 
+    {
+        MakeGameMode("Classic 1v1", 2, Classic1v1::GetSize, Classic1v1::MovePlayer, Classic1v1::InitializePlayerPositions, Classic1v1::BuildMatrix),
+    };
+    
     /**
      * 
      * The duration during which the game will be suspended to let the player read the error message.
@@ -48,14 +35,14 @@ namespace Game
      *          and not for technical problems (such as exceptions reports).
      * 
      */
-    const std::chrono::milliseconds     KErrorMessageDisplayTime(2000);
+    const std::chrono::milliseconds KErrorMessageDisplayTime(2000);
 
     /**
      * 
      * The interval between each render loop.
      * 
      */
-    const std::chrono::milliseconds     KRenderLoopInterval(100);
+    const std::chrono::milliseconds KRenderLoopInterval(100);
 
     /**
      *
@@ -63,6 +50,7 @@ namespace Game
      * 
      * A token is an item that occupies a case on the grid, such as nothing, a player, or an obstacle.
      * These, however, do not include the borders.
+     * The last token is the empty token.
      * 
      **/
     const std::vector<char> KTokens =

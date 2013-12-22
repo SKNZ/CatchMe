@@ -17,7 +17,7 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
     Console::ClearScreen ();
 
     // Upper border
-    for (unsigned i = 0; i < KMatrixSize.second + 2; ++i)
+    for (unsigned i = 0; i < Matrix.begin()->size() + 2; ++i)
         cout << BackgroundColors::KGreen << ' ';
 
     cout << BackgroundColors::KDefault << endl;
@@ -48,7 +48,7 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
 
     // Bottom border
     cout << BackgroundColors::KGreen;
-    for (unsigned i = 0; i < KMatrixSize.second + 2; ++i)
+    for (unsigned i = 0; i < Matrix.begin()->size() + 2; ++i)
         cout << ' ';
 
     cout << BackgroundColors::KDefault << endl;

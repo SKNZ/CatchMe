@@ -7,8 +7,6 @@
  *
 **/
 #include "Game.h"
-#include <ncurses.h>
-
 
 int main (/*int argc, char** argv*/)
 {

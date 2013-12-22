@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _CONSOLE_H
+#define _CONSOLE_H
 
 #include <iostream>
 
@@ -35,7 +36,7 @@ namespace Console
     std::ostream& operator<< (std::ostream& os, const BackgroundColors& Color);
 
     void ClearScreen ();
-    void GetScreenSize (int& x, int& y);
+    void GetScreenSize (unsigned& x, unsigned& y);
     
     /**
      * 
@@ -46,3 +47,5 @@ namespace Console
      **/
     void DisableCanonicalInputMode ();
 }
+
+#endif
