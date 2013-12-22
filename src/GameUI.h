@@ -22,7 +22,7 @@ namespace Game
             { ' ', { Colors::KDefault,  BackgroundColors::KDefault  } }
         };
 
-        void ShowMatrix (const CMatrix & Matrix);
+        void ShowMatrix (const CMatrix& Matrix);
         void ShowControls (const unsigned CurrentPlayer);
     }
 }

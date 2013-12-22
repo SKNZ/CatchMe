@@ -1,7 +1,5 @@
 #include "Classic1v1.h"
 
-#include <iostream>
-#include <ncurses.h>
 #include "../Game.h"
 
 using namespace std;
@@ -32,10 +30,10 @@ void Classic1v1::InitializePlayerPositions (CPositions& PlayerPositions, const u
         switch (i)
         {
             case 0:
-                PlayerPositions[0] = { 0, MaxSize.second - 1 }; // Top right
+                PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top right
                 break;
             case 1:
-                PlayerPositions[1] = { MaxSize.first - 1, 0 }; // Bottom left
+                PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
                 break;
         }
     }
@@ -46,6 +44,6 @@ void Classic1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
     for (CLine& Line : Matrix)
         fill (Line.begin (), Line.end (), EmptyToken);
 
-    for (unsigned i = 0; i < PlayerPositions.size(); ++i)
-        Matrix  [PlayerPositions[i].first] [PlayerPositions[i].second] = Game::KTokens [i];
+    for (unsigned i = 0; i < PlayerPositions.size (); ++i)
+        Matrix  [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 }

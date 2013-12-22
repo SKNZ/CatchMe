@@ -11,9 +11,7 @@
 #include "GameUI.h"
 
 #include <iostream>
-#include <limits>
 #include <thread>
-#include <ncurses.h>
 
 using namespace std;
 
@@ -29,8 +27,10 @@ namespace
     void GetGameMode (SGameMode& GameMode)
     {
         Menu::Clear();
+
         for (SGameMode CurrentGameMode : KGameModes)
             Menu::AddItem(CurrentGameMode.Name, [&GameMode, CurrentGameMode]() { GameMode = CurrentGameMode; });
+
         Menu::Run();
     }
     
@@ -46,6 +46,7 @@ namespace
             this_thread::sleep_for (KErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
             return false; // The player failed. Let's render the grid again and ask him once more.
         }
+
         CPosition& PlayerPosition = PlayerPositions[CurrentPlayer];
 
         switch (Action)
