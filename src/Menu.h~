@@ -1,0 +1,13 @@
+#ifndef _MENU_H
+#define _MENU_H
+
+#include <functional>
+
+namespace Menu
+{
+    void AddItem(std::string ItemName, std::function<void(void)> Callback);
+    void Clear();
+    void Run();
+}
+
+#endif
