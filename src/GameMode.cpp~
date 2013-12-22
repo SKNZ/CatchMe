@@ -10,12 +10,12 @@ SGameMode Game::MakeGameMode (std::string Name, unsigned PlayerCount,
 {
     SGameMode GameMode;
 
-    GameMode.Name                       = Name;
-    GameMode.PlayerCount                = PlayerCount;
-    GameMode.GetSize                    = GetSize;
-    GameMode.MovePlayer                 = MovePlayer;
-    GameMode.InitializePlayerPosition   = InitializePlayerPosition;
-    GameMode.BuildMatrix                = BuildMatrix;
+    GameMode.Name = Name;
+    GameMode.PlayerCount = PlayerCount;
+    GameMode.GetSize = GetSize;
+    GameMode.MovePlayer = MovePlayer;
+    GameMode.InitializePlayerPosition = InitializePlayerPosition;
+    GameMode.BuildMatrix = BuildMatrix;
 
     return GameMode;
 }

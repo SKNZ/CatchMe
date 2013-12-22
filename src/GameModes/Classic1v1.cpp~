@@ -6,7 +6,7 @@ using namespace std;
 
 /**
  *
- * @todo Add a menu here, that allows the palyer to selection the size of the grid he wants to play on.
+ * @todo Add a menu here, that allows the palyer to selection the size of the grid he wants to play on. On this is done, store it in a static var for further uses.
  * 
  **/
 void Classic1v1::GetSize (CPosition& Size)

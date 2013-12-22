@@ -20,11 +20,6 @@ void Menu::Clear ()
     MenuItems.clear ();
 }
 
-/**
- * 
- * @todo Cleans this shit up. Make it readable. Also try to add arrow keys support for menu browsing... 
- * 
- **/
 void Menu::Run ()
 {
     if (MenuItems.empty ())

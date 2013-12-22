@@ -117,7 +117,7 @@ int Game::Run ()
         if (!MovementHandler (PlayerPositions, CurrentPlayer, Size, GameMode))
             continue;
 
-        GameMode.BuildMatrix (Matrix, PlayerPositions, (*KTokens.rbegin ()));
+        GameMode.BuildMatrix(Matrix, PlayerPositions, (*KTokens.rbegin ()));
 
         CurrentPlayer++;
         if (CurrentPlayer >= GameMode.PlayerCount)
