@@ -12,14 +12,19 @@ namespace
 {
     using namespace Game;
 
+    /**
+     * 
+     * @brief Ask user how many players he wants.
+     * 
+     **/
     void GetPlayerCount (unsigned& PlayerCount)
     {
         do
         {
             cout << "How many players do want you to play with ("<< KMinPlayerCount << "-" << KMaxPlayerCount <<") ? " << flush;
 
-            char c = getch ();
-            //Console::ClearInputBuffer();
+            char c = cin.get ();
+            Console::ClearInputBuffer();
 
             if (!isdigit (c))
             {
@@ -40,15 +45,25 @@ namespace
         } while (0 == PlayerCount);
     }
 
+    /**
+     * 
+     * Update the Matrix to reflect the new positions of the players.
+     * 
+     **/
     void RefreshMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)
     {
         for (CLine& Line : Matrix)
-            fill(Line.begin(), Line.end(), EmptyToken);
+            fill (Line.begin (), Line.end (), EmptyToken);
 
         for (unsigned i = 0; i < PlayerPositions.size(); ++i)
-            Matrix[PlayerPositions[i].first][PlayerPositions[i].second] = KTokens[i];
+            Matrix  [PlayerPositions[i].first] [PlayerPositions[i].second] = KTokens [i];
     }
 
+    /**
+     * 
+     * @brief Set the size of the Matrix
+     * 
+     **/
     void InitializeMatrix (CMatrix& Matrix, const CPosition& Size, const CPositions& PlayerPositions, const char EmptyToken)
     {
         Matrix.resize (Size.first);
@@ -56,9 +71,21 @@ namespace
         for (CLine& Line : Matrix)
             Line.resize (Size.second);
 
-        RefreshMatrix(Matrix, PlayerPositions, EmptyToken);
+        RefreshMatrix (Matrix, PlayerPositions, EmptyToken);
     }
 
+    /**
+     * 
+     * @brief Each player gets a corner of the grid.
+     * 
+     * @todo Randomize each player number (so that the same player doesn't start in the same spot everytime).
+     * 
+     * Player 1 is top right.
+     * Player 2 is bottom left.
+     * Player 3 is top left.
+     * Player 4 is bottom right.
+     * 
+     **/
     void InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)
     {
         PlayerPositions.resize (PlayerCount);
@@ -83,6 +110,15 @@ namespace
         }
     }
     
+    /**
+     * 
+     * @brief Moves a player in a certain direction, checks for walls and plays beeping sound if wall is hit (last part is not tested).
+     * 
+     * @param hardWalls This determines whether a player might or might not go through the wall.
+     * 
+     * @todo hardWalls should be a float between 0 and 1 determining the probabilty of the player going through the wall (or failing to do so).
+     * 
+     **/
     void MovePlayer(CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesX MoveX, const PlayerMovesY MoveY, bool hardWalls = true)
     {
         int DiffX = static_cast<int> (MoveX);
@@ -92,31 +128,35 @@ namespace
         if (PlayerPosition.first + DiffX < 0)
             if (!hardWalls)
                 PlayerPosition.first = MatrixSize.first - 1; 
-            else cout << "\a";
+            else beep();
         else if (PlayerPosition.first + DiffX > MatrixSize.first)
             if (!hardWalls)
                 PlayerPosition.first = 0;
-            else cout << "\a";
+            else beep();
         else
             PlayerPosition.first += DiffX;
 
         if (PlayerPosition.second + DiffY < 0)
             if (!hardWalls)
                 PlayerPosition.second = MatrixSize.second - 1;
-            else cout << "\a";
+            else beep();
         else if (PlayerPosition.second + DiffY > MatrixSize.second)
             if (!hardWalls)
                 PlayerPosition.second = 0;
-            else cout << "\a";
+            else beep();
         else
             PlayerPosition.second += DiffY;
-        
-        cout << PlayerPosition.first << " LOL " << PlayerPosition.second << endl;
     }
     
+    /**
+     * 
+     * @brief Gets the input, checks it and calls the MovePlayer function according to which key was pressed.
+     * 
+     */
     bool HandleMovement(CPosition& PlayerPosition, const unsigned CurrentPlayer)
     {
-        char Opcode = Console::GetSingleChar ();
+        char Opcode = cin.get ();
+        Console::ClearInputBuffer();
 
         size_t Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find(Opcode);
 
@@ -142,6 +182,7 @@ namespace
                 MovePlayer (PlayerPosition, KMatrixSize, PlayerMovesX::KStay, PlayerMovesY::KLeft);
                 break;
             case 4: // Stay
+                return false; // Having a Stay move has been found to flaw the gameplay.
                 MovePlayer (PlayerPosition, KMatrixSize, PlayerMovesX::KStay, PlayerMovesY::KStay);
                 break;
             case 5: // Right
@@ -169,8 +210,6 @@ int Game::Run ()
     unsigned    CurrentPlayer = 0; // Whose turn it is
     CMatrix     Matrix;
     
-    Console::Initialize();
-    
     GetPlayerCount (PlayerCount);
     InitializePlayerPositions (PlayerPositions, PlayerCount, KMatrixSize);
     InitializeMatrix (Matrix, KMatrixSize, PlayerPositions, (*KTokens.rbegin ()));
@@ -180,7 +219,7 @@ int Game::Run ()
         UI::ShowMatrix (Matrix);
         UI::ShowControls (CurrentPlayer);
         
-        if (!HandleMovement(PlayerPositions [CurrentPlayer], CurrentPlayer))
+        if (!HandleMovement (PlayerPositions [CurrentPlayer], CurrentPlayer))
             continue;
 
         RefreshMatrix (Matrix, PlayerPositions, (*KTokens.rbegin ()));
@@ -189,8 +228,6 @@ int Game::Run ()
         if (CurrentPlayer >= PlayerCount)
             CurrentPlayer = 0;
     }
-    
-    Console::Destroy();
 
     return 0;
 }

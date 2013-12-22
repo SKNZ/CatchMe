@@ -1,7 +1,5 @@
 #include "Console.h"
 
-#include <curses.h>
-
 using namespace std;
 
 std::ostream& Console::operator<< (std::ostream& os, const Colors& Color)
@@ -25,19 +23,3 @@ void Console::ClearInputBuffer ()
     getline(cin, Trash);
 }
 
-void Console::Initialize()
-{
-    initscr();
-    timeout(-1); // This makes IO blocking.
-}
-
-void Console::Destroy()
-{
-    endwin();
-}
-
-
-char Console::GetSingleChar()
-{
-    return getch();
-}

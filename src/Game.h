@@ -14,7 +14,7 @@ namespace Game
         KStay = 0,
         KDown = 1,
     };
-    
+
     enum struct PlayerMovesY : int
     {
         KLeft  = -1,
@@ -31,9 +31,25 @@ namespace Game
     const std::pair<unsigned, unsigned> KMatrixSize              = { 10, 20 }; // X, Y
     const unsigned                      KMaxPlayerCount          = 4;
     const unsigned                      KMinPlayerCount          = 2; // @todo This should be lowered to one if/once the "Player vs Computer" mode is ready.
-    const std::chrono::milliseconds     KErrorMessageDisplayTime(2000);
 
-    // List of all the possible tokens
+    /**
+     * 
+     * The duration during which the game will be suspended to let the player read the error message.
+     * 
+     * @warning This should only be used for gameplay related error messages, such as wrong key
+     *          and not for technical problems (such as exceptions reports).
+     * 
+     */
+    const std::chrono::milliseconds     KErrorMessageDisplayTime(2000); // The duration during which the game will be suspended to let the player read the error message.
+
+    /**
+     *
+     * @brief List of all the possible tokens.
+     * 
+     * A token is an item that occupies a case on the grid, such as nothing, a player, or an obstacle.
+     * These, however, do not include the borders.
+     * 
+     **/
     const std::vector<char> KTokens =
     {
         'X',
@@ -43,14 +59,30 @@ namespace Game
         ' '
     };
     
-    // Controls assiocated to (player) tokens
+    /**
+     *
+     * @brief Associates each (player) token with a list of controls
+     * 
+     * Every player token has its own set of controls, composed of 9 keyboard keys, which should form a square.
+     * 0 -> Upleft, 1 -> Up, 2 -> Upright
+     * 3 -> Left, 4 -> Stay (disabled), 5 -> Right
+     * 6 -> Downleft, 7 -> Down, 8 -> Downright
+     * 
+     **/
     const std::map<char, std::string> KControlsByToken =
     {
-        { 'X', "azeqsdwxc" }, // On your AZERTY keyboard, theses charcters should form a square. Top left is one up, one left, top center is one up etc etc etc
-        { 'O', "987456123" },
+        { 'X', "azeqsdwxc" },
+        { 'O', "789456123" },
         { '#', "uiojkl,;:" },
         { '@', "rtyfghvbn" }
     };
     
+    /**
+     * 
+     * @brief Main loop, handles just about everything.
+     * 
+     * If you want to start somewhere, this is a good place.
+     * 
+     **/
     int Run ();
 }
