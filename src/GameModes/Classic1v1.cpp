@@ -16,10 +16,10 @@ void Classic1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixS
     int DiffX = static_cast<int> (MoveX);
     int DiffY = static_cast<int> (MoveY);
     
-    if (PlayerPosition.first + DiffX < 0 && PlayerPosition.first + DiffX < MatrixSize.first - 1)
+    if (PlayerPosition.first + DiffX > 0 && PlayerPosition.first + DiffX < MatrixSize.first - 1)
         PlayerPosition.first += DiffX;
 
-    if (PlayerPosition.second + DiffY < 0 && PlayerPosition.second + DiffY < MatrixSize.second - 1)
+    if (PlayerPosition.second + DiffY > 0 && PlayerPosition.second + DiffY < MatrixSize.second - 1)
         PlayerPosition.second += DiffY;
 }
 
