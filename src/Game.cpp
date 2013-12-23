@@ -29,8 +29,10 @@ namespace
     void GetGameMode (SGameMode& GameMode)
     {
         Menu::Clear();
+
         for (SGameMode CurrentGameMode : KGameModes)
             Menu::AddItem(CurrentGameMode.Name, [&GameMode, CurrentGameMode]() { GameMode = CurrentGameMode; });
+
         Menu::Run();
     }
     

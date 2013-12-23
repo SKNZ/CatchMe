@@ -1,15 +1,15 @@
-#include "Classic1v1.h"
+#include "Classic1v1v1v1.h"
 
 #include "../Game.h"
 
 using namespace std;
 
-void Classic1v1::GetSize (CPosition& Size)
+void Classic1v1v1v1::GetSize (CPosition& Size)
 {
     Size = { 10, 20 };
 }
 
-void Classic1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesX MoveX, const PlayerMovesY MoveY)
+void Classic1v1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesX MoveX, const PlayerMovesY MoveY)
 {
     int DiffX = static_cast<int> (MoveX);
     int DiffY = static_cast<int> (MoveY);
@@ -21,7 +21,7 @@ void Classic1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixS
         PlayerPosition.second += DiffY;
 }
 
-void Classic1v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void Classic1v1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -35,11 +35,17 @@ void Classic1v1::InitializePlayerPositions (CPositions& PlayerPositions, const u
             case 1:
                 PlayerPositions[1] = { MaxSize.first - 1, 0 }; // Bottom left
                 break;
+	    case 2:
+                PlayerPositions[2] = { 0, 0}; // Top left
+                break;
+            case 3:
+                PlayerPositions[3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
+                break;
         }
     }
 }
 
-void Classic1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)
+void Classic1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)
 {
     for (CLine& Line : Matrix)
         fill (Line.begin (), Line.end (), EmptyToken);

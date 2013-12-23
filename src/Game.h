@@ -16,6 +16,8 @@
 
 #include "GameMode.h"
 #include "GameModes/Classic1v1.h"
+#include "GameModes/Classic1v1v1.h"
+#include "GameModes/Classic1v1v1v1.h"
 
 namespace Game
 {
@@ -25,8 +27,10 @@ namespace Game
     const std::vector<SGameMode>        KGameModes = 
     {
         MakeGameMode("Classic 1v1", 2, Classic1v1::GetSize, Classic1v1::MovePlayer, Classic1v1::InitializePlayerPositions, Classic1v1::BuildMatrix),
+        MakeGameMode("Classic 1v1v1", 3, Classic1v1v1::GetSize, Classic1v1v1::MovePlayer, Classic1v1v1::InitializePlayerPositions, Classic1v1v1::BuildMatrix),
+        MakeGameMode("Classic 1v1v1v1", 4, Classic1v1v1v1::GetSize, Classic1v1v1v1::MovePlayer, Classic1v1v1v1::InitializePlayerPositions, Classic1v1v1v1::BuildMatrix),
     };
-    
+
     /**
      * 
      * The duration during which the game will be suspended to let the player read the error message.
