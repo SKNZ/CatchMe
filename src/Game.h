@@ -39,14 +39,14 @@ namespace Game
      *          and not for technical problems (such as exceptions reports).
      * 
      */
-    const std::chrono::milliseconds KErrorMessageDisplayTime(2000);
+    const std::chrono::milliseconds KErrorMessageDisplayTime (2000);
 
     /**
      * 
      * The interval between each render loop.
      * 
      */
-    const std::chrono::milliseconds KRenderLoopInterval(100);
+    const std::chrono::milliseconds KRenderLoopInterval (100);
 
     /**
      *

@@ -11,9 +11,7 @@
 #include "GameUI.h"
 
 #include <iostream>
-#include <limits>
 #include <thread>
-#include <ncurses.h>
 
 using namespace std;
 
@@ -28,19 +26,19 @@ namespace
      **/
     void GetGameMode (SGameMode& GameMode)
     {
-        Menu::Clear();
+        Menu::Clear ();
 
         for (SGameMode CurrentGameMode : KGameModes)
-            Menu::AddItem(CurrentGameMode.Name, [&GameMode, CurrentGameMode]() { GameMode = CurrentGameMode; });
+            Menu::AddItem (CurrentGameMode.Name, [&GameMode, CurrentGameMode] () { GameMode = CurrentGameMode; });
 
-        Menu::Run();
+        Menu::Run ();
     }
     
-    bool MovementHandler(CPositions& PlayerPositions, const unsigned CurrentPlayer, const CPosition& Size, const SGameMode& GameMode)
+    bool MovementHandler (CPositions& PlayerPositions, const unsigned CurrentPlayer, const CPosition& Size, const SGameMode& GameMode)
     {
         char Opcode = cin.get ();
 
-        size_t Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find(Opcode);
+        size_t Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find (Opcode);
 
         if (Action == string::npos)
         {
@@ -48,7 +46,8 @@ namespace
             this_thread::sleep_for (KErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
             return false; // The player failed. Let's render the grid again and ask him once more.
         }
-        CPosition& PlayerPosition = PlayerPositions[CurrentPlayer];
+
+        CPosition& PlayerPosition = PlayerPositions [CurrentPlayer];
 
         switch (Action)
         {
@@ -97,15 +96,16 @@ int Game::Run ()
     Console::DisableCanonicalInputMode ();
 
     GetGameMode (GameMode);
-    GameMode.GetSize(Size);
+    GameMode.GetSize (Size);
 
     Matrix.resize (Size.first);
 
     for (CLine& Line : Matrix)
         Line.resize (Size.second);
 
-    GameMode.InitializePlayerPosition(PlayerPositions, GameMode.PlayerCount, Size);
-    GameMode.BuildMatrix(Matrix, PlayerPositions, (*KTokens.rbegin ()));
+    GameMode.InitializePlayerPosition (PlayerPositions, GameMode.PlayerCount, Size);
+
+    GameMode.BuildMatrix (Matrix, PlayerPositions, (*KTokens.rbegin ()));
 
     for (;;)
     {
@@ -117,7 +117,7 @@ int Game::Run ()
         if (!MovementHandler (PlayerPositions, CurrentPlayer, Size, GameMode))
             continue;
 
-        GameMode.BuildMatrix(Matrix, PlayerPositions, (*KTokens.rbegin ()));
+        GameMode.BuildMatrix (Matrix, PlayerPositions, (*KTokens.rbegin ()));
 
         CurrentPlayer++;
         if (CurrentPlayer >= GameMode.PlayerCount)

@@ -21,34 +21,34 @@ void Console::ClearScreen ()
     cout << "\033[H\033[2J";
 }
 
-void Console::GetScreenSize(unsigned& x, unsigned& y)
+void Console::GetScreenSize (unsigned& x, unsigned& y)
 {
     winsize w;
 
-    ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
+    ioctl (STDOUT_FILENO, TIOCGWINSZ, &w);
 
     x = w.ws_row;
     y = w.ws_col;
 }
 
 // Restore previous mode
-void EnableCanonicalInputMode()
+void EnableCanonicalInputMode ()
 {
     termios term;
 
-    tcgetattr(STDIN_FILENO, &term); 
+    tcgetattr (STDIN_FILENO, &term); 
     term.c_lflag |= ICANON | ECHO;
-    tcsetattr(0, TCSANOW, &term);
+    tcsetattr (0, TCSANOW, &term);
 }
 
-void Console::DisableCanonicalInputMode()
+void Console::DisableCanonicalInputMode ()
 {
     termios term;
 
-    tcgetattr(STDIN_FILENO, &term); // Get terminal attributes
+    tcgetattr (STDIN_FILENO, &term); // Get terminal attributes
     term.c_lflag &= ~(ICANON | ECHO); // Remove canonical mode, echo
-    tcsetattr(STDIN_FILENO, TCSANOW, &term); // Set modified terminal attributes
+    tcsetattr (STDIN_FILENO, TCSANOW, &term); // Set modified terminal attributes
 
-    atexit(EnableCanonicalInputMode); // Once the program exits, put it back the way it was before
+    atexit (EnableCanonicalInputMode); // Once the program exits, put it back the way it was before
 }
 
