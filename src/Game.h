@@ -18,6 +18,7 @@
 #include "GameModes/Classic1v1.h"
 #include "GameModes/Classic1v1v1.h"
 #include "GameModes/Classic1v1v1v1.h"
+#include "GameModes/Classic2v2.h"
 
 namespace Game
 {
@@ -26,9 +27,10 @@ namespace Game
     const unsigned                      KMinPlayerCount          = 2; // @todo This should be lowered to one if/once the "Player vs Computer" mode is ready.
     const std::vector<SGameMode>        KGameModes = 
     {
-        MakeGameMode("Classic 1v1", 2, Classic1v1::GetSize, Classic1v1::MovePlayer, Classic1v1::InitializePlayerPositions, Classic1v1::BuildMatrix, Classic1v1::ValidatePlayerPositions, Classic1v1::IsGameOver),
-        MakeGameMode("Classic 1v1v1", 3, Classic1v1v1::GetSize, Classic1v1v1::MovePlayer, Classic1v1v1::InitializePlayerPositions, Classic1v1v1::BuildMatrix, Classic1v1v1::ValidatePlayerPositions, Classic1v1v1::IsGameOver),
-        MakeGameMode("Classic 1v1v1v1", 4, Classic1v1v1v1::GetSize, Classic1v1v1v1::MovePlayer, Classic1v1v1v1::InitializePlayerPositions, Classic1v1v1v1::BuildMatrix, Classic1v1v1v1::ValidatePlayerPositions, Classic1v1v1v1::IsGameOver),
+        MakeGameMode ("Classic 1v1", 2, Classic1v1::GetSize, Classic1v1::MovePlayer, Classic1v1::InitializePlayerPositions, Classic1v1::BuildMatrix, Classic1v1::ValidatePlayerPositions, Classic1v1::IsGameOver),
+        MakeGameMode ("Classic 1v1v1", 3, Classic1v1v1::GetSize, Classic1v1v1::MovePlayer, Classic1v1v1::InitializePlayerPositions, Classic1v1v1::BuildMatrix, Classic1v1v1::ValidatePlayerPositions, Classic1v1v1::IsGameOver),
+        MakeGameMode ("Classic 1v1v1v1", 4, Classic1v1v1v1::GetSize, Classic1v1v1v1::MovePlayer, Classic1v1v1v1::InitializePlayerPositions, Classic1v1v1v1::BuildMatrix, Classic1v1v1v1::ValidatePlayerPositions, Classic1v1v1v1::IsGameOver),
+        MakeGameMode ("Classic 2v2", 4, Classic2v2::GetSize, Classic2v2::MovePlayer, Classic2v2::InitializePlayerPositions, Classic2v2::BuildMatrix, Classic2v2::ValidatePlayerPositions, Classic2v2::IsGameOver),
     };
 
     /**

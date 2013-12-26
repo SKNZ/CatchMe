@@ -5,14 +5,14 @@
 
 namespace Game
 {
-    enum struct PlayerMovesX : int
+    enum struct PlayerMovesY : int
     {
         KUp   = -1,
         KStay = 0,
         KDown = 1,
     };
 
-    enum struct PlayerMovesY : int
+    enum struct PlayerMovesX : int
     {
         KLeft  = -1,
         KStay  = 0,
@@ -47,7 +47,7 @@ namespace Game
          * @brief Moves a player in a certain direction, checks for walls and plays beeping sound if wall is hit (last part is not tested).
          * 
          **/
-        std::function<void (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesX MoveX, const PlayerMovesY MoveY)> MovePlayer;
+        std::function<void (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> MovePlayer;
         
         /**
          * 
@@ -87,7 +87,7 @@ namespace Game
 
     SGameMode MakeGameMode (std::string Name, unsigned PlayerCount,
         std::function<void (CPosition& Size)> GetSize,
-        std::function<void (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesX MoveX, const PlayerMovesY MoveY)> MovePlayer,
+        std::function<void (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> MovePlayer,
         std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> InitializePlayerPosition,
         std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)> BuildMatrix,
         std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerStates)> ValidatePlayerPositions,

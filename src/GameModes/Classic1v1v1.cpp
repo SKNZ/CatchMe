@@ -1,4 +1,5 @@
 #include "Classic1v1v1.h"
+#include "Helpers.h"
 
 #include "../Game.h"
 
@@ -9,16 +10,9 @@ void Classic1v1v1::GetSize (CPosition& Size)
     Size = { 10, 20 };
 }
 
-void Classic1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesX MoveX, const PlayerMovesY MoveY)
+void Classic1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
-    int DiffX = static_cast<int> (MoveX);
-    int DiffY = static_cast<int> (MoveY);
-    
-    if (PlayerPosition.first + DiffX > 0 && PlayerPosition.first + DiffX < MatrixSize.first - 1)
-        PlayerPosition.first += DiffX;
-
-    if (PlayerPosition.second + DiffY > 0 && PlayerPosition.second + DiffY < MatrixSize.second - 1)
-        PlayerPosition.second += DiffY;
+    Helpers::MovePlayer(PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
 void Classic1v1v1::ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerStates)
