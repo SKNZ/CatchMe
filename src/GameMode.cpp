@@ -6,7 +6,9 @@ SGameMode Game::MakeGameMode (std::string Name, unsigned PlayerCount,
     std::function<void (CPosition& Size)> GetSize,
     std::function<void (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesX MoveX, const PlayerMovesY MoveY)> MovePlayer,
     std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> InitializePlayerPosition,
-    std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)> BuildMatrix)
+    std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)> BuildMatrix,
+    std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerStates)> ValidatePlayerPositions,
+    std::function<bool (const std::vector<bool>& PlayerStates)> IsGameOver)
 {
     SGameMode GameMode;
 
@@ -16,6 +18,8 @@ SGameMode Game::MakeGameMode (std::string Name, unsigned PlayerCount,
     GameMode.MovePlayer                 = MovePlayer;
     GameMode.InitializePlayerPosition   = InitializePlayerPosition;
     GameMode.BuildMatrix                = BuildMatrix;
+    GameMode.ValidatePlayerPositions    = ValidatePlayerPositions;
+    GameMode.IsGameOver                 = IsGameOver;
 
     return GameMode;
 }

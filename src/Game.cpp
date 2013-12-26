@@ -92,11 +92,13 @@ int Game::Run ()
     CPosition   Size;
     unsigned    CurrentPlayer = 0; // Whose turn it is
     CMatrix     Matrix;
+    vector<bool> PlayerStates;
 
     Console::DisableCanonicalInputMode ();
 
     GetGameMode (GameMode);
     GameMode.GetSize (Size);
+    PlayerStates.resize (GameMode.PlayerCount, true);
 
     Matrix.resize (Size.first);
 
@@ -114,15 +116,25 @@ int Game::Run ()
         UI::ShowMatrix (Matrix);
         UI::ShowControls (CurrentPlayer);
 
-        if (!MovementHandler (PlayerPositions, CurrentPlayer, Size, GameMode))
-            continue;
+        if (PlayerStates[CurrentPlayer])
+		{
+			if (!MovementHandler (PlayerPositions, CurrentPlayer, Size, GameMode))
+				continue;
+		
+			GameMode.ValidatePlayerPositions (PlayerPositions, CurrentPlayer, PlayerStates);
+		
+			GameMode.BuildMatrix (Matrix, PlayerPositions, (*KTokens.rbegin ()));
+		}			
+		
+		if (GameMode.IsGameOver (PlayerStates))
+			break;
 
-        GameMode.BuildMatrix (Matrix, PlayerPositions, (*KTokens.rbegin ()));
-
-        CurrentPlayer++;
-        if (CurrentPlayer >= GameMode.PlayerCount)
-            CurrentPlayer = 0;
+		CurrentPlayer++;
+		if (CurrentPlayer >= GameMode.PlayerCount)
+			CurrentPlayer = 0;
     }
 
+    // Ici, we can afficher a magnifique écran to say zat CurrentPlayer a gagné ze gamme.
+    
     return 0;
 }

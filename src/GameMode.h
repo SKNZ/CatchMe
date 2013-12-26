@@ -65,15 +65,31 @@ namespace Game
         
         /**
          * 
-         * Update the Matrix to reflect the new positions of the players, state of the ground, barriers etc etc
+         * @brief Update the Matrix to reflect the new positions of the players, state of the ground, barriers etc etc
          * 
          **/
         std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)> BuildMatrix;
+	
+        /**
+         * 
+         * @brief Checks if a players position overlaps with another one
+         * 
+         **/
+        std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerStates)> ValidatePlayerPositions;
+        
+        /**
+         * 
+         * @brief Returns whether or not the game is over
+         * 
+         **/
+        std::function<bool (const std::vector<bool>& PlayerStates)> IsGameOver;
     };
 
     SGameMode MakeGameMode (std::string Name, unsigned PlayerCount,
         std::function<void (CPosition& Size)> GetSize,
         std::function<void (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesX MoveX, const PlayerMovesY MoveY)> MovePlayer,
         std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> InitializePlayerPosition,
-        std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)> BuildMatrix);
+        std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)> BuildMatrix,
+        std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerStates)> ValidatePlayerPositions,
+        std::function<bool (const std::vector<bool>& PlayerStates)> IsGameOver);
 }

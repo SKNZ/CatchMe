@@ -6,7 +6,7 @@ using namespace std;
 
 /**
  *
- * @todo Add a menu here, that allows the palyer to selection the size of the grid he wants to play on.
+ * @todo Add a menu here, that allows the player to selection the size of the grid he wants to play on.
  * 
  **/
 void Classic1v1::GetSize (CPosition& Size)
@@ -24,6 +24,22 @@ void Classic1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixS
 
     if (PlayerPosition.second + DiffY > 0 && PlayerPosition.second + DiffY < MatrixSize.second - 1)
         PlayerPosition.second += DiffY;
+}
+
+void Classic1v1::ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerStates)
+{
+  for (unsigned i = 0; i < PlayerPositions.size (); ++i)
+  {
+    if (i == CurrentPlayer || !PlayerStates[i])
+      continue;
+    
+    if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
+      && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
+    {
+      PlayerStates[i] = false;
+      break;
+    }
+  }
 }
 
 void Classic1v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
@@ -51,4 +67,14 @@ void Classic1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
 
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
         Matrix  [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
+}
+
+bool Classic1v1::IsGameOver (const vector<bool>& PlayerStates)
+{
+    unsigned DeadPlayerCount = 0;
+    for (bool PlayerState : PlayerStates)
+        if (!PlayerState)
+            ++DeadPlayerCount;
+        
+    return DeadPlayerCount == 1;
 }

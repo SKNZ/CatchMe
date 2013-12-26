@@ -14,4 +14,8 @@ namespace Classic1v1
     void InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize);
 
     void BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken);
+    
+    void ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerStates);
+    
+    bool IsGameOver (const std::vector<bool>& PlayerStates);
 }
