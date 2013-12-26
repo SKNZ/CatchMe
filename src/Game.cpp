@@ -87,12 +87,12 @@ namespace
 
 int Game::Run ()
 {
-    SGameMode   GameMode;
-    CPositions  PlayerPositions;
-    CPosition   Size;
-    unsigned    CurrentPlayer = 0; // Whose turn it is
-    CMatrix     Matrix;
-    vector<bool> PlayerLifeStates;
+    SGameMode       GameMode;
+    CPositions      PlayerPositions;
+    CPosition       Size;
+    unsigned        CurrentPlayer = 0; // Whose turn it is
+    CMatrix         Matrix;
+    vector<bool>    PlayerLifeStates;
 
     Console::DisableCanonicalInputMode ();
 
