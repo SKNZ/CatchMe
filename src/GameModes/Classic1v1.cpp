@@ -20,17 +20,17 @@ void Classic1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixS
     Helpers::MovePlayer(PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic1v1::ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerStates)
+void Classic1v1::ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
-        if (i == CurrentPlayer || !PlayerStates[i])
+        if (i == CurrentPlayer || !PlayerLifeStates[i])
             continue;
 
         if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
             && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
         {
-            PlayerStates[i] = false;
+            PlayerLifeStates[i] = false;
             break;
         }
     }
@@ -60,10 +60,10 @@ void Classic1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
         fill (Line.begin (), Line.end (), EmptyToken);
 
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
-        Matrix  [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
+        Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 }
 
-bool Classic1v1::IsGameOver (const vector<bool>& PlayerStates)
+bool Classic1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {    
-    return !PlayerStates[0] || !PlayerStates[1];
+    return !PlayerLifeStates [0] || !PlayerLifeStates [1];
 }

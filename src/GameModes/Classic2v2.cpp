@@ -20,19 +20,19 @@ void Classic2v2::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixS
     Helpers::MovePlayer(PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic2v2::ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerStates)
+void Classic2v2::ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-  for (unsigned i = 0; i < PlayerPositions.size (); ++i)
-  {
-    if (i == CurrentPlayer || !PlayerStates[i] || (i + CurrentPlayer) % 2 == 0)
-      continue;
-    
-    if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
-      && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
+    for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
-      PlayerStates[i] = false;
+        if (i == CurrentPlayer || !PlayerLifeStates[i] || (i + CurrentPlayer) % 2 == 0)
+            continue;
+
+        if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
+                && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
+        {
+            PlayerLifeStates[i] = false;
+        }
     }
-  }
 }
 
 void Classic2v2::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
@@ -65,10 +65,11 @@ void Classic2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
         fill (Line.begin (), Line.end (), EmptyToken);
 
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
-        Matrix  [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
+        Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 }
 
-bool Classic2v2::IsGameOver (const vector<bool>& PlayerStates)
+bool Classic2v2::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
-    return (!PlayerStates[0] && !PlayerStates[2]) || (!PlayerStates[1] && !PlayerStates[3]);
+    return (!PlayerLifeStates[0] && !PlayerLifeStates[2]) || (!PlayerLifeStates[1] && !PlayerLifeStates[3]);
 }
+
