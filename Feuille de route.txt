@@ -6,7 +6,7 @@
 - Enumerations fortements typées & static_cast
 - Surcharge d'opérateur << sur ostream pour afficher les couleurs
 - Fonctions lambdas (C++11), pour le callback du menu
-- Les projets multifichiers, l'IDE KDevelop
+- Les projets multifichiers, l'IDE KDevelop (find usages, go to def etc)
 - Manipulation du terminal via TermiOS, pour obtenir la saisie sans validation (sans touche entrée)
 - Manipulation du terminal VT100
 - ioctl
