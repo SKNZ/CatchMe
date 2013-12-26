@@ -70,11 +70,5 @@ void Classic2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
 
 bool Classic2v2::IsGameOver (const vector<bool>& PlayerStates)
 {
-    unsigned DeadPlayerCount = 0;
-    for (bool PlayerState : PlayerStates)
-        if (!PlayerState)
-            ++DeadPlayerCount;
-    if (DeadPlayerCount ==2 && PlayerStates[0] == PlayerStates [2])
-        ++DeadPlayerCount;
-    return DeadPlayerCount == 3;
+    return (!PlayerStates[0] && !PlayerStates[2]) || (!PlayerStates[1] && !PlayerStates[3]);
 }

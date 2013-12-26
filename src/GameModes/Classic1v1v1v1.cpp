@@ -17,18 +17,18 @@ void Classic1v1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& Mat
 
 void Classic1v1v1v1::ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerStates)
 {
-  for (unsigned i = 0; i < PlayerPositions.size (); ++i)
-  {
-    if (i == CurrentPlayer || !PlayerStates[i])
-      continue;
-    
-    if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
-      && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
+    for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
-      PlayerStates[i] = false;
-      break;
+        if (i == CurrentPlayer || !PlayerStates[i])
+            continue;
+
+        if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
+            && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
+        {
+            PlayerStates[i] = false;
+            break;
+        }
     }
-  }
 }
 
 void Classic1v1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
@@ -68,9 +68,10 @@ void Classic1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosit
 bool Classic1v1v1v1::IsGameOver (const vector<bool>& PlayerStates)
 {
     unsigned DeadPlayerCount = 0;
+
     for (bool PlayerState : PlayerStates)
         if (!PlayerState)
             ++DeadPlayerCount;
-        
+
     return DeadPlayerCount == 3;
 }
