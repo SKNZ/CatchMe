@@ -18,11 +18,11 @@ using namespace std;
 namespace
 {
     using namespace Game;
-    
+
     /**
-     * 
+     *
      * @brief Game mode selection screen
-     * 
+     *
      **/
     void GetGameMode (SGameMode& GameMode)
     {
@@ -33,7 +33,7 @@ namespace
 
         Menu::Run ();
     }
-    
+
     bool MovementHandler (CPositions& PlayerPositions, const unsigned CurrentPlayer, const CPosition& Size, const SGameMode& GameMode)
     {
         char Opcode = cin.get ();

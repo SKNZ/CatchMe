@@ -41,23 +41,23 @@ void DrawItem (int SizeX, std::string Text, bool Selected)
     for (unsigned i = 0; i < SizeX / 4; ++i)
         cout << ' ';
     
-    // Inner left border
+    // Left border
     cout << BackgroundColors::KMagenta << ' '  << BackgroundColors ::KDefault;
 
     // Left padding
-    for (unsigned i = 0; i < ((SizeX / 2) - Text.size () - 2) / 2; ++i)
+    for (unsigned i = 0; i < ((SizeX / 2) - Text.size ()) / 2; ++i)
         cout << ' ';
 
     if (Selected)
         cout << BackgroundColors::KWhite << Colors::KBlack;
-    
+
     cout << Text << BackgroundColors::KDefault;
-    
+
     // Right padding
-    for (unsigned i = 0; i < ((SizeX / 2) - Text.size () - 2) / 2; ++i)
+    for (unsigned i = 0; i < ((SizeX / 2) - Text.size ()) / 2 - 1; ++i)
         cout << ' ';
 
-    // Inner right border
+    // Right border
     cout << BackgroundColors::KMagenta << ' ' << BackgroundColors::KDefault << endl;
 }
 
@@ -83,6 +83,20 @@ void Menu::Run ()
 
         // Top border
         DrawInnerBorder (SizeX);
+        
+        // Empty line
+        DrawItem(SizeX, " ", false);
+        
+        // SUCH LOGO !
+        DrawItem(SizeX, "  _____      _       _     __  __      ", false);
+        DrawItem(SizeX, " / ____|    | |     | |   |  \\/  |     ", false);
+        DrawItem(SizeX, "| |     __ _| |_ ___| |__ | \\  / | ___ ", false);
+        DrawItem(SizeX, "| |    / _` | __/ __| '_ \\| |\\/| |/ _ \\", false);
+        DrawItem(SizeX, "| |___| (_| | || (__| | | | |  | |  __/", false);
+        DrawItem(SizeX, " \\_____\\__,_|\\__\\___|_| |_|_|  |_|\\___|", false);
+                                        
+        DrawItem(SizeX, " ", false);
+        DrawItem(SizeX, " ", false);
        
         unsigned Counter = 0;
         for (pair<string, function<void (void)>> Pair : MenuItems)
