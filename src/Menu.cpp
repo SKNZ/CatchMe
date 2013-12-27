@@ -1,6 +1,6 @@
 #include <vector>
 #include <iostream>
-#include <ncurses.h>
+#include <thread>
 
 #include "Menu.h"
 #include "Console.h"
@@ -100,18 +100,20 @@ void Menu::Run ()
         
         switch (cin.get ())
         {
-            case 's':
-                Selection = Selection == MenuItems.size() - 1 ? 0 : Selection + 1;
+            case 'z': // Up
+                Selection = Selection == 0 ? MenuItems.size() - 1 : Selection - 1; // If first item, then go to last item, else move previous item
                 break;
-            case 'z':
-                Selection = Selection == 0 ? MenuItems.size() - 1 : Selection - 1;
+            case 's': // Down
+                Selection = Selection == MenuItems.size() - 1 ? 0 : Selection + 1; // If last item, then go to first item, else move next item
                 break;
-            case '\n':
+            case '\n': // Validation
                 Console::ClearScreen ();
-                (MenuItems.begin () + Selection)->second ();
+                (MenuItems.begin () + Selection)->second (); // Call the Callback function
                 return;
                 break;
             default:
+                cout << "Use Z to go up, S to go down and Enter to validate." << endl;
+                this_thread::sleep_for(KErrorMessageDisplayTime);
                 break;
         }
     }

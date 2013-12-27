@@ -35,17 +35,17 @@ namespace Game
 
     /**
      * 
-     * The duration during which the game will be suspended to let the player read the error message.
+     * @brief The duration during which the game will be suspended to let the player read the error message.
      * 
      * @warning This should only be used for gameplay related error messages, such as wrong key
      *          and not for technical problems (such as exceptions reports).
      * 
      */
-    const std::chrono::milliseconds KErrorMessageDisplayTime (2000);
+    const std::chrono::milliseconds KErrorMessageDisplayTime (1000);
 
     /**
      * 
-     * The interval between each render loop.
+     * @brief The interval between each render loop.
      * 
      */
     const std::chrono::milliseconds KRenderLoopInterval (100);
