@@ -2,10 +2,10 @@
 #include <cstdio>
 #include <termios.h>
 #include <unistd.h>
-#include <limits>
 #include <poll.h>
 
 #include "Console.h"
+
 using namespace std;
 
 std::ostream& Console::operator<< (std::ostream& os, const Colors& Color)
@@ -63,7 +63,7 @@ void Console::DisableCanonicalInputMode ()
     term.c_lflag &= ~(ICANON | ECHO); // Remove canonical mode, echo
     tcsetattr (STDIN_FILENO, TCSANOW, &term); // Set modified terminal attributes
 
-    cin.sync_with_stdio();
+    cin.sync_with_stdio(); // This is necessary for non-blocking timed I/O using poll.
     
     atexit (EnableCanonicalInputMode); // Once the program exits, put it back the way it was before
 }

@@ -22,7 +22,20 @@ namespace Game
             { ' ', { Colors::KDefault,  BackgroundColors::KDefault  } }
         };
 
+        /**
+         * 
+         * @brief Displays the borders and the game matrix, applying the correct colors to the tokens.
+         * 
+         * @todo Constants for border color should be replaced by a (const) variable.
+         * 
+         **/
         void ShowMatrix (const CMatrix& Matrix);
+        
+        /**
+         * 
+         * @brief Indicates which controls the current player should be using to move.
+         * 
+         **/
         void ShowControls (const unsigned CurrentPlayer);
     }
 }

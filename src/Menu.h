@@ -31,6 +31,8 @@ namespace Menu
      * 
      * @brief Displays the menu, and gets the user selection.
      * 
+     * @todo Look at adding arrow keys support for menu browsing... Maybe factorize colors ?
+     * 
      **/
     void Run ();
 }

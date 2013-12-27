@@ -21,7 +21,7 @@ void Menu::Clear ()
     MenuItems.clear ();
 }
 
-void DrawInnerBorder (unsigned SizeX)
+void DrawBorder (unsigned SizeX)
 {
     // The menu begins at 1/4 of the screen.
     for (unsigned i = 0; i < SizeX / 4; ++i)
@@ -61,12 +61,6 @@ void DrawItem (int SizeX, std::string Text, bool Selected)
     cout << BackgroundColors::KMagenta << ' ' << BackgroundColors::KDefault << endl;
 }
 
-/**
- * 
- * @todo Look at adding arrow keys support for menu browsing...
- * 
- * 
- **/
 void Menu::Run ()
 {
     if (MenuItems.empty ())
@@ -82,11 +76,11 @@ void Menu::Run ()
         Console::ClearScreen ();
 
         // Top border
-        DrawInnerBorder (SizeX);
-        
+        DrawBorder (SizeX);
+
         // Empty line
         DrawItem(SizeX, " ", false);
-        
+
         // SUCH LOGO !
         DrawItem(SizeX, "  _____      _       _     __  __      ", false);
         DrawItem(SizeX, " / ____|    | |     | |   |  \\/  |     ", false);
@@ -94,7 +88,7 @@ void Menu::Run ()
         DrawItem(SizeX, "| |    / _` | __/ __| '_ \\| |\\/| |/ _ \\", false);
         DrawItem(SizeX, "| |___| (_| | || (__| | | | |  | |  __/", false);
         DrawItem(SizeX, " \\_____\\__,_|\\__\\___|_| |_|_|  |_|\\___|", false);
-                                        
+
         DrawItem(SizeX, " ", false);
         DrawItem(SizeX, " ", false);
        
@@ -108,7 +102,7 @@ void Menu::Run ()
         DrawItem(SizeX, " ", false);
         
         // Bottom border
-        DrawInnerBorder(SizeX);
+        DrawBorder(SizeX);
 
         // Handle user input
         switch (cin.get ())

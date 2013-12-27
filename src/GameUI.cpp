@@ -5,13 +5,6 @@
 
 using namespace std;
 
-/**
- * 
- * @brief Displays the borders and the game matrix, applying the correct colors to the tokens.
- * 
- * @todo Constants for border color should be replaced by a (const) variable.
- * 
- */
 void Game::UI::ShowMatrix (const CMatrix & Matrix)
 {
     Console::ClearScreen ();
@@ -54,11 +47,6 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
     cout << BackgroundColors::KDefault << endl;
 }
 
-/**
- * 
- * @brief Indicates which controls the current player should be using to move.
- * 
- */
 void Game::UI::ShowControls (const unsigned int CurrentPlayer)
 {
     cout << endl << "Current player: " << KTokens.at (CurrentPlayer) << endl
