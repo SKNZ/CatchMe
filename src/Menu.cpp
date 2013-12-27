@@ -45,7 +45,7 @@ void DrawItem (int SizeX, std::string Text, bool Selected)
     cout << BackgroundColors::KMagenta << ' '  << BackgroundColors ::KDefault;
 
     // Left padding
-    for (unsigned i = 0; i < ((SizeX / 2) - Text.size ()) / 2; ++i)
+    for (unsigned i = 0; i < (SizeX / 2 - Text.size ()) / 2; ++i)
         cout << ' ';
 
     if (Selected)
@@ -54,7 +54,7 @@ void DrawItem (int SizeX, std::string Text, bool Selected)
     cout << Text << BackgroundColors::KDefault;
 
     // Right padding
-    for (unsigned i = 0; i < ((SizeX / 2) - Text.size ()) / 2 - 1; ++i)
+    for (unsigned i = 0; i < (SizeX / 2 - Text.size ()) / 2 - (Text.size() % 2 == 0 ? 1 : 0) - 1; ++i)
         cout << ' ';
 
     // Right border
