@@ -121,7 +121,7 @@ void Menu::Run ()
                 break;
             case '\n': // Validation
                 Console::ClearScreen ();
-                (MenuItems.begin () + Selection)->second (); // Call the Callback function
+                MenuItems[Selection].second (); // Call the Callback function
                 return;
                 break;
             default:
