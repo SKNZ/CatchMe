@@ -2,12 +2,21 @@
 #include "Helpers.h"
 
 #include "../Game.h"
+#include "../Menu.h"
 
 using namespace std;
 
 void Classic1v1v1v1::GetSize (CPosition& Size)
 {
-    Size = { 10, 20 };
+    Menu::Clear ();
+    
+    Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
+    Menu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
+    Menu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
+    Menu::AddItem ("Greater map", [&Size] () { Size = { 40, 80 }; });
+    
+
+    Menu::Run ();
 }
 
 void Classic1v1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
