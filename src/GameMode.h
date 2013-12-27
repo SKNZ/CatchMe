@@ -68,7 +68,7 @@ namespace Game
          * @brief Update the Matrix to reflect the new positions of the players, state of the ground, barriers etc etc
          * 
          **/
-        std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)> BuildMatrix;
+        std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> BuildMatrix;
 	
         /**
          * 
@@ -89,7 +89,7 @@ namespace Game
         std::function<void (CPosition& Size)> GetSize,
         std::function<void (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> MovePlayer,
         std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> InitializePlayerPosition,
-        std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)> BuildMatrix,
+        std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> BuildMatrix,
         std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)> ValidatePlayerPositions,
         std::function<bool (const std::vector<bool>& PlayerLifeStates)> IsGameOver);
 }

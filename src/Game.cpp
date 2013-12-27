@@ -110,7 +110,7 @@ int Game::Run ()
 
     GameMode.InitializePlayerPosition (PlayerPositions, GameMode.PlayerCount, Size);
 
-    GameMode.BuildMatrix (Matrix, PlayerPositions, (*KTokens.rbegin ()));
+    GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, (*KTokens.rbegin ()));
 
     for (;;)
     {
@@ -129,7 +129,7 @@ int Game::Run ()
 
             GameMode.ValidatePlayerPositions (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 
-            GameMode.BuildMatrix (Matrix, PlayerPositions, (*KTokens.rbegin ()));
+            GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, (*KTokens.rbegin ()));
         }
 
         CurrentPlayer++;

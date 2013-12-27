@@ -59,13 +59,14 @@ void Classic2v2::InitializePlayerPositions (CPositions& PlayerPositions, const u
     }
 }
 
-void Classic2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken)
+void Classic2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
     for (CLine& Line : Matrix)
         fill (Line.begin (), Line.end (), EmptyToken);
 
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
-        Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
+        if (PlayerLifeStates[i])
+            Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 }
 
 bool Classic2v2::IsGameOver (const vector<bool>& PlayerLifeStates)

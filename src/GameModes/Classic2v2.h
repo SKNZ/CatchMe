@@ -13,7 +13,7 @@ namespace Classic2v2
 
     void InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize);
 
-    void BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const char EmptyToken);
+    void BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken);
     
     void ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
     
