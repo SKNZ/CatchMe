@@ -30,7 +30,7 @@ namespace Game
          * 
          **/
         void ShowMatrix (const CMatrix& Matrix);
-        
+
         /**
          * 
          * @brief Indicates which controls the current player should be using to move.

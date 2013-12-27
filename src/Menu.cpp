@@ -70,7 +70,7 @@ void Menu::Run ()
     Console::GetScreenSize (SizeX, SizeY);
 
     unsigned Selection = 0;
-    
+
     for (;;)
     {
         Console::ClearScreen ();
@@ -79,30 +79,30 @@ void Menu::Run ()
         DrawBorder (SizeX);
 
         // Empty line
-        DrawItem(SizeX, " ", false);
+        DrawItem (SizeX, " ", false);
 
         // SUCH LOGO !
-        DrawItem(SizeX, "  _____      _       _     __  __      ", false);
-        DrawItem(SizeX, " / ____|    | |     | |   |  \\/  |     ", false);
-        DrawItem(SizeX, "| |     __ _| |_ ___| |__ | \\  / | ___ ", false);
-        DrawItem(SizeX, "| |    / _` | __/ __| '_ \\| |\\/| |/ _ \\", false);
-        DrawItem(SizeX, "| |___| (_| | || (__| | | | |  | |  __/", false);
-        DrawItem(SizeX, " \\_____\\__,_|\\__\\___|_| |_|_|  |_|\\___|", false);
+        DrawItem (SizeX, "  _____      _       _     __  __      ", false);
+        DrawItem (SizeX, " / ____|    | |     | |   |  \\/  |     ", false);
+        DrawItem (SizeX, "| |     __ _| |_ ___| |__ | \\  / | ___ ", false);
+        DrawItem (SizeX, "| |    / _` | __/ __| '_ \\| |\\/| |/ _ \\", false);
+        DrawItem (SizeX, "| |___| (_| | || (__| | | | |  | |  __/", false);
+        DrawItem (SizeX, " \\_____\\__,_|\\__\\___|_| |_|_|  |_|\\___|", false);
 
-        DrawItem(SizeX, " ", false);
-        DrawItem(SizeX, " ", false);
-       
+        DrawItem (SizeX, " ", false);
+        DrawItem (SizeX, " ", false);
+
         unsigned Counter = 0;
         for (pair<string, function<void (void)>> Pair : MenuItems)
         {
-            DrawItem(SizeX, Pair.first, Counter == Selection);            
+            DrawItem (SizeX, Pair.first, Counter == Selection);
             Counter++;
         }
 
-        DrawItem(SizeX, " ", false);
+        DrawItem (SizeX, " ", false);
         
         // Bottom border
-        DrawBorder(SizeX);
+        DrawBorder (SizeX);
 
         // Handle user input
         switch (cin.get ())
@@ -120,7 +120,7 @@ void Menu::Run ()
                 break;
             default:
                 cout << "Use Z to go up, S to go down and Enter to validate." << endl;
-                Console::WaitForKeyPress(KErrorMessageDisplayTime);
+                Console::WaitForKeyPress (KErrorMessageDisplayTime);
                 break;
         }
     }

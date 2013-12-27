@@ -99,6 +99,8 @@ int Game::Run ()
 
     GetGameMode (GameMode);
     GameMode.GetSize (Size);
+    
+    
     PlayerLifeStates.resize (GameMode.PlayerCount, true);
 
     Matrix.resize (Size.first);
@@ -116,6 +118,9 @@ int Game::Run ()
 
         UI::ShowMatrix (Matrix);
         UI::ShowControls (CurrentPlayer);
+        
+        if (GameMode.IsGameOver (PlayerLifeStates))
+            break;
 
         if (PlayerLifeStates[CurrentPlayer])
         {
@@ -126,9 +131,6 @@ int Game::Run ()
 
             GameMode.BuildMatrix (Matrix, PlayerPositions, (*KTokens.rbegin ()));
         }
-
-        if (GameMode.IsGameOver (PlayerLifeStates))
-            break;
 
         CurrentPlayer++;
         if (CurrentPlayer >= GameMode.PlayerCount)
