@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include <thread>
+#include <string>
 
 #include "Menu.h"
 #include "Console.h"
@@ -20,6 +21,42 @@ void Menu::Clear ()
     MenuItems.clear ();
 }
 
+void DrawBorder (unsigned SizeX)
+{
+    // The menu begins at 1/4 of the screen.
+    for (unsigned i = 0; i < SizeX / 4; ++i)
+        cout << ' ';
+
+    cout << BackgroundColors::KMagenta;
+
+    // It takes 2/4 of the screen.
+    for (unsigned i = 0; i < SizeX / 2; ++i)
+        cout << ' ';
+    
+    cout << BackgroundColors::KDefault << endl;
+}
+
+void DrawItem (int SizeX, std::string Text, bool Selected)
+{
+    for (unsigned i = 0; i < SizeX / 4; ++i)
+        cout << ' ';
+    
+    // Left border
+    cout << BackgroundColors::KMagenta << ' '  << BackgroundColors ::KDefault;
+
+    if (Selected)
+        cout << BackgroundColors::KWhite << Colors::KBlack;
+    
+    cout << Text << BackgroundColors::KDefault;
+    
+    // Right padding
+    for (unsigned i = 0; i < (SizeX / 2) - Text.size () - 2; ++i)
+        cout << ' ';
+
+    // Right border
+    cout << BackgroundColors::KMagenta << ' ' << BackgroundColors::KDefault << endl;
+}
+
 /**
  * 
  * @todo Cleans this shit up. Make it readable. Also try to add arrow keys support for menu browsing... 
@@ -30,73 +67,30 @@ void Menu::Run ()
     if (MenuItems.empty ())
         throw "Menu::Run - The menu was empty.";
 
-    unsigned MaxItemNameLength = 0;
-    for (pair<string, function<void (void)>> Pair : MenuItems)
-        if (Pair.first.size () > MaxItemNameLength)
-            MaxItemNameLength = Pair.first.size ();
-
     unsigned SizeX, SizeY;
     Console::GetScreenSize (SizeX, SizeY);
 
-    unsigned MenuStartPosition = SizeX / 2 - MaxItemNameLength / 2;
     unsigned Selection = 0;
     
     for (;;)
     {
         Console::ClearScreen ();
 
-        for (unsigned i = 0; i < MenuStartPosition; ++i)
-            cout << ' ';
-
-        cout << BackgroundColors::KMagenta;
-
-        for (unsigned i = 0; i < MaxItemNameLength + 20; ++i)
-            cout << ' ';
-        
-        cout << BackgroundColors::KDefault << endl;
-
-        
+        // Top border
+        DrawBorder(SizeX);
+       
         unsigned Counter = 0;
         for (pair<string, function<void (void)>> Pair : MenuItems)
         {
-            for (unsigned i = 0; i < MenuStartPosition; ++i)
-                cout << ' ';
-            
-            cout << BackgroundColors::KMagenta << ' '  << BackgroundColors ::KDefault << "    ";
-
-            if (Counter == Selection)
-                cout << BackgroundColors::KWhite << Colors::KBlack << Pair.first;
-            else cout << Pair.first;
-
-            cout << BackgroundColors::KDefault;
-            
-            for (unsigned i = 0; i < MaxItemNameLength + 20 - 6 - Pair.first.size (); ++i)
-                cout << ' ';
-
-            cout << BackgroundColors::KMagenta << ' ' << BackgroundColors::KDefault << endl;
+            DrawItem(SizeX, Pair.first, Counter == Selection);            
             Counter++;
         }
 
-        for (unsigned i = 0; i < MenuStartPosition; ++i)
-                cout << ' ';
+        // Empty line
+        DrawItem(SizeX, " ", false);
         
-        cout << BackgroundColors::KMagenta << ' '  << BackgroundColors ::KDefault << "    ";
-        
-        for (unsigned i = 0; i < MaxItemNameLength + 20 - 6; ++i)
-            cout << ' ';
-
-        cout << BackgroundColors::KMagenta << ' ' << BackgroundColors::KDefault;
-        cout << endl;
-        
-        for (unsigned i = 0; i < MenuStartPosition; ++i)
-            cout << ' ';
-
-        cout << BackgroundColors::KMagenta;
-
-        for (unsigned i = 0; i < MaxItemNameLength + 20; ++i)
-            cout << ' ';
-        
-        cout << BackgroundColors::KDefault << endl;
+        // Bottom border
+        DrawBorder(SizeX);
         
         switch (cin.get ())
         {
@@ -114,6 +108,7 @@ void Menu::Run ()
             default:
                 cout << "Use Z to go up, S to go down and Enter to validate." << endl;
                 this_thread::sleep_for(KErrorMessageDisplayTime);
+                Console::ClearInputBuffer ();
                 break;
         }
     }

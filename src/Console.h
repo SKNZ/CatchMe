@@ -35,6 +35,7 @@ namespace Console
     std::ostream& operator<< (std::ostream& os, const BackgroundColors& Color);
 
     void ClearScreen ();
+    void ClearInputBuffer ();
     void GetScreenSize (unsigned& x, unsigned& y);
     
     /**

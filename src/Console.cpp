@@ -21,6 +21,13 @@ void Console::ClearScreen ()
     cout << "\033[H\033[2J";
 }
 
+void Console::ClearInputBuffer ()
+{
+    static string Trash;
+    getline(cin, Trash);
+}
+
+
 void Console::GetScreenSize (unsigned& x, unsigned& y)
 {
     winsize w;

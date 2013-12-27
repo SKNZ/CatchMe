@@ -44,6 +44,7 @@ namespace
         {
             cout << "The key you entered wasn't valid." << endl;
             this_thread::sleep_for (KErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
+            Console::ClearInputBuffer ();
             return false; // The player failed. Let's render the grid again and ask him once more.
         }
 
@@ -112,6 +113,7 @@ int Game::Run ()
     for (;;)
     {
         this_thread::sleep_for (KRenderLoopInterval); // Render loop interval
+        Console::ClearInputBuffer ();
 
         UI::ShowMatrix (Matrix);
         UI::ShowControls (CurrentPlayer);
