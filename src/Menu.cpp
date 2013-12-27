@@ -105,12 +105,12 @@ void Menu::Run ()
             Counter++;
         }
 
-        // Empty line
         DrawItem(SizeX, " ", false);
         
         // Bottom border
         DrawInnerBorder(SizeX);
 
+        // Handle user input
         switch (cin.get ())
         {
             case 'z': // Up

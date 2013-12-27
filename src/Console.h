@@ -30,10 +30,27 @@ namespace Console
         KWhite      = 47
     };
 
-    // This allows passing Colors directly to cout !
+    /**
+     * 
+     * @brief Colors output with VT100 syntax.
+     * 
+     */
     std::ostream& operator<< (std::ostream& os, const Colors& Color);
+    
+    /**
+     * 
+     * @brief Colors output background with VT100 syntax.
+     * 
+     */
     std::ostream& operator<< (std::ostream& os, const BackgroundColors& Color);
 
+    /**
+     * 
+     * @brief Clears the screen with VT100 syntax.
+     * 
+     * @warning Doesn't actually cleans anything, just prints enough blank lines so that previous stuff isn't visible.
+     * 
+     */
     void ClearScreen ();
 
     /**
@@ -44,6 +61,13 @@ namespace Console
      * 
      **/
     bool WaitForKeyPress(const unsigned TimeOut);
+    
+    /**
+     * 
+     * @brief Gets the count of rows and columns in the terminal.
+     * 
+     * 
+     **/
     void GetScreenSize (unsigned& x, unsigned& y);
     
     /**
