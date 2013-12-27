@@ -21,7 +21,7 @@ void Menu::Clear ()
     MenuItems.clear ();
 }
 
-void DrawBorder (unsigned SizeX)
+void DrawInnerBorder (unsigned SizeX)
 {
     // The menu begins at 1/4 of the screen.
     for (unsigned i = 0; i < SizeX / 4; ++i)
@@ -32,8 +32,8 @@ void DrawBorder (unsigned SizeX)
     // It takes 2/4 of the screen.
     for (unsigned i = 0; i < SizeX / 2; ++i)
         cout << ' ';
-    
-    cout << BackgroundColors::KDefault << endl;
+
+    cout << BackgroundColors ::KDefault << endl;
 }
 
 void DrawItem (int SizeX, std::string Text, bool Selected)
@@ -41,8 +41,12 @@ void DrawItem (int SizeX, std::string Text, bool Selected)
     for (unsigned i = 0; i < SizeX / 4; ++i)
         cout << ' ';
     
-    // Left border
+    // Inner left border
     cout << BackgroundColors::KMagenta << ' '  << BackgroundColors ::KDefault;
+
+    // Left padding
+    for (unsigned i = 0; i < ((SizeX / 2) - Text.size () - 2) / 2; ++i)
+        cout << ' ';
 
     if (Selected)
         cout << BackgroundColors::KWhite << Colors::KBlack;
@@ -50,16 +54,17 @@ void DrawItem (int SizeX, std::string Text, bool Selected)
     cout << Text << BackgroundColors::KDefault;
     
     // Right padding
-    for (unsigned i = 0; i < (SizeX / 2) - Text.size () - 2; ++i)
+    for (unsigned i = 0; i < ((SizeX / 2) - Text.size () - 2) / 2; ++i)
         cout << ' ';
 
-    // Right border
+    // Inner right border
     cout << BackgroundColors::KMagenta << ' ' << BackgroundColors::KDefault << endl;
 }
 
 /**
  * 
- * @todo Cleans this shit up. Make it readable. Also try to add arrow keys support for menu browsing... 
+ * @todo Look at adding arrow keys support for menu browsing...
+ * 
  * 
  **/
 void Menu::Run ()
@@ -77,7 +82,7 @@ void Menu::Run ()
         Console::ClearScreen ();
 
         // Top border
-        DrawBorder(SizeX);
+        DrawInnerBorder (SizeX);
        
         unsigned Counter = 0;
         for (pair<string, function<void (void)>> Pair : MenuItems)
@@ -90,8 +95,8 @@ void Menu::Run ()
         DrawItem(SizeX, " ", false);
         
         // Bottom border
-        DrawBorder(SizeX);
-        
+        DrawInnerBorder(SizeX);
+
         switch (cin.get ())
         {
             case 'z': // Up
@@ -107,8 +112,7 @@ void Menu::Run ()
                 break;
             default:
                 cout << "Use Z to go up, S to go down and Enter to validate." << endl;
-                this_thread::sleep_for(KErrorMessageDisplayTime);
-                Console::ClearInputBuffer ();
+                Console::WaitForKeyPress(KErrorMessageDisplayTime);
                 break;
         }
     }

@@ -2,6 +2,8 @@
 #include <cstdio>
 #include <termios.h>
 #include <unistd.h>
+#include <limits>
+#include <poll.h>
 
 #include "Console.h"
 using namespace std;
@@ -21,12 +23,16 @@ void Console::ClearScreen ()
     cout << "\033[H\033[2J";
 }
 
-void Console::ClearInputBuffer ()
+// http://www.cplusplus.com/forum/general/5304/#msg23940
+bool Console::WaitForKeyPress (const unsigned TimeOut)
 {
-    static string Trash;
-    getline(cin, Trash);
+    pollfd pls[1];
+    
+    pls[0].fd     = STDIN_FILENO;
+    pls[0].events = POLLIN | POLLPRI;
+    
+    return poll (pls, 1, TimeOut ) > 0;
 }
-
 
 void Console::GetScreenSize (unsigned& x, unsigned& y)
 {
@@ -34,8 +40,8 @@ void Console::GetScreenSize (unsigned& x, unsigned& y)
 
     ioctl (STDOUT_FILENO, TIOCGWINSZ, &w);
 
-    x = w.ws_row;
-    y = w.ws_col;
+    x = w.ws_col;
+    y = w.ws_row;
 }
 
 // Restore previous mode
@@ -43,11 +49,12 @@ void EnableCanonicalInputMode ()
 {
     termios term;
 
-    tcgetattr (STDIN_FILENO, &term); 
+    tcgetattr (STDIN_FILENO, &term);
     term.c_lflag |= ICANON | ECHO;
     tcsetattr (0, TCSANOW, &term);
 }
 
+// Manipulating the terminal requires sacrificing C++ :/
 void Console::DisableCanonicalInputMode ()
 {
     termios term;
@@ -56,6 +63,8 @@ void Console::DisableCanonicalInputMode ()
     term.c_lflag &= ~(ICANON | ECHO); // Remove canonical mode, echo
     tcsetattr (STDIN_FILENO, TCSANOW, &term); // Set modified terminal attributes
 
+    cin.sync_with_stdio();
+    
     atexit (EnableCanonicalInputMode); // Once the program exits, put it back the way it was before
 }
 

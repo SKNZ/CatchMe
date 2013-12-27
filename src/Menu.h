@@ -11,7 +11,7 @@ namespace Menu
      * 
      * 
      */
-    const std::chrono::milliseconds KErrorMessageDisplayTime (1000);
+    const unsigned KErrorMessageDisplayTime = 1000;
     
     /**
      * 

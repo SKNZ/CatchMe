@@ -35,7 +35,15 @@ namespace Console
     std::ostream& operator<< (std::ostream& os, const BackgroundColors& Color);
 
     void ClearScreen ();
-    void ClearInputBuffer ();
+
+    /**
+     * 
+     * @brief Waits for a key to be pressed (blocking) or until the timeout expires.
+     *
+     * @return True if key was pressed, false otherwise. 
+     * 
+     **/
+    bool WaitForKeyPress(const unsigned TimeOut);
     void GetScreenSize (unsigned& x, unsigned& y);
     
     /**

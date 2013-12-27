@@ -41,7 +41,7 @@ namespace Game
      *          and not for technical problems (such as exceptions reports).
      * 
      */
-    const std::chrono::milliseconds KErrorMessageDisplayTime (1000);
+    const unsigned KErrorMessageDisplayTime = 1000;
 
     /**
      * 
