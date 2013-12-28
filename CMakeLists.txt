@@ -9,8 +9,8 @@ ADD_DEFINITIONS(
 	-std=c++11
 )
 
-SET(CURSES_NEED_NCURSES TRUE)
-FIND_PACKAGE(Curses REQUIRED)
+#SET(CURSES_NEED_NCURSES TRUE)
+#FIND_PACKAGE(Curses REQUIRED)
 
 file(
 	GLOB_RECURSE
@@ -24,4 +24,4 @@ add_executable(
 	${source_files}
 )
 
-target_link_libraries(CatchMe ncurses)
+#target_link_libraries(CatchMe ncurses)

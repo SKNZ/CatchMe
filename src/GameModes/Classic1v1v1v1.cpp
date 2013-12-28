@@ -24,7 +24,7 @@ void Classic1v1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& Mat
     Helpers::MovePlayer(PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic1v1v1v1::ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void Classic1v1v1v1::ValidatePlayerPositions(const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {

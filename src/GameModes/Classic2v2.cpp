@@ -29,7 +29,7 @@ void Classic2v2::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixS
     Helpers::MovePlayer(PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic2v2::ValidatePlayerPositions (CPositions PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void Classic2v2::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
