@@ -1,27 +1,29 @@
-cmake_minimum_required(VERSION 2.6)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
-project(CatchMe)
+PROJECT(CatchMe)
 
-set(EXECUTABLE_OUTPUT_PATH bin)
+SET(EXECUTABLE_OUTPUT_PATH bin)
 
 # This makes our project Linux and GCC only, at least until CMake implements better C++11 support...
-ADD_DEFINITIONS(
-	-std=c++11
-)
+ADD_DEFINITIONS(-std=c++11)
 
-SET(CURSES_NEED_NCURSES TRUE)
-FIND_PACKAGE(Curses REQUIRED)
+SET(BOOST_ADDITIONAL_VERSIONS "1.48.0.2")
+FIND_PACKAGE(Boost 1.48.0.2 COMPONENTS asio FATAL_ERROR)
 
-file(
+LINK_DIRECTORIES(${BOOST_LIBRARY_DIRS})
+INCLUDE_DIRECTORIES(${BOOST_INCLUDE_DIRS})
+
+FILE(
 	GLOB_RECURSE
 	source_files
 	src/*
 )
 
 # Nom de l'executable et fichiers sources
-add_executable(
+ADD_EXECUTABLE(
 	CatchMe
 	${source_files}
 )
 
-target_link_libraries(CatchMe ncurses)
+TARGET_LINK_LIBRARIES(CatchMe ${BOOST_LIBRARIES})
+

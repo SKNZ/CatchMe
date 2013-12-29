@@ -99,8 +99,7 @@ int Game::Run ()
 
     GetGameMode (GameMode);
     GameMode.GetSize (Size);
-    
-    
+        
     PlayerLifeStates.resize (GameMode.PlayerCount, true);
 
     Matrix.resize (Size.first);
