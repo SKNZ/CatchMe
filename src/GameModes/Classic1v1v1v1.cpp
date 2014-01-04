@@ -21,23 +21,12 @@ void Classic1v1v1v1::GetSize (CPosition& Size)
 
 void Classic1v1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
-    Helpers::MovePlayer(PlayerPosition, MatrixSize, MoveY, MoveX);
+    Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic1v1v1v1::ValidatePlayerPositions(const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void Classic1v1v1v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-    for (unsigned i = 0; i < PlayerPositions.size (); ++i)
-    {
-        if (i == CurrentPlayer || !PlayerLifeStates[i])
-            continue;
-
-        if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
-            && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
-        {
-            PlayerLifeStates[i] = false;
-            break;
-        }
-    }
+	Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 }
 
 void Classic1v1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)

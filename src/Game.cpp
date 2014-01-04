@@ -34,7 +34,7 @@ namespace
         Menu::Run ();
     }
 
-    bool MovementHandler (CPositions& PlayerPositions, const unsigned CurrentPlayer, const CPosition& Size, const SGameMode& GameMode)
+    bool MovementHandler (const CMatrix& Matrix, CPositions& PlayerPositions, const unsigned CurrentPlayer, const CPosition& Size, const SGameMode& GameMode)
     {
         char Opcode = cin.get ();
 
@@ -53,32 +53,32 @@ namespace
         switch (Action)
         {
             case 0: // Up & left
-                GameMode.MovePlayer (PlayerPosition, Size, PlayerMovesY::KUp, PlayerMovesX::KLeft);
+                GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KUp, PlayerMovesX::KLeft);
                 break;
             case 1: // Up
-                GameMode.MovePlayer (PlayerPosition, Size, PlayerMovesY::KUp, PlayerMovesX::KStay);
+                GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KUp, PlayerMovesX::KStay);
                 break;
             case 2: // Up & right
-                GameMode.MovePlayer (PlayerPosition, Size, PlayerMovesY::KUp, PlayerMovesX::KRight);
+                GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KUp, PlayerMovesX::KRight);
                 break;
             case 3: // Left
-                GameMode.MovePlayer (PlayerPosition, Size, PlayerMovesY::KStay, PlayerMovesX::KLeft);
+                GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KStay, PlayerMovesX::KLeft);
                 break;
             case 4: // Stay
                 return false; // Having a Stay move has been found to flaw the gameplay.
-                GameMode.MovePlayer (PlayerPosition, Size, PlayerMovesY::KStay, PlayerMovesX::KStay);
+                GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KStay, PlayerMovesX::KStay);
                 break;
             case 5: // Right
-                GameMode.MovePlayer (PlayerPosition, Size, PlayerMovesY::KStay, PlayerMovesX::KRight);
+                GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KStay, PlayerMovesX::KRight);
                 break;
             case 6: // Down & left
-                GameMode.MovePlayer (PlayerPosition, Size, PlayerMovesY::KDown, PlayerMovesX::KLeft);
+                GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KDown, PlayerMovesX::KLeft);
                 break;
             case 7: // Down
-                GameMode.MovePlayer (PlayerPosition, Size, PlayerMovesY::KDown, PlayerMovesX::KStay);
+                GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KDown, PlayerMovesX::KStay);
                 break;
             case 8: // Down & right
-                GameMode.MovePlayer (PlayerPosition, Size, PlayerMovesY::KDown, PlayerMovesX::KRight);
+                GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KDown, PlayerMovesX::KRight);
                 break;
         }
 
@@ -109,7 +109,7 @@ int Game::Run ()
 
     GameMode.InitializePlayerPosition (PlayerPositions, GameMode.PlayerCount, Size);
 
-    GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, (*KTokens.rbegin ()));
+    GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
 
     for (;;)
     {
@@ -123,12 +123,12 @@ int Game::Run ()
 
         if (PlayerLifeStates[CurrentPlayer])
         {
-            if (!MovementHandler (PlayerPositions, CurrentPlayer, Size, GameMode))
+            if (!MovementHandler (Matrix, PlayerPositions, CurrentPlayer, Size, GameMode))
                 continue;
 
             GameMode.ValidatePlayerPositions (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 
-            GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, (*KTokens.rbegin ()));
+            GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
         }
 
         CurrentPlayer++;

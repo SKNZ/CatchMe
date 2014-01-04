@@ -19,6 +19,7 @@ namespace Game
             { 'O', { Colors::KGreen,    BackgroundColors::KDefault  } },
             { '#', { Colors::KMagenta,  BackgroundColors::KDefault  } },
             { '@', { Colors::KYellow,   BackgroundColors::KDefault  } },
+			{ '|', { Colors::KCyan,  	BackgroundColors::KCyan  	} },
             { ' ', { Colors::KDefault,  BackgroundColors::KDefault  } }
         };
 

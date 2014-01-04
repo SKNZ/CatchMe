@@ -6,11 +6,6 @@
 
 using namespace std;
 
-/**
- *
- * @todo Add a menu here, that allows the player to selection the size of the grid he wants to play on.
- * 
- **/
 void Classic2v2::GetSize (CPosition& Size)
 {
     Menu::Clear ();
@@ -24,18 +19,18 @@ void Classic2v2::GetSize (CPosition& Size)
     Menu::Run ();
 }
 
-void Classic2v2::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void Classic2v2::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
-    Helpers::MovePlayer(PlayerPosition, MatrixSize, MoveY, MoveX);
+    Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
 void Classic2v2::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
-        if (i == CurrentPlayer || !PlayerLifeStates[i] || (i + CurrentPlayer) % 2 == 0)
+        if (i == CurrentPlayer || !PlayerLifeStates[i] || (i + CurrentPlayer) % 2 == 0) // Player 1 & 3 and 2 & 4 are teamed up.
             continue;
-
+			
         if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
                 && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
         {
@@ -56,13 +51,13 @@ void Classic2v2::InitializePlayerPositions (CPositions& PlayerPositions, const u
                 PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top right
                 break;
             case 1:
-                PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
+                PlayerPositions [1] = { 0, 0 }; // Top left
                 break;
             case 2:
-                PlayerPositions[2] = { 0, 0}; // Top left
+                PlayerPositions [2] = { MaxSize.first - 1, 0 }; // Bottom left
                 break;
             case 3:
-                PlayerPositions[3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
+                PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
                 break;
         }
     }
@@ -76,6 +71,8 @@ void Classic2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
         if (PlayerLifeStates[i])
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
+
+	Helpers::LoadObstaclesFromFile (Matrix, "classic2v2_" + Matrix.size() + "_" + Matrix.begin()->size() + ".map");
 }
 
 bool Classic2v2::IsGameOver (const vector<bool>& PlayerLifeStates)

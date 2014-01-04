@@ -22,9 +22,9 @@
 
 namespace Game
 {
-     // Constants
-    const unsigned                      KMaxPlayerCount          = 4;
-    const unsigned                      KMinPlayerCount          = 2; // @todo This should be lowered to one if/once the "Player vs Computer" mode is ready.
+    // Constants
+    // const unsigned                      KMaxPlayerCount          = 4;
+    // const unsigned                      KMinPlayerCount          = 2; // @todo This should be lowered to one if/once the "Player vs Computer" mode is ready.
 
     const std::vector<SGameMode>        KGameModes = 
     {
@@ -51,6 +51,16 @@ namespace Game
      */
     const std::chrono::milliseconds KRenderLoopInterval (100);
 
+	enum TokenIds
+	{
+		KTokenlayer1,
+		KTokenPlayer2,
+		KTokenPlayer3,
+		KTokenPlayer4,
+		KTokenObstacle,
+		KTokenEmpty
+	}
+	
     /**
      *
      * @brief List of all the possible tokens.
@@ -66,6 +76,7 @@ namespace Game
         'O',
         '#',
         '@',
+		'|',
         ' '
     };
 

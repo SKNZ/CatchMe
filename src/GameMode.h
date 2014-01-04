@@ -47,7 +47,7 @@ namespace Game
          * @brief Moves a player in a certain direction, checks for walls and plays beeping sound if wall is hit (last part is not tested).
          * 
          **/
-        std::function<void (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> MovePlayer;
+        std::function<void (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> MovePlayer;
         
         /**
          * 
@@ -55,10 +55,11 @@ namespace Game
          * 
          * @todo Randomize each player number (so that the same player doesn't start in the same spot everytime).
          * 
-         * Player 1 is top right.
-         * Player 2 is bottom left.
-         * Player 3 is top left.
-         * Player 4 is bottom right.
+		 * Ex:
+         * 	Player 1 is top right.
+         * 	Player 2 is bottom left.
+         * 	Player 3 is top left.
+         * 	Player 4 is bottom right.
          * 
          **/
         std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> InitializePlayerPosition;
@@ -87,7 +88,7 @@ namespace Game
 
     SGameMode MakeGameMode (std::string Name, unsigned PlayerCount,
         std::function<void (CPosition& Size)> GetSize,
-        std::function<void (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> MovePlayer,
+        std::function<void (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> MovePlayer,
         std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> InitializePlayerPosition,
         std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> BuildMatrix,
         std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)> ValidatePlayerPositions,
