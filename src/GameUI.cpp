@@ -19,7 +19,7 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
     for (CLine Line : Matrix)
     {
         // Left border
-        cout << BackgroundColors::KGreen << "   " << BackgroundColors::KDefault;
+        cout << BackgroundColors::KGreen << "  " << BackgroundColors::KDefault;
 
         for (char C : Line)
         {
@@ -49,7 +49,7 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
         }
 
         // Right border
-        cout << BackgroundColors::KGreen << "   " << BackgroundColors::KDefault << endl;
+        cout << BackgroundColors::KGreen << "  " << BackgroundColors::KDefault << endl;
 
         ++EmptyCasesCounter;
     }
