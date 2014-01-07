@@ -34,6 +34,7 @@ bool Console::WaitForKeyPress (const unsigned TimeOut)
     return poll (pls, 1, TimeOut ) > 0;
 }
 
+// http://stackoverflow.com/a/1022961
 void Console::GetScreenSize (unsigned& x, unsigned& y)
 {
     winsize w;

@@ -42,11 +42,10 @@ void DrawItem (int SizeX, std::string Text, bool Selected)
         cout << ' ';
     
     // Left border
-    cout << BackgroundColors::KMagenta << ' '  << BackgroundColors ::KDefault;
+    cout << BackgroundColors::KMagenta << ' ' << BackgroundColors ::KDefault;
 
     // Left padding
-    for (unsigned i = 0; i < (SizeX / 2 - Text.size ()) / 2; ++i)
-        cout << ' ';
+    cout << ' ';
 
     if (Selected)
         cout << BackgroundColors::KWhite << Colors::KBlack;
@@ -54,7 +53,8 @@ void DrawItem (int SizeX, std::string Text, bool Selected)
     cout << Text << BackgroundColors::KDefault;
 
     // Right padding
-    for (unsigned i = 0; i < (SizeX / 2 - Text.size ()) / 2 - (Text.size() % 2 == 0 ? 1 : 0) - 1; ++i)
+    // Minus one for the left border space, one for the right border space, one for the border itself
+    for (unsigned i = 0; i < (SizeX / 2 - Text.size ()) - 1 - 1 - 1; ++i)
         cout << ' ';
 
     // Right border
@@ -66,13 +66,13 @@ void Menu::Run ()
     if (MenuItems.empty ())
         throw "Menu::Run - The menu was empty.";
 
-    unsigned SizeX, SizeY;
-    Console::GetScreenSize (SizeX, SizeY);
-
     unsigned Selection = 0;
 
     for (;;)
     {
+        unsigned SizeX = 0, SizeY = 0;
+        Console::GetScreenSize (SizeX, SizeY);
+
         Console::ClearScreen ();
 
         // Top border

@@ -10,9 +10,12 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
     Console::ClearScreen ();
     
     unsigned EmptyCasesCounter = 0;
+    unsigned TotalWidth = Matrix.begin ()->size () * 3 + 2;
 
+    cout << endl << ' ';
+    
     // Upper border
-    for (unsigned i = 0; i < Matrix.begin ()->size () * 3 + 4; ++i)
+    for (unsigned i = 0; i < TotalWidth; ++i)
         cout << BackgroundColors::KGreen << ' ';
 
     cout << BackgroundColors::KDefault << endl;
@@ -20,7 +23,7 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
     for (CLine Line : Matrix)
     {
         // Left border
-        cout << BackgroundColors::KGreen << "  " << BackgroundColors::KDefault;
+        cout << ' ' << BackgroundColors::KGreen << ' ' << BackgroundColors::KDefault;
 
         for (char C : Line)
         {
@@ -51,14 +54,14 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
         }
 
         // Right border
-        cout << BackgroundColors::KGreen << "  " << BackgroundColors::KDefault << endl;
+        cout << BackgroundColors::KGreen << ' ' << BackgroundColors::KDefault << endl;
 
         ++EmptyCasesCounter;
     }
 
     // Bottom border
-    cout << BackgroundColors::KGreen;
-    for (unsigned i = 0; i < Matrix.begin ()->size () * 3 + 4; ++i)
+    cout << ' ' << BackgroundColors::KGreen;
+    for (unsigned i = 0; i < TotalWidth; ++i)
         cout << ' ';
 
     cout << BackgroundColors::KDefault << endl;
