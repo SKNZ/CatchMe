@@ -38,13 +38,13 @@ void Classic1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, const
         switch (i)
         {
             case 0:
-                PlayerPositions[0] = { 0, MaxSize.second - 1 }; // Top right
+                PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top right
                 break;
             case 1:
-                PlayerPositions[1] = { MaxSize.first - 1, 0 }; // Bottom left
+                PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
                 break;
             case 2:
-                PlayerPositions[2] = { 0, 0 }; // Top left
+                PlayerPositions [2] = { 0, 0 }; // Top left
                 break;
         }
     }

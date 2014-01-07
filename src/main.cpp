@@ -6,9 +6,19 @@
  * @brief  Main file - Runnable
  *
 **/
+#include <iostream>
+
 #include "Game.h"
 
 int main (int argc, char** argv)
 {
-    return Game::Run ();
+    try
+    {
+        return Game::Run ();
+    }
+    catch (std::runtime_error& e)
+    {
+        std::cerr << "You failed to write proper code. " << e.what () << std::endl;
+        return EXIT_FAILURE;
+    }
 }

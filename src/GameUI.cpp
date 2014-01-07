@@ -7,10 +7,11 @@ using namespace std;
 
 void Game::UI::ShowMatrix (const CMatrix & Matrix)
 {
+    unsigned EmptyCasesCounter = 0;
     Console::ClearScreen ();
 
     // Upper border
-    for (unsigned i = 0; i < Matrix.begin ()->size () + 2; ++i)
+    for (unsigned i = 0; i < Matrix.begin ()->size () * 3 + 6; ++i)
         cout << BackgroundColors::KGreen << ' ';
 
     cout << BackgroundColors::KDefault << endl;
@@ -18,13 +19,25 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
     for (CLine Line : Matrix)
     {
         // Left border
-        cout << BackgroundColors::KGreen << ' ' << BackgroundColors::KDefault;
+        cout << BackgroundColors::KGreen << "   " << BackgroundColors::KDefault;
 
         for (char C : Line)
         {
             try
             {
-                cout << KTokenColors.at(C).second << KTokenColors.at(C).first; // We use at() for const-correctness
+                cout << KTokenColors.at(C).first;
+
+                if (KTokenColors.at(C).second == BackgroundColors::KDefault)
+                {
+                    if (EmptyCasesCounter++ % 2 == 0)
+                        cout << BackgroundColors::KBlue;
+                    else
+                        cout << BackgroundColors::KBlack;
+                }
+                else
+                {
+                    cout << KTokenColors.at(C).second; // We use at() for const-correctness
+                }
             }
             catch (out_of_range e)
             {
@@ -32,16 +45,18 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
                 cout << Colors::KDefault << BackgroundColors::KDefault;
             }
 
-            cout << C;
+            cout << ' ' << C << ' ';
         }
 
         // Right border
-        cout << BackgroundColors::KGreen << ' ' << BackgroundColors::KDefault << endl;
+        cout << BackgroundColors::KGreen << "   " << BackgroundColors::KDefault << endl;
+
+        ++EmptyCasesCounter;
     }
 
     // Bottom border
     cout << BackgroundColors::KGreen;
-    for (unsigned i = 0; i < Matrix.begin ()->size () + 2; ++i)
+    for (unsigned i = 0; i < Matrix.begin ()->size () * 3 + 6; ++i)
         cout << ' ';
 
     cout << BackgroundColors::KDefault << endl;

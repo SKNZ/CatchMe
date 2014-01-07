@@ -19,8 +19,8 @@ namespace Game
             { 'O', { Colors::KGreen,    BackgroundColors::KDefault  } },
             { '#', { Colors::KMagenta,  BackgroundColors::KDefault  } },
             { '@', { Colors::KYellow,   BackgroundColors::KDefault  } },
-			{ '|', { Colors::KCyan,  	BackgroundColors::KCyan  	} },
-            { ' ', { Colors::KDefault,  BackgroundColors::KDefault  } }
+            { '|', { Colors::KCyan,     BackgroundColors::KRed      } },
+            { ' ', { Colors::KDefault,  BackgroundColors::KDefault  } } // We want alternate colors there, the easiest way to achieve this is to hardcode it
         };
 
         /**

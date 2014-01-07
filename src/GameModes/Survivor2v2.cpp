@@ -39,8 +39,8 @@ void Survivor2v2::ValidatePlayerPositions (const CPositions& PlayerPositions, un
         if (i == CurrentPlayer || !PlayerLifeStates[i] || (i + CurrentPlayer) % 2 == 0) // Player 1 & 3 and 2 & 4 are teamed up.
             continue;
 			
-        if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
-                && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
+        if (PlayerPositions [CurrentPlayer].first == PlayerPositions [i].first
+                && PlayerPositions [CurrentPlayer].second == PlayerPositions [i].second)
         {
             PlayerLifeStates[i] = false;
         }

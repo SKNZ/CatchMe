@@ -23,8 +23,8 @@ void Helpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, 
         if (i == CurrentPlayer || !PlayerLifeStates[i])
             continue;
 
-        if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
-            && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
+        if (PlayerPositions [CurrentPlayer].first == PlayerPositions [i].first
+            && PlayerPositions [CurrentPlayer].second == PlayerPositions [i].second)
         {
             PlayerLifeStates[i] = false;
             break;
@@ -37,7 +37,10 @@ void Helpers::LoadObstaclesFromFile (CMatrix& Matrix, std::string FileName)
 	std::ifstream File (FileName);
 	
 	if (!File)
-		throw "There was an error trying to open the file. " + FileName;
+    {
+        return; // @todo Remove this once every file was created and populated
+		throw std::runtime_error("There was an error trying to open the file: " + FileName);
+    }
 
 	unsigned Y, X;
 	while (File >> Y >> X)

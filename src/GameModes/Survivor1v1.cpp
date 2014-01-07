@@ -25,10 +25,11 @@ void Survivor1v1::GetSize (CPosition& Size)
 }
 
 void Survivor1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
-{	
+{
     int DiffX = static_cast<int> (MoveX);
     int DiffY = static_cast<int> (MoveY);
     
+    // Comparing first and second separately allows player to 
     if (PlayerPosition.first + DiffY >= 0 && PlayerPosition.first + DiffY < MatrixSize.first)
         PlayerPosition.first += DiffY;
 

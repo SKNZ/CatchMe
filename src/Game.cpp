@@ -121,7 +121,7 @@ int Game::Run ()
         if (GameMode.IsGameOver (PlayerLifeStates))
             break;
 
-        if (PlayerLifeStates[CurrentPlayer])
+        if (PlayerLifeStates [CurrentPlayer])
         {
             if (!MovementHandler (Matrix, PlayerPositions, CurrentPlayer, Size, GameMode))
                 continue;

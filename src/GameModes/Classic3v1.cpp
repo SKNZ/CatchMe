@@ -40,8 +40,8 @@ void Classic3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, uns
         if ( CurrentPlayer != AlonePlayer && i != AlonePlayer) // CurrentPlayer	is in the same team as Player i
 			continue;
 			
-        if (PlayerPositions[CurrentPlayer].first == PlayerPositions[i].first
-                && PlayerPositions[CurrentPlayer].second == PlayerPositions[i].second)
+        if (PlayerPositions [CurrentPlayer].first == PlayerPositions [i].first
+                && PlayerPositions [CurrentPlayer].second == PlayerPositions [i].second)
         {
             PlayerLifeStates[i] = false;
         }
@@ -68,10 +68,10 @@ void Classic3v1::InitializePlayerPositions (CPositions& PlayerPositions, const u
                 PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
                 break;
             case 2:
-                PlayerPositions[2] = { 0, 0}; // Top left
+                PlayerPositions [2] = { 0, 0}; // Top left
                 break;
             case 3:
-                PlayerPositions[3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
+                PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
                 break;
         }
     }

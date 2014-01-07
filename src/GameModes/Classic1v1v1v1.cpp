@@ -40,16 +40,16 @@ void Classic1v1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, con
         switch (i)
         {
             case 0:
-                PlayerPositions[0] = { 0, MaxSize.second - 1 }; // Top rightc
+                PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top rightc
                 break;
             case 1:
-                PlayerPositions[1] = { MaxSize.first - 1, 0 }; // Bottom left
+                PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
                 break;
             case 2:
-                PlayerPositions[2] = { 0, 0}; // Top left
+                PlayerPositions [2] = { 0, 0}; // Top left
                 break;
             case 3:
-                PlayerPositions[3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
+                PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
                 break;
         }
     }
