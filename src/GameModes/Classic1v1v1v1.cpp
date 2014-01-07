@@ -15,7 +15,6 @@ void Classic1v1v1v1::GetSize (CPosition& Size)
     Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
     Menu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
     Menu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
-    Menu::AddItem ("Greater map", [&Size] () { Size = { 40, 80 }; });
     
 
     Menu::Run ();
