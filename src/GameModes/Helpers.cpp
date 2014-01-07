@@ -1,5 +1,7 @@
 #include "Helpers.h"
 
+#include <fstream>
+
 using namespace Game;
 
 void Helpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
@@ -14,7 +16,7 @@ void Helpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, cons
         PlayerPosition.second += DiffX;
 }
 
-void ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void Helpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
 {
 	for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
@@ -30,9 +32,9 @@ void ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, unsigned 
     }
 }
 
-void LoadObstaclesFromFile (CMatrix& Matrix, std::string FileName)
+void Helpers::LoadObstaclesFromFile (CMatrix& Matrix, std::string FileName)
 {
-	ifstream File (FileName);
+	std::ifstream File (FileName);
 	
 	if (!File)
 		throw "There was an error trying to open the file. " + FileName;

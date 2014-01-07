@@ -4,6 +4,8 @@
 #include "../Game.h"
 #include "../Menu.h"
 
+#include <sstream>
+
 using namespace std;
 
 void Classic2v2::GetSize (CPosition& Size)
@@ -72,7 +74,10 @@ void Classic2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
         if (PlayerLifeStates[i])
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 
-	Helpers::LoadObstaclesFromFile (Matrix, "classic2v2_" + Matrix.size() + "_" + Matrix.begin()->size() + ".map");
+    std::stringstream FileName;
+    FileName << "classic2v2_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+    
+	Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }
 
 bool Classic2v2::IsGameOver (const vector<bool>& PlayerLifeStates)

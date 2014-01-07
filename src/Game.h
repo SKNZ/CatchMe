@@ -59,7 +59,7 @@ namespace Game
 		KTokenPlayer4,
 		KTokenObstacle,
 		KTokenEmpty
-	}
+	};
 	
     /**
      *

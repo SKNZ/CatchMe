@@ -19,7 +19,7 @@ void Classic1v1v1v1::GetSize (CPosition& Size)
     Menu::Run ();
 }
 
-void Classic1v1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void Classic1v1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
