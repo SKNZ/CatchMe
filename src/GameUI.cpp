@@ -7,11 +7,12 @@ using namespace std;
 
 void Game::UI::ShowMatrix (const CMatrix & Matrix)
 {
-    unsigned EmptyCasesCounter = 0;
     Console::ClearScreen ();
+    
+    unsigned EmptyCasesCounter = 0;
 
     // Upper border
-    for (unsigned i = 0; i < Matrix.begin ()->size () * 3 + 6; ++i)
+    for (unsigned i = 0; i < Matrix.begin ()->size () * 3 + 4; ++i)
         cout << BackgroundColors::KGreen << ' ';
 
     cout << BackgroundColors::KDefault << endl;
@@ -29,7 +30,7 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
 
                 if (KTokenColors.at(C).second == BackgroundColors::KDefault)
                 {
-                    if (EmptyCasesCounter++ % 2 == 0)
+                    if (EmptyCasesCounter % 2 == 0)
                         cout << BackgroundColors::KBlue;
                     else
                         cout << BackgroundColors::KBlack;
@@ -46,6 +47,7 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
             }
 
             cout << ' ' << C << ' ';
+            EmptyCasesCounter++;
         }
 
         // Right border
@@ -56,7 +58,7 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
 
     // Bottom border
     cout << BackgroundColors::KGreen;
-    for (unsigned i = 0; i < Matrix.begin ()->size () * 3 + 6; ++i)
+    for (unsigned i = 0; i < Matrix.begin ()->size () * 3 + 4; ++i)
         cout << ' ';
 
     cout << BackgroundColors::KDefault << endl;

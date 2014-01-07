@@ -75,7 +75,7 @@ void Survivor1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositi
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 
     std::stringstream FileName;
-    FileName << "survivor1v1v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+    FileName << "./survivor1v1v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
 
     Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }

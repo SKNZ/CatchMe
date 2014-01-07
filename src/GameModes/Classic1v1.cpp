@@ -56,7 +56,7 @@ void Classic1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 
     std::stringstream FileName;
-    FileName << "classic1v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+    FileName << "./classic1v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
 
     Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }
