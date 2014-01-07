@@ -34,24 +34,10 @@ void Classic1v1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, con
 {
     PlayerPositions.resize (PlayerCount);
 
-    for (unsigned i = 0; i < PlayerCount; ++i)
-    {
-        switch (i)
-        {
-            case 0:
-                PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top rightc
-                break;
-            case 1:
-                PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
-                break;
-            case 2:
-                PlayerPositions [2] = { 0, 0}; // Top left
-                break;
-            case 3:
-                PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
-                break;
-        }
-    }
+    PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top rightc
+    PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
+    PlayerPositions [2] = { 0, 0}; // Top left
+    PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
 }
 
 void Classic1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
@@ -64,7 +50,7 @@ void Classic1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosit
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 
     std::stringstream FileName;
-    FileName << "./classic1v1v1v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+    FileName << "./" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
 
     Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }

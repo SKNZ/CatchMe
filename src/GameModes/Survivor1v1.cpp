@@ -55,18 +55,8 @@ void Survivor1v1::InitializePlayerPositions (CPositions& PlayerPositions, const 
 {
     PlayerPositions.resize (PlayerCount);
 
-    for (unsigned i = 0; i < PlayerCount; ++i)
-    {
-        switch (i)
-        {
-            case 0:
-                PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top right
-                break;
-            case 1:
-                PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
-                break;
-        }
-    }
+    PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top right
+    PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
 }
 
 void Survivor1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
@@ -79,7 +69,7 @@ void Survivor1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosition
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 
     std::stringstream FileName;
-    FileName << "./survivor1v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+    FileName << "./" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
 
     Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }

@@ -23,6 +23,13 @@ namespace Game
     typedef std::vector<CLine>      CMatrix;
     typedef std::pair<int, int>     CPosition;
     typedef std::vector<CPosition>  CPositions;
+    
+    typedef std::function<void (CPosition& Size)> FGetSize;
+    typedef std::function<void (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> FMovePlayer;
+    typedef std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> FInitializePlayerPosition;
+    typedef std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> FBuildMatrix;
+    typedef std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)> FValidatePlayerPositions;
+    typedef std::function<bool (const std::vector<bool>& PlayerLifeStates)> FIsGameOver;
 
     struct SGameMode
     {
@@ -34,20 +41,14 @@ namespace Game
          * @brief Size of the grid
          * 
          **/
-        std::function<void (CPosition& Size)> GetSize;
+        FGetSize GetSize;
         
-        /**
-         * 
-         * @brief Gets the input, checks it and calls the MovePlayer function according to which key was pressed.
-         * 
-         **/
-
         /**
          * 
          * @brief Moves a player in a certain direction, checks for walls and plays beeping sound if wall is hit (last part is not tested).
          * 
          **/
-        std::function<void (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> MovePlayer;
+        FMovePlayer MovePlayer;
         
         /**
          * 
@@ -62,35 +63,35 @@ namespace Game
          * 	Player 4 is bottom right.
          * 
          **/
-        std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> InitializePlayerPosition;
+        FInitializePlayerPosition InitializePlayerPosition;
         
         /**
          * 
          * @brief Update the Matrix to reflect the new positions of the players, state of the ground, barriers etc etc
          * 
          **/
-        std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> BuildMatrix;
+        FBuildMatrix BuildMatrix;
 	
         /**
          * 
          * @brief Checks if a players position overlaps with another one
          * 
          **/
-        std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)> ValidatePlayerPositions;
+        FValidatePlayerPositions ValidatePlayerPositions;
         
         /**
          * 
          * @brief Returns whether or not the game is over
          * 
          **/
-        std::function<bool (const std::vector<bool>& PlayerLifeStates)> IsGameOver;
+        FIsGameOver IsGameOver;
     };
 
     SGameMode MakeGameMode (std::string Name, unsigned PlayerCount,
-        std::function<void (CPosition& Size)> GetSize,
-        std::function<void (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> MovePlayer,
-        std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> InitializePlayerPosition,
-        std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> BuildMatrix,
-        std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)> ValidatePlayerPositions,
-        std::function<bool (const std::vector<bool>& PlayerLifeStates)> IsGameOver);
+        FGetSize GetSize,
+        FMovePlayer MovePlayer,
+        FInitializePlayerPosition InitializePlayerPosition,
+        FBuildMatrix BuildMatrix,
+        FValidatePlayerPositions ValidatePlayerPositions,
+        FIsGameOver IsGameOver);
 }

@@ -117,7 +117,7 @@ int Game::Run ()
 
         UI::ShowMatrix (Matrix);
         UI::ShowControls (CurrentPlayer);
-        
+
         if (GameMode.IsGameOver (PlayerLifeStates))
             break;
 
@@ -136,6 +136,8 @@ int Game::Run ()
             CurrentPlayer = 0;
     }
 
+    
+    cout << "The game is over." << endl;
     // Ici, we can afficher a magnifique écran to say zat CurrentPlayer a gagné ze gamme.
 
     return 0;

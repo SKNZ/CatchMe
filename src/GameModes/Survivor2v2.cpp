@@ -45,38 +45,22 @@ void Survivor2v2::ValidatePlayerPositions (const CPositions& PlayerPositions, un
         }
     }
     	
-	for (CPosition Position : ForbiddenPositions)
-		for (unsigned i = 0; i < 4; ++i)
-			if (PlayerPositions [i] == Position)
-				PlayerLifeStates [i] = false;
+    for (unsigned i = 0; i < 4; ++i)
+        if (PlayerPositions [i] == PlayerPositions [CurrentPlayer] && i != CurrentPlayer)
+            PlayerLifeStates [i] = false;
 
-	for (CPosition Position : PlayerPositions)
-		if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), Position) == ForbiddenPositions.cend())
-			ForbiddenPositions.push_back (Position);
+    if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
+        ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);
 }
 
 void Survivor2v2::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
-    for (unsigned i = 0; i < PlayerCount; ++i)
-    {
-        switch (i)
-        {
-            case 0:
-                PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top right
-                break;
-            case 1:
-                PlayerPositions [1] = { 0, 0 }; // Top left
-                break;
-            case 2:
-                PlayerPositions [2] = { MaxSize.first - 1, 0 }; // Bottom left
-                break;
-            case 3:
-                PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
-                break;
-        }
-    }
+    PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top right
+    PlayerPositions [1] = { 0, 0 }; // Top left
+    PlayerPositions [2] = { MaxSize.first - 1, 0 }; // Bottom left
+    PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
 }
 
 void Survivor2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
@@ -89,7 +73,7 @@ void Survivor2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosition
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 
     std::stringstream FileName;
-    FileName << "./survivor2v2_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+    FileName << "./" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
 
     Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }

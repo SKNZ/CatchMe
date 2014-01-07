@@ -35,38 +35,22 @@ void Survivor1v1v1v1::ValidatePlayerPositions (const CPositions& PlayerPositions
 {
 	Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 	
-	for (CPosition Position : ForbiddenPositions)
-		for (unsigned i = 0; i < 4; ++i)
-			if (PlayerPositions [i] == Position)
-				PlayerLifeStates [i] = false;
+    for (unsigned i = 0; i < 4; ++i)
+        if (PlayerPositions [i] == PlayerPositions [CurrentPlayer] && i != CurrentPlayer)
+            PlayerLifeStates [i] = false;
 
-	for (CPosition Position : PlayerPositions)
-		if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), Position) == ForbiddenPositions.cend())
-			ForbiddenPositions.push_back (Position);
+    if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
+        ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);
 }
 
 void Survivor1v1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
-    for (unsigned i = 0; i < PlayerCount; ++i)
-    {
-        switch (i)
-        {
-            case 0:
-                PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top rightc
-                break;
-            case 1:
-                PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
-                break;
-            case 2:
-                PlayerPositions [2] = { 0, 0}; // Top left
-                break;
-            case 3:
-                PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
-                break;
-        }
-    }
+    PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top rightc
+    PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
+    PlayerPositions [2] = { 0, 0}; // Top left
+    PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
 }
 
 void Survivor1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
@@ -79,7 +63,7 @@ void Survivor1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosi
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 
     std::stringstream FileName;
-    FileName << "./survivor1v1v1v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+    FileName << "./" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
 
     Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }

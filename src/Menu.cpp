@@ -23,14 +23,15 @@ void Menu::Clear ()
 
 void DrawBorder (unsigned SizeX)
 {
+    unsigned Quarter = SizeX / 4;
     // The menu begins at 1/4 of the screen.
-    for (unsigned i = 0; i < SizeX / 4; ++i)
+    for (unsigned i = 0; i < Quarter; ++i)
         cout << ' ';
 
     cout << BackgroundColors::KMagenta;
 
     // It takes 2/4 of the screen.
-    for (unsigned i = 0; i < SizeX / 2; ++i)
+    for (unsigned i = 0; i < Quarter * 2; ++i)
         cout << ' ';
 
     cout << BackgroundColors ::KDefault << endl;
@@ -38,14 +39,17 @@ void DrawBorder (unsigned SizeX)
 
 void DrawItem (int SizeX, std::string Text, bool Selected)
 {
-    for (unsigned i = 0; i < SizeX / 4; ++i)
+    unsigned Quarter = SizeX / 4;
+    for (unsigned i = 0; i < Quarter; ++i)
         cout << ' ';
     
     // Left border
     cout << BackgroundColors::KMagenta << ' ' << BackgroundColors ::KDefault;
 
     // Left padding
-    cout << ' ';
+    // Minus one for the border
+    for (unsigned i = 0; i < (Quarter * 2 - Text.size ()) / 2 - 1; ++i)
+        cout << ' ';
 
     if (Selected)
         cout << BackgroundColors::KWhite << Colors::KBlack;
@@ -53,8 +57,8 @@ void DrawItem (int SizeX, std::string Text, bool Selected)
     cout << Text << BackgroundColors::KDefault;
 
     // Right padding
-    // Minus one for the left border space, one for the right border space, one for the border itself
-    for (unsigned i = 0; i < (SizeX / 2 - Text.size ()) - 1 - 1 - 1; ++i)
+    // Minus one for the border, minus one if the text size is uneven
+    for (unsigned i = 0; i < (Quarter * 2 - Text.size ()) / 2 - (Text.size () % 2 ? 0 : 1); ++i)
         cout << ' ';
 
     // Right border
