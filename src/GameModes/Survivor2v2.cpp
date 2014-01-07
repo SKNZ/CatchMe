@@ -1,4 +1,4 @@
-#include "Classic2v2.h"
+#include "Survivor2v2.h"
 #include "Helpers.h"
 
 #include "../Game.h"
@@ -6,7 +6,12 @@
 
 using namespace std;
 
-void Classic2v2::GetSize (CPosition& Size)
+namespace
+{
+	CPositions ForbiddenPositions;
+}
+
+void Survivor2v2::GetSize (CPosition& Size)
 {
     Menu::Clear ();
     
@@ -19,12 +24,12 @@ void Classic2v2::GetSize (CPosition& Size)
     Menu::Run ();
 }
 
-void Classic2v2::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void Survivor2v2::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic2v2::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void Survivor2v2::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
@@ -37,9 +42,18 @@ void Classic2v2::ValidatePlayerPositions (const CPositions& PlayerPositions, uns
             PlayerLifeStates[i] = false;
         }
     }
+    	
+	for (CPosition Position : ForbiddenPositions)
+		for (unsigned i = 0; i < 4; ++i)
+			if (PlayerPositions [i] == Position)
+				PlayerLifeStates [i] = false;
+
+	for (CPosition Position : PlayerPositions)
+		if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), Position) == ForbiddenPositions.cend())
+			ForbiddenPositions.push_back (Position);
 }
 
-void Classic2v2::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void Survivor2v2::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -63,7 +77,7 @@ void Classic2v2::InitializePlayerPositions (CPositions& PlayerPositions, const u
     }
 }
 
-void Classic2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
+void Survivor2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
     for (CLine& Line : Matrix)
         fill (Line.begin (), Line.end (), EmptyToken);
@@ -72,10 +86,10 @@ void Classic2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
         if (PlayerLifeStates[i])
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 
-	Helpers::LoadObstaclesFromFile (Matrix, "classic2v2_" + Matrix.size() + "_" + Matrix.begin()->size() + ".map");
+	Helpers::LoadObstaclesFromFile (Matrix, "Survivor2v2_" + Matrix.size() + "_" + Matrix.begin()->size() + ".map");
 }
 
-bool Classic2v2::IsGameOver (const vector<bool>& PlayerLifeStates)
+bool Survivor2v2::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
     return (!PlayerLifeStates[0] && !PlayerLifeStates[2]) || (!PlayerLifeStates[1] && !PlayerLifeStates[3]);
 }

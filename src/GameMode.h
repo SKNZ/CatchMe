@@ -41,7 +41,6 @@ namespace Game
          * @brief Gets the input, checks it and calls the MovePlayer function according to which key was pressed.
          * 
          **/
-        // Lol removed
 
         /**
          * 
@@ -64,7 +63,7 @@ namespace Game
          * 
          **/
         std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> InitializePlayerPosition;
-
+        
         /**
          * 
          * @brief Update the Matrix to reflect the new positions of the players, state of the ground, barriers etc etc

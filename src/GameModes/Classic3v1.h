@@ -3,7 +3,7 @@
 #include <vector>
 #include "../GameMode.h"
 
-namespace Classic1v1v1
+namespace Classic3v1
 {
     using namespace Game;
 

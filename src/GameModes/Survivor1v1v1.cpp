@@ -1,4 +1,4 @@
-#include "Classic1v1v1.h"
+#include "Survivor1v1v1.h"
 #include "Helpers.h"
 
 #include "../Game.h"
@@ -6,7 +6,12 @@
 
 using namespace std;
 
-void Classic1v1v1::GetSize (CPosition& Size)
+namespace
+{
+	CPositions ForbiddenPositions;
+}
+
+void Survivor1v1v1::GetSize (CPosition& Size)
 {
     Menu::Clear ();
     
@@ -17,17 +22,26 @@ void Classic1v1v1::GetSize (CPosition& Size)
     Menu::Run ();
 }
 
-void Classic1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void Survivor1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic1v1v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void Survivor1v1v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
 	Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
+		
+	for (CPosition Position : ForbiddenPositions)
+		for (unsigned i = 0; i < 4; ++i)
+			if (PlayerPositions [i] == Position)
+				PlayerLifeStates [i] = false;
+
+	for (CPosition Position : PlayerPositions)
+		if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), Position) == ForbiddenPositions.cend())
+			ForbiddenPositions.push_back (Position);
 }
 
-void Classic1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void Survivor1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -48,7 +62,7 @@ void Classic1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, const
     }
 }
 
-void Classic1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
+void Survivor1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
     for (CLine& Line : Matrix)
         fill (Line.begin (), Line.end (), EmptyToken);
@@ -58,7 +72,7 @@ void Classic1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositio
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 }
 
-bool Classic1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
+bool Survivor1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
     unsigned DeadPlayerCount = 0;
 
