@@ -4,9 +4,14 @@
 #include "../Game.h"
 #include "../Menu.h"
 
+#include <sstream>
+
 using namespace std;
 
-unsigned AlonePlayer = 0;
+namespace
+{
+    unsigned AlonePlayer = 0;
+}
 
 void Classic3v1::GetSize (CPosition& Size)
 {
@@ -20,12 +25,12 @@ void Classic3v1::GetSize (CPosition& Size)
     Menu::Run ();
 }
 
-void Classic3v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void Classic3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates, unsigned AlonePlayer)
+void Classic3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
@@ -80,6 +85,11 @@ void Classic3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
         if (PlayerLifeStates[i])
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
+
+    std::stringstream FileName;
+    FileName << "classic3v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+
+    Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
       
 }
 

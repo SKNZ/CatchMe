@@ -4,11 +4,14 @@
 #include "../Game.h"
 #include "../Menu.h"
 
+#include <algorithm>
+#include <sstream>
+
 using namespace std;
 
 namespace
 {
-	CPositions ForbiddenPositions;
+	Game::CPositions ForbiddenPositions;
 }
 
 void Survivor1v1v1::GetSize (CPosition& Size)
@@ -22,7 +25,7 @@ void Survivor1v1v1::GetSize (CPosition& Size)
     Menu::Run ();
 }
 
-void Survivor1v1v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void Survivor1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
@@ -70,6 +73,11 @@ void Survivor1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositi
     for (unsigned i = 0; i < PlayerPositions.size(); ++i)
         if (PlayerLifeStates[i])
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
+
+    std::stringstream FileName;
+    FileName << "survivor1v1v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+
+    Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }
 
 bool Survivor1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)

@@ -20,6 +20,11 @@
 #include "GameModes/Classic1v1v1v1.h"
 #include "GameModes/Classic2v2.h"
 #include "GameModes/Classic3v1.h"
+#include "GameModes/Survivor1v1.h"
+#include "GameModes/Survivor1v1v1.h"
+#include "GameModes/Survivor1v1v1v1.h"
+#include "GameModes/Survivor2v2.h"
+#include "GameModes/Survivor3v1.h"
 
 namespace Game
 {
@@ -67,7 +72,7 @@ namespace Game
 		KTokenPlayer4,
 		KTokenObstacle,
 		KTokenEmpty
-	}
+	};
 	
     /**
      *

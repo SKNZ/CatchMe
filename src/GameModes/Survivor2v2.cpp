@@ -4,11 +4,14 @@
 #include "../Game.h"
 #include "../Menu.h"
 
+#include <sstream>
+#include <algorithm>
+
 using namespace std;
 
 namespace
 {
-	CPositions ForbiddenPositions;
+	Game::CPositions ForbiddenPositions;
 }
 
 void Survivor2v2::GetSize (CPosition& Size)
@@ -86,7 +89,10 @@ void Survivor2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosition
         if (PlayerLifeStates[i])
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
 
-	Helpers::LoadObstaclesFromFile (Matrix, "Survivor2v2_" + Matrix.size() + "_" + Matrix.begin()->size() + ".map");
+    std::stringstream FileName;
+    FileName << "survivor2v2_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+
+    Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }
 
 bool Survivor2v2::IsGameOver (const vector<bool>& PlayerLifeStates)

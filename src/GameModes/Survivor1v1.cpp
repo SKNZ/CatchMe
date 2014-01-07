@@ -4,11 +4,14 @@
 #include "../Game.h"
 #include "../Menu.h"
 
+#include <sstream>
+#include <algorithm>
+
 using namespace std;
 
 namespace
 {
-	CPositions ForbiddenPositions;
+	Game::CPositions ForbiddenPositions;
 }
 
 void Survivor1v1::GetSize (CPosition& Size)
@@ -73,6 +76,11 @@ void Survivor1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosition
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
         if (PlayerLifeStates[i])
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
+
+    std::stringstream FileName;
+    FileName << "survivor1v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+
+    Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }
 
 bool Survivor1v1::IsGameOver (const vector<bool>& PlayerLifeStates)

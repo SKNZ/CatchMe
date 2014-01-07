@@ -4,15 +4,18 @@
 #include "../Game.h"
 #include "../Menu.h"
 
+#include <sstream>
+#include <algorithm>
+
 using namespace std;
 
 namespace
 {
-	CPositions ForbiddenPositions;
-	CPositions AuthorizedAlonePositions;
-}
+	Game::CPositions ForbiddenPositions;
+	Game::CPositions AuthorizedAlonePositions;
 
-unsigned AlonePlayer = 0;
+    unsigned AlonePlayer = 0;
+}
 
 void Survivor3v1::GetSize (CPosition& Size)
 {
@@ -26,12 +29,12 @@ void Survivor3v1::GetSize (CPosition& Size)
     Menu::Run ();
 }
 
-void Survivor3v1::MovePlayer (CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void Survivor3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Survivor3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates, unsigned AlonePlayer)
+void Survivor3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
@@ -96,10 +99,16 @@ void Survivor3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosition
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
         if (PlayerLifeStates[i])
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
-      
+
+    std::stringstream FileName;
+    FileName << "survivor3v1_" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
+
+    Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
 }
 
 bool Survivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
-{    
+{ 
+    ++AlonePlayer;
+
     return !PlayerLifeStates [0] || !PlayerLifeStates [1];
 }
