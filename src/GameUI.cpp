@@ -1,7 +1,9 @@
-#include "GameUI.h"
-
 #include <iostream>
 #include <iomanip>
+#include <sstream>
+
+#include "GameUI.h"
+#include "Menu.h"
 
 using namespace std;
 
@@ -81,3 +83,4 @@ void Game::UI::ShowControls (const unsigned int CurrentPlayer)
         << setw(16) <<  "Down(" << KControlsByToken.at (KTokens.at (CurrentPlayer)) [7] << ") "
         << setw(16) <<  "DownRight(" << KControlsByToken.at (KTokens.at (CurrentPlayer)) [8] << ") " << endl;
 }
+

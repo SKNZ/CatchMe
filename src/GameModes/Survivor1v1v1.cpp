@@ -42,7 +42,7 @@ void Survivor1v1v1::ValidatePlayerPositions (const CPositions& PlayerPositions, 
         ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);
 }
 
-void Survivor1v1v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void Survivor1v1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 

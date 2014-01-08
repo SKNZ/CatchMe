@@ -13,17 +13,16 @@ namespace
 {
 	Game::CPositions ForbiddenPositions;
 	Game::CPositions AuthorizedAlonePositions;
+    array<unsigned, 4> AlonePlayerTurnCounters;
 
-    unsigned AlonePlayer = 0;
+    int AlonePlayer = -1;
 }
 
 void Survivor3v1::GetSize (CPosition& Size)
 {
-    AlonePlayer = 0; // GetSize is called once at the beginning of the game. Let's shove all the initialization stuff here.
-    
     Menu::Clear ();
     
-    Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
+//     Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
     Menu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
     Menu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
 
@@ -41,31 +40,25 @@ void Survivor3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, un
     {
         if (i == CurrentPlayer || !PlayerLifeStates [i] || CurrentPlayer != AlonePlayer) 
             continue;
-            
-        if (CurrentPlayer != AlonePlayer && i != AlonePlayer) // CurrentPlayer is in the same team as Player i
-			continue;
 
-        if (PlayerPositions [CurrentPlayer] == PlayerPositions [i])
+        if (PlayerPositions [CurrentPlayer] == PlayerPositions [i] && i == AlonePlayer)
             PlayerLifeStates[i] = false;
-    }    
-
-    for (unsigned i = 0; i < 4; ++i)
-        if (PlayerPositions [i] == PlayerPositions [CurrentPlayer] && i != CurrentPlayer)
-            PlayerLifeStates [i] = false;
+    }
 
     if (CurrentPlayer != AlonePlayer)
+    {
         if (find(ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend()) 
             ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);
         else
             PlayerLifeStates [CurrentPlayer] = false;
-
-    static array<unsigned, 4> AlonePlayerTurnCounters;
-
-	if (CurrentPlayer == AlonePlayer)
+    }
+    else
+    {
 		AlonePlayerTurnCounters [AlonePlayer]++;
+    }
 }
 
-void Survivor3v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void Survivor3v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -73,6 +66,8 @@ void Survivor3v1::InitializePlayerPositions (CPositions& PlayerPositions, const 
     PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
     PlayerPositions [2] = { 0, 0 }; // Top left
     PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
+    
+    ++AlonePlayer;
 }
 
 void Survivor3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
@@ -91,8 +86,21 @@ void Survivor3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosition
 }
 
 bool Survivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
-{ 
-    ++AlonePlayer;
-
+{
     return !PlayerLifeStates [0] || !PlayerLifeStates [1];
 }
+
+void Survivor3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, std::vector<char> Tokens, unsigned TurnCounter)
+{
+    Menu::Clear ();
+
+    for (unsigned i = 0; i < 4; ++i)
+    {
+        stringstream Winner;
+        Winner << "Player " << i << " lasted " << AlonePlayerTurnCounters [i] << " rounds.";
+        Menu::AddItem(Winner.str(), [] () {} );
+    }
+
+    Menu::Run (true);
+}
+

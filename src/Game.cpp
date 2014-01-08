@@ -7,12 +7,15 @@
  *
 **/
 #include <iostream>
+#include <sstream>
 #include <thread>
+#include <cstdlib>
 
 #include "Menu.h"
 #include "Game.h"
 #include "GameUI.h"
 #include "Config.h"
+#include "Console.h"
 
 using namespace std;
 
@@ -79,79 +82,84 @@ int Game::Run ()
 {
     Console::DisableCanonicalInputMode ();
     Config::LoadFile ();
-    
-    cout << Config::ErrorMessageDisplayTime << endl << Config::RenderLoopInterval << endl;
-    cin.get();
 
     for (;;)
     {
         SGameMode       GameMode;
-        CPositions      PlayerPositions;
         CPosition       Size;
-        unsigned        CurrentPlayer = 0; // Whose turn it is
-        CMatrix         Matrix;
         vector<bool>    PlayerLifeStates;
+        unsigned        TurnCounter = 0;
 
         GetGameMode (GameMode);
         GameMode.GetSize (Size);
-            
-        PlayerLifeStates.resize (GameMode.PlayerCount, true);
-
-        Matrix.resize (Size.first);
-
-        for (CLine& Line : Matrix)
-            Line.resize (Size.second);
-
-        GameMode.InitializePlayerPosition (PlayerPositions, GameMode.PlayerCount, Size);
-
-        GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
-
-        for (;;)
+        
+        for (unsigned i = 0; i < GameMode.RoundCount; ++i)
         {
-            this_thread::sleep_for (std::chrono::milliseconds (Config::RenderLoopInterval)); // Render loop interval
+            CPositions      PlayerPositions;
+            unsigned        CurrentPlayer = 0; // Whose turn it is
+                            TurnCounter = 0;
+            CMatrix         Matrix;
 
-            UI::ShowMatrix (Matrix);
-            UI::ShowControls (CurrentPlayer);
+            PlayerLifeStates.resize (GameMode.PlayerCount, true);
 
-            if (GameMode.IsGameOver (PlayerLifeStates))
-                break;
+            Matrix.resize (Size.first);
+ 
+            for (CLine& Line : Matrix)
+                Line.resize (Size.second);
 
-            if (PlayerLifeStates [CurrentPlayer])
+            GameMode.InitializeRound (PlayerPositions, GameMode.PlayerCount, Size);
+
+            GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
+
+            for (;;)
             {
-                if (Console::WaitForKeyPress (15000))
+                this_thread::sleep_for (std::chrono::milliseconds (Config::RenderLoopInterval)); // Render loop interval
+
+                UI::ShowMatrix (Matrix);
+                UI::ShowControls (CurrentPlayer);
+
+                if (GameMode.IsGameOver (PlayerLifeStates))
+                    break;
+
+                if (PlayerLifeStates [CurrentPlayer])
                 {
-                    char Opcode = cin.get ();
+                    size_t Action = 0;
 
-                    size_t Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find (Opcode);
-
-                    if (Action == string::npos)
+                    if (Console::WaitForKeyPress (Config::TurnTimeoutDelay))
                     {
-                        cout << "The key you entered wasn't valid." << endl;
-                        Console::WaitForKeyPress(Config::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
+                        char Opcode = cin.get ();
 
-                        continue; // The player failed. Let's render the grid again and ask him once more.
+                        Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find (Opcode);
+                        if (Action == string::npos)
+                        {
+                            cout << "The key you entered wasn't valid." << endl;
+                            Console::WaitForKeyPress (Config::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
+
+                            continue; // The player failed. Let's render the grid again and ask him once more.
+                        }
+                    }
+                    else
+                    {
+                        srand (time(NULL));
+                        
+                        Action = rand () % 8;
                     }
 
                     MovementHandler (Action, Matrix, PlayerPositions, CurrentPlayer, Size, GameMode);
 
                     GameMode.ValidatePlayerPositions (PlayerPositions, CurrentPlayer, PlayerLifeStates);
+
+                    GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
                 }
 
-                GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
+                ++TurnCounter;
+                ++CurrentPlayer;
+                if (CurrentPlayer >= GameMode.PlayerCount)
+                    CurrentPlayer = 0;
             }
-
-            CurrentPlayer++;
-            if (CurrentPlayer >= GameMode.PlayerCount)
-                CurrentPlayer = 0;
         }
 
-        Console::ClearScreen();
-
-        for (unsigned i = 0; i < GameMode.PlayerCount; ++i)
-            if (PlayerLifeStates [i])
-                cout << "The game is over. The player " << i << " playing as '" << KTokens [i] << "' won." << endl;
-
-        cin.get();
+        GameMode.ShowWinScreen (PlayerLifeStates, KTokens, TurnCounter);
     }
 
     return 0;

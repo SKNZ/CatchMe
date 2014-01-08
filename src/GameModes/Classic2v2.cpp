@@ -40,7 +40,7 @@ void Classic2v2::ValidatePlayerPositions (const CPositions& PlayerPositions, uns
     }
 }
 
-void Classic2v2::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void Classic2v2::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 

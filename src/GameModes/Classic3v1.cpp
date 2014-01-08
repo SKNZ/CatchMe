@@ -52,7 +52,7 @@ void Classic3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, uns
 		AlonePlayerTurnCounters[AlonePlayer]++;
 }
 
-void Classic3v1::InitializePlayerPositions (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void Classic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 

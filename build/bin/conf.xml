@@ -1,4 +1,5 @@
 <Conf>
 	<ErrorMessageDisplayTime>1000</ErrorMessageDisplayTime>
 	<RenderLoopInterval>100</RenderLoopInterval>
+	<TurnTimeoutDelay>15000</TurnTimeoutDelay>
 </Conf>

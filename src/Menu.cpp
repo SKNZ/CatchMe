@@ -2,6 +2,7 @@
 #include <iostream>
 #include <thread>
 #include <string>
+#include <sstream>
 
 #include "Menu.h"
 #include "Console.h"
@@ -65,7 +66,7 @@ void DrawItem (int SizeX, std::string Text, bool Selected)
     cout << BackgroundColors::KMagenta << ' ' << BackgroundColors::KDefault << endl;
 }
 
-void Menu::Run ()
+void Menu::Run (bool IsWinMenu)
 {
     if (MenuItems.empty ())
         throw "Menu::Run - The menu was empty.";
@@ -86,12 +87,32 @@ void Menu::Run ()
         DrawItem (SizeX, " ", false);
 
         // SUCH LOGO !
-        DrawItem (SizeX, "  _____      _       _     __  __      ", false);
-        DrawItem (SizeX, " / ____|    | |     | |   |  \\/  |     ", false);
-        DrawItem (SizeX, "| |     __ _| |_ ___| |__ | \\  / | ___ ", false);
-        DrawItem (SizeX, "| |    / _` | __/ __| '_ \\| |\\/| |/ _ \\", false);
-        DrawItem (SizeX, "| |___| (_| | || (__| | | | |  | |  __/", false);
-        DrawItem (SizeX, " \\_____\\__,_|\\__\\___|_| |_|_|  |_|\\___|", false);
+        if (IsWinMenu)
+        {
+            // From http://ascii.co.uk/art/palmtree
+            DrawItem(SizeX, "        __ _.--..--._ _", false);
+            DrawItem(SizeX, "     .-' _/   _/\\_   \\_'-.", false);
+            DrawItem(SizeX, "    |__ /   _/\\__/\\_   \\__|", false);
+            DrawItem(SizeX, "       |___/\\_\\__/  \\___|", false);
+            DrawItem(SizeX, "              \\__/", false);
+            DrawItem(SizeX, "              \\__/", false);
+            DrawItem(SizeX, "               \\__/", false);
+            DrawItem(SizeX, "                \\__/", false);
+            DrawItem(SizeX, "             ____\\__/___", false);
+            DrawItem(SizeX, "       . - '             ' -.", false);
+            DrawItem(SizeX, "      /                      \\", false);
+            DrawItem(SizeX, "~~~~~~~  ~~~~~ ~~~~~  ~~~ ~~~  ~~~~~", false);
+            DrawItem(SizeX, "  ~~~   ~~~~~   ~!~~   ~~ ~  ~ ~ ~pjb", false);
+        }
+        else
+        {
+            DrawItem (SizeX, "  _____      _       _     __  __      ", false);
+            DrawItem (SizeX, " / ____|    | |     | |   |  \\/  |     ", false);
+            DrawItem (SizeX, "| |     __ _| |_ ___| |__ | \\  / | ___ ", false);
+            DrawItem (SizeX, "| |    / _` | __/ __| '_ \\| |\\/| |/ _ \\", false);
+            DrawItem (SizeX, "| |___| (_| | || (__| | | | |  | |  __/", false);
+            DrawItem (SizeX, " \\_____\\__,_|\\__\\___|_| |_|_|  |_|\\___|", false);
+        }
 
         DrawItem (SizeX, " ", false);
         DrawItem (SizeX, " ", false);
@@ -128,4 +149,19 @@ void Menu::Run ()
                 break;
         }
     }
+}
+
+void Menu::ShowSimpleWinScreen (const vector<bool>& PlayerLifeStates, std::vector<char> Tokens, unsigned TurnCounter)
+{
+    Clear ();
+
+    for (unsigned i = 0; i < PlayerLifeStates.size (); ++i)
+        if (PlayerLifeStates [i])
+        {
+            stringstream Winner;
+            Winner << "Player " << i << " '" << Tokens [i] << "' won in " << TurnCounter << " rounds.";
+            AddItem(Winner.str(), [] () {} );
+        }
+
+    Run (true);
 }

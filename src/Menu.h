@@ -2,6 +2,7 @@
 
 #include <functional>
 #include <chrono>
+#include <vector>
 
 namespace Menu
 {
@@ -34,5 +35,12 @@ namespace Menu
      * @todo Look at adding arrow keys support for menu browsing... Maybe factorize colors ?
      * 
      **/
-    void Run ();
+    void Run (bool IsWinMenu = false);
+        
+    /**
+        * 
+        * Shows a simple default winning screen announcing the player that won.
+        * 
+        **/
+    void ShowSimpleWinScreen (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, unsigned TurnCounter);
 }

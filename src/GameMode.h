@@ -26,15 +26,34 @@ namespace Game
     
     typedef std::function<void (CPosition& Size)> FGetSize;
     typedef std::function<void (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> FMovePlayer;
-    typedef std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> FInitializePlayerPosition;
+    typedef std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> FInitializeRound;
     typedef std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> FBuildMatrix;
     typedef std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)> FValidatePlayerPositions;
     typedef std::function<bool (const std::vector<bool>& PlayerLifeStates)> FIsGameOver;
+    typedef std::function<void (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, unsigned TurnCounter)> FShowWinScreen;
 
     struct SGameMode
     {
+        /**
+         * 
+         * @brief The name of the game mode.
+         * 
+         */
         std::string Name;
+        
+        /**
+         * 
+         * @brief The number of players that will play the game. Limited to 4 because max 4 sets of controls...
+         * 
+         */
         unsigned PlayerCount;
+        
+        /**
+         * 
+         * @brief The number of rounds that must be played before a winner can be declared
+         * 
+         **/
+        unsigned RoundCount;
         
         /**
          * 
@@ -63,7 +82,7 @@ namespace Game
          * 	Player 4 is bottom right.
          * 
          **/
-        FInitializePlayerPosition InitializePlayerPosition;
+        FInitializeRound InitializeRound;
         
         /**
          * 
@@ -85,13 +104,21 @@ namespace Game
          * 
          **/
         FIsGameOver IsGameOver;
+        
+        /**
+         * 
+         * @brief Show the win screen.
+         * 
+         **/
+        FShowWinScreen ShowWinScreen;
     };
 
-    SGameMode MakeGameMode (std::string Name, unsigned PlayerCount,
+    SGameMode MakeGameMode (std::string Name, unsigned PlayerCount, unsigned RoundCount,
         FGetSize GetSize,
         FMovePlayer MovePlayer,
-        FInitializePlayerPosition InitializePlayerPosition,
+        FInitializeRound InitializeRound,
         FBuildMatrix BuildMatrix,
         FValidatePlayerPositions ValidatePlayerPositions,
-        FIsGameOver IsGameOver);
+        FIsGameOver IsGameOver,
+        FShowWinScreen ShowWinScreen);
 }
