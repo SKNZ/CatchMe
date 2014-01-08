@@ -10,7 +10,9 @@ using namespace std;
 
 namespace
 {
-    unsigned AlonePlayer = 0;
+    array<unsigned, 4> AlonePlayerTurnCounters;
+
+    int AlonePlayer = -1;
 }
 
 void Classic3v1::GetSize (CPosition& Size)
@@ -33,20 +35,12 @@ void Classic3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, uns
 {
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
-        if (i == CurrentPlayer || !PlayerLifeStates[i] || CurrentPlayer != AlonePlayer) 
+        if (i == CurrentPlayer || !PlayerLifeStates [i] || CurrentPlayer != AlonePlayer) 
             continue;
-            
-        if ( CurrentPlayer != AlonePlayer && i != AlonePlayer) // CurrentPlayer	is in the same team as Player i
-			continue;
-			
-        if (PlayerPositions [CurrentPlayer].first == PlayerPositions [i].first
-                && PlayerPositions [CurrentPlayer].second == PlayerPositions [i].second)
-        {
-            PlayerLifeStates[i] = false;
-        }
-    }
 
-    static array<unsigned, 4> AlonePlayerTurnCounters;
+        if (PlayerPositions [CurrentPlayer] == PlayerPositions [i] && i == AlonePlayer)
+            PlayerLifeStates[i] = false;
+    }
 
 	if (CurrentPlayer == AlonePlayer)
 		AlonePlayerTurnCounters[AlonePlayer]++;
@@ -60,6 +54,8 @@ void Classic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned Pl
     PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
     PlayerPositions [2] = { 0, 0}; // Top left
     PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
+    
+    ++AlonePlayer;
 }
 
 void Classic3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
@@ -80,4 +76,18 @@ void Classic3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions
 bool Classic3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {    
     return !PlayerLifeStates [AlonePlayer];
+}
+
+void Classic3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
+{
+    Menu::Clear ();
+
+    for (unsigned i = 0; i < 4; ++i)
+    {
+        stringstream Winner;
+        Winner << "Player " << i + 1 << " lasted " << AlonePlayerTurnCounters [i] << " rounds.";
+        Menu::AddItem(Winner.str(), [] () {} );
+    }
+
+    Menu::Run (true);
 }

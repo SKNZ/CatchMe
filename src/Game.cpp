@@ -127,7 +127,7 @@ int Game::Run ()
 
                     if (Console::WaitForKeyPress (Config::TurnTimeoutDelay))
                     {
-                        char Opcode = cin.get ();
+                        char Opcode = tolower (cin.get ());
 
                         Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find (Opcode);
                         if (Action == string::npos)

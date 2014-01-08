@@ -19,4 +19,6 @@ namespace Classic3v1
 	void ValidatePlayerPositions(const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
     
     bool IsGameOver (const std::vector<bool>& PlayerLifeStates);
+
+    void ShowWinScreen (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, std::vector<unsigned> TurnCounters);
 }

@@ -12,7 +12,6 @@ using namespace std;
 namespace
 {
 	Game::CPositions ForbiddenPositions;
-	Game::CPositions AuthorizedAlonePositions;
     array<unsigned, 4> AlonePlayerTurnCounters;
 
     int AlonePlayer = -1;
@@ -22,7 +21,7 @@ void Survivor3v1::GetSize (CPosition& Size)
 {
     Menu::Clear ();
     
-//     Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
+    Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
     Menu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
     Menu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
 
@@ -84,6 +83,9 @@ void Survivor3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosition
     FileName << "./" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
 
     Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
+    
+    for (CPosition Position : ForbiddenPositions)
+        Matrix [Position.first] [Position.second] = Game::KTokens [Game::KTokenObstacle];
 }
 
 bool Survivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)

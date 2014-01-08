@@ -78,6 +78,9 @@ void Survivor2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosition
     FileName << "./" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
 
     Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
+    
+    for (CPosition Position : ForbiddenPositions)
+        Matrix [Position.first] [Position.second] = Game::KTokens [Game::KTokenObstacle];
 }
 
 bool Survivor2v2::IsGameOver (const vector<bool>& PlayerLifeStates)

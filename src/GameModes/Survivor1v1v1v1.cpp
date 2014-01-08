@@ -68,6 +68,9 @@ void Survivor1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosi
     FileName << "./" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
 
     Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
+    
+    for (CPosition Position : ForbiddenPositions)
+        Matrix [Position.first] [Position.second] = Game::KTokens [Game::KTokenObstacle];
 }
 
 
