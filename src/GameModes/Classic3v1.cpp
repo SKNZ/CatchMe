@@ -33,7 +33,7 @@ void Classic3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, c
 
 void Classic3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-    if (PlayerPositions [CurrentPlayer] == PlayerPositions [AlonePlayer])
+    if (PlayerPositions [CurrentPlayer] == PlayerPositions [AlonePlayer] && CurrentPlayer != AlonePlayer)
         PlayerLifeStates [AlonePlayer] = false;
 
 	if (CurrentPlayer == AlonePlayer)
