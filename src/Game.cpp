@@ -130,7 +130,7 @@ int Game::Run ()
                         char Opcode = tolower (cin.get ());
 
                         Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find (Opcode);
-                        if (Action == string::npos)
+                        if (Action == string::npos || Action == 4) // 4 is the position of the middle key (such as S or 5). We do not want it.
                         {
                             cout << "The key you entered wasn't valid." << endl;
                             Console::WaitForKeyPress (Config::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
