@@ -130,7 +130,7 @@ void Menu::Run (bool IsWinMenu)
         DrawBorder (SizeX);
 
         // Handle user input
-        switch (cin.get ())
+        switch (tolower (cin.get ()))
         {
             case 'z': // Up
                 Selection = Selection == 0 ? MenuItems.size() - 1 : Selection - 1; // If first item, then go to last item, else move previous item
