@@ -1,11 +1,11 @@
+#include <sstream>
+#include <algorithm>
+
 #include "Survivor3v1.h"
 #include "Helpers.h"
 
 #include "../Game.h"
 #include "../Menu.h"
-
-#include <sstream>
-#include <algorithm>
 
 using namespace std;
 

@@ -1,10 +1,10 @@
+#include <sstream>
+
 #include "Classic1v1.h"
 #include "Helpers.h"
 
 #include "../Game.h"
 #include "../Menu.h"
-
-#include <sstream>
 
 using namespace std;
 

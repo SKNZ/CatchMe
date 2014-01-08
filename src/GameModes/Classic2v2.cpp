@@ -1,12 +1,10 @@
+#include <sstream>
+
 #include "Classic2v2.h"
 #include "Helpers.h"
 
 #include "../Game.h"
 #include "../Menu.h"
-
-#include <sstream>
-
-#include <sstream>
 
 using namespace std;
 

@@ -28,11 +28,7 @@
 
 namespace Game
 {
-    // Constants
-    // const unsigned                      KMaxPlayerCount          = 4;
-    // const unsigned                      KMinPlayerCount          = 2; // @todo This should be lowered to one if/once the "Player vs Computer" mode is ready.
-
-    const std::vector<SGameMode>        KGameModes = 
+    const std::vector<SGameMode> KGameModes = 
     {
         MakeGameMode ("Classic 1v1", 2, Classic1v1::GetSize, Classic1v1::MovePlayer, Classic1v1::InitializePlayerPositions, Classic1v1::BuildMatrix, Classic1v1::ValidatePlayerPositions, Classic1v1::IsGameOver),
         MakeGameMode ("Classic 1v1v1", 3, Classic1v1v1::GetSize, Classic1v1v1::MovePlayer, Classic1v1v1::InitializePlayerPositions, Classic1v1v1::BuildMatrix, Classic1v1v1::ValidatePlayerPositions, Classic1v1v1::IsGameOver),
@@ -46,23 +42,12 @@ namespace Game
         MakeGameMode ("Survivor 2v2", 4, Survivor2v2::GetSize, Survivor2v2::MovePlayer, Survivor2v2::InitializePlayerPositions, Survivor2v2::BuildMatrix, Survivor2v2::ValidatePlayerPositions, Survivor2v2::IsGameOver),
         MakeGameMode ("Survivor 3v1", 4, Survivor3v1::GetSize, Survivor3v1::MovePlayer, Survivor3v1::InitializePlayerPositions, Survivor3v1::BuildMatrix, Survivor3v1::ValidatePlayerPositions, Survivor3v1::IsGameOver),
     };
+/*
 
-    /**
-     * 
-     * @brief The duration during which the game will be suspended to let the player read the error message.
-     * 
-     * @warning This should only be used for gameplay related error messages, such as wrong key
-     *          and not for technical problems (such as exceptions reports).
-     * 
-     */
     const unsigned KErrorMessageDisplayTime = 1000;
 
-    /**
-     * 
-     * @brief The interval between each render loop.
-     * 
-     */
-    const std::chrono::milliseconds KRenderLoopInterval (100);
+
+    const std::chrono::milliseconds KRenderLoopInterval (100);*/
 
 	enum TokenIds
 	{

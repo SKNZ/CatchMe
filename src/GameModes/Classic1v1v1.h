@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+
 #include "../GameMode.h"
 
 namespace Classic1v1v1

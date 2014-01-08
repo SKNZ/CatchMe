@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+
 #include "../GameMode.h"
 
 namespace Survivor3v1

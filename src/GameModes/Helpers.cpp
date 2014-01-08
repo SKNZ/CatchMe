@@ -1,19 +1,35 @@
-#include "Helpers.h"
-
 #include <fstream>
+
+#include "Helpers.h"
 
 using namespace Game;
 
 void Helpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
-    int DiffX = static_cast<int> (MoveX);
     int DiffY = static_cast<int> (MoveY);
-    
-    if (PlayerPosition.first + DiffY >= 0 && PlayerPosition.first + DiffY < MatrixSize.first)
-        PlayerPosition.first += DiffY;
+    int DiffX = static_cast<int> (MoveX);
 
-    if (PlayerPosition.second + DiffX >= 0 && PlayerPosition.second + DiffX < MatrixSize.second)
-        PlayerPosition.second += DiffX;
+    if (PlayerPosition.first + DiffY < 0 || PlayerPosition.first + DiffY >= MatrixSize.first)
+        DiffY = 0;
+
+    if (PlayerPosition.second + DiffX < 0 || PlayerPosition.second + DiffX >= MatrixSize.second)
+        DiffX = 0;
+
+    if (PlayerPosition.first + DiffY > 0 && PlayerPosition.second + DiffX > 0
+        && PlayerPosition.first + DiffY < MatrixSize.first && PlayerPosition.second + DiffX < MatrixSize.second)
+    {
+        if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle]) // Is direct movement impossbru ? Try to keep just X or Y movement
+        {
+            if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle])
+                DiffY = 0;
+
+            if (Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
+                DiffX = 0;
+        }
+    }
+
+    PlayerPosition.first += DiffY;
+    PlayerPosition.second += DiffX;
 }
 
 void Helpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
