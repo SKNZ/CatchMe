@@ -35,9 +35,9 @@ void Survivor1v1v1v1::ValidatePlayerPositions (const CPositions& PlayerPositions
 {
 	Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 	
-    for (unsigned i = 0; i < 4; ++i)
-        if (PlayerPositions [i] == PlayerPositions [CurrentPlayer] && i != CurrentPlayer)
-            PlayerLifeStates [i] = false;
+    for (CPosition Position : ForbiddenPositions)
+            if (PlayerPositions [CurrentPlayer] == Position)
+                PlayerLifeStates [CurrentPlayer] = false;
 
     if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
         ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);

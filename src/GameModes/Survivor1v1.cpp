@@ -40,15 +40,13 @@ void Survivor1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, 
 void Survivor1v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
-    	
-	for (CPosition Position : ForbiddenPositions)
-		for (unsigned i = 0; i < 4; ++i)
-			if (PlayerPositions [i] == Position)
-				PlayerLifeStates [i] = false;
 
-	for (CPosition Position : PlayerPositions)
-		if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), Position) == ForbiddenPositions.cend())
-			ForbiddenPositions.push_back (Position);
+	for (CPosition Position : ForbiddenPositions)
+			if (PlayerPositions [CurrentPlayer] == Position)
+				PlayerLifeStates [CurrentPlayer] = false;
+
+    if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
+        ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);
 }
 
 void Survivor1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
