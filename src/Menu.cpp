@@ -159,7 +159,7 @@ void Menu::ShowSimpleWinScreen (const vector<bool>& PlayerLifeStates, std::vecto
         if (PlayerLifeStates [i])
         {
             stringstream Winner;
-            Winner << "Player " << i << " '" << Tokens [i] << "' won in " << TurnCounters [i] << " turn.";
+            Winner << "Player " << i + 1 << " '" << Tokens [i] << "' won in " << TurnCounters [i] << " turn.";
             AddItem(Winner.str(), [] () {} );
         }
 

@@ -98,7 +98,7 @@ void Survivor3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, st
     for (unsigned i = 0; i < 4; ++i)
     {
         stringstream Winner;
-        Winner << "Player " << i << " lasted " << AlonePlayerTurnCounters [i] << " rounds.";
+        Winner << "Player " << i + 1 << " lasted " << AlonePlayerTurnCounters [i] << " rounds.";
         Menu::AddItem(Winner.str(), [] () {} );
     }
 
