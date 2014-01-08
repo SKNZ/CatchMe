@@ -30,7 +30,7 @@ namespace Game
     typedef std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> FBuildMatrix;
     typedef std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)> FValidatePlayerPositions;
     typedef std::function<bool (const std::vector<bool>& PlayerLifeStates)> FIsGameOver;
-    typedef std::function<void (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, unsigned TurnCounter)> FShowWinScreen;
+    typedef std::function<void (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, std::vector<unsigned> TurnCounters)> FShowWinScreen;
 
     struct SGameMode
     {

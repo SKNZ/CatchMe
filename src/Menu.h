@@ -42,5 +42,5 @@ namespace Menu
         * Shows a simple default winning screen announcing the player that won.
         * 
         **/
-    void ShowSimpleWinScreen (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, unsigned TurnCounter);
+    void ShowSimpleWinScreen (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, std::vector<unsigned> TurnCounters);
 }

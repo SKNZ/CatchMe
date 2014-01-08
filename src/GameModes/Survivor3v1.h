@@ -20,5 +20,5 @@ namespace Survivor3v1
     
     bool IsGameOver (const std::vector<bool>& PlayerLifeStates);
     
-    void ShowWinScreen (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, unsigned TurnCounter);
+    void ShowWinScreen (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, std::vector<unsigned> TurnCounters);
 }

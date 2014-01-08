@@ -151,7 +151,7 @@ void Menu::Run (bool IsWinMenu)
     }
 }
 
-void Menu::ShowSimpleWinScreen (const vector<bool>& PlayerLifeStates, std::vector<char> Tokens, unsigned TurnCounter)
+void Menu::ShowSimpleWinScreen (const vector<bool>& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
 {
     Clear ();
 
@@ -159,7 +159,7 @@ void Menu::ShowSimpleWinScreen (const vector<bool>& PlayerLifeStates, std::vecto
         if (PlayerLifeStates [i])
         {
             stringstream Winner;
-            Winner << "Player " << i << " '" << Tokens [i] << "' won in " << TurnCounter << " rounds.";
+            Winner << "Player " << i << " '" << Tokens [i] << "' won in " << TurnCounters [i] << " turn.";
             AddItem(Winner.str(), [] () {} );
         }
 

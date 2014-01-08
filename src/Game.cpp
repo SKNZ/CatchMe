@@ -85,10 +85,10 @@ int Game::Run ()
 
     for (;;)
     {
-        SGameMode       GameMode;
-        CPosition       Size;
-        vector<bool>    PlayerLifeStates;
-        unsigned        TurnCounter = 0;
+        SGameMode        GameMode;
+        CPosition        Size;
+        vector<bool>     PlayerLifeStates;
+        vector<unsigned> TurnCounters;
 
         GetGameMode (GameMode);
         GameMode.GetSize (Size);
@@ -97,10 +97,10 @@ int Game::Run ()
         {
             CPositions      PlayerPositions;
             unsigned        CurrentPlayer = 0; // Whose turn it is
-                            TurnCounter = 0;
             CMatrix         Matrix;
 
             PlayerLifeStates.resize (GameMode.PlayerCount, true);
+            TurnCounters.resize (GameMode.PlayerCount, 0);
 
             Matrix.resize (Size.first);
  
@@ -152,14 +152,14 @@ int Game::Run ()
                     GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
                 }
 
-                ++TurnCounter;
+                ++TurnCounters [CurrentPlayer];
                 ++CurrentPlayer;
                 if (CurrentPlayer >= GameMode.PlayerCount)
                     CurrentPlayer = 0;
             }
         }
 
-        GameMode.ShowWinScreen (PlayerLifeStates, KTokens, TurnCounter);
+        GameMode.ShowWinScreen (PlayerLifeStates, KTokens, TurnCounters);
     }
 
     return 0;

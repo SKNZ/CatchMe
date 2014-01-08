@@ -51,6 +51,8 @@ void Survivor1v1v1v1::InitializeRound (CPositions& PlayerPositions, const unsign
     PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
     PlayerPositions [2] = { 0, 0}; // Top left
     PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
+    
+    ForbiddenPositions.clear ();
 }
 
 void Survivor1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)

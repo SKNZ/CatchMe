@@ -68,6 +68,7 @@ void Survivor3v1::InitializeRound (CPositions& PlayerPositions, const unsigned P
     PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
     
     ++AlonePlayer;
+    ForbiddenPositions.clear ();
 }
 
 void Survivor3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
@@ -90,7 +91,7 @@ bool Survivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
     return !PlayerLifeStates [AlonePlayer];
 }
 
-void Survivor3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, std::vector<char> Tokens, unsigned TurnCounter)
+void Survivor3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
 {
     Menu::Clear ();
 
