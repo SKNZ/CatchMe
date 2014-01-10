@@ -61,6 +61,17 @@ void Survivor3v1::InitializeRound (CPositions& PlayerPositions, const unsigned P
     PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
     
     ++AlonePlayer;
+
+    Menu::Clear ();
+    
+    std::stringstream Text;
+
+    Text << "The lone player is '" << KTokens [AlonePlayer] << '.';
+
+    Menu::AddItem (Text.str (), [] () { });
+   
+    Menu::Run ();
+
     ForbiddenPositions.clear ();
 }
 

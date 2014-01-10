@@ -135,7 +135,8 @@ int Game::Run ()
         GameMode.GetSize (Size);
         
         IsPlayerBot.resize (GameMode.PlayerCount, false);
-        AddBots (IsPlayerBot);
+        if (GameMode.PlayerCount < 2) // We only want bots for 1v1 games.
+            AddBots (IsPlayerBot);
 
         for (unsigned i = 0; i < GameMode.RoundCount; ++i)
         {
@@ -194,7 +195,7 @@ int Game::Run ()
                 if (CurrentPlayer >= GameMode.PlayerCount)
                     CurrentPlayer = 0;
             }
-            
+
             Menu::Clear ();
             
             Menu::AddItem ("Next round !", [] () {});
