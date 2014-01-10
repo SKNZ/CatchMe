@@ -16,6 +16,8 @@
 #include "GameUI.h"
 #include "Config.h"
 #include "Console.h"
+#include "GameMode.h"
+#include "Bot.h"
 
 using namespace std;
 
@@ -38,6 +40,44 @@ namespace
         Menu::AddItem("Quitter", [] () { exit(0); });
 
         Menu::Run ();
+    }
+    
+    bool GetUserAction (size_t& Action, unsigned CurrentPlayer)
+    {
+        if (Console::WaitForKeyPress (Config::TurnTimeoutDelay))
+        {
+            char Opcode = tolower (cin.get ());
+
+            Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find (Opcode);
+            if (Action == string::npos || Action == 4) // 4 is the position of the middle key (such as S or 5). We do not want it.
+            {
+                cout << "The key you entered wasn't valid." << endl;
+                Console::WaitForKeyPress (Config::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
+            
+                return false;
+            }
+        }
+        else
+        {
+            srand (time(NULL));
+
+            Action = rand () % 8;
+        }
+        
+        return true;
+    }
+    
+    void AddBots (vector<bool>& IsPlayerBot)
+    {
+        for (unsigned i = 1; i < IsPlayerBot.size (); ++i)
+        {
+            Menu::Clear ();
+            
+            Menu::AddItem ("The player " + to_string (i + 1) + " is a bot.", [&IsPlayerBot, i] () { IsPlayerBot [i] = true; });
+            Menu::AddItem ("The player " + to_string (i + 1) + " is not a bot.", [&IsPlayerBot, i] () { IsPlayerBot [i] = false; });
+            
+            Menu::Run ();
+        }
     }
 
     void MovementHandler (int Action, const CMatrix& Matrix, CPositions& PlayerPositions, const unsigned CurrentPlayer, const CPosition& Size, const SGameMode& GameMode)
@@ -88,11 +128,15 @@ int Game::Run ()
         SGameMode        GameMode;
         CPosition        Size;
         vector<bool>     PlayerLifeStates;
+        vector<bool>     IsPlayerBot;
         vector<unsigned> TurnCounters;
 
         GetGameMode (GameMode);
         GameMode.GetSize (Size);
         
+        IsPlayerBot.resize (GameMode.PlayerCount, false);
+        AddBots (IsPlayerBot);
+
         for (unsigned i = 0; i < GameMode.RoundCount; ++i)
         {
             CPositions      PlayerPositions;
@@ -125,27 +169,18 @@ int Game::Run ()
                 {
                     size_t Action = 0;
 
-                    if (Console::WaitForKeyPress (Config::TurnTimeoutDelay))
+                    if (IsPlayerBot [CurrentPlayer])
                     {
-                        char Opcode = tolower (cin.get ());
-
-                        Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find (Opcode);
-                        if (Action == string::npos || Action == 4) // 4 is the position of the middle key (such as S or 5). We do not want it.
-                        {
-                            cout << "The key you entered wasn't valid." << endl;
-                            Console::WaitForKeyPress (Config::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
-
-                            continue; // The player failed. Let's render the grid again and ask him once more.
-                        }
+                        Bot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
+                        this_thread::sleep_for (std::chrono::milliseconds (Config::BotPlayDelay)); // Render loop interval
                     }
                     else
                     {
-                        srand (time(NULL));
+                        if (!GetUserAction (Action, CurrentPlayer))
+                            continue;
 
-                        Action = rand () % 8;
+                        MovementHandler (Action, Matrix, PlayerPositions, CurrentPlayer, Size, GameMode);
                     }
-
-                    MovementHandler (Action, Matrix, PlayerPositions, CurrentPlayer, Size, GameMode);
 
                     GameMode.ValidatePlayerPositions (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 

@@ -6,6 +6,7 @@
 unsigned Game::Config::RenderLoopInterval;
 unsigned Game::Config::ErrorMessageDisplayTime;
 unsigned Game::Config::TurnTimeoutDelay;
+unsigned Game::Config::BotPlayDelay;
 
 void Game::Config::LoadFile ()
 {
@@ -17,4 +18,5 @@ void Game::Config::LoadFile ()
     RenderLoopInterval      = PropertyTree.get  ("Conf.RenderLoopInterval",         100);
     ErrorMessageDisplayTime = PropertyTree.get  ("Conf.ErrorMessageDisplayTime",    1000);
     TurnTimeoutDelay        = PropertyTree.get  ("Conf.TurnTimeoutDelay",           15000);
+    BotPlayDelay            = PropertyTree.get  ("Conf.BotPlayDelay",               500);
 }

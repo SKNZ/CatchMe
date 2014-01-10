@@ -65,7 +65,7 @@ void Console::DisableCanonicalInputMode ()
     tcsetattr (STDIN_FILENO, TCSANOW, &term); // Set modified terminal attributes
 
     cin.sync_with_stdio(); // This is necessary for non-blocking timed I/O using poll.
-    
+
     atexit (EnableCanonicalInputMode); // Once the program exits, put it back the way it was before
 }
 

@@ -39,5 +39,12 @@ namespace Game
           * 
           **/
          extern unsigned TurnTimeoutDelay;
+         
+         /**
+          * 
+          * @brief How long the bot should wait before making his move (its aimed at making it look more real). 
+          * 
+          **/
+         extern unsigned BotPlayDelay;
     }
 }

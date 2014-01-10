@@ -47,7 +47,7 @@ namespace Game
 
     enum TokenIds
     {
-        KTokenlayer1,
+        KTokenPlayer1,
         KTokenPlayer2,
         KTokenPlayer3,
         KTokenPlayer4,
