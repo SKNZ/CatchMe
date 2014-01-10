@@ -197,11 +197,14 @@ int Game::Run ()
                     CurrentPlayer = 0;
             }
 
-            Menu::Clear ();
+            if (i != GameMode.RoundCount)
+            {
+                Menu::Clear ();
             
-            Menu::AddItem ("Next round !", [] () {});
-            
-            Menu::Run ();
+                Menu::AddItem ("Next round !", [] () {});
+                
+                Menu::Run ();
+            }
         }
 
         GameMode.ShowWinScreen (PlayerLifeStates, KTokens, TurnCounters);
