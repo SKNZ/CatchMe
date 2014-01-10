@@ -95,7 +95,12 @@ void Survivor3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPosition
 
 bool Survivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
-    return !PlayerLifeStates [AlonePlayer];
+    unsigned DeadChaserCount = 0;
+    for (unsigned i = 0; i < PlayerLifeStates.size (); ++i)
+        if (i != AlonePlayer && !PlayerLifeStates [i])
+            ++DeadChaserCount;
+
+    return !PlayerLifeStates [AlonePlayer] || DeadChaserCount == 3;
 }
 
 void Survivor3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)

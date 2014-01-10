@@ -148,6 +148,7 @@ int Game::Run ()
             fill (PlayerLifeStates.begin (), PlayerLifeStates.end (), true);
             
             TurnCounters.resize (GameMode.PlayerCount, 0);
+            fill (TurnCounters.begin (), TurnCounters.end (), 0);
 
             Matrix.resize (Size.first);
  

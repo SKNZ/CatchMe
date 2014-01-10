@@ -15,8 +15,8 @@ void Helpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, cons
     if (PlayerPosition.second + DiffX < 0 || PlayerPosition.second + DiffX >= MatrixSize.second)
         DiffX = 0;
 
-    if (PlayerPosition.first + DiffY > 0 && PlayerPosition.second + DiffX > 0
-        && PlayerPosition.first + DiffY < MatrixSize.first && PlayerPosition.second + DiffX < MatrixSize.second)
+    if (PlayerPosition.first + DiffY >= 0 && PlayerPosition.second + DiffX >= 0
+        && PlayerPosition.first + DiffY <= MatrixSize.first && PlayerPosition.second + DiffX <= MatrixSize.second)
     {
         if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle]) // Is direct movement impossbru ? Try to keep just X or Y movement
         {
