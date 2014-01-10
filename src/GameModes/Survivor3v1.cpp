@@ -35,18 +35,12 @@ void Survivor3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, 
 
 void Survivor3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-    for (unsigned i = 0; i < PlayerPositions.size (); ++i)
-    {
-        if (i == CurrentPlayer || !PlayerLifeStates [i] || CurrentPlayer != AlonePlayer) 
-            continue;
-
-        if (PlayerPositions [CurrentPlayer] == PlayerPositions [i] && i == AlonePlayer)
-            PlayerLifeStates[i] = false;
-    }
-
     if (CurrentPlayer != AlonePlayer)
     {
-        if (find(ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend()) 
+        if (PlayerPositions [CurrentPlayer] == PlayerPositions [AlonePlayer])
+            PlayerLifeStates [AlonePlayer] = false;
+
+        if (find(ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
             ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);
         else
             PlayerLifeStates [CurrentPlayer] = false;
