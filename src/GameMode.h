@@ -28,7 +28,7 @@ namespace Game
     typedef std::function<void (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)> FMovePlayer;
     typedef std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> FInitializeRound;
     typedef std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> FBuildMatrix;
-    typedef std::function<void (CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)> FValidatePlayerPositions;
+    typedef std::function<void (const CMatrix& Matrix, CPositions PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)> FValidatePlayerPositions;
     typedef std::function<bool (const std::vector<bool>& PlayerLifeStates)> FIsGameOver;
     typedef std::function<void (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, std::vector<unsigned> TurnCounters)> FShowWinScreen;
 
@@ -76,7 +76,7 @@ namespace Game
          * @todo Randomize each player number (so that the same player doesn't start in the same spot everytime).
          * 
          * Ex:
-         *  Player 1 is top right.
+         *  Player 1 is top right.onst CMatrix& 
          *  Player 2 is bottom left.
          *  Player 3 is top left.
          *  Player 4 is bottom right.

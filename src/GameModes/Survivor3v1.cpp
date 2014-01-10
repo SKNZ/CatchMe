@@ -33,7 +33,7 @@ void Survivor3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, 
     Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Survivor3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void Survivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     if (CurrentPlayer != AlonePlayer)
     {
@@ -48,6 +48,18 @@ void Survivor3v1::ValidatePlayerPositions (const CPositions& PlayerPositions, un
     else
     {
 		AlonePlayerTurnCounters [AlonePlayer]++;
+
+        int Y = PlayerPositions [CurrentPlayer].first, X = PlayerPositions [CurrentPlayer].second;
+
+        bool SurroundedByObstacles = true;
+        for (int i = -1; i < 1; ++i)
+            for (int j = -1; i < 1; ++i)
+                if (Matrix [Y + i] [X + j] != KTokens [KTokenObstacle])
+                    SurroundedByObstacles = false;
+                
+        if (SurroundedByObstacles)
+            PlayerLifeStates [CurrentPlayer] = false;
+                    
     }
 }
 

@@ -23,7 +23,7 @@ void Classic1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, c
     Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic1v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void Classic1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 }

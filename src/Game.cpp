@@ -186,7 +186,7 @@ int Game::Run ()
                         MovementHandler (Action, Matrix, PlayerPositions, CurrentPlayer, Size, GameMode);
                     }
 
-                    GameMode.ValidatePlayerPositions (PlayerPositions, CurrentPlayer, PlayerLifeStates);
+                    GameMode.ValidatePlayerPositions (Matrix, PlayerPositions, CurrentPlayer, PlayerLifeStates);
 
                     GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
                 }

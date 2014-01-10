@@ -16,7 +16,7 @@ namespace Classic3v1
    
     void BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken);
     
-	void ValidatePlayerPositions(const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
+	void ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
     
     bool IsGameOver (const std::vector<bool>& PlayerLifeStates);
 

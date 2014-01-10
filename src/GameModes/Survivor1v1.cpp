@@ -37,7 +37,7 @@ void Survivor1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, 
         PlayerPosition.second += DiffX;
 }
 
-void Survivor1v1::ValidatePlayerPositions (const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void Survivor1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 
