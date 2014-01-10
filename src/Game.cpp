@@ -144,6 +144,8 @@ int Game::Run ()
             CMatrix         Matrix;
 
             PlayerLifeStates.resize (GameMode.PlayerCount, true);
+            fill (PlayerLifeStates.begin (), PlayerLifeStates.end (), true);
+            
             TurnCounters.resize (GameMode.PlayerCount, 0);
 
             Matrix.resize (Size.first);
@@ -192,6 +194,12 @@ int Game::Run ()
                 if (CurrentPlayer >= GameMode.PlayerCount)
                     CurrentPlayer = 0;
             }
+            
+            Menu::Clear ();
+            
+            Menu::AddItem ("Next round !", [] () {});
+            
+            Menu::Run ();
         }
 
         GameMode.ShowWinScreen (PlayerLifeStates, KTokens, TurnCounters);

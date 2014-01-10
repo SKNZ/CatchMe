@@ -46,7 +46,7 @@ void Classic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned Pl
 
     PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top right
     PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
-    PlayerPositions [2] = { 0, 0}; // Top left
+    PlayerPositions [2] = { 0, 0 }; // Top left
     PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
     
     ++AlonePlayer;
