@@ -75,11 +75,11 @@ namespace Game
          * 
          * @todo Randomize each player number (so that the same player doesn't start in the same spot everytime).
          * 
-		 * Ex:
-         * 	Player 1 is top right.
-         * 	Player 2 is bottom left.
-         * 	Player 3 is top left.
-         * 	Player 4 is bottom right.
+         * Ex:
+         *  Player 1 is top right.
+         *  Player 2 is bottom left.
+         *  Player 3 is top left.
+         *  Player 4 is bottom right.
          * 
          **/
         FInitializeRound InitializeRound;
@@ -90,7 +90,7 @@ namespace Game
          * 
          **/
         FBuildMatrix BuildMatrix;
-	
+    
         /**
          * 
          * @brief Checks if a players position overlaps with another one

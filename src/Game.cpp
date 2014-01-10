@@ -16,6 +16,7 @@
 #include "GameUI.h"
 #include "Config.h"
 #include "Console.h"
+#include "Network.h"
 
 using namespace std;
 
@@ -93,6 +94,8 @@ int Game::Run ()
         GetGameMode (GameMode);
         GameMode.GetSize (Size);
         
+        Network::AwaitConnections (GameMode.PlayerCount);
+        
         for (unsigned i = 0; i < GameMode.RoundCount; ++i)
         {
             CPositions      PlayerPositions;
@@ -141,7 +144,7 @@ int Game::Run ()
                     else
                     {
                         srand (time(NULL));
-                        
+
                         Action = rand () % 8;
                     }
 

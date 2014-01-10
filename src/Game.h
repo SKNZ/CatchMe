@@ -45,16 +45,16 @@ namespace Game
         MakeGameMode ("Survivor 3v1", 4, 4, Survivor3v1::GetSize, Survivor3v1::MovePlayer, Survivor3v1::InitializeRound, Survivor3v1::BuildMatrix, Survivor3v1::ValidatePlayerPositions, Survivor3v1::IsGameOver, Survivor3v1::ShowWinScreen),
     };
 
-	enum TokenIds
-	{
-		KTokenlayer1,
-		KTokenPlayer2,
-		KTokenPlayer3,
-		KTokenPlayer4,
-		KTokenObstacle,
-		KTokenEmpty
-	};
-	
+    enum TokenIds
+    {
+        KTokenlayer1,
+        KTokenPlayer2,
+        KTokenPlayer3,
+        KTokenPlayer4,
+        KTokenObstacle,
+        KTokenEmpty
+    };
+    
     /**
      *
      * @brief List of all the possible tokens.
@@ -70,7 +70,7 @@ namespace Game
         'O',
         '#',
         '@',
-		'|',
+        '|',
         ' '
     };
 
