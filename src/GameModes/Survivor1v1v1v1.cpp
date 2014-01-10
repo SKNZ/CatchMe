@@ -39,7 +39,7 @@ void Survivor1v1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPos
             if (PlayerPositions [CurrentPlayer] == Position)
                 PlayerLifeStates [CurrentPlayer] = false;
 
-    if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
+    if(PlayerLifeStates[CurrentPlayer] && find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
         ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);
 }
 

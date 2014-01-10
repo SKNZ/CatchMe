@@ -38,7 +38,8 @@ void Survivor1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPosit
         if (PlayerPositions [CurrentPlayer] == Position)
             PlayerLifeStates [CurrentPlayer] = false;
 
-    if(find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
+    // If he just died, there will be someone else on his spot, so no obstacle yet.
+    if(PlayerLifeStates[CurrentPlayer] && find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
         ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);
 }
 
