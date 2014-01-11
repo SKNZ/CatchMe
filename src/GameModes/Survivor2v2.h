@@ -1,11 +1,11 @@
 /**
- * @file   Classic1v1.h
+ * @file   Survivor2v2.h
  * 
  * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
  *
  * @date   12/01/2014
  *
- * @brief  Add item to menu, clear menu, draw menu helpers, run menu definitions
+ * @brief  Survivor 2v2 game mode
  *
  **/
 #pragma once

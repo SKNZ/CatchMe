@@ -1,3 +1,13 @@
+/**
+ * @file   Helpers.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Redundant code about player movement, player positions validation, obstacles loading, matrix building
+ *
+ **/
 #include <fstream>
 #include <sstream>
 
