@@ -1,5 +1,3 @@
-#include <sstream>
-
 #include "Classic1v1v1.h"
 #include "Helpers.h"
 
@@ -7,6 +5,11 @@
 #include "../Menu.h"
 
 using namespace std;
+
+namespace
+{
+    Game::CPositions ObstaclesPositions;
+}
 
 void Classic1v1v1::GetSize (CPosition& Size)
 {
@@ -36,21 +39,14 @@ void Classic1v1v1::InitializeRound (CPositions& PlayerPositions, const unsigned 
     PlayerPositions [0] = { 0, MaxSize.second - 1 }; // Top right
     PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
     PlayerPositions [2] = { 0, 0 }; // Top left
+
+    ObstaclesPositions.clear ();
+    Helpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
 }
 
 void Classic1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
-    for (CLine& Line : Matrix)
-        fill (Line.begin (), Line.end (), EmptyToken);
-
-    for (unsigned i = 0; i < PlayerPositions.size(); ++i)
-        if (PlayerLifeStates[i])
-            Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
-
-    std::stringstream FileName;
-    FileName << "./" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
-
-    Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
+    Helpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
 }
 
 bool Classic1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)

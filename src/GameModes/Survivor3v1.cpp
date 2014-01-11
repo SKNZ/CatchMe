@@ -1,5 +1,5 @@
-#include <sstream>
 #include <algorithm>
+#include <sstream>
 
 #include "Survivor3v1.h"
 #include "Helpers.h"
@@ -11,7 +11,7 @@ using namespace std;
 
 namespace
 {
-	Game::CPositions ForbiddenPositions;
+	Game::CPositions ObstaclesPositions;
     array<unsigned, 4> AlonePlayerTurnCounters;
 
     int AlonePlayer = -1;
@@ -20,7 +20,7 @@ namespace
 void Survivor3v1::GetSize (CPosition& Size)
 {
     Menu::Clear ();
-    
+
     Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
     Menu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
     Menu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
@@ -35,32 +35,31 @@ void Survivor3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, 
 
 void Survivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-    if (CurrentPlayer != AlonePlayer)
+    if (CurrentPlayer == AlonePlayer)
+    {
+		AlonePlayerTurnCounters [AlonePlayer]++;
+    }
+    else
     {
         if (PlayerPositions [CurrentPlayer] == PlayerPositions [AlonePlayer])
             PlayerLifeStates [AlonePlayer] = false;
 
-        if (find(ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
-            ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);
+        if (find(ObstaclesPositions.cbegin(), ObstaclesPositions.cend(), PlayerPositions [CurrentPlayer]) == ObstaclesPositions.cend()) // If Position is not obstacle
+            ObstaclesPositions.push_back (PlayerPositions [CurrentPlayer]);
         else
             PlayerLifeStates [CurrentPlayer] = false;
     }
-    else
-    {
-		AlonePlayerTurnCounters [AlonePlayer]++;
 
-        int Y = PlayerPositions [CurrentPlayer].first, X = PlayerPositions [CurrentPlayer].second;
+    int Y = PlayerPositions [CurrentPlayer].first, X = PlayerPositions [CurrentPlayer].second;
 
-        bool SurroundedByObstacles = true;
-        for (int i = -1; i < 1; ++i)
-            for (int j = -1; i < 1; ++i)
-                if (Matrix [Y + i] [X + j] != KTokens [KTokenObstacle])
-                    SurroundedByObstacles = false;
-                
-        if (SurroundedByObstacles)
-            PlayerLifeStates [CurrentPlayer] = false;
-                    
-    }
+    bool SurroundedByObstacles = true;
+    for (int i = -1; i < 1; ++i)
+        for (int j = -1; i < 1; ++i)
+            if (Matrix [Y + i] [X + j] != KTokens [KTokenObstacle])
+                SurroundedByObstacles = false;
+
+    if (SurroundedByObstacles)
+        PlayerLifeStates [CurrentPlayer] = false;
 }
 
 void Survivor3v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
@@ -71,38 +70,24 @@ void Survivor3v1::InitializeRound (CPositions& PlayerPositions, const unsigned P
     PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
     PlayerPositions [2] = { 0, 0 }; // Top left
     PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
-    
+
     ++AlonePlayer;
 
     Menu::Clear ();
-    
+
     std::stringstream Text;
-
     Text << "The lone player is '" << KTokens [AlonePlayer] << '.';
+    Menu::AddItem (Text.str ());
 
-    Menu::AddItem (Text.str (), [] () { });
-   
     Menu::Run ();
 
-    ForbiddenPositions.clear ();
+    ObstaclesPositions.clear ();
+    Helpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
 }
 
 void Survivor3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
-    for (CLine& Line : Matrix)
-        fill (Line.begin (), Line.end (), EmptyToken);
-    
-    for (CPosition Position : ForbiddenPositions)
-        Matrix [Position.first] [Position.second] = Game::KTokens [Game::KTokenObstacle];
-
-    for (unsigned i = 0; i < PlayerPositions.size (); ++i)
-        if (PlayerLifeStates[i])
-            Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
-
-    std::stringstream FileName;
-    FileName << "./" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
-
-    Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
+    Helpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
 }
 
 bool Survivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
@@ -123,9 +108,8 @@ void Survivor3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, st
     {
         stringstream Winner;
         Winner << "Player " << i + 1 << " lasted " << AlonePlayerTurnCounters [i] << " rounds.";
-        Menu::AddItem(Winner.str(), [] () {} );
+        Menu::AddItem(Winner.str());
     }
 
     Menu::Run (true);
 }
-

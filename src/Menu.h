@@ -19,7 +19,7 @@ namespace Menu
      * @brief Adds an item to menu, which is associated to a callback function, that will be used if said item is the users final choice.
      * 
      **/
-    void AddItem (std::string ItemName, std::function<void (void)> Callback);
+    void AddItem (std::string ItemName, std::function<void (void)> Callback = nullptr);
     
     /**
      * 

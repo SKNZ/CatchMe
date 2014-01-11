@@ -1,4 +1,5 @@
 #include <fstream>
+#include <sstream>
 
 #include "Helpers.h"
 
@@ -39,8 +40,7 @@ void Helpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, 
         if (i == CurrentPlayer || !PlayerLifeStates[i])
             continue;
 
-        if (PlayerPositions [CurrentPlayer].first == PlayerPositions [i].first
-            && PlayerPositions [CurrentPlayer].second == PlayerPositions [i].second)
+        if (PlayerPositions [CurrentPlayer] == PlayerPositions [i])
         {
             PlayerLifeStates[i] = false;
             break;
@@ -48,18 +48,36 @@ void Helpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, 
     }
 }
 
-void Helpers::LoadObstaclesFromFile (CMatrix& Matrix, std::string FileName)
+void Helpers::LoadObstaclesFromFile (CPositions& ObstaclesPositions, const CPosition& MaxSize)
 {
-	std::ifstream File (FileName);
-	
+    std::stringstream FileName;
+    FileName << "./" << MaxSize.first << "_" << MaxSize.second << ".map";
+
+	std::ifstream File (FileName.str ());
+
 	if (!File)
     {
         return; // @todo Remove this once every file was created and populated
-		throw std::runtime_error("There was an error trying to open the file: " + FileName);
+		throw std::runtime_error("There was an error trying to open the file: " + FileName.str ());
     }
 
 	unsigned Y, X;
 	while (File >> Y >> X)
-		if (Matrix.size () > Y && Matrix.begin()->size () > X)
-			Matrix [Y] [X] = KTokens [KTokenObstacle];
+		if (MaxSize.first > Y && MaxSize.second > X)
+			ObstaclesPositions.push_back ({ Y, X });
 }
+
+void Helpers::AddObstaclesAndPlayersToMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const CPositions& ObstaclesPositions, char EmptyToken)
+{
+    for (CLine& Line : Matrix)
+        fill (Line.begin (), Line.end (), EmptyToken);
+
+    for (CPosition Position : ObstaclesPositions)
+        Matrix [Position.first] [Position.second] = Game::KTokens [Game::KTokenObstacle];
+
+    for (unsigned i = 0; i < PlayerPositions.size (); ++i)
+        if (PlayerLifeStates[i])
+            Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
+}
+
+

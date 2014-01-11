@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <sstream>
 
 #include "Survivor1v1v1v1.h"
 #include "Helpers.h"
@@ -11,17 +10,16 @@ using namespace std;
 
 namespace
 {
-	Game::CPositions ForbiddenPositions;
+	Game::CPositions ObstaclesPositions;
 }
 
 void Survivor1v1v1v1::GetSize (CPosition& Size)
 {
     Menu::Clear ();
-    
+
     Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
     Menu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
     Menu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
-    
 
     Menu::Run ();
 }
@@ -33,14 +31,14 @@ void Survivor1v1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPositi
 
 void Survivor1v1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-	Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
-	
-    for (CPosition Position : ForbiddenPositions)
+    Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
+
+    for (CPosition Position : ObstaclesPositions)
             if (PlayerPositions [CurrentPlayer] == Position)
                 PlayerLifeStates [CurrentPlayer] = false;
 
-    if(PlayerLifeStates[CurrentPlayer] && find (ForbiddenPositions.cbegin(), ForbiddenPositions.cend(), PlayerPositions [CurrentPlayer]) == ForbiddenPositions.cend())
-        ForbiddenPositions.push_back (PlayerPositions [CurrentPlayer]);
+    if(PlayerLifeStates[CurrentPlayer] && find (ObstaclesPositions.cbegin(), ObstaclesPositions.cend(), PlayerPositions [CurrentPlayer]) == ObstaclesPositions.cend())
+        ObstaclesPositions.push_back (PlayerPositions [CurrentPlayer]);
 }
 
 void Survivor1v1v1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
@@ -51,28 +49,15 @@ void Survivor1v1v1v1::InitializeRound (CPositions& PlayerPositions, const unsign
     PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
     PlayerPositions [2] = { 0, 0}; // Top left
     PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
-    
-    ForbiddenPositions.clear ();
+
+    ObstaclesPositions.clear ();
+    Helpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
 }
 
 void Survivor1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
-    for (CLine& Line : Matrix)
-        fill (Line.begin (), Line.end (), EmptyToken);
-    
-    for (CPosition Position : ForbiddenPositions)
-        Matrix [Position.first] [Position.second] = Game::KTokens [Game::KTokenObstacle];
-
-    for (unsigned i = 0; i < PlayerPositions.size(); ++i)
-        if (PlayerLifeStates[i])
-            Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
-
-    std::stringstream FileName;
-    FileName << "./" << Matrix.size() << "_" << Matrix.begin()->size() << ".map";
-
-    Helpers::LoadObstaclesFromFile (Matrix, FileName.str());
+    Helpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
 }
-
 
 bool Survivor1v1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {

@@ -201,7 +201,7 @@ int Game::Run ()
             {
                 Menu::Clear ();
             
-                Menu::AddItem ("Next round !", [] () {});
+                Menu::AddItem ("Next round !");
                 
                 Menu::Run ();
             }

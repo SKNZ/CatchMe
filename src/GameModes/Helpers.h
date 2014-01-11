@@ -11,8 +11,18 @@ namespace Helpers
 
     /**
      * 
+     * @brief Loads the obstacles positions from the file.
+     * 
      * @todo Opens the file every time. Stupid.
      * 
      **/
-	void LoadObstaclesFromFile (Game::CMatrix& Matrix, std::string FileName);
+	void LoadObstaclesFromFile (Game::CPositions& ObstaclesPositions, const Game::CPosition& MaxSize);
+
+    /**
+     * 
+     * @brief Adds the obstacle and player tokens to the matrix.
+     * 
+     **/
+    void AddObstaclesAndPlayersToMatrix (Game::CMatrix& Matrix, const Game::CPositions& PlayerPositions,
+                                         const std::vector<bool>& PlayerLifeStates, const Game::CPositions& ObstaclesPositions, char EmptyToken);
 }
