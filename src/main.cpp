@@ -20,7 +20,12 @@ int main (int argc, char** argv)
     }
     catch (std::runtime_error& e)
     {
-        std::cerr << "You failed to write proper code. " << e.what () << std::endl;
+        std::cerr << "You failed to write proper code, but can still do error handling. " << e.what () << std::endl;
+        return EXIT_FAILURE;
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << "Now you just suck... " << e.what () << std::endl;
         return EXIT_FAILURE;
     }
 }

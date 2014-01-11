@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['botplaydelay',['BotPlayDelay',['../namespace_game_1_1_config.html#afa25c7255f8f643b4fc36ef57aa2b2d6',1,'Game::Config']]],
-  ['buildmatrix',['BuildMatrix',['../struct_game_1_1_s_game_mode.html#ab63718a3c94492b9ba87dfb6e8c1e53e',1,'Game::SGameMode']]]
+  ['bordercolor',['BorderColor',['../namespacens_game_1_1ns_config.html#ab315290eca6fc0a908ed88f18f4e3d45',1,'nsGame::nsConfig']]],
+  ['botplaydelay',['BotPlayDelay',['../namespacens_game_1_1ns_config.html#ae369bb47bd2970a41e1228f479f404bd',1,'nsGame::nsConfig']]],
+  ['buildmatrix',['BuildMatrix',['../structns_game_1_1_s_game_mode.html#acafa4ee432a6d419da5b1a84002cf99e',1,'nsGame::SGameMode']]]
 ];

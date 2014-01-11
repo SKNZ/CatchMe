@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['operator_3c_3c',['operator<<',['../namespace_console.html#aa4747562bfc5036b2adc43d311026630',1,'Console::operator&lt;&lt;(std::ostream &amp;os, const Colors &amp;Color)'],['../namespace_console.html#afadf17139fd5067982a505f11e2087ec',1,'Console::operator&lt;&lt;(std::ostream &amp;os, const BackgroundColors &amp;Color)']]]
+  ['operator_3c_3c',['operator<<',['../namespacens_console.html#a319f543b9617b49511d3f15601d0fafe',1,'nsConsole::operator&lt;&lt;(std::ostream &amp;os, const Colors &amp;Color)'],['../namespacens_console.html#a1b3bc93290449637f067ffbb1d066be2',1,'nsConsole::operator&lt;&lt;(std::ostream &amp;os, const BackgroundColors &amp;Color)']]]
 ];

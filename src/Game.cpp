@@ -248,7 +248,7 @@ int nsGame::Run ()
         {
             DoRound (GameMode, Size, PlayerLifeStates, IsPlayerBot, TurnCounters);
 
-            if (i != GameMode.RoundCount) // Don't show if its the last round
+            if (i == GameMode.RoundCount) // Don't show if its the last round
             {
                 nsMenu::Clear ();
 

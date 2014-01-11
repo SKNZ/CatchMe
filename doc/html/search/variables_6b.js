@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['kcontrolsbytoken',['KControlsByToken',['../namespace_game.html#a9be02541db1818d8e717d84dce374130',1,'Game']]],
-  ['kerrormessagedisplaytime',['KErrorMessageDisplayTime',['../namespace_menu.html#ab204d1df315f813023a60cac152b5c6f',1,'Menu']]],
-  ['kfilename',['KFileName',['../namespace_game_1_1_config.html#a0e5e0597aa3a6f39f4e7b711793d8483',1,'Game::Config']]],
-  ['kgamemodes',['KGameModes',['../namespace_game.html#a3aa52e7e1ac735c57cb308c4c44ef5bd',1,'Game']]],
-  ['ktokencolors',['KTokenColors',['../namespace_game_1_1_u_i.html#aa9f7a0ae112901a0a00ff478dda80831',1,'Game::UI']]],
-  ['ktokens',['KTokens',['../namespace_game.html#a209c507955fb896cc50b987e109ef56e',1,'Game']]]
+  ['kcontrolsbytoken',['KControlsByToken',['../namespacens_game.html#ae5797a773938227a0accf28adb557feb',1,'nsGame']]],
+  ['kfilename',['KFileName',['../namespacens_game_1_1ns_config.html#af3ec071cffecb4d90e1301736358a5c8',1,'nsGame::nsConfig']]],
+  ['kgamemodes',['KGameModes',['../namespacens_game.html#a9bcdeac80bab2579dd70057d590592db',1,'nsGame']]],
+  ['ktokencolors',['KTokenColors',['../namespacens_game_1_1ns_u_i.html#a5dccf0b5b1a04134f7281e0f539249a3',1,'nsGame::nsUI']]],
+  ['ktokens',['KTokens',['../namespacens_game.html#ac05ce04ec1493de70665e5d425fb61a8',1,'nsGame']]]
 ];

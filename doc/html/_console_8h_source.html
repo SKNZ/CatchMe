@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: /home/sknz/Projet/src/Console.h Source File</title>
+<title>CatchMe: src/Console.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,9 +33,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">CatchMe
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">6.9</span>
    </div>
-   <div id="projectbrief">Can you catch oussama ?</div>
+   <div id="projectbrief">Can you catch Oussama ?</div>
   </td>
   
   
@@ -52,7 +52,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -96,53 +95,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">/home/sknz/Projet/src/Console.h</div>  </div>
+<div class="title">src/Console.h</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="_console_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span>
 <a name="l00003"></a>00003 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00004"></a>00004 
-<a name="l00005"></a><a class="code" href="namespace_console.html">00005</a> <span class="keyword">namespace </span>Console
+<a name="l00005"></a><a class="code" href="namespacens_console.html">00005</a> <span class="keyword">namespace </span>nsConsole
 <a name="l00006"></a>00006 {
-<a name="l00007"></a><a class="code" href="namespace_console.html#ac9201388facf5172668990481a817716">00007</a>     <span class="keyword">enum struct</span> <a class="code" href="namespace_console.html#ac9201388facf5172668990481a817716">Colors</a> : unsigned
-<a name="l00008"></a>00008     {
-<a name="l00009"></a><a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a459c6342aff7fd217a7034a26e42048a">00009</a>         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a459c6342aff7fd217a7034a26e42048a">KDefault</a>    = 0,
-<a name="l00010"></a><a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a624e36e54e5d884f900d3553b890ff1f">00010</a>         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a624e36e54e5d884f900d3553b890ff1f">KBlack</a>      = 30,
-<a name="l00011"></a><a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a8669894ca3f4278a7d331b0fad283ddd">00011</a>         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a8669894ca3f4278a7d331b0fad283ddd">KRed</a>        = 31,
-<a name="l00012"></a><a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a469e022d397ecb7547964832cf4c1ad3">00012</a>         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a469e022d397ecb7547964832cf4c1ad3">KGreen</a>      = 32,
-<a name="l00013"></a><a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745ab6a1b243174222790e289f663ef0205f">00013</a>         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745ab6a1b243174222790e289f663ef0205f">KYellow</a>     = 33,
-<a name="l00014"></a><a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745aebce1963b7542b1dca1ff6708a4a3857">00014</a>         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745aebce1963b7542b1dca1ff6708a4a3857">KBlue</a>       = 34,
-<a name="l00015"></a><a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a6410a3470084315c07424b66d1697270">00015</a>         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a6410a3470084315c07424b66d1697270">KMagenta</a>    = 35,
-<a name="l00016"></a><a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a350220a55e870e233102390bedafc77c">00016</a>         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a350220a55e870e233102390bedafc77c">KCyan</a>       = 36,
-<a name="l00017"></a><a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745aed8061b8d39e9dcdb65f600e2dd94a9b">00017</a>         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745aed8061b8d39e9dcdb65f600e2dd94a9b">KWhite</a>      = 37
-<a name="l00018"></a>00018     };
-<a name="l00019"></a>00019         
-<a name="l00020"></a><a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745">00020</a>     <span class="keyword">enum struct</span> <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745">BackgroundColors</a> : unsigned
-<a name="l00021"></a>00021     {
-<a name="l00022"></a>00022         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a459c6342aff7fd217a7034a26e42048a">KDefault</a>    = 0,
-<a name="l00023"></a>00023         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a624e36e54e5d884f900d3553b890ff1f">KBlack</a>      = 40,
-<a name="l00024"></a>00024         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a8669894ca3f4278a7d331b0fad283ddd">KRed</a>        = 41,
-<a name="l00025"></a>00025         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a469e022d397ecb7547964832cf4c1ad3">KGreen</a>      = 42,
-<a name="l00026"></a>00026         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745ab6a1b243174222790e289f663ef0205f">KYellow</a>     = 43,
-<a name="l00027"></a>00027         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745aebce1963b7542b1dca1ff6708a4a3857">KBlue</a>       = 44,
-<a name="l00028"></a>00028         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a6410a3470084315c07424b66d1697270">KMagenta</a>    = 45,
-<a name="l00029"></a>00029         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745a350220a55e870e233102390bedafc77c">KCyan</a>       = 46,
-<a name="l00030"></a>00030         <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745aed8061b8d39e9dcdb65f600e2dd94a9b">KWhite</a>      = 47
-<a name="l00031"></a>00031     };
-<a name="l00032"></a>00032 
-<a name="l00038"></a>00038     std::ostream&amp; <a class="code" href="namespace_console.html#aa4747562bfc5036b2adc43d311026630" title="Colors output with VT100 syntax.">operator&lt;&lt; </a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespace_console.html#ac9201388facf5172668990481a817716">Colors</a>&amp; Color);
-<a name="l00039"></a>00039     
-<a name="l00045"></a>00045     std::ostream&amp; <a class="code" href="namespace_console.html#aa4747562bfc5036b2adc43d311026630" title="Colors output with VT100 syntax.">operator&lt;&lt; </a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745">BackgroundColors</a>&amp; Color);
-<a name="l00046"></a>00046 
-<a name="l00054"></a>00054     <span class="keywordtype">void</span> <a class="code" href="namespace_console.html#a80245913c1a42c001de00e59a5a722c3" title="Clears the screen with VT100 syntax.">ClearScreen</a> ();
-<a name="l00055"></a>00055 
-<a name="l00063"></a>00063     <span class="keywordtype">bool</span> <a class="code" href="namespace_console.html#a56eb1346bc88c31ea35bb34d06fe7a75" title="Waits for a key to be pressed (blocking) or until the timeout expires.">WaitForKeyPress</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> TimeOut);
-<a name="l00064"></a>00064     
-<a name="l00071"></a>00071     <span class="keywordtype">void</span> <a class="code" href="namespace_console.html#aab3477dd1b8221c256b6cc6ac95e6490" title="Gets the count of rows and columns in the terminal.">GetScreenSize</a> (<span class="keywordtype">unsigned</span>&amp; x, <span class="keywordtype">unsigned</span>&amp; y);
-<a name="l00072"></a>00072     
-<a name="l00080"></a>00080     <span class="keywordtype">void</span> <a class="code" href="namespace_console.html#a593b7cc9376ca8d05ab3f2cd37ec57e0" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu...">DisableCanonicalInputMode</a> ();
-<a name="l00081"></a>00081 }
+<a name="l00012"></a><a class="code" href="namespacens_console.html#a2b006a25b9fd8113d60201aa69d2547e">00012</a>     <span class="keyword">enum struct</span> <a class="code" href="namespacens_console.html#a2b006a25b9fd8113d60201aa69d2547e" title="Color codes for each.">Colors</a> : unsigned
+<a name="l00013"></a>00013     {
+<a name="l00014"></a><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a7a8296fbe4d5e2043d7736f0f5b6987a">00014</a>         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a7a8296fbe4d5e2043d7736f0f5b6987a">KDefault</a>    = 0,
+<a name="l00015"></a><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92afa943eacac0bdc032fc2ef6dd5039c0f">00015</a>         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92afa943eacac0bdc032fc2ef6dd5039c0f">KBlack</a>      = 30,
+<a name="l00016"></a><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a10370085561d03aa99491ed31d0938b8">00016</a>         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a10370085561d03aa99491ed31d0938b8">KRed</a>        = 31,
+<a name="l00017"></a><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a79865a02b967a317000fa48ee51fe30f">00017</a>         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a79865a02b967a317000fa48ee51fe30f">KGreen</a>      = 32,
+<a name="l00018"></a><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92af13a0deff682377c3445964086b1294a">00018</a>         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92af13a0deff682377c3445964086b1294a">KYellow</a>     = 33,
+<a name="l00019"></a><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a8c9b58f4f4aafacaf2a542a126dde8a8">00019</a>         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a8c9b58f4f4aafacaf2a542a126dde8a8">KBlue</a>       = 34,
+<a name="l00020"></a><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92adc0059da01eea3f9724259730bcd5f6f">00020</a>         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92adc0059da01eea3f9724259730bcd5f6f">KMagenta</a>    = 35,
+<a name="l00021"></a><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a158b783615a72b4514b887314b732346">00021</a>         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a158b783615a72b4514b887314b732346">KCyan</a>       = 36,
+<a name="l00022"></a><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92aace553821de04a5d0957b70c23209631">00022</a>         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92aace553821de04a5d0957b70c23209631">KWhite</a>      = 37
+<a name="l00023"></a>00023     }; <span class="comment">// Colors</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">00025</a>     <span class="keyword">enum struct</span> <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a> : unsigned
+<a name="l00026"></a>00026     {
+<a name="l00027"></a>00027         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a7a8296fbe4d5e2043d7736f0f5b6987a">KDefault</a>    = 0,
+<a name="l00028"></a>00028         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92afa943eacac0bdc032fc2ef6dd5039c0f">KBlack</a>      = 40,
+<a name="l00029"></a>00029         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a10370085561d03aa99491ed31d0938b8">KRed</a>        = 41,
+<a name="l00030"></a>00030         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a79865a02b967a317000fa48ee51fe30f">KGreen</a>      = 42,
+<a name="l00031"></a>00031         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92af13a0deff682377c3445964086b1294a">KYellow</a>     = 43,
+<a name="l00032"></a>00032         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a8c9b58f4f4aafacaf2a542a126dde8a8">KBlue</a>       = 44,
+<a name="l00033"></a>00033         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92adc0059da01eea3f9724259730bcd5f6f">KMagenta</a>    = 45,
+<a name="l00034"></a>00034         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a158b783615a72b4514b887314b732346">KCyan</a>       = 46,
+<a name="l00035"></a>00035         <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92aace553821de04a5d0957b70c23209631">KWhite</a>      = 47
+<a name="l00036"></a>00036     }; <span class="comment">// BackgroundColors</span>
+<a name="l00037"></a>00037 
+<a name="l00043"></a>00043     std::ostream&amp; <a class="code" href="namespacens_console.html#a319f543b9617b49511d3f15601d0fafe" title="Colors output with VT100 syntax.">operator&lt;&lt; </a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespacens_console.html#a2b006a25b9fd8113d60201aa69d2547e" title="Color codes for each.">Colors</a>&amp; Color);
+<a name="l00044"></a>00044     
+<a name="l00050"></a>00050     std::ostream&amp; <a class="code" href="namespacens_console.html#a319f543b9617b49511d3f15601d0fafe" title="Colors output with VT100 syntax.">operator&lt;&lt; </a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a>&amp; Color);
+<a name="l00051"></a>00051 
+<a name="l00059"></a>00059     <span class="keywordtype">void</span> <a class="code" href="namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760" title="Clears the screen with VT100 syntax.">ClearScreen</a> ();
+<a name="l00060"></a>00060 
+<a name="l00068"></a>00068     <span class="keywordtype">bool</span> <a class="code" href="namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0" title="Waits for a key to be pressed (blocking) or until the timeout expires.">WaitForKeyPress</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> TimeOut);
+<a name="l00069"></a>00069     
+<a name="l00076"></a>00076     <span class="keywordtype">void</span> <a class="code" href="namespacens_console.html#abb271f7b7c031e51203ef89c1bed1526" title="Gets the count of rows and columns in the terminal.">GetScreenSize</a> (<span class="keywordtype">unsigned</span>&amp; x, <span class="keywordtype">unsigned</span>&amp; y);
+<a name="l00077"></a>00077     
+<a name="l00085"></a>00085     <span class="keywordtype">void</span> <a class="code" href="namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu...">DisableCanonicalInputMode</a> ();
+<a name="l00086"></a>00086 } <span class="comment">// nsConsole</span>
 </pre></div></div><!-- contents -->
 </div>
 <!-- window showing the filter options -->
@@ -163,7 +162,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li class="navelem"><a class="el" href="_console_8h.html">Console.h</a>      </li>
 
-    <li class="footer">Generated on Fri Jan 10 2014 23:09:40 for CatchMe by
+    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

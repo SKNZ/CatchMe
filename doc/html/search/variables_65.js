@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['errormessagedisplaytime',['ErrorMessageDisplayTime',['../namespace_game_1_1_config.html#a170362b817eb863a0d891994a207fb97',1,'Game::Config']]]
+  ['errormessagedisplaytime',['ErrorMessageDisplayTime',['../namespacens_game_1_1ns_config.html#a9857fc6e26e70dd33e0b361d6fdbab03',1,'nsGame::nsConfig']]]
 ];

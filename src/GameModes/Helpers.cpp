@@ -63,18 +63,20 @@ void nsHelpers::LoadObstaclesFromFile (CPositions& ObstaclesPositions, const CPo
     std::stringstream FileName;
     FileName << "./" << MaxSize.first << "_" << MaxSize.second << ".map";
 
-	std::ifstream File (FileName.str ());
+    std::ifstream File (FileName.str ());
 
-	if (!File)
+    if (!File)
     {
-        return; // @todo Remove this once every file was created and populated
-		throw std::runtime_error("There was an error trying to open the file: " + FileName.str ());
+        return;
+        throw std::runtime_error("There was an error trying to open the file: " + FileName.str ());
     }
 
-	unsigned Y, X;
-	while (File >> Y >> X)
-		if (MaxSize.first > Y && MaxSize.second > X)
-			ObstaclesPositions.push_back ({ Y, X });
+    unsigned Y, X;
+    while (File >> Y >> X)
+        if (MaxSize.first > Y && MaxSize.second > X)
+            ObstaclesPositions.push_back ({ Y, X });
+
+    File.close ();
 } // LoadObstaclesFromFile
 
 void nsHelpers::AddObstaclesAndPlayersToMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const CPositions& ObstaclesPositions, char EmptyToken)

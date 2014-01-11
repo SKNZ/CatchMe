@@ -1,17 +1,17 @@
 var _game_mode_8h =
 [
-    [ "CLine", "namespace_game.html#aee0e0380ba7f77b1465fa62627d74487", null ],
-    [ "CMatrix", "namespace_game.html#a93c2925b6e2ed730066cddb857af2da1", null ],
-    [ "CPosition", "namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7", null ],
-    [ "CPositions", "namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873", null ],
-    [ "FBuildMatrix", "namespace_game.html#a982990ec997e2367ca874dfaf71581df", null ],
-    [ "FGetSize", "namespace_game.html#a8052c01749d0e47d4591f0cababd30aa", null ],
-    [ "FInitializeRound", "namespace_game.html#ad89ffe3382c50844ef25cb7ef6061e3b", null ],
-    [ "FIsGameOver", "namespace_game.html#a981183f3abab519078a37e9ffb322ea7", null ],
-    [ "FMovePlayer", "namespace_game.html#a3638ef7e31f1a4ceefbf158ff0832171", null ],
-    [ "FShowWinScreen", "namespace_game.html#a1260f3158bb60e120d8b18d27ed7867f", null ],
-    [ "FValidatePlayerPositions", "namespace_game.html#a1cc63478c70a043dd7eaa4d6b419472d", null ],
-    [ "PlayerMovesX", "namespace_game.html#aedb95e58cb45242bbca7999103f04a75", null ],
-    [ "PlayerMovesY", "namespace_game.html#ab178c0e3a8d6436a818257a888fcdee3", null ],
-    [ "MakeGameMode", "namespace_game.html#a20caed2af94cb7f28ee1bee65f6ac4b9", null ]
+    [ "CLine", "namespacens_game.html#af488e9acb44053e87c26c103d6e239c7", null ],
+    [ "CMatrix", "namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b", null ],
+    [ "CPosition", "namespacens_game.html#aec9fd4d40895df9af2c04685df937156", null ],
+    [ "CPositions", "namespacens_game.html#aa45c6366c68b396fadce8312a909bf67", null ],
+    [ "FBuildMatrix", "namespacens_game.html#ab8d04e687323030d33b4459425687120", null ],
+    [ "FGetSize", "namespacens_game.html#a42aed30e26cb4c1b135a4a79c05e1cd8", null ],
+    [ "FInitializeRound", "namespacens_game.html#ae2c0b38407cfe08bc43baedfcf5594c5", null ],
+    [ "FIsGameOver", "namespacens_game.html#acf17db36f58b1cde2d4711c07497e938", null ],
+    [ "FMovePlayer", "namespacens_game.html#a8eccf8769b4b292af96a85df2cd01b19", null ],
+    [ "FShowWinScreen", "namespacens_game.html#a53bfd68f423d2342b57a22a41da67331", null ],
+    [ "FValidatePlayerPositions", "namespacens_game.html#aeb2effdbf1997d66839bc85351c1755a", null ],
+    [ "PlayerMovesX", "namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa", null ],
+    [ "PlayerMovesY", "namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e", null ],
+    [ "MakeGameMode", "namespacens_game.html#a73a55d4f4e2184ed18e72be5333f7390", null ]
 ];

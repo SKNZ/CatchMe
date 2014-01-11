@@ -1,10 +1,10 @@
 var _survivor3v1_8h =
 [
-    [ "BuildMatrix", "namespace_survivor3v1.html#a18e5a2e0a824b418938cf5211ac2a3b2", null ],
-    [ "GetSize", "namespace_survivor3v1.html#a371018a188c999d6df5499b3f9e98c10", null ],
-    [ "InitializeRound", "namespace_survivor3v1.html#af1fbdf4a382cb327b05f8737f6fbefb3", null ],
-    [ "IsGameOver", "namespace_survivor3v1.html#a98ea97b1629b09cd4c34265eb55de4d7", null ],
-    [ "MovePlayer", "namespace_survivor3v1.html#a32f01925dd338e61a62c900127a30212", null ],
-    [ "ShowWinScreen", "namespace_survivor3v1.html#ae3800ba8b3b6b34a76e92225a8dcf27c", null ],
-    [ "ValidatePlayerPositions", "namespace_survivor3v1.html#aa4d1bb4eaea4a6a3dfcac6bd25d63692", null ]
+    [ "BuildMatrix", "namespacens_survivor3v1.html#af9aa5866157055b033627a3142b9d570", null ],
+    [ "GetSize", "namespacens_survivor3v1.html#a32a34bdc6c66ea37933b0eff33fdad43", null ],
+    [ "InitializeRound", "namespacens_survivor3v1.html#a886eb44acfcaa4cde1e0030a26e088d9", null ],
+    [ "IsGameOver", "namespacens_survivor3v1.html#a71130b89278efb5c99d7c3bc4fda1f24", null ],
+    [ "MovePlayer", "namespacens_survivor3v1.html#a822767ca734e7a044713d632d2b12383", null ],
+    [ "ShowWinScreen", "namespacens_survivor3v1.html#aaa03a2ef2c2762be7f51d109ea200852", null ],
+    [ "ValidatePlayerPositions", "namespacens_survivor3v1.html#a41ef172f3e64237e240824fb4e6c08d6", null ]
 ];

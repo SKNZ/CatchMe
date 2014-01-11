@@ -1,8 +1,8 @@
 var _game_8h =
 [
-    [ "TokenIds", "namespace_game.html#ace0d668493c8ce9455aad4cfb6c26b29", null ],
-    [ "Run", "namespace_game.html#a1880d9816a978b82bb91e4679743173d", null ],
-    [ "KControlsByToken", "namespace_game.html#a9be02541db1818d8e717d84dce374130", null ],
-    [ "KGameModes", "namespace_game.html#a3aa52e7e1ac735c57cb308c4c44ef5bd", null ],
-    [ "KTokens", "namespace_game.html#a209c507955fb896cc50b987e109ef56e", null ]
+    [ "TokenIds", "namespacens_game.html#a6e9a921366cc6ab45aca1168623f478d", null ],
+    [ "Run", "namespacens_game.html#a65ba644eceafea8b89f17e95c481d201", null ],
+    [ "KControlsByToken", "namespacens_game.html#ae5797a773938227a0accf28adb557feb", null ],
+    [ "KGameModes", "namespacens_game.html#a9bcdeac80bab2579dd70057d590592db", null ],
+    [ "KTokens", "namespacens_game.html#ac05ce04ec1493de70665e5d425fb61a8", null ]
 ];

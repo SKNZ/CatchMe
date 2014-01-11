@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['backgroundcolors',['BackgroundColors',['../namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745',1,'Console']]]
+  ['backgroundcolors',['BackgroundColors',['../namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92',1,'nsConsole']]]
 ];

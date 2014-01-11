@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['clear',['Clear',['../namespace_menu.html#a6b9d457244162d557849fb0dc4cd0979',1,'Menu']]],
-  ['clearscreen',['ClearScreen',['../namespace_console.html#a80245913c1a42c001de00e59a5a722c3',1,'Console']]]
+  ['clear',['Clear',['../namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7',1,'nsMenu']]],
+  ['clearscreen',['ClearScreen',['../namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760',1,'nsConsole']]]
 ];

@@ -27,6 +27,7 @@
 #include "GameModes/Survivor1v1v1v1.h"
 #include "GameModes/Survivor2v2.h"
 #include "GameModes/Survivor3v1.h"
+#include "GameModes/MapEditor.h"
 
 #include "Menu.h"
 
@@ -50,6 +51,8 @@ namespace nsGame
         MakeGameMode ("Survivor 1v1v1v1", 4, 1, false, nsSurvivor1v1v1v1::GetSize, nsSurvivor1v1v1v1::MovePlayer, nsSurvivor1v1v1v1::InitializeRound, nsSurvivor1v1v1v1::BuildMatrix, nsSurvivor1v1v1v1::ValidatePlayerPositions, nsSurvivor1v1v1v1::IsGameOver, nsMenu::ShowSimpleWinScreen),
         MakeGameMode ("Survivor 2v2", 4, 1, false, nsSurvivor2v2::GetSize, nsSurvivor2v2::MovePlayer, nsSurvivor2v2::InitializeRound, nsSurvivor2v2::BuildMatrix, nsSurvivor2v2::ValidatePlayerPositions, nsSurvivor2v2::IsGameOver, nsMenu::ShowSimpleWinScreen),
         MakeGameMode ("Survivor 3v1", 4, 4, false, nsSurvivor3v1::GetSize, nsSurvivor3v1::MovePlayer, nsSurvivor3v1::InitializeRound, nsSurvivor3v1::BuildMatrix, nsSurvivor3v1::ValidatePlayerPositions, nsSurvivor3v1::IsGameOver, nsSurvivor3v1::ShowWinScreen),
+        
+        MakeGameMode ("Tools Map Editor", 1, 1, true, nsMapEditor::GetSize, nsMapEditor::MovePlayer, nsMapEditor::InitializeRound, nsMapEditor::BuildMatrix, nsMapEditor::ValidatePlayerPositions, nsMapEditor::IsGameOver, nsMapEditor::ShowWinScreen)
     };
 
     /**

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['renderloopinterval',['RenderLoopInterval',['../namespace_game_1_1_config.html#a48f41ee68906fc4f7a3b03c9de1bea5e',1,'Game::Config']]],
-  ['roundcount',['RoundCount',['../struct_game_1_1_s_game_mode.html#a8658b9abb362c6fc28f4e0bed1e5086d',1,'Game::SGameMode']]],
-  ['run',['Run',['../namespace_game.html#a1880d9816a978b82bb91e4679743173d',1,'Game::Run()'],['../namespace_menu.html#a06810a2534002cb48e551c882d03c845',1,'Menu::Run()']]]
+  ['renderloopinterval',['RenderLoopInterval',['../namespacens_game_1_1ns_config.html#a177402f6759e85b27f51aa9e073de896',1,'nsGame::nsConfig']]],
+  ['roundcount',['RoundCount',['../structns_game_1_1_s_game_mode.html#a7565197ae8453df86f14d5cb0d40d19c',1,'nsGame::SGameMode']]],
+  ['run',['Run',['../namespacens_game.html#a65ba644eceafea8b89f17e95c481d201',1,'nsGame::Run()'],['../namespacens_menu.html#a6320374997c73f3c7ec9e62e7976129e',1,'nsMenu::Run()']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['playercount',['PlayerCount',['../struct_game_1_1_s_game_mode.html#a69a38e07d9e3227afcf17f415a5fde2a',1,'Game::SGameMode']]],
-  ['playermovesx',['PlayerMovesX',['../namespace_game.html#aedb95e58cb45242bbca7999103f04a75',1,'Game']]],
-  ['playermovesy',['PlayerMovesY',['../namespace_game.html#ab178c0e3a8d6436a818257a888fcdee3',1,'Game']]]
+  ['playercount',['PlayerCount',['../structns_game_1_1_s_game_mode.html#a27860a9c7777b0b14dd90ef0d8185e6e',1,'nsGame::SGameMode']]],
+  ['playermovesx',['PlayerMovesX',['../namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa',1,'nsGame']]],
+  ['playermovesy',['PlayerMovesY',['../namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e',1,'nsGame']]]
 ];

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: /home/sknz/Projet/src/GameModes/Classic1v1v1.h Source File</title>
+<title>CatchMe: src/GameModes/Classic1v1v1.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,9 +33,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">CatchMe
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">6.9</span>
    </div>
-   <div id="projectbrief">Can you catch oussama ?</div>
+   <div id="projectbrief">Can you catch Oussama ?</div>
   </td>
   
   
@@ -52,7 +52,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -96,31 +95,32 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">/home/sknz/Projet/src/GameModes/Classic1v1v1.h</div>  </div>
+<div class="title">src/GameModes/Classic1v1v1.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_classic1v1v1_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span>
-<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00004"></a>00004 
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;../GameMode.h&quot;</span>
-<a name="l00006"></a>00006 
-<a name="l00007"></a><a class="code" href="namespace_classic1v1v1.html">00007</a> <span class="keyword">namespace </span>Classic1v1v1
-<a name="l00008"></a>00008 {
-<a name="l00009"></a>00009     <span class="keyword">using namespace </span>Game;
-<a name="l00010"></a>00010 
-<a name="l00011"></a>00011     <span class="keywordtype">void</span> <a class="code" href="namespace_classic1v1v1.html#afb2ed4eb4be6aab63332f1c3c4573570">GetSize</a> (<a class="code" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">CPosition</a>&amp; Size);
-<a name="l00012"></a>00012 
-<a name="l00013"></a>00013     <span class="keywordtype">void</span> <a class="code" href="namespace_classic1v1v1.html#aaa0ca86f93a144838730d4d09c809992">MovePlayer</a> (<span class="keyword">const</span> <a class="code" href="namespace_game.html#a93c2925b6e2ed730066cddb857af2da1">CMatrix</a>&amp; Matrix, <a class="code" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">CPosition</a>&amp; PlayerPosition, <span class="keyword">const</span> <a class="code" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">CPosition</a>&amp; MatrixSize, <span class="keyword">const</span> <a class="code" href="namespace_game.html#ab178c0e3a8d6436a818257a888fcdee3">PlayerMovesY</a> MoveY, <span class="keyword">const</span> <a class="code" href="namespace_game.html#aedb95e58cb45242bbca7999103f04a75">PlayerMovesX</a> MoveX);
+<a href="_classic1v1v1_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00011"></a>00011 <span class="preprocessor">#pragma once</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00014"></a>00014 
-<a name="l00015"></a>00015     <span class="keywordtype">void</span> <a class="code" href="namespace_classic1v1v1.html#af5d2ebcd36d49cc60f44c3e79d34c7c8">InitializeRound</a> (<a class="code" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> PlayerCount, <span class="keyword">const</span> <a class="code" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">CPosition</a>&amp; MaxSize);
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;../GameMode.h&quot;</span>
 <a name="l00016"></a>00016 
-<a name="l00017"></a>00017     <span class="keywordtype">void</span> <a class="code" href="namespace_classic1v1v1.html#ae35e688e80fff6dd16e415895f2ea42c">BuildMatrix</a> (<a class="code" href="namespace_game.html#a93c2925b6e2ed730066cddb857af2da1">CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> <span class="keywordtype">char</span> EmptyToken);
-<a name="l00018"></a>00018 
-<a name="l00019"></a>00019     <span class="keywordtype">void</span> <a class="code" href="namespace_classic1v1v1.html#a92cda0a2e69dc0cce1513541f7190dfa">ValidatePlayerPositions</a> (<span class="keyword">const</span> <a class="code" href="namespace_game.html#a93c2925b6e2ed730066cddb857af2da1">CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">CPositions</a>&amp; PlayerPositions, <span class="keywordtype">unsigned</span> CurrentPlayer, std::vector&lt;bool&gt;&amp; PlayerLifeStates);
+<a name="l00017"></a><a class="code" href="namespacens_classic1v1v1.html">00017</a> <span class="keyword">namespace </span>nsClassic1v1v1
+<a name="l00018"></a>00018 {
+<a name="l00019"></a>00019     <span class="keyword">using namespace </span>nsGame;
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021     <span class="keywordtype">bool</span> <a class="code" href="namespace_classic1v1v1.html#aa55326a70b5eb6c7b9a5991899d54876">IsGameOver</a> (<span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates);
-<a name="l00022"></a>00022 }
+<a name="l00021"></a>00021     <span class="keywordtype">void</span> <a class="code" href="namespacens_classic1v1v1.html#a4feaf5b5024554665c608efff5ef96f6">GetSize</a> (<a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; Size);
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023     <span class="keywordtype">void</span> <a class="code" href="namespacens_classic1v1v1.html#a8e70dc02fa41c67c1986f64ecd4b3587">MovePlayer</a> (<span class="keyword">const</span> <a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">CMatrix</a>&amp; Matrix, <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; PlayerPosition, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; MatrixSize, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e" title="Moves on the Y axis.">PlayerMovesY</a> MoveY, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa" title="Moves on the X axis.">PlayerMovesX</a> MoveX);
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="namespacens_classic1v1v1.html#ace9af570457c079ca8f7432044f0ce01">InitializeRound</a> (<a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> PlayerCount, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; MaxSize);
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="namespacens_classic1v1v1.html#ad4986be200ccb4e277e1abcf992eb4bc">BuildMatrix</a> (<a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> <span class="keywordtype">char</span> EmptyToken);
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029     <span class="keywordtype">void</span> <a class="code" href="namespacens_classic1v1v1.html#a06ab4a48eadd433f46a204a9aec9c148">ValidatePlayerPositions</a> (<span class="keyword">const</span> <a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> CurrentPlayer, std::vector&lt;bool&gt;&amp; PlayerLifeStates);
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031     <span class="keywordtype">bool</span> <a class="code" href="namespacens_classic1v1v1.html#aac06c6bb551f738bea8565a72c6762f2">IsGameOver</a> (<span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates);
+<a name="l00032"></a>00032 }
 </pre></div></div><!-- contents -->
 </div>
 <!-- window showing the filter options -->
@@ -141,7 +141,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li class="navelem"><a class="el" href="_classic1v1v1_8h.html">Classic1v1v1.h</a>      </li>
 
-    <li class="footer">Generated on Fri Jan 10 2014 23:09:40 for CatchMe by
+    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

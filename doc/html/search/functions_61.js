@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['additem',['AddItem',['../namespace_menu.html#a7262be6fdeb22a1b2603c68fbf33aba4',1,'Menu']]],
-  ['addobstaclesandplayerstomatrix',['AddObstaclesAndPlayersToMatrix',['../namespace_helpers.html#a034f50d1fbc59b41391d57ce552c17fb',1,'Helpers']]]
+  ['additem',['AddItem',['../namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4',1,'nsMenu']]],
+  ['addobstaclesandplayerstomatrix',['AddObstaclesAndPlayersToMatrix',['../namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0',1,'nsHelpers']]]
 ];

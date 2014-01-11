@@ -1,11 +1,11 @@
 var _console_8h =
 [
-    [ "BackgroundColors", "namespace_console.html#a83354cade22e9c80dabed7ccd4a1c745", null ],
-    [ "Colors", "namespace_console.html#ac9201388facf5172668990481a817716", null ],
-    [ "ClearScreen", "namespace_console.html#a80245913c1a42c001de00e59a5a722c3", null ],
-    [ "DisableCanonicalInputMode", "namespace_console.html#a593b7cc9376ca8d05ab3f2cd37ec57e0", null ],
-    [ "GetScreenSize", "namespace_console.html#aab3477dd1b8221c256b6cc6ac95e6490", null ],
-    [ "operator<<", "namespace_console.html#aa4747562bfc5036b2adc43d311026630", null ],
-    [ "operator<<", "namespace_console.html#afadf17139fd5067982a505f11e2087ec", null ],
-    [ "WaitForKeyPress", "namespace_console.html#a56eb1346bc88c31ea35bb34d06fe7a75", null ]
+    [ "BackgroundColors", "namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92", null ],
+    [ "Colors", "namespacens_console.html#a2b006a25b9fd8113d60201aa69d2547e", null ],
+    [ "ClearScreen", "namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760", null ],
+    [ "DisableCanonicalInputMode", "namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2", null ],
+    [ "GetScreenSize", "namespacens_console.html#abb271f7b7c031e51203ef89c1bed1526", null ],
+    [ "operator<<", "namespacens_console.html#a319f543b9617b49511d3f15601d0fafe", null ],
+    [ "operator<<", "namespacens_console.html#a1b3bc93290449637f067ffbb1d066be2", null ],
+    [ "WaitForKeyPress", "namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0", null ]
 ];

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: /home/sknz/Projet/src/GameMode.h File Reference</title>
+<title>CatchMe: src/GameMode.h File Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,9 +33,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">CatchMe
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">6.9</span>
    </div>
-   <div id="projectbrief">Can you catch oussama ?</div>
+   <div id="projectbrief">Can you catch Oussama ?</div>
   </td>
   
   
@@ -52,7 +52,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -102,89 +101,87 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">/home/sknz/Projet/src/GameMode.h File Reference</div>  </div>
+<div class="title">src/GameMode.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>SGameMode definition, enum for axis moves, typedefs, constructor function declaration.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br/>
 <code>#include &lt;functional&gt;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for GameMode.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="_game_mode_8h__incl.png" border="0" usemap="#_2home_2sknz_2_projet_2src_2_game_mode_8h" alt=""/></div>
-<map name="_2home_2sknz_2_projet_2src_2_game_mode_8h" id="_2home_2sknz_2_projet_2src_2_game_mode_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="_game_mode_8h__dep__incl.png" border="0" usemap="#_2home_2sknz_2_projet_2src_2_game_mode_8hdep" alt=""/></div>
-<map name="_2home_2sknz_2_projet_2src_2_game_mode_8hdep" id="_2home_2sknz_2_projet_2src_2_game_mode_8hdep">
-</map>
-</div>
 </div>
 <p><a href="_game_mode_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_game_1_1_s_game_mode.html">Game::SGameMode</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html">nsGame::SGameMode</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A game mode !  <a href="structns_game_1_1_s_game_mode.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html">Game</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Main game header, contains tokens, controls, movement enums, player count and size constants. </p>
-<br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html">nsGame</a></td></tr>
 <tr><td colspan="2"><h2><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#aee0e0380ba7f77b1465fa62627d74487">Game::CLine</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; CLine &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#a93c2925b6e2ed730066cddb857af2da1">Game::CMatrix</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">Game::CPosition</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; CPosition &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">Game::CPositions</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#af488e9acb44053e87c26c103d6e239c7">nsGame::CLine</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; CLine &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">nsGame::CMatrix</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef std::vector&lt; CPosition &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(CPosition <br class="typebreak"/>
-&amp;Size)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#a8052c01749d0e47d4591f0cababd30aa">Game::FGetSize</a></td></tr>
+&amp;Size)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#a42aed30e26cb4c1b135a4a79c05e1cd8">nsGame::FGetSize</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const <br class="typebreak"/>
 CMatrix &amp;Matrix, CPosition <br class="typebreak"/>
 &amp;PlayerPosition, const <br class="typebreak"/>
 CPosition &amp;MatrixSize, const <br class="typebreak"/>
 PlayerMovesY MoveY, const <br class="typebreak"/>
-PlayerMovesX MoveX)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#a3638ef7e31f1a4ceefbf158ff0832171">Game::FMovePlayer</a></td></tr>
+PlayerMovesX MoveX)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#a8eccf8769b4b292af96a85df2cd01b19">nsGame::FMovePlayer</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(CPositions <br class="typebreak"/>
 &amp;PlayerPositions, const <br class="typebreak"/>
 unsigned PlayerCount, const <br class="typebreak"/>
-CPosition &amp;Size)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#ad89ffe3382c50844ef25cb7ef6061e3b">Game::FInitializeRound</a></td></tr>
+CPosition &amp;Size)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#ae2c0b38407cfe08bc43baedfcf5594c5">nsGame::FInitializeRound</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(CMatrix <br class="typebreak"/>
 &amp;Matrix, const CPositions <br class="typebreak"/>
 &amp;PlayerPositions, const <br class="typebreak"/>
 std::vector&lt; bool &gt;<br class="typebreak"/>
  &amp;PlayerLifeStates, const char <br class="typebreak"/>
-EmptyToken)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#a982990ec997e2367ca874dfaf71581df">Game::FBuildMatrix</a></td></tr>
+EmptyToken)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#ab8d04e687323030d33b4459425687120">nsGame::FBuildMatrix</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const <br class="typebreak"/>
 CMatrix &amp;Matrix, CPositions <br class="typebreak"/>
-PlayerPositions, unsigned <br class="typebreak"/>
-CurrentPlayer, std::vector<br class="typebreak"/>
-&lt; bool &gt; &amp;PlayerLifeStates)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#a1cc63478c70a043dd7eaa4d6b419472d">Game::FValidatePlayerPositions</a></td></tr>
+PlayerPositions, const <br class="typebreak"/>
+unsigned CurrentPlayer, <br class="typebreak"/>
+std::vector&lt; bool &gt;<br class="typebreak"/>
+ &amp;PlayerLifeStates)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#aeb2effdbf1997d66839bc85351c1755a">nsGame::FValidatePlayerPositions</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; bool(const <br class="typebreak"/>
 std::vector&lt; bool &gt;<br class="typebreak"/>
- &amp;PlayerLifeStates)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#a981183f3abab519078a37e9ffb322ea7">Game::FIsGameOver</a></td></tr>
+ &amp;PlayerLifeStates)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#acf17db36f58b1cde2d4711c07497e938">nsGame::FIsGameOver</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef std::function&lt; void(const <br class="typebreak"/>
 std::vector&lt; bool &gt;<br class="typebreak"/>
  &amp;PlayerLifeStates, <br class="typebreak"/>
 std::vector&lt; char &gt; Tokens, <br class="typebreak"/>
 std::vector&lt; unsigned &gt;<br class="typebreak"/>
- TurnCounters)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#a1260f3158bb60e120d8b18d27ed7867f">Game::FShowWinScreen</a></td></tr>
+ TurnCounters)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#a53bfd68f423d2342b57a22a41da67331">nsGame::FShowWinScreen</a></td></tr>
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#ab178c0e3a8d6436a818257a888fcdee3">Game::PlayerMovesY</a> { <a class="el" href="namespace_game.html#ab178c0e3a8d6436a818257a888fcdee3a895d501c1260aefff6fc23e9c3c08aea">Game::KUp</a> =  -1, 
-<a class="el" href="namespace_game.html#aedb95e58cb45242bbca7999103f04a75a62e67430707673de6214362d74cf222a">Game::KStay</a> =  0, 
-<a class="el" href="namespace_game.html#ab178c0e3a8d6436a818257a888fcdee3a3d459d84e370a15ef2fc101ff6d77fbf">Game::KDown</a> =  1
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e">nsGame::PlayerMovesY</a> { <a class="el" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561ea50c02c062d70963f0cc977b855ddce5b">nsGame::KUp</a> =  -1, 
+<a class="el" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaaa6712fbae80fd458ec160e23b29ceedcf">nsGame::KStay</a> =  0, 
+<a class="el" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561eadf06c472428704fb57c1ce56ca78bea2">nsGame::KDown</a> =  1
  }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#aedb95e58cb45242bbca7999103f04a75">Game::PlayerMovesX</a> { <a class="el" href="namespace_game.html#aedb95e58cb45242bbca7999103f04a75ade5778ff0d9750d18c8a69fb0c958d3f">Game::KLeft</a> =  -1, 
-<a class="el" href="namespace_game.html#aedb95e58cb45242bbca7999103f04a75a62e67430707673de6214362d74cf222a">Game::KStay</a> =  0, 
-<a class="el" href="namespace_game.html#aedb95e58cb45242bbca7999103f04a75a50aee724a77c80b649792f338ae8585a">Game::KRight</a> =  1
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves on the Y axis.  <a href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa">nsGame::PlayerMovesX</a> { <a class="el" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaaa019d86aa6516b7a53d4b9ca3a0391fa2">nsGame::KLeft</a> =  -1, 
+<a class="el" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaaa6712fbae80fd458ec160e23b29ceedcf">nsGame::KStay</a> =  0, 
+<a class="el" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaaa543ef8742f1b064f6ad13f0bd873d50c">nsGame::KRight</a> =  1
  }</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves on the X axis.  <a href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_game_1_1_s_game_mode.html">SGameMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_game.html#a20caed2af94cb7f28ee1bee65f6ac4b9">Game::MakeGameMode</a> (std::string Name, unsigned PlayerCount, unsigned RoundCount, <a class="el" href="namespace_game.html#a8052c01749d0e47d4591f0cababd30aa">FGetSize</a> GetSize, <a class="el" href="namespace_game.html#a3638ef7e31f1a4ceefbf158ff0832171">FMovePlayer</a> MovePlayer, <a class="el" href="namespace_game.html#ad89ffe3382c50844ef25cb7ef6061e3b">FInitializeRound</a> InitializeRound, <a class="el" href="namespace_game.html#a982990ec997e2367ca874dfaf71581df">FBuildMatrix</a> BuildMatrix, <a class="el" href="namespace_game.html#a1cc63478c70a043dd7eaa4d6b419472d">FValidatePlayerPositions</a> ValidatePlayerPositions, <a class="el" href="namespace_game.html#a981183f3abab519078a37e9ffb322ea7">FIsGameOver</a> IsGameOver, <a class="el" href="namespace_game.html#a1260f3158bb60e120d8b18d27ed7867f">FShowWinScreen</a> ShowWinScreen)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="structns_game_1_1_s_game_mode.html">SGameMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html#a73a55d4f4e2184ed18e72be5333f7390">nsGame::MakeGameMode</a> (std::string Name, unsigned PlayerCount, unsigned RoundCount, bool AllowStay, <a class="el" href="namespacens_game.html#a42aed30e26cb4c1b135a4a79c05e1cd8">FGetSize</a> GetSize, <a class="el" href="namespacens_game.html#a8eccf8769b4b292af96a85df2cd01b19">FMovePlayer</a> MovePlayer, <a class="el" href="namespacens_game.html#ae2c0b38407cfe08bc43baedfcf5594c5">FInitializeRound</a> InitializeRound, <a class="el" href="namespacens_game.html#ab8d04e687323030d33b4459425687120">FBuildMatrix</a> BuildMatrix, <a class="el" href="namespacens_game.html#aeb2effdbf1997d66839bc85351c1755a">FValidatePlayerPositions</a> ValidatePlayerPositions, <a class="el" href="namespacens_game.html#acf17db36f58b1cde2d4711c07497e938">FIsGameOver</a> IsGameOver, <a class="el" href="namespacens_game.html#a53bfd68f423d2342b57a22a41da67331">FShowWinScreen</a> ShowWinScreen)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of the <a class="el" href="structns_game_1_1_s_game_mode.html" title="A game mode !">SGameMode</a> structure.  <a href="#a73a55d4f4e2184ed18e72be5333f7390"></a><br/></td></tr>
 </table>
-</div><!-- contents -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>SGameMode definition, enum for axis moves, typedefs, constructor function declaration. </p>
+<dl class="author"><dt><b>Author:</b></dt><dd>F. Narenji, O. Richit, H. Morales, V. Pelegrin</dd></dl>
+<dl class="date"><dt><b>Date:</b></dt><dd>12/01/2014 </dd></dl>
+
+<p>Definition in file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
+</div></div><!-- contents -->
 </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -204,7 +201,7 @@ Functions</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="_game_mode_8h.html">GameMode.h</a>      </li>
 
-    <li class="footer">Generated on Fri Jan 10 2014 23:09:40 for CatchMe by
+    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

@@ -1,4 +1,4 @@
 var _bot_8h =
 [
-    [ "MakeMove", "namespace_game_1_1_bot.html#a1e084318f29db50aac785e66c1a6f5d8", null ]
+    [ "MakeMove", "namespacens_game_1_1ns_bot.html#a672d5900fd2b28cc26555bd384311099", null ]
 ];

@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['fbuildmatrix',['FBuildMatrix',['../namespace_game.html#a982990ec997e2367ca874dfaf71581df',1,'Game']]],
-  ['fgetsize',['FGetSize',['../namespace_game.html#a8052c01749d0e47d4591f0cababd30aa',1,'Game']]],
-  ['finitializeround',['FInitializeRound',['../namespace_game.html#ad89ffe3382c50844ef25cb7ef6061e3b',1,'Game']]],
-  ['fisgameover',['FIsGameOver',['../namespace_game.html#a981183f3abab519078a37e9ffb322ea7',1,'Game']]],
-  ['fmoveplayer',['FMovePlayer',['../namespace_game.html#a3638ef7e31f1a4ceefbf158ff0832171',1,'Game']]],
-  ['fshowwinscreen',['FShowWinScreen',['../namespace_game.html#a1260f3158bb60e120d8b18d27ed7867f',1,'Game']]],
-  ['fvalidateplayerpositions',['FValidatePlayerPositions',['../namespace_game.html#a1cc63478c70a043dd7eaa4d6b419472d',1,'Game']]]
+  ['fbuildmatrix',['FBuildMatrix',['../namespacens_game.html#ab8d04e687323030d33b4459425687120',1,'nsGame']]],
+  ['fgetsize',['FGetSize',['../namespacens_game.html#a42aed30e26cb4c1b135a4a79c05e1cd8',1,'nsGame']]],
+  ['finitializeround',['FInitializeRound',['../namespacens_game.html#ae2c0b38407cfe08bc43baedfcf5594c5',1,'nsGame']]],
+  ['fisgameover',['FIsGameOver',['../namespacens_game.html#acf17db36f58b1cde2d4711c07497e938',1,'nsGame']]],
+  ['fmoveplayer',['FMovePlayer',['../namespacens_game.html#a8eccf8769b4b292af96a85df2cd01b19',1,'nsGame']]],
+  ['fshowwinscreen',['FShowWinScreen',['../namespacens_game.html#a53bfd68f423d2342b57a22a41da67331',1,'nsGame']]],
+  ['fvalidateplayerpositions',['FValidatePlayerPositions',['../namespacens_game.html#aeb2effdbf1997d66839bc85351c1755a',1,'nsGame']]]
 ];

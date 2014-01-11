@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: /home/sknz/Projet/src/Menu.h Source File</title>
+<title>CatchMe: src/Menu.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,9 +33,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">CatchMe
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">6.9</span>
    </div>
-   <div id="projectbrief">Can you catch oussama ?</div>
+   <div id="projectbrief">Can you catch Oussama ?</div>
   </td>
   
   
@@ -52,7 +52,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -96,27 +95,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">/home/sknz/Projet/src/Menu.h</div>  </div>
+<div class="title">src/Menu.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_menu_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span>
-<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;functional&gt;</span>
-<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;chrono&gt;</span>
-<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00006"></a>00006 
-<a name="l00007"></a><a class="code" href="namespace_menu.html">00007</a> <span class="keyword">namespace </span>Menu
-<a name="l00008"></a>00008 {
-<a name="l00015"></a><a class="code" href="namespace_menu.html#ab204d1df315f813023a60cac152b5c6f">00015</a>     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <a class="code" href="namespace_menu.html#ab204d1df315f813023a60cac152b5c6f" title="The timer before the error message disappears.">KErrorMessageDisplayTime</a> = 1000;
-<a name="l00016"></a>00016     
-<a name="l00022"></a>00022     <span class="keywordtype">void</span> <a class="code" href="namespace_menu.html#a7262be6fdeb22a1b2603c68fbf33aba4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">AddItem</a> (std::string ItemName, std::function&lt;<span class="keywordtype">void</span> (<span class="keywordtype">void</span>)&gt; Callback = <span class="keyword">nullptr</span>);
-<a name="l00023"></a>00023     
-<a name="l00029"></a>00029     <span class="keywordtype">void</span> <a class="code" href="namespace_menu.html#a6b9d457244162d557849fb0dc4cd0979" title="Clears up the previous entries of the menu.">Clear</a> ();
-<a name="l00030"></a>00030     
-<a name="l00038"></a>00038     <span class="keywordtype">void</span> <a class="code" href="namespace_menu.html#a06810a2534002cb48e551c882d03c845" title="Displays the menu, and gets the user selection.">Run</a> (<span class="keywordtype">bool</span> IsWinMenu = <span class="keyword">false</span>);
-<a name="l00039"></a>00039         
-<a name="l00045"></a>00045     <span class="keywordtype">void</span> <a class="code" href="namespace_menu.html#aff4671d7c3834a73da0fc22fccdfc3f2">ShowSimpleWinScreen</a> (<span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, std::vector&lt;char&gt; Tokens, std::vector&lt;unsigned&gt; TurnCounters);
-<a name="l00046"></a>00046 }
+<a href="_menu_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00011"></a>00011 <span class="preprocessor">#pragma once</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;functional&gt;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &lt;chrono&gt;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00016"></a>00016 
+<a name="l00017"></a><a class="code" href="namespacens_menu.html">00017</a> <span class="keyword">namespace </span>nsMenu
+<a name="l00018"></a>00018 {
+<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">AddItem</a> (std::string ItemName, std::function&lt;<span class="keywordtype">void</span> (<span class="keywordtype">void</span>)&gt; Callback = [] () { });
+<a name="l00025"></a>00025 
+<a name="l00031"></a>00031     <span class="keywordtype">void</span> <a class="code" href="namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu.">Clear</a> ();
+<a name="l00032"></a>00032 
+<a name="l00040"></a>00040     <span class="keywordtype">void</span> <a class="code" href="namespacens_menu.html#a6320374997c73f3c7ec9e62e7976129e" title="Displays the menu, and gets the user selection.">Run</a> (<span class="keywordtype">bool</span> IsWinMenu = <span class="keyword">false</span>);
+<a name="l00041"></a>00041 
+<a name="l00047"></a>00047     <span class="keywordtype">void</span> <a class="code" href="namespacens_menu.html#a54cbd7891375b0f725814f3ce2c20a90" title="Shows a simple default winning screen announcing the player that won.">ShowSimpleWinScreen</a> (<span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> std::vector&lt;char&gt;&amp; Tokens, <span class="keyword">const</span> std::vector&lt;unsigned&gt;&amp; TurnCounters);
+<a name="l00048"></a>00048 } <span class="comment">// nsMenu</span>
 </pre></div></div><!-- contents -->
 </div>
 <!-- window showing the filter options -->
@@ -137,7 +135,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li class="navelem"><a class="el" href="_menu_8h.html">Menu.h</a>      </li>
 
-    <li class="footer">Generated on Fri Jan 10 2014 23:09:40 for CatchMe by
+    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

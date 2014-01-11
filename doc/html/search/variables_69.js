@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['initializeround',['InitializeRound',['../struct_game_1_1_s_game_mode.html#a0c1db8d080ad0261ea0c7c850fc0f2c9',1,'Game::SGameMode']]],
-  ['isgameover',['IsGameOver',['../struct_game_1_1_s_game_mode.html#ad7e910cda950405544a8d98a484ec643',1,'Game::SGameMode']]]
+  ['initializeround',['InitializeRound',['../structns_game_1_1_s_game_mode.html#a67262bc8fbd448e6bd48394e5231b161',1,'nsGame::SGameMode']]],
+  ['isgameover',['IsGameOver',['../structns_game_1_1_s_game_mode.html#ad8b3e82a1b21ea0d6931c299b167eba5',1,'nsGame::SGameMode']]]
 ];

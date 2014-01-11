@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['run',['Run',['../namespace_game.html#a1880d9816a978b82bb91e4679743173d',1,'Game::Run()'],['../namespace_menu.html#a06810a2534002cb48e551c882d03c845',1,'Menu::Run()']]]
+  ['run',['Run',['../namespacens_game.html#a65ba644eceafea8b89f17e95c481d201',1,'nsGame::Run()'],['../namespacens_menu.html#a6320374997c73f3c7ec9e62e7976129e',1,'nsMenu::Run()']]]
 ];

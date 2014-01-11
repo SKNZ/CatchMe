@@ -1,9 +1,9 @@
 var _classic1v1_8h =
 [
-    [ "BuildMatrix", "namespace_classic1v1.html#a86b5d99331c284085fbacab85f2de15d", null ],
-    [ "GetSize", "namespace_classic1v1.html#a0a1649cc7c0acc6f41fb5a14f945b08b", null ],
-    [ "InitializeRound", "namespace_classic1v1.html#a2cf4427b148945b4ac75f6b8106e39bd", null ],
-    [ "IsGameOver", "namespace_classic1v1.html#ab60e7a5390ad3a426d06f6309b060305", null ],
-    [ "MovePlayer", "namespace_classic1v1.html#a74e7807fac34e205644c7f12b979abc3", null ],
-    [ "ValidatePlayerPositions", "namespace_classic1v1.html#a8f2f7cc98739cf423a9ee324d0c30f94", null ]
+    [ "BuildMatrix", "namespacens_classic1v1.html#ac4b26b1d87364fa3766bd37f8f4e10e8", null ],
+    [ "GetSize", "namespacens_classic1v1.html#a5e3bc9f450e6de789968c6192269bb6f", null ],
+    [ "InitializeRound", "namespacens_classic1v1.html#abc2f9ac65f4ad038e420b29580bea19a", null ],
+    [ "IsGameOver", "namespacens_classic1v1.html#ad2628deaf9bf59037dd8a27774554d73", null ],
+    [ "MovePlayer", "namespacens_classic1v1.html#a7e895573b65feaa0b48ff02c407fdc4a", null ],
+    [ "ValidatePlayerPositions", "namespacens_classic1v1.html#ae6135a92cb2ba8c8b7dfca5971472ebe", null ]
 ];

@@ -1,7 +1,7 @@
 var _helpers_8h =
 [
-    [ "AddObstaclesAndPlayersToMatrix", "namespace_helpers.html#a034f50d1fbc59b41391d57ce552c17fb", null ],
-    [ "LoadObstaclesFromFile", "namespace_helpers.html#a3d855f7adefe59b676acb0a087c87656", null ],
-    [ "MovePlayer", "namespace_helpers.html#adcb26a660133549ba7bdf86c41bf5eb3", null ],
-    [ "ValidatePlayerPositionsNoTeam", "namespace_helpers.html#afdd163125c2307f3ecbd4254edfad4b1", null ]
+    [ "AddObstaclesAndPlayersToMatrix", "namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0", null ],
+    [ "LoadObstaclesFromFile", "namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8", null ],
+    [ "MovePlayer", "namespacens_helpers.html#a260d611c360bb964f70fa13f0579c133", null ],
+    [ "ValidatePlayerPositionsNoTeam", "namespacens_helpers.html#a5d94aa155824a02b37011001affe7211", null ]
 ];

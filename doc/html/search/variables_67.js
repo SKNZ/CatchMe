@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getsize',['GetSize',['../struct_game_1_1_s_game_mode.html#aba8a6c97de5de76f116216e431642918',1,'Game::SGameMode']]]
+  ['getsize',['GetSize',['../structns_game_1_1_s_game_mode.html#a2b920fec1fcaee07e81073d9dd8ab028',1,'nsGame::SGameMode']]]
 ];

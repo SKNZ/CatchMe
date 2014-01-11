@@ -61,7 +61,7 @@ void nsClassic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned 
     nsMenu::Clear ();
 
     std::stringstream Text;
-    Text << "The lone player is '" << KTokens [AlonePlayer] << '.';
+    Text << "The lone player is '" << KTokens [AlonePlayer] << "'.";
     nsMenu::AddItem (Text.str ());
 
     nsMenu::Run ();

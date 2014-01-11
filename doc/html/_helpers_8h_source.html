@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: /home/sknz/Projet/src/GameModes/Helpers.h Source File</title>
+<title>CatchMe: src/GameModes/Helpers.h Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,9 +33,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">CatchMe
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">6.9</span>
    </div>
-   <div id="projectbrief">Can you catch oussama ?</div>
+   <div id="projectbrief">Can you catch Oussama ?</div>
   </td>
   
   
@@ -52,7 +52,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -96,25 +95,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">/home/sknz/Projet/src/GameModes/Helpers.h</div>  </div>
+<div class="title">src/GameModes/Helpers.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_helpers_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#pragma once</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span>
-<a name="l00003"></a>00003 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00004"></a>00004 
-<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;../Game.h&quot;</span>
-<a name="l00006"></a>00006 
-<a name="l00007"></a><a class="code" href="namespace_helpers.html">00007</a> <span class="keyword">namespace </span>Helpers
-<a name="l00008"></a>00008 {
-<a name="l00009"></a>00009     <span class="keywordtype">void</span> <a class="code" href="namespace_helpers.html#adcb26a660133549ba7bdf86c41bf5eb3">MovePlayer</a> (<span class="keyword">const</span> <a class="code" href="namespace_game.html#a93c2925b6e2ed730066cddb857af2da1">Game::CMatrix</a>&amp; Matrix, <a class="code" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">Game::CPosition</a>&amp; PlayerPosition, <span class="keyword">const</span> <a class="code" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">Game::CPosition</a>&amp; MatrixSize, <span class="keyword">const</span> <a class="code" href="namespace_game.html#ab178c0e3a8d6436a818257a888fcdee3">Game::PlayerMovesY</a> MoveY, <span class="keyword">const</span> <a class="code" href="namespace_game.html#aedb95e58cb45242bbca7999103f04a75">Game::PlayerMovesX</a> MoveX);
-<a name="l00010"></a>00010         <span class="keywordtype">void</span> <a class="code" href="namespace_helpers.html#afdd163125c2307f3ecbd4254edfad4b1">ValidatePlayerPositionsNoTeam</a> (<span class="keyword">const</span> <a class="code" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">Game::CPositions</a>&amp; PlayerPositions, <span class="keywordtype">unsigned</span> CurrentPlayer, std::vector&lt;bool&gt;&amp; PlayerLifeStates);
-<a name="l00011"></a>00011 
-<a name="l00019"></a>00019         <span class="keywordtype">void</span> <a class="code" href="namespace_helpers.html#a3d855f7adefe59b676acb0a087c87656" title="Loads the obstacles positions from the file.">LoadObstaclesFromFile</a> (<a class="code" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">Game::CPositions</a>&amp; ObstaclesPositions, <span class="keyword">const</span> <a class="code" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">Game::CPosition</a>&amp; MaxSize);
-<a name="l00020"></a>00020 
-<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="namespace_helpers.html#a034f50d1fbc59b41391d57ce552c17fb" title="Adds the obstacle and player tokens to the matrix.">AddObstaclesAndPlayersToMatrix</a> (<a class="code" href="namespace_game.html#a93c2925b6e2ed730066cddb857af2da1">Game::CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">Game::CPositions</a>&amp; PlayerPositions,
-<a name="l00027"></a>00027                                          <span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> <a class="code" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">Game::CPositions</a>&amp; ObstaclesPositions, <span class="keywordtype">char</span> EmptyToken);
-<a name="l00028"></a>00028 }
+<a href="_helpers_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00011"></a>00011 <span class="preprocessor">#pragma once</span>
+<a name="l00012"></a>00012 <span class="preprocessor"></span>
+<a name="l00013"></a>00013 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;../Game.h&quot;</span>
+<a name="l00016"></a>00016 
+<a name="l00017"></a><a class="code" href="namespacens_helpers.html">00017</a> <span class="keyword">namespace </span>nsHelpers
+<a name="l00018"></a>00018 {
+<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="namespacens_helpers.html#a260d611c360bb964f70fa13f0579c133" title="Checks for boundaries, obstacles and moves the player.">MovePlayer</a> (<span class="keyword">const</span> <a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">nsGame::CMatrix</a>&amp; Matrix, <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a>&amp; PlayerPosition, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a>&amp; MatrixSize,
+<a name="l00025"></a>00025                      <span class="keyword">const</span> <a class="code" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e" title="Moves on the Y axis.">nsGame::PlayerMovesY</a> MoveY, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa" title="Moves on the X axis.">nsGame::PlayerMovesX</a> MoveX);
+<a name="l00026"></a>00026     
+<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="namespacens_helpers.html#a5d94aa155824a02b37011001affe7211" title="Checks if a player is in a position that is lethal, and if yes, KILL IT !">ValidatePlayerPositionsNoTeam</a> (<span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> CurrentPlayer, std::vector&lt;bool&gt;&amp; PlayerLifeStates);
+<a name="l00033"></a>00033 
+<a name="l00042"></a>00042     <span class="keywordtype">void</span> <a class="code" href="namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8" title="Loads the obstacles positions from file.">LoadObstaclesFromFile</a> (<a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a>&amp; ObstaclesPositions, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a>&amp; MaxSize);
+<a name="l00043"></a>00043 
+<a name="l00049"></a>00049     <span class="keywordtype">void</span> <a class="code" href="namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0" title="Adds the obstacle and player tokens to the matrix.">AddObstaclesAndPlayersToMatrix</a> (<a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">nsGame::CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a>&amp; PlayerPositions,
+<a name="l00050"></a>00050                                          <span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a>&amp; ObstaclesPositions, <span class="keywordtype">char</span> EmptyToken);
+<a name="l00051"></a>00051 } <span class="comment">// nsHelpers</span>
 </pre></div></div><!-- contents -->
 </div>
 <!-- window showing the filter options -->
@@ -135,7 +137,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li class="navelem"><a class="el" href="_helpers_8h.html">Helpers.h</a>      </li>
 
-    <li class="footer">Generated on Fri Jan 10 2014 23:09:40 for CatchMe by
+    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

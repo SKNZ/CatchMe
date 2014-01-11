@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: /home/sknz/Projet/src/GameModes/Helpers.h File Reference</title>
+<title>CatchMe: src/GameModes/Helpers.h File Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,9 +33,9 @@
   
   <td style="padding-left: 0.5em;">
    <div id="projectname">CatchMe
-   &#160;<span id="projectnumber">1.0</span>
+   &#160;<span id="projectnumber">6.9</span>
    </div>
-   <div id="projectbrief">Can you catch oussama ?</div>
+   <div id="projectbrief">Can you catch Oussama ?</div>
   </td>
   
   
@@ -52,7 +52,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
@@ -99,41 +98,38 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">/home/sknz/Projet/src/GameModes/Helpers.h File Reference</div>  </div>
+<div class="title">src/GameModes/Helpers.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Redundant code about player movement, player positions validation, obstacles loading, matrix building.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br/>
 <code>#include &quot;<a class="el" href="_game_8h_source.html">../Game.h</a>&quot;</code><br/>
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for Helpers.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="_helpers_8h__incl.png" border="0" usemap="#_2home_2sknz_2_projet_2src_2_game_modes_2_helpers_8h" alt=""/></div>
-<map name="_2home_2sknz_2_projet_2src_2_game_modes_2_helpers_8h" id="_2home_2sknz_2_projet_2src_2_game_modes_2_helpers_8h">
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="_helpers_8h__dep__incl.png" border="0" usemap="#_2home_2sknz_2_projet_2src_2_game_modes_2_helpers_8hdep" alt=""/></div>
-<map name="_2home_2sknz_2_projet_2src_2_game_modes_2_helpers_8hdep" id="_2home_2sknz_2_projet_2src_2_game_modes_2_helpers_8hdep">
-</map>
-</div>
 </div>
 <p><a href="_helpers_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_helpers.html">Helpers</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html">nsHelpers</a></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_helpers.html#adcb26a660133549ba7bdf86c41bf5eb3">Helpers::MovePlayer</a> (const <a class="el" href="namespace_game.html#a93c2925b6e2ed730066cddb857af2da1">Game::CMatrix</a> &amp;Matrix, <a class="el" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">Game::CPosition</a> &amp;PlayerPosition, const <a class="el" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">Game::CPosition</a> &amp;MatrixSize, const <a class="el" href="namespace_game.html#ab178c0e3a8d6436a818257a888fcdee3">Game::PlayerMovesY</a> MoveY, const <a class="el" href="namespace_game.html#aedb95e58cb45242bbca7999103f04a75">Game::PlayerMovesX</a> MoveX)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_helpers.html#afdd163125c2307f3ecbd4254edfad4b1">Helpers::ValidatePlayerPositionsNoTeam</a> (const <a class="el" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">Game::CPositions</a> &amp;PlayerPositions, unsigned CurrentPlayer, std::vector&lt; bool &gt; &amp;PlayerLifeStates)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_helpers.html#a3d855f7adefe59b676acb0a087c87656">Helpers::LoadObstaclesFromFile</a> (<a class="el" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">Game::CPositions</a> &amp;ObstaclesPositions, const <a class="el" href="namespace_game.html#aeada6b898f4bfb79d4d18eecb0e6d0d7">Game::CPosition</a> &amp;MaxSize)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the obstacles positions from the file.  <a href="#a3d855f7adefe59b676acb0a087c87656"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_helpers.html#a034f50d1fbc59b41391d57ce552c17fb">Helpers::AddObstaclesAndPlayersToMatrix</a> (<a class="el" href="namespace_game.html#a93c2925b6e2ed730066cddb857af2da1">Game::CMatrix</a> &amp;Matrix, const <a class="el" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">Game::CPositions</a> &amp;PlayerPositions, const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const <a class="el" href="namespace_game.html#a7e54bd446dcdf6f931fdaa057aef1873">Game::CPositions</a> &amp;ObstaclesPositions, char EmptyToken)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the obstacle and player tokens to the matrix.  <a href="#a034f50d1fbc59b41391d57ce552c17fb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html#a260d611c360bb964f70fa13f0579c133">nsHelpers::MovePlayer</a> (const <a class="el" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">nsGame::CMatrix</a> &amp;Matrix, <a class="el" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a> &amp;PlayerPosition, const <a class="el" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a> &amp;MatrixSize, const <a class="el" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e">nsGame::PlayerMovesY</a> MoveY, const <a class="el" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa">nsGame::PlayerMovesX</a> MoveX)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for boundaries, obstacles and moves the player.  <a href="#a260d611c360bb964f70fa13f0579c133"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html#a5d94aa155824a02b37011001affe7211">nsHelpers::ValidatePlayerPositionsNoTeam</a> (const <a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a> &amp;PlayerPositions, const unsigned CurrentPlayer, std::vector&lt; bool &gt; &amp;PlayerLifeStates)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a player is in a position that is lethal, and if yes, KILL IT !  <a href="#a5d94aa155824a02b37011001affe7211"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8">nsHelpers::LoadObstaclesFromFile</a> (<a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a> &amp;ObstaclesPositions, const <a class="el" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a> &amp;MaxSize)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the obstacles positions from file.  <a href="#ac1e2b3710370dbd82816df53984ff5f8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0">nsHelpers::AddObstaclesAndPlayersToMatrix</a> (<a class="el" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">nsGame::CMatrix</a> &amp;Matrix, const <a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a> &amp;PlayerPositions, const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const <a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a> &amp;ObstaclesPositions, char EmptyToken)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the obstacle and player tokens to the matrix.  <a href="#a06706a9d239c8345638bf3dc45961fc0"></a><br/></td></tr>
 </table>
-</div><!-- contents -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Redundant code about player movement, player positions validation, obstacles loading, matrix building. </p>
+<dl class="author"><dt><b>Author:</b></dt><dd>F. Narenji, O. Richit, H. Morales, V. Pelegrin</dd></dl>
+<dl class="date"><dt><b>Date:</b></dt><dd>12/01/2014 </dd></dl>
+
+<p>Definition in file <a class="el" href="_helpers_8h_source.html">Helpers.h</a>.</p>
+</div></div><!-- contents -->
 </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
@@ -153,7 +149,7 @@ Functions</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="_helpers_8h.html">Helpers.h</a>      </li>
 
-    <li class="footer">Generated on Fri Jan 10 2014 23:09:40 for CatchMe by
+    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

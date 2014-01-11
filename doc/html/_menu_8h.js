@@ -1,8 +1,7 @@
 var _menu_8h =
 [
-    [ "AddItem", "namespace_menu.html#a7262be6fdeb22a1b2603c68fbf33aba4", null ],
-    [ "Clear", "namespace_menu.html#a6b9d457244162d557849fb0dc4cd0979", null ],
-    [ "Run", "namespace_menu.html#a06810a2534002cb48e551c882d03c845", null ],
-    [ "ShowSimpleWinScreen", "namespace_menu.html#aff4671d7c3834a73da0fc22fccdfc3f2", null ],
-    [ "KErrorMessageDisplayTime", "namespace_menu.html#ab204d1df315f813023a60cac152b5c6f", null ]
+    [ "AddItem", "namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4", null ],
+    [ "Clear", "namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7", null ],
+    [ "Run", "namespacens_menu.html#a6320374997c73f3c7ec9e62e7976129e", null ],
+    [ "ShowSimpleWinScreen", "namespacens_menu.html#a54cbd7891375b0f725814f3ce2c20a90", null ]
 ];

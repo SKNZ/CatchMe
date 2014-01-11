@@ -1,7 +1,6 @@
 var NAVTREE =
 [
   [ "CatchMe", "index.html", [
-    [ "Related Pages", "pages.html", "pages" ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
       [ "Namespace Members", "namespacemembers.html", [
