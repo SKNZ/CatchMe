@@ -1,7 +1,7 @@
 - Création d'un compte sur GitHub, maîtrise des opérations de base sur Git (pull, commit, push, reset)
 - std::function, les pointeurs de fonction C++11, pour les modes de jeux modulaires
 - std::map, le conteneur associatif
-- std::thread && this_thread::sleep_for ainsi que std::chrono
+- this_thread::sleep_for ainsi que std::chrono
 - Usage des structures
 - Enumerations fortements typées & static_cast
 - Surcharge d'opérateur << sur ostream pour afficher les couleurs
@@ -12,3 +12,4 @@
 - ioctl
 - poll pour la saisie blocking avec timeout
 - algorithme de pathfinding A* (http://www.policyalmanac.org/games/aStarTutorial.htm)
+- emploi de std::set
