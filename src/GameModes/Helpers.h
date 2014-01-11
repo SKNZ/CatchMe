@@ -1,3 +1,13 @@
+/**
+ * @file   Helpers.h
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Redundant code about player movement, player positions validation, obstacles loading, matrix building
+ *
+ **/
 #pragma once
 
 #include <vector>
@@ -11,7 +21,8 @@ namespace Helpers
      * @brief Checks for boundaries, obstacles and moves the player.
      * 
      **/
-    void MovePlayer (const NSGame::CMatrix& Matrix, NSGame::CPosition& PlayerPosition, const NSGame::CPosition& MatrixSize, const NSGame::PlayerMovesY MoveY, const NSGame::PlayerMovesX MoveX);
+    void MovePlayer (const NSGame::CMatrix& Matrix, NSGame::CPosition& PlayerPosition, const NSGame::CPosition& MatrixSize,
+                     const NSGame::PlayerMovesY MoveY, const NSGame::PlayerMovesX MoveX);
     
     /**
      * 

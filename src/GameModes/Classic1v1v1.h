@@ -1,3 +1,13 @@
+/**
+ * @file   Classic1v1v1.h
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Classic 1v1v1 game mode
+ *
+ **/
 #pragma once
 
 #include <vector>

@@ -5,7 +5,7 @@
  *
  * @date   12/01/2014
  *
- * @brief Add item to menu, clear menu, draw menu helpers, run menu definitions
+ * @brief  Add item to menu, clear menu, draw menu helpers, run menu definitions
  *
  **/
 #include <vector>
@@ -180,7 +180,7 @@ void NSMenu::Run (bool IsWinMenu)
                 break;
             default:
                 cout << "Use Z to go up, S to go down and Enter to validate." << endl;
-                Console::WaitForKeyPress (KErrorMessageDisplayTime);
+                Console::WaitForKeyPress (Config::ErrorMessageDisplayTime);
                 break;
         }
     }

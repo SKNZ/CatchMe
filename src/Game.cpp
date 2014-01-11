@@ -38,7 +38,7 @@ namespace
      **/
     void SelectGameMode (SGameMode& GameMode)
     {
-        Menu::Clear ();
+        NSMenu::Clear ();
 
         set<string> GameModeTypes;
 
@@ -53,19 +53,19 @@ namespace
         std::string SelectedGameModeType;
 
         for (string GameModeType : GameModeTypes)
-            Menu::AddItem (GameModeType, [&SelectedGameModeType, GameModeType] () { SelectedGameModeType = GameModeType; });
+            NSMenu::AddItem (GameModeType, [&SelectedGameModeType, GameModeType] () { SelectedGameModeType = GameModeType; });
         
-        Menu::AddItem("Quitter", [] () { exit(0); });
+        NSMenu::AddItem("Quitter", [] () { exit(0); });
 
-        Menu::Run ();
+        NSMenu::Run ();
 
-        Menu::Clear ();
+        NSMenu::Clear ();
 
         for (SGameMode CurrentGameMode : KGameModes)
             if (CurrentGameMode.Name.find (SelectedGameModeType) != string::npos)
-                Menu::AddItem (CurrentGameMode.Name, [&GameMode, CurrentGameMode] () { GameMode = CurrentGameMode; });
+                NSMenu::AddItem (CurrentGameMode.Name, [&GameMode, CurrentGameMode] () { GameMode = CurrentGameMode; });
 
-        Menu::Run ();
+        NSMenu::Run ();
     }
 
     /**
@@ -110,12 +110,12 @@ namespace
 
         for (unsigned i = 1; i < IsPlayerBot.size (); ++i)
         {
-            Menu::Clear ();
+            NSMenu::Clear ();
 
-            Menu::AddItem ("The player " + to_string (i + 1) + " is a bot.",     [&IsPlayerBot, i] () { IsPlayerBot [i] = true; });
-            Menu::AddItem ("The player " + to_string (i + 1) + " is not a bot.", [&IsPlayerBot, i] () { IsPlayerBot [i] = false; });
+            NSMenu::AddItem ("The player " + to_string (i + 1) + " is a bot.",     [&IsPlayerBot, i] () { IsPlayerBot [i] = true; });
+            NSMenu::AddItem ("The player " + to_string (i + 1) + " is not a bot.", [&IsPlayerBot, i] () { IsPlayerBot [i] = false; });
 
-            Menu::Run ();
+            NSMenu::Run ();
         }
     }
 
@@ -250,11 +250,11 @@ int NSGame::Run ()
 
             if (i != GameMode.RoundCount) // Don't show if its the last round
             {
-                Menu::Clear ();
+                NSMenu::Clear ();
 
-                Menu::AddItem ("Next round !");
+                NSMenu::AddItem ("Next round !");
 
-                Menu::Run ();
+                NSMenu::Run ();
             }
         }
 
