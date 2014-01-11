@@ -1,8 +1,18 @@
+/**
+ * @file   GameMode.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  SGameMode constructor implementation
+ *
+ **/
 #include "GameMode.h"
 
-using namespace Game;
+using namespace NSGame;
 
-SGameMode Game::MakeGameMode (std::string Name, unsigned PlayerCount, unsigned RoundCount,
+SGameMode NSGame::MakeGameMode (std::string Name, unsigned PlayerCount, unsigned RoundCount, bool AllowStay,
     FGetSize GetSize,
     FMovePlayer MovePlayer,
     FInitializeRound InitializeRound,
@@ -16,6 +26,7 @@ SGameMode Game::MakeGameMode (std::string Name, unsigned PlayerCount, unsigned R
     GameMode.Name                       = Name;
     GameMode.PlayerCount                = PlayerCount;
     GameMode.RoundCount                 = RoundCount;
+    GameMode.AllowStay                  = AllowStay;
     GameMode.GetSize                    = GetSize;
     GameMode.MovePlayer                 = MovePlayer;
     GameMode.InitializeRound   = InitializeRound;

@@ -6,7 +6,7 @@
 
 namespace Survivor2v2
 {
-    using namespace Game;
+    using namespace NSGame;
 
     void GetSize (CPosition& Size);
 

@@ -1,3 +1,13 @@
+/**
+ * @file   Menu.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief Add item to menu, clear menu, draw menu helpers, run menu definitions
+ *
+ **/
 #include <vector>
 #include <iostream>
 #include <thread>
@@ -6,67 +16,92 @@
 
 #include "Menu.h"
 #include "Console.h"
+#include "Config.h"
 
 using namespace std;
 using namespace Console;
+using namespace NSGame;
 
+/**
+ * 
+ * @brief Items contained in the menu associated with their callbacks.
+ * 
+ **/
 vector<pair<string, function<void (void)>>> MenuItems;
 
-void Menu::AddItem (string ItemName, function<void(void)> Callback)
+void NSMenu::AddItem (string ItemName, function<void(void)> Callback)
 {
     MenuItems.push_back (make_pair (ItemName, Callback));
 }
 
-void Menu::Clear ()
+void NSMenu::Clear ()
 {
     MenuItems.clear ();
 }
 
-void DrawBorder (unsigned SizeX)
+namespace
 {
-    unsigned Quarter = SizeX / 4;
-    // The menu begins at 1/4 of the screen.
-    for (unsigned i = 0; i < Quarter; ++i)
-        cout << ' ';
+    /**
+    * 
+    * @brief Draws a horizontal border.
+    * 
+    * @param SizeX The size of the console (or render target) in terms of characters on the X axis.
+    * 
+    **/
+    void DrawBorder (unsigned SizeX)
+    {
+        unsigned Quarter = SizeX / 4;
+        // The menu begins at 1/4 of the screen.
+        for (unsigned i = 0; i < Quarter; ++i)
+            cout << ' ';
 
-    cout << BackgroundColors::KMagenta;
+        cout << Config::MenuBorderColor;
 
-    // It takes 2/4 of the screen.
-    for (unsigned i = 0; i < Quarter * 2; ++i)
-        cout << ' ';
+        // It takes 2/4 of the screen.
+        for (unsigned i = 0; i < Quarter * 2; ++i)
+            cout << ' ';
 
-    cout << BackgroundColors ::KDefault << endl;
+        cout << BackgroundColors ::KDefault << endl;
+    }
+
+    /**
+    * 
+    * @brief Center and display item.
+    * 
+    * @param SizeX The size of the console (or render target) in terms of characters on the X axis.
+    * @param Selected Whether the item is highlighted.
+    * 
+    **/
+    void DrawItem (int SizeX, std::string Text, bool Selected)
+    {
+        unsigned Quarter = SizeX / 4;
+        for (unsigned i = 0; i < Quarter; ++i)
+            cout << ' ';
+        
+        // Left border
+        cout << Config::MenuBorderColor << ' ' << BackgroundColors ::KDefault;
+
+        // Left padding
+        // Minus one for the border
+        for (unsigned i = 0; i < (Quarter * 2 - Text.size ()) / 2 - 1; ++i)
+            cout << ' ';
+
+        if (Selected)
+            cout << BackgroundColors::KWhite << Colors::KBlack;
+
+        cout << Text << BackgroundColors::KDefault;
+
+        // Right padding
+        // Minus one for the border, minus one if the text size is uneven
+        for (unsigned i = 0; i < (Quarter * 2 - Text.size ()) / 2 - (Text.size () % 2 ? 0 : 1); ++i)
+            cout << ' ';
+
+        // Right border
+        cout << Config::MenuBorderColor << ' ' << BackgroundColors::KDefault << endl;
+    }
 }
 
-void DrawItem (int SizeX, std::string Text, bool Selected)
-{
-    unsigned Quarter = SizeX / 4;
-    for (unsigned i = 0; i < Quarter; ++i)
-        cout << ' ';
-    
-    // Left border
-    cout << BackgroundColors::KMagenta << ' ' << BackgroundColors ::KDefault;
-
-    // Left padding
-    // Minus one for the border
-    for (unsigned i = 0; i < (Quarter * 2 - Text.size ()) / 2 - 1; ++i)
-        cout << ' ';
-
-    if (Selected)
-        cout << BackgroundColors::KWhite << Colors::KBlack;
-
-    cout << Text << BackgroundColors::KDefault;
-
-    // Right padding
-    // Minus one for the border, minus one if the text size is uneven
-    for (unsigned i = 0; i < (Quarter * 2 - Text.size ()) / 2 - (Text.size () % 2 ? 0 : 1); ++i)
-        cout << ' ';
-
-    // Right border
-    cout << BackgroundColors::KMagenta << ' ' << BackgroundColors::KDefault << endl;
-}
-
-void Menu::Run (bool IsWinMenu)
+void NSMenu::Run (bool IsWinMenu)
 {
     if (MenuItems.empty ())
         throw "Menu::Run - The menu was empty.";
@@ -151,7 +186,7 @@ void Menu::Run (bool IsWinMenu)
     }
 }
 
-void Menu::ShowSimpleWinScreen (const vector<bool>& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
+void NSMenu::ShowSimpleWinScreen (const vector<bool>& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
 {
     Clear ();
 

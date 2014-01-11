@@ -1,0 +1,29 @@
+digraph G
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="Survivor1v1v1::GetSize",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Menu::Clear",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespace_menu.html#a6b9d457244162d557849fb0dc4cd0979",tooltip="Clears up the previous entries of the menu."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Menu::AddItem",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespace_menu.html#a7262be6fdeb22a1b2603c68fbf33aba4",tooltip="Adds an item to menu, which is associated to a callback function, that will be used if said item is t..."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Game::Run",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespace_game.html#a1880d9816a978b82bb91e4679743173d",tooltip="Main loop, handles just about everything."];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Console::DisableCanonicalInputMode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespace_console.html#a593b7cc9376ca8d05ab3f2cd37ec57e0",tooltip="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu..."];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="EnableCanonicalInputMode",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2"];
+  Node4 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="Game::Config::LoadFile",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespace_game_1_1_config.html#a0ef910db9dc5292da7b57c4bbbbe7c34",tooltip="Parse the configuration file."];
+  Node4 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="Game::UI::ShowMatrix",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespace_game_1_1_u_i.html#a028894b9a13e582e1f0eb6f6dfa1c588",tooltip="Displays the borders and the game matrix, applying the correct colors to the tokens."];
+  Node8 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Console::ClearScreen",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespace_console.html#a80245913c1a42c001de00e59a5a722c3",tooltip="Clears the screen with VT100 syntax."];
+  Node4 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="Game::UI::ShowControls",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespace_game_1_1_u_i.html#a969e86f1ff4de3b03686acbb99b889fd",tooltip="Indicates which controls the current player should be using to move."];
+  Node4 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Game::Bot::MakeMove",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespace_game_1_1_bot.html#a1e084318f29db50aac785e66c1a6f5d8"];
+  Node4 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

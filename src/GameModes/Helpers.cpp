@@ -3,7 +3,7 @@
 
 #include "Helpers.h"
 
-using namespace Game;
+using namespace NSGame;
 
 void Helpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
@@ -73,11 +73,11 @@ void Helpers::AddObstaclesAndPlayersToMatrix (CMatrix& Matrix, const CPositions&
         fill (Line.begin (), Line.end (), EmptyToken);
 
     for (CPosition Position : ObstaclesPositions)
-        Matrix [Position.first] [Position.second] = Game::KTokens [Game::KTokenObstacle];
+        Matrix [Position.first] [Position.second] = NSGame::KTokens [NSGame::KTokenObstacle];
 
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
         if (PlayerLifeStates[i])
-            Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = Game::KTokens [i];
+            Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = NSGame::KTokens [i];
 }
 
 

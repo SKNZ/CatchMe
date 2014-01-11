@@ -1,12 +1,27 @@
+/**
+ * @file   GameUI.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Matrix rendering function, current controls display function
+ *
+ **/
 #include <iostream>
 #include <iomanip>
 #include "GameUI.h"
 #include "Menu.h"
+#include "Config.h"
 
 using namespace std;
 
-void Game::UI::ShowMatrix (const CMatrix & Matrix)
+void NSGame::UI::ShowMatrix (const CMatrix & Matrix)
 {
+    const BackgroundColors KBorderColor = Config::BorderColor;
+    const BackgroundColors KCaseColor1 = Config::CaseColor1;
+    const BackgroundColors KCaseColor2 = Config::CaseColor2;
+    
     Console::ClearScreen ();
     
     unsigned EmptyCasesCounter = 0;
@@ -16,14 +31,14 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
     
     // Upper border
     for (unsigned i = 0; i < TotalWidth; ++i)
-        cout << BackgroundColors::KGreen << ' ';
+        cout << KBorderColor << ' ';
 
     cout << BackgroundColors::KDefault << endl;
     
     for (CLine Line : Matrix)
     {
         // Left border
-        cout << ' ' << BackgroundColors::KGreen << ' ' << BackgroundColors::KDefault;
+        cout << ' ' << KBorderColor << ' ' << BackgroundColors::KDefault;
 
         for (char C : Line)
         {
@@ -34,9 +49,9 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
                 if (KTokenColors.at(C).second == BackgroundColors::KDefault)
                 {
                     if (EmptyCasesCounter % 2 == 0)
-                        cout << BackgroundColors::KBlue;
+                        cout << KCaseColor1;
                     else
-                        cout << BackgroundColors::KBlack;
+                        cout << KCaseColor2;
                 }
                 else
                 {
@@ -54,7 +69,7 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
         }
 
         // Right border
-        cout << BackgroundColors::KGreen << ' ' << BackgroundColors::KDefault << endl;
+        cout << KBorderColor << ' ' << BackgroundColors::KDefault << endl;
 
         ++EmptyCasesCounter;
     }
@@ -67,18 +82,18 @@ void Game::UI::ShowMatrix (const CMatrix & Matrix)
     cout << BackgroundColors::KDefault << endl;
 }
 
-void Game::UI::ShowControls (const unsigned int CurrentPlayer)
+void NSGame::UI::ShowControls (const unsigned int CurrentPlayer)
 {
     cout << endl << "Current player: " << KTokens.at (CurrentPlayer) << endl
         << "Controls: " << endl
-        << setw(16) <<  "UpLeft(" << KControlsByToken.at (KTokens.at (CurrentPlayer)) [0] << ") "
-        << setw(16) <<  "Up(" << KControlsByToken.at (KTokens.at (CurrentPlayer)) [1] << ") "
-        << setw(16) <<  "UpRight(" << KControlsByToken.at (KTokens.at (CurrentPlayer)) [2] << ") " << endl
-        << setw(16) <<  "Left(" << KControlsByToken.at (KTokens.at (CurrentPlayer)) [3] << ") "
-        //<< setw(16) <<  "Stay(" << KControlsByToken.at (KTokens.at (CurrentPlayer))[4] << ") "
-        << setw(35) <<  "Right(" << KControlsByToken.at (KTokens.at (CurrentPlayer)) [5] << ") " << endl
-        << setw(16) <<  "DownLeft(" << KControlsByToken.at (KTokens.at (CurrentPlayer)) [6] << ") "
-        << setw(16) <<  "Down(" << KControlsByToken.at (KTokens.at (CurrentPlayer)) [7] << ") "
-        << setw(16) <<  "DownRight(" << KControlsByToken.at (KTokens.at (CurrentPlayer)) [8] << ") " << endl;
+        << setw(16) <<  "UpLeft(" << KControlsByToken.at (CurrentPlayer) [0] << ") "
+        << setw(16) <<  "Up(" << KControlsByToken.at (CurrentPlayer) [1] << ") "
+        << setw(16) <<  "UpRight(" << KControlsByToken.at (CurrentPlayer) [2] << ") " << endl
+        << setw(16) <<  "Left(" << KControlsByToken.at (CurrentPlayer) [3] << ") "
+        //<< setw(16) <<  "Stay(" << KControlsByToken.at (CurrentPlayer)[4] << ") "
+        << setw(35) <<  "Right(" << KControlsByToken.at (CurrentPlayer) [5] << ") " << endl
+        << setw(16) <<  "DownLeft(" << KControlsByToken.at (CurrentPlayer) [6] << ") "
+        << setw(16) <<  "Down(" << KControlsByToken.at (CurrentPlayer) [7] << ") "
+        << setw(16) <<  "DownRight(" << KControlsByToken.at (CurrentPlayer) [8] << ") " << endl;
 }
 

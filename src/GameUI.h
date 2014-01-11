@@ -1,3 +1,13 @@
+/**
+ * @file   GameUI.h
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Colors of each token, UI functions declarations
+ *
+ **/
 #pragma once
 
 #include <utility>
@@ -6,13 +16,17 @@
 #include "Console.h"
 #include "Game.h"
 
-namespace Game
+namespace NSGame
 {
     namespace UI
     {
         using namespace Console;
 
-        // Constants        
+        /**
+         * 
+         * @brief Colors of each token.
+         * 
+         **/
         const std::map<char, std::pair<Colors, BackgroundColors>> KTokenColors =
         {
             { 'X', { Colors::KRed,      BackgroundColors::KDefault  } },
@@ -20,14 +34,13 @@ namespace Game
             { '#', { Colors::KMagenta,  BackgroundColors::KDefault  } },
             { '@', { Colors::KYellow,   BackgroundColors::KDefault  } },
             { '|', { Colors::KBlack,    BackgroundColors::KWhite    } },
-            { ' ', { Colors::KDefault,  BackgroundColors::KDefault  } } // We want alternate colors there, the easiest way to achieve this is to hardcode it
+            { ' ', { Colors::KDefault,  BackgroundColors::KDefault  } } // Colors of empty token are not used as they come from config file.
         };
 
         /**
          * 
          * @brief Displays the borders and the game matrix, applying the correct colors to the tokens.
          * 
-         * @todo Constants for border color should be replaced by a (const) variable.
          * 
          **/
         void ShowMatrix (const CMatrix& Matrix);

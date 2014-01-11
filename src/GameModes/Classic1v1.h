@@ -6,7 +6,7 @@
 
 namespace Classic1v1
 {
-    using namespace Game;
+    using namespace NSGame;
 
     void GetSize (CPosition& Size);
 

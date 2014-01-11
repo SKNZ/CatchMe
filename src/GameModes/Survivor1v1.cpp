@@ -10,17 +10,17 @@ using namespace std;
 
 namespace
 {
-	Game::CPositions ObstaclesPositions;
+	NSGame::CPositions ObstaclesPositions;
 }
 
 void Survivor1v1::GetSize (CPosition& Size)
 {
-    Menu::Clear ();
+    NSMenu::Clear ();
 
-    Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
-    Menu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
+    NSMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
+    NSMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
 
-    Menu::Run ();
+    NSMenu::Run ();
 }
 
 void Survivor1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)

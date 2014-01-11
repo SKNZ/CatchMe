@@ -2,12 +2,18 @@
 
 #include "GameMode.h"
 
-namespace Game
+namespace NSGame
 {
     namespace Bot
     {
-        using namespace Game;
-        
+        using namespace NSGame;
+
+        /**
+         * 
+         * @brief Finds if a player is in attack range, attack if yes else find neareast player
+         *          and calculate first element of path towards him.
+         * 
+         */
         void MakeMove (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer);
     }
 }

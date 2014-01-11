@@ -1,11 +1,13 @@
 /**
- * @author F. Narenji
+ * @file   Game.h
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
  *
- * @date   22/12/2013
+ * @date   12/01/2014
  *
- * @brief  Main game header, contains tokens, controls, movement enums, player count and size constants
+ * @brief  Main game header, contains game modes, tokens (+ enum), controls, and main function.
  *
-**/
+ **/
 #pragma once
 
 #include <string>
@@ -28,23 +30,33 @@
 
 #include "Menu.h"
 
-namespace Game
+namespace NSGame
 {
+    /**
+     * 
+     * @brief All the game modes.
+     * 
+     **/
     const std::vector<SGameMode> KGameModes = 
     {
-        MakeGameMode ("Classic 1v1", 2, 1, Classic1v1::GetSize, Classic1v1::MovePlayer, Classic1v1::InitializeRound, Classic1v1::BuildMatrix, Classic1v1::ValidatePlayerPositions, Classic1v1::IsGameOver, Menu::ShowSimpleWinScreen),
-        MakeGameMode ("Classic 1v1v1", 3, 1, Classic1v1v1::GetSize, Classic1v1v1::MovePlayer, Classic1v1v1::InitializeRound, Classic1v1v1::BuildMatrix, Classic1v1v1::ValidatePlayerPositions, Classic1v1v1::IsGameOver, Menu::ShowSimpleWinScreen),
-        MakeGameMode ("Classic 1v1v1v1", 4, 1, Classic1v1v1v1::GetSize, Classic1v1v1v1::MovePlayer, Classic1v1v1v1::InitializeRound, Classic1v1v1v1::BuildMatrix, Classic1v1v1v1::ValidatePlayerPositions, Classic1v1v1v1::IsGameOver, Menu::ShowSimpleWinScreen),
-        MakeGameMode ("Classic 2v2", 4, 1, Classic2v2::GetSize, Classic2v2::MovePlayer, Classic2v2::InitializeRound, Classic2v2::BuildMatrix, Classic2v2::ValidatePlayerPositions, Classic2v2::IsGameOver, Menu::ShowSimpleWinScreen),
-        MakeGameMode ("Classic 3v1", 4, 4, Classic3v1::GetSize, Classic3v1::MovePlayer, Classic3v1::InitializeRound, Classic3v1::BuildMatrix, Classic3v1::ValidatePlayerPositions, Classic3v1::IsGameOver, Classic3v1::ShowWinScreen),
+        MakeGameMode ("Classic 1v1", 2, 1, false, Classic1v1::GetSize, Classic1v1::MovePlayer, Classic1v1::InitializeRound, Classic1v1::BuildMatrix, Classic1v1::ValidatePlayerPositions, Classic1v1::IsGameOver, Menu::ShowSimpleWinScreen),
+        MakeGameMode ("Classic 1v1v1", 3, 1, false, Classic1v1v1::GetSize, Classic1v1v1::MovePlayer, Classic1v1v1::InitializeRound, Classic1v1v1::BuildMatrix, Classic1v1v1::ValidatePlayerPositions, Classic1v1v1::IsGameOver, Menu::ShowSimpleWinScreen),
+        MakeGameMode ("Classic 1v1v1v1", 4, 1, false, Classic1v1v1v1::GetSize, Classic1v1v1v1::MovePlayer, Classic1v1v1v1::InitializeRound, Classic1v1v1v1::BuildMatrix, Classic1v1v1v1::ValidatePlayerPositions, Classic1v1v1v1::IsGameOver, Menu::ShowSimpleWinScreen),
+        MakeGameMode ("Classic 2v2", 4, 1, false, Classic2v2::GetSize, Classic2v2::MovePlayer, Classic2v2::InitializeRound, Classic2v2::BuildMatrix, Classic2v2::ValidatePlayerPositions, Classic2v2::IsGameOver, Menu::ShowSimpleWinScreen),
+        MakeGameMode ("Classic 3v1", 4, 4, false, Classic3v1::GetSize, Classic3v1::MovePlayer, Classic3v1::InitializeRound, Classic3v1::BuildMatrix, Classic3v1::ValidatePlayerPositions, Classic3v1::IsGameOver, Classic3v1::ShowWinScreen),
         
-        MakeGameMode ("Survivor 1v1", 2, 1, Survivor1v1::GetSize, Survivor1v1::MovePlayer, Survivor1v1::InitializeRound, Survivor1v1::BuildMatrix, Survivor1v1::ValidatePlayerPositions, Survivor1v1::IsGameOver, Menu::ShowSimpleWinScreen),
-        MakeGameMode ("Survivor 1v1v1", 3, 1, Survivor1v1v1::GetSize, Survivor1v1v1::MovePlayer, Survivor1v1v1::InitializeRound, Classic1v1v1::BuildMatrix, Survivor1v1v1::ValidatePlayerPositions, Survivor1v1v1::IsGameOver, Menu::ShowSimpleWinScreen),
-        MakeGameMode ("Survivor 1v1v1v1", 4, 1, Survivor1v1v1v1::GetSize, Survivor1v1v1v1::MovePlayer, Survivor1v1v1v1::InitializeRound, Survivor1v1v1v1::BuildMatrix, Survivor1v1v1v1::ValidatePlayerPositions, Survivor1v1v1v1::IsGameOver, Menu::ShowSimpleWinScreen),
-        MakeGameMode ("Survivor 2v2", 4, 1, Survivor2v2::GetSize, Survivor2v2::MovePlayer, Survivor2v2::InitializeRound, Survivor2v2::BuildMatrix, Survivor2v2::ValidatePlayerPositions, Survivor2v2::IsGameOver, Menu::ShowSimpleWinScreen),
-        MakeGameMode ("Survivor 3v1", 4, 4, Survivor3v1::GetSize, Survivor3v1::MovePlayer, Survivor3v1::InitializeRound, Survivor3v1::BuildMatrix, Survivor3v1::ValidatePlayerPositions, Survivor3v1::IsGameOver, Survivor3v1::ShowWinScreen),
+        MakeGameMode ("Survivor 1v1", 2, 1, false, Survivor1v1::GetSize, Survivor1v1::MovePlayer, Survivor1v1::InitializeRound, Survivor1v1::BuildMatrix, Survivor1v1::ValidatePlayerPositions, Survivor1v1::IsGameOver, Menu::ShowSimpleWinScreen),
+        MakeGameMode ("Survivor 1v1v1", 3, 1, false, Survivor1v1v1::GetSize, Survivor1v1v1::MovePlayer, Survivor1v1v1::InitializeRound, Classic1v1v1::BuildMatrix, Survivor1v1v1::ValidatePlayerPositions, Survivor1v1v1::IsGameOver, Menu::ShowSimpleWinScreen),
+        MakeGameMode ("Survivor 1v1v1v1", 4, 1, false, Survivor1v1v1v1::GetSize, Survivor1v1v1v1::MovePlayer, Survivor1v1v1v1::InitializeRound, Survivor1v1v1v1::BuildMatrix, Survivor1v1v1v1::ValidatePlayerPositions, Survivor1v1v1v1::IsGameOver, Menu::ShowSimpleWinScreen),
+        MakeGameMode ("Survivor 2v2", 4, 1, false, Survivor2v2::GetSize, Survivor2v2::MovePlayer, Survivor2v2::InitializeRound, Survivor2v2::BuildMatrix, Survivor2v2::ValidatePlayerPositions, Survivor2v2::IsGameOver, Menu::ShowSimpleWinScreen),
+        MakeGameMode ("Survivor 3v1", 4, 4, false, Survivor3v1::GetSize, Survivor3v1::MovePlayer, Survivor3v1::InitializeRound, Survivor3v1::BuildMatrix, Survivor3v1::ValidatePlayerPositions, Survivor3v1::IsGameOver, Survivor3v1::ShowWinScreen),
     };
 
+    /**
+     * 
+     * An id for each token
+     * 
+     **/
     enum TokenIds
     {
         KTokenPlayer1,
@@ -84,12 +96,12 @@ namespace Game
      * 6 -> Downleft, 7 -> Down, 8 -> Downright
      * 
      **/
-    const std::map<char, std::string> KControlsByToken =
+    const std::map<int, std::string> KControlsByToken =
     {
-        { 'X', "azeqsdwxc" },
-        { 'O', "789456123" },
-        { '#', "uiojkl,;:" },
-        { '@', "rtyfghvbn" }
+        { KTokenPlayer1, "azeqsdwxc" },
+        { KTokenPlayer2, "789456123" },
+        { KTokenPlayer3, "uiojkl,;:" },
+        { KTokenPlayer4, "rtyfghvbn" }
     };
 
     /**

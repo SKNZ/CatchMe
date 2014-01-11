@@ -7,8 +7,15 @@
 
 namespace
 {
-    using namespace Game;
+    using namespace NSGame;
 
+    /**
+     * 
+     * @brief Adds MoveY and MoveX to Position if the position is inbound and if its not an obstacle.
+     *
+     * @return Modified position if inbound and not obstacle, original position otherwise. 
+     * 
+     **/
     CPosition MakePosition (const CMatrix& Matrix, CPosition Position, PlayerMovesY MoveY, PlayerMovesX MoveX)
     {
         int Y = Position.first;
@@ -22,7 +29,14 @@ namespace
 
         return { Y, X };
     }
-    
+
+    /**
+     * 
+     * @brief Check if a player is within one case of distance and attack if yes.
+     * 
+     * @return Whether a kill was made or not.
+     * 
+     **/
     bool CheckForPlayerInRangeAndAttack (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer, PlayerMovesY MoveY, PlayerMovesX MoveX)
     {
         CPosition Position = MakePosition (Matrix, PlayerPositions [CurrentPlayer], MoveY, MoveX);
@@ -37,6 +51,11 @@ namespace
         return false;
     }
 
+    /**
+     * 
+     * @brief Calculates the distances between two points of the grid.
+     * 
+     **/
     unsigned FindDistance (CPosition From, CPosition To)
     {
         int DeltaX = From.first - To.first;
@@ -47,7 +66,12 @@ namespace
         
         return unsigned (sqrt (DeltaX + DeltaY));
     }
-    
+
+    /**
+     * 
+     * @brief Returns the position of the nearest player.
+     * 
+     **/
     CPosition FindNearestPlayerPosition (const std::vector<bool>& PlayerLifeStates, const CPositions& PlayerPositions, unsigned CurrentPlayer)
     {
         unsigned NearestPlayerPositionIndex = 0;
@@ -68,6 +92,13 @@ namespace
         return PlayerPositions [NearestPlayerPositionIndex];
     }
 
+    /**
+     * 
+     * @brief Uses a simplified implementation of the A* (all movements of the same cost) algorithm to find
+     *          the next movement of the bot by evaluating the distance between each of the nearby
+     *          spots to the target position.
+     * 
+     **/
     CPosition FindNextMove (const CMatrix& Matrix, CPosition CurrentPosition, CPosition Target)
     {
         std::vector<CPosition> PositionsNearby;
@@ -87,7 +118,7 @@ namespace
     }
 }
 
-void Game::Bot::MakeMove (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer)
+void NSGame::Bot::MakeMove (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer)
 {
     // Check if a there is a player in attack range, and kill him.
     bool HasKilledSomeOne = CheckForPlayerInRangeAndAttack (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer, PlayerMovesY::KStay,   PlayerMovesX::KRight)

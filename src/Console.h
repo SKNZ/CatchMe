@@ -4,6 +4,11 @@
 
 namespace Console
 {
+    /**
+     * 
+     * @brief Color codes for each 
+     * 
+     **/
     enum struct Colors : unsigned
     {
         KDefault    = 0,

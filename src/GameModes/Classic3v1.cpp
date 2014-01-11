@@ -10,7 +10,13 @@ using namespace std;
 
 namespace
 {
-    Game::CPositions ObstaclesPositions;
+    NSGame::CPositions ObstaclesPositions;
+    
+    /**
+     * 
+     * @brief The numbers of turns each alone player survived.
+     * 
+     */
     std::array<unsigned, 4> AlonePlayerTurnCounters;
 
     int AlonePlayer = -1;
@@ -18,13 +24,13 @@ namespace
 
 void Classic3v1::GetSize (CPosition& Size)
 {
-    Menu::Clear ();
+    NSMenu::Clear ();
 
-    Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
-    Menu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
-    Menu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
+    NSMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
+    NSMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
+    NSMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
 
-    Menu::Run ();
+    NSMenu::Run ();
 }
 
 void Classic3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
@@ -52,16 +58,22 @@ void Classic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned Pl
 
     ++AlonePlayer;
 
-    Menu::Clear ();
+    NSMenu::Clear ();
 
     std::stringstream Text;
     Text << "The lone player is '" << KTokens [AlonePlayer] << '.';
-    Menu::AddItem (Text.str ());
+    NSMenu::AddItem (Text.str ());
 
-    Menu::Run ();
+    NSMenu::Run ();
 
     ObstaclesPositions.clear ();
     Helpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
+    
+    if (*AlonePlayerTurnCounters.crbegin() != 0) // If each player has played its turn, reset all state if they want to replay the round.
+    {
+        fill (AlonePlayerTurnCounters.begin (), AlonePlayerTurnCounters.end (), 0);
+        AlonePlayer = 0;
+    }
 }
 
 void Classic3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
@@ -81,14 +93,14 @@ bool Classic3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 
 void Classic3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
 {
-    Menu::Clear ();
+    NSMenu::Clear ();
 
     for (unsigned i = 0; i < 4; ++i)
     {
         stringstream Winner;
         Winner << "Player " << i + 1 << " lasted " << AlonePlayerTurnCounters [i] << " rounds.";
-        Menu::AddItem(Winner.str() );
+        NSMenu::AddItem(Winner.str() );
     }
 
-    Menu::Run (true);
+    NSMenu::Run (true);
 }

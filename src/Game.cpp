@@ -1,14 +1,17 @@
 /**
- * @author F. Narenji
+ * @file   Game.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
  *
- * @date   19/12/2013
+ * @date   12/01/2014
  *
- * @brief  Game implementation, movement, render matrix, main loop
+ * @brief  Main game file, contains game loop, user interaction
  *
-**/
+ **/
 #include <iostream>
 #include <sstream>
 #include <thread>
+#include <set>
 #include <cstdlib>
 
 #include "Menu.h"
@@ -23,63 +26,104 @@ using namespace std;
 
 namespace
 {
-    using namespace Game;
+    using namespace NSGame;
 
     /**
      *
-     * @brief Game mode selection screen
+     * @brief Two step game mode selection screen.
+     *          It finds all the different game mode type by taking the first part (before space)
+     *          of every game mode name. It ask which you want and then gives you all the game modes
+     *          where the name begins with the game mode type you selected.
      *
      **/
-    void GetGameMode (SGameMode& GameMode)
+    void SelectGameMode (SGameMode& GameMode)
     {
         Menu::Clear ();
 
-        for (SGameMode CurrentGameMode : KGameModes)
-            Menu::AddItem (CurrentGameMode.Name, [&GameMode, CurrentGameMode] () { GameMode = CurrentGameMode; });
+        set<string> GameModeTypes;
 
+        for (SGameMode CurrentGameMode : KGameModes)
+        {
+            stringstream Text (CurrentGameMode.Name);
+            std::string GameModeType;
+            if (getline (Text, GameModeType, ' '))
+                GameModeTypes.insert (GameModeType);
+        }
+
+        std::string SelectedGameModeType;
+
+        for (string GameModeType : GameModeTypes)
+            Menu::AddItem (GameModeType, [&SelectedGameModeType, GameModeType] () { SelectedGameModeType = GameModeType; });
+        
         Menu::AddItem("Quitter", [] () { exit(0); });
 
         Menu::Run ();
+
+        Menu::Clear ();
+
+        for (SGameMode CurrentGameMode : KGameModes)
+            if (CurrentGameMode.Name.find (SelectedGameModeType) != string::npos)
+                Menu::AddItem (CurrentGameMode.Name, [&GameMode, CurrentGameMode] () { GameMode = CurrentGameMode; });
+
+        Menu::Run ();
     }
-    
-    bool GetUserAction (size_t& Action, unsigned CurrentPlayer)
+
+    /**
+     * 
+     * @brief Gets the user input and if it is a valid control for the current player.
+     *          If the user doesn't give any input in a certain time (Config)
+     *          a bot action is executed.
+     *
+     **/
+    bool GetUserAction (size_t& Action, unsigned CurrentPlayer, bool AllowStay, const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions)
     {
         if (Console::WaitForKeyPress (Config::TurnTimeoutDelay))
         {
             char Opcode = tolower (cin.get ());
 
-            Action = KControlsByToken.at (KTokens.at (CurrentPlayer)).find (Opcode);
-            if (Action == string::npos || Action == 4) // 4 is the position of the middle key (such as S or 5). We do not want it.
+            Action = KControlsByToken.at (CurrentPlayer).find (Opcode);
+            if (Action == string::npos || (!AllowStay && Action == 4)) // 4 is the position of the stay (middle) key (such as S or 5).
             {
                 cout << "The key you entered wasn't valid." << endl;
                 Console::WaitForKeyPress (Config::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
-            
+
                 return false;
             }
         }
         else
         {
-            srand (time(NULL));
-
-            Action = rand () % 8;
+            Bot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
         }
-        
+
         return true;
     }
-    
-    void AddBots (vector<bool>& IsPlayerBot)
+
+    /**
+     *
+     * @brief Asks the user whether he wants a certain player to be played by a bot. 
+     *
+     **/
+    void AddBots (const SGameMode& GameMode, vector<bool>& IsPlayerBot)
     {
+        IsPlayerBot.resize (GameMode.PlayerCount, false);
+        if (GameMode.PlayerCount < 2) // We only want bots for 1v1 games.
+
         for (unsigned i = 1; i < IsPlayerBot.size (); ++i)
         {
             Menu::Clear ();
-            
-            Menu::AddItem ("The player " + to_string (i + 1) + " is a bot.", [&IsPlayerBot, i] () { IsPlayerBot [i] = true; });
+
+            Menu::AddItem ("The player " + to_string (i + 1) + " is a bot.",     [&IsPlayerBot, i] () { IsPlayerBot [i] = true; });
             Menu::AddItem ("The player " + to_string (i + 1) + " is not a bot.", [&IsPlayerBot, i] () { IsPlayerBot [i] = false; });
-            
+
             Menu::Run ();
         }
     }
 
+    /**
+     *
+     * @brief Converts an action into a grid axis movement and makes the move.
+     * 
+     **/
     void MovementHandler (int Action, const CMatrix& Matrix, CPositions& PlayerPositions, const unsigned CurrentPlayer, const CPosition& Size, const SGameMode& GameMode)
     {
         CPosition& PlayerPosition = PlayerPositions [CurrentPlayer];
@@ -99,7 +143,6 @@ namespace
                 GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KStay, PlayerMovesX::KLeft);
                 break;
             case 4: // Stay
-                return; // Having a Stay move has been found to flaw the gameplay.
                 GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KStay, PlayerMovesX::KStay);
                 break;
             case 5: // Right
@@ -116,9 +159,74 @@ namespace
                 break;
         }
     }
+
+    /**
+     * 
+     * @brief Round logic code (player positions, current player, game over etc)
+     * 
+     **/
+    void DoRound (const SGameMode& GameMode, const CPosition& Size, vector<bool>& PlayerLifeStates, vector<bool>& IsPlayerBot, vector<unsigned>& TurnCounters)
+    {
+        CPositions      PlayerPositions;
+        unsigned        CurrentPlayer = 0; // Whose turn it is
+        CMatrix         Matrix;
+
+        PlayerLifeStates.resize (GameMode.PlayerCount, true);
+        fill (PlayerLifeStates.begin (), PlayerLifeStates.end (), true);
+
+        TurnCounters.resize (GameMode.PlayerCount, 0);
+        fill (TurnCounters.begin (), TurnCounters.end (), 0);
+
+        Matrix.resize (Size.first);
+
+        for (CLine& Line : Matrix)
+            Line.resize (Size.second);
+
+        GameMode.InitializeRound (PlayerPositions, GameMode.PlayerCount, Size);
+
+        GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
+
+        for (;;)
+        {
+            this_thread::sleep_for (std::chrono::milliseconds (Config::RenderLoopInterval)); // Render loop interval
+
+            UI::ShowMatrix (Matrix);
+            UI::ShowControls (CurrentPlayer);
+
+            if (GameMode.IsGameOver (PlayerLifeStates))
+                break;
+
+            if (PlayerLifeStates [CurrentPlayer])
+            {
+                size_t Action = 0;
+
+                if (IsPlayerBot [CurrentPlayer])
+                {
+                    Bot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
+                    this_thread::sleep_for (std::chrono::milliseconds (Config::BotPlayDelay));
+                }
+                else
+                {
+                    if (!GetUserAction (Action, CurrentPlayer, GameMode.AllowStay, Matrix, PlayerLifeStates, PlayerPositions))
+                        continue; // Retry !
+
+                    MovementHandler (Action, Matrix, PlayerPositions, CurrentPlayer, Size, GameMode);
+                }
+
+                GameMode.ValidatePlayerPositions (Matrix, PlayerPositions, CurrentPlayer, PlayerLifeStates);
+
+                GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
+            }
+
+            ++TurnCounters [CurrentPlayer];
+            ++CurrentPlayer;
+            if (CurrentPlayer >= GameMode.PlayerCount) // Go back to first player if last player reached
+                CurrentPlayer = 0;
+        }
+    }
 }
 
-int Game::Run ()
+int NSGame::Run ()
 {
     Console::DisableCanonicalInputMode ();
     Config::LoadFile ();
@@ -127,82 +235,25 @@ int Game::Run ()
     {
         SGameMode        GameMode;
         CPosition        Size;
-        vector<bool>     PlayerLifeStates;
+        vector<bool>     PlayerLifeStates; // Is dead (false), alive (true)
         vector<bool>     IsPlayerBot;
         vector<unsigned> TurnCounters;
 
-        GetGameMode (GameMode);
+        SelectGameMode (GameMode);
         GameMode.GetSize (Size);
-        
-        IsPlayerBot.resize (GameMode.PlayerCount, false);
-        if (GameMode.PlayerCount < 2) // We only want bots for 1v1 games.
-            AddBots (IsPlayerBot);
+
+        AddBots (GameMode, IsPlayerBot);
 
         for (unsigned i = 0; i < GameMode.RoundCount; ++i)
         {
-            CPositions      PlayerPositions;
-            unsigned        CurrentPlayer = 0; // Whose turn it is
-            CMatrix         Matrix;
+            DoRound (GameMode, Size, PlayerLifeStates, IsPlayerBot, TurnCounters);
 
-            PlayerLifeStates.resize (GameMode.PlayerCount, true);
-            fill (PlayerLifeStates.begin (), PlayerLifeStates.end (), true);
-            
-            TurnCounters.resize (GameMode.PlayerCount, 0);
-            fill (TurnCounters.begin (), TurnCounters.end (), 0);
-
-            Matrix.resize (Size.first);
- 
-            for (CLine& Line : Matrix)
-                Line.resize (Size.second);
-
-            GameMode.InitializeRound (PlayerPositions, GameMode.PlayerCount, Size);
-
-            GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
-
-            for (;;)
-            {
-                this_thread::sleep_for (std::chrono::milliseconds (Config::RenderLoopInterval)); // Render loop interval
-
-                UI::ShowMatrix (Matrix);
-                UI::ShowControls (CurrentPlayer);
-
-                if (GameMode.IsGameOver (PlayerLifeStates))
-                    break;
-
-                if (PlayerLifeStates [CurrentPlayer])
-                {
-                    size_t Action = 0;
-
-                    if (IsPlayerBot [CurrentPlayer])
-                    {
-                        Bot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
-                        this_thread::sleep_for (std::chrono::milliseconds (Config::BotPlayDelay)); // Render loop interval
-                    }
-                    else
-                    {
-                        if (!GetUserAction (Action, CurrentPlayer))
-                            continue;
-
-                        MovementHandler (Action, Matrix, PlayerPositions, CurrentPlayer, Size, GameMode);
-                    }
-
-                    GameMode.ValidatePlayerPositions (Matrix, PlayerPositions, CurrentPlayer, PlayerLifeStates);
-
-                    GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
-                }
-
-                ++TurnCounters [CurrentPlayer];
-                ++CurrentPlayer;
-                if (CurrentPlayer >= GameMode.PlayerCount)
-                    CurrentPlayer = 0;
-            }
-
-            if (i != GameMode.RoundCount)
+            if (i != GameMode.RoundCount) // Don't show if its the last round
             {
                 Menu::Clear ();
-            
+
                 Menu::AddItem ("Next round !");
-                
+
                 Menu::Run ();
             }
         }

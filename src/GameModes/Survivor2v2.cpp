@@ -10,18 +10,18 @@ using namespace std;
 
 namespace
 {
-	Game::CPositions ObstaclesPositions;
+	NSGame::CPositions ObstaclesPositions;
 }
 
 void Survivor2v2::GetSize (CPosition& Size)
 {
-    Menu::Clear ();
+    NSMenu::Clear ();
 
-    Menu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
-    Menu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
-    Menu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
+    NSMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
+    NSMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
+    NSMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
 
-    Menu::Run ();
+    NSMenu::Run ();
 }
 
 void Survivor2v2::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
@@ -60,11 +60,11 @@ void Survivor2v2::InitializeRound (CPositions& PlayerPositions, const unsigned P
     ObstaclesPositions.clear ();
     Helpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
 
-    Menu::Clear ();
+    NSMenu::Clear ();
 
-    Menu::AddItem ("The players 1 and 3 form a team against the players 2 and 4");
+    NSMenu::AddItem ("The players 1 and 3 form a team against the players 2 and 4.");
 
-    Menu::Run ();
+    NSMenu::Run ();
 }
 
 void Survivor2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)

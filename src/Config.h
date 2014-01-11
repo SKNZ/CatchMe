@@ -1,12 +1,21 @@
 #pragma once
 
+#include "Console.h"
+
 #include <string>
 #include <chrono>
 
-namespace Game
+using namespace Console;
+
+namespace NSGame
 {
     namespace Config
     {
+        /**
+         * 
+         * @brief The name of the config file.
+         * 
+         **/
         const std::string KFileName = "conf.xml";
         
         /**
@@ -46,5 +55,33 @@ namespace Game
           * 
           **/
          extern unsigned BotPlayDelay;
+         
+         /**
+          * 
+          * @brief The color of the the game matrix border
+          * 
+          **/
+         extern BackgroundColors BorderColor;
+         
+        /**
+          * 
+          * @brief The color of the the game matrix case (even)
+          * 
+          **/
+         extern BackgroundColors CaseColor1;
+         
+         /**
+          * 
+          * @brief The color of the the game matrix case (uneven)
+          * 
+          **/
+         extern BackgroundColors CaseColor2;
+         
+         /**
+          * 
+          * @brief The color of the the menu border
+          * 
+          **/
+         extern BackgroundColors MenuBorderColor;
     }
 }

@@ -1,11 +1,13 @@
 /**
- * @author F. Narenji
+ * @file   main.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
  *
- * @date   19/12/2013
+ * @date   12/01/2014
  *
- * @brief  Main file - Runnable
+ * @brief  Main file.
  *
-**/
+ **/
 #include <iostream>
 
 #include "Game.h"
@@ -14,7 +16,7 @@ int main (int argc, char** argv)
 {
     try
     {
-        return Game::Run ();
+        return NSGame::Run ();
     }
     catch (std::runtime_error& e)
     {
