@@ -13,9 +13,9 @@
 
 #include "Helpers.h"
 
-using namespace NSGame;
+using namespace nsGame;
 
-void NSHelpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void nsHelpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     int DiffY = static_cast<int> (MoveY);
     int DiffX = static_cast<int> (MoveX);
@@ -43,7 +43,7 @@ void NSHelpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, co
     PlayerPosition.second += DiffX;
 } // MovePlayer
 
-void NSHelpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
+void nsHelpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
 {
 	for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
@@ -58,7 +58,7 @@ void NSHelpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions
     }
 } // ValidatePlayerPositionsNoTeam
 
-void NSHelpers::LoadObstaclesFromFile (CPositions& ObstaclesPositions, const CPosition& MaxSize)
+void nsHelpers::LoadObstaclesFromFile (CPositions& ObstaclesPositions, const CPosition& MaxSize)
 {
     std::stringstream FileName;
     FileName << "./" << MaxSize.first << "_" << MaxSize.second << ".map";
@@ -77,17 +77,17 @@ void NSHelpers::LoadObstaclesFromFile (CPositions& ObstaclesPositions, const CPo
 			ObstaclesPositions.push_back ({ Y, X });
 } // LoadObstaclesFromFile
 
-void NSHelpers::AddObstaclesAndPlayersToMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const CPositions& ObstaclesPositions, char EmptyToken)
+void nsHelpers::AddObstaclesAndPlayersToMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const CPositions& ObstaclesPositions, char EmptyToken)
 {
     for (CLine& Line : Matrix)
         fill (Line.begin (), Line.end (), EmptyToken);
 
     for (CPosition Position : ObstaclesPositions)
-        Matrix [Position.first] [Position.second] = NSGame::KTokens [NSGame::KTokenObstacle];
+        Matrix [Position.first] [Position.second] = nsGame::KTokens [nsGame::KTokenObstacle];
 
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
         if (PlayerLifeStates[i])
-            Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = NSGame::KTokens [i];
+            Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = nsGame::KTokens [i];
 } // AddObstaclesAndPlayersToMatrix
 
 

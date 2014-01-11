@@ -16,13 +16,13 @@
 
 using namespace std;
 
-void NSGame::NSUI::ShowMatrix (const CMatrix & Matrix)
+void nsGame::nsUI::ShowMatrix (const CMatrix & Matrix)
 {
-    const BackgroundColors KBorderColor = NSConfig::BorderColor;
-    const BackgroundColors KCaseColor1 = NSConfig::CaseColor1;
-    const BackgroundColors KCaseColor2 = NSConfig::CaseColor2;
+    const BackgroundColors KBorderColor = nsConfig::BorderColor;
+    const BackgroundColors KCaseColor1 = nsConfig::CaseColor1;
+    const BackgroundColors KCaseColor2 = nsConfig::CaseColor2;
     
-    NSConsole::ClearScreen ();
+    nsConsole::ClearScreen ();
     
     unsigned EmptyCasesCounter = 0;
     unsigned TotalWidth = Matrix.begin ()->size () * 3 + 2;
@@ -82,7 +82,7 @@ void NSGame::NSUI::ShowMatrix (const CMatrix & Matrix)
     cout << BackgroundColors::KDefault << endl;
 }
 
-void NSGame::NSUI::ShowControls (const unsigned int CurrentPlayer)
+void nsGame::nsUI::ShowControls (const unsigned int CurrentPlayer)
 {
     cout << endl << "Current player: " << KTokens.at (CurrentPlayer) << endl
         << "Controls: " << endl

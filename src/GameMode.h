@@ -13,7 +13,7 @@
 #include <vector>
 #include <functional>
 
-namespace NSGame
+namespace nsGame
 {
     /**
      * 
@@ -54,7 +54,7 @@ namespace NSGame
     typedef std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions,
                                 const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> FBuildMatrix;
 
-    typedef std::function<void (const CMatrix& Matrix, CPositions PlayerPositions, unsigned CurrentPlayer,
+    typedef std::function<void (const CMatrix& Matrix, CPositions PlayerPositions, const unsigned CurrentPlayer,
                                 std::vector<bool>& PlayerLifeStates)> FValidatePlayerPositions;
 
     typedef std::function<bool (const std::vector<bool>& PlayerLifeStates)> FIsGameOver;
@@ -166,4 +166,4 @@ namespace NSGame
         FValidatePlayerPositions ValidatePlayerPositions,
         FIsGameOver IsGameOver,
         FShowWinScreen ShowWinScreen);
-} // NSGame
+} // nsGame

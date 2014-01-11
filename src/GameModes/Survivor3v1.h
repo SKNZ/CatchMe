@@ -14,9 +14,9 @@
 
 #include "../GameMode.h"
 
-namespace NSSurvivor3v1
+namespace nsSurvivor3v1
 {
-    using namespace NSGame;
+    using namespace nsGame;
 
     void GetSize (CPosition& Size);
 
@@ -26,9 +26,9 @@ namespace NSSurvivor3v1
 
     void BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const char EmptyToken);
 
-    void ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
+    void ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, const unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
 
     bool IsGameOver (const std::vector<bool>& PlayerLifeStates);
 
-    void ShowWinScreen (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, std::vector<unsigned> TurnCounters);
+    void ShowWinScreen (const std::vector<bool>& PlayerLifeStates, const std::vector<char>& Tokens, const std::vector<unsigned>& TurnCounters);
 }

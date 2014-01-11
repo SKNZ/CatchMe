@@ -2,11 +2,11 @@
 
 #include "GameMode.h"
 
-namespace NSGame
+namespace nsGame
 {
-    namespace NSBot
+    namespace nsBot
     {
-        using namespace NSGame;
+        using namespace nsGame;
 
         /**
          * 
@@ -14,6 +14,6 @@ namespace NSGame
          *          and calculate first element of path towards him.
          * 
          */
-        void MakeMove (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer);
-    } // NSBot
-} // NSGame
+        void MakeMove (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, const unsigned CurrentPlayer);
+    } // nsBot
+} // nsGame

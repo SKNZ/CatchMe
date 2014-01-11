@@ -10,28 +10,28 @@ using namespace std;
 
 namespace
 {
-	NSGame::CPositions ObstaclesPositions;
+	nsGame::CPositions ObstaclesPositions;
 }
 
-void NSSurvivor1v1v1::GetSize (CPosition& Size)
+void nsSurvivor1v1v1::GetSize (CPosition& Size)
 {
-    NSMenu::Clear ();
+    nsMenu::Clear ();
 
-    NSMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
-    NSMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
-    NSMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
+    nsMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
+    nsMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
+    nsMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
 
-    NSMenu::Run ();
+    nsMenu::Run ();
 }
 
-void NSSurvivor1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void nsSurvivor1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
-    NSHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
+    nsHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void NSSurvivor1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void nsSurvivor1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-	NSHelpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
+	nsHelpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 
     for (CPosition Position : ObstaclesPositions)
         if (PlayerPositions [CurrentPlayer] == Position)
@@ -42,7 +42,7 @@ void NSSurvivor1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPos
         ObstaclesPositions.push_back (PlayerPositions [CurrentPlayer]);
 } // ValidatePlayerPositions
 
-void NSSurvivor1v1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void nsSurvivor1v1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -51,15 +51,15 @@ void NSSurvivor1v1v1::InitializeRound (CPositions& PlayerPositions, const unsign
     PlayerPositions [2] = { 0, 0 }; // Top left
 
     ObstaclesPositions.clear ();
-    NSHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
+    nsHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
 } // InitializeRound
 
-void NSSurvivor1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
+void nsSurvivor1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
-    NSHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
+    nsHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
 }
 
-bool NSSurvivor1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
+bool nsSurvivor1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
     unsigned DeadPlayerCount = 0;
 

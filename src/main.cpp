@@ -16,7 +16,7 @@ int main (int argc, char** argv)
 {
     try
     {
-        return NSGame::Run ();
+        return nsGame::Run ();
     }
     catch (std::runtime_error& e)
     {

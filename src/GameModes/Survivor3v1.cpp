@@ -11,29 +11,29 @@ using namespace std;
 
 namespace
 {
-	NSGame::CPositions ObstaclesPositions;
+	nsGame::CPositions ObstaclesPositions;
     array<unsigned, 4> AlonePlayerTurnCounters;
 
     int AlonePlayer = -1;
 }
 
-void NSSurvivor3v1::GetSize (CPosition& Size)
+void nsSurvivor3v1::GetSize (CPosition& Size)
 {
-    NSMenu::Clear ();
+    nsMenu::Clear ();
 
-    NSMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
-    NSMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
-    NSMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
+    nsMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
+    nsMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
+    nsMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
 
-    NSMenu::Run ();
+    nsMenu::Run ();
 }
 
-void NSSurvivor3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void nsSurvivor3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
-    NSHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
+    nsHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void NSSurvivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void nsSurvivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     if (CurrentPlayer == AlonePlayer)
     {
@@ -62,7 +62,7 @@ void NSSurvivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPosit
         PlayerLifeStates [CurrentPlayer] = false;
 } // ValidatePlayerPositions
 
-void NSSurvivor3v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void nsSurvivor3v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -73,16 +73,16 @@ void NSSurvivor3v1::InitializeRound (CPositions& PlayerPositions, const unsigned
 
     ++AlonePlayer;
 
-    NSMenu::Clear ();
+    nsMenu::Clear ();
 
     std::stringstream Text;
     Text << "The lone player is '" << KTokens [AlonePlayer] << '.';
-    NSMenu::AddItem (Text.str ());
+    nsMenu::AddItem (Text.str ());
 
-    NSMenu::Run ();
+    nsMenu::Run ();
 
     ObstaclesPositions.clear ();
-    NSHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
+    nsHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
     
     if (*AlonePlayerTurnCounters.crbegin() != 0) // If each player has played its turn, reset all state if they want to replay the round.
     {
@@ -91,12 +91,12 @@ void NSSurvivor3v1::InitializeRound (CPositions& PlayerPositions, const unsigned
     }
 } // InitializeRound
 
-void NSSurvivor3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
+void nsSurvivor3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
-    NSHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
+    nsHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
 }
 
-bool NSSurvivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
+bool nsSurvivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
     unsigned DeadChaserCount = 0;
     for (unsigned i = 0; i < PlayerLifeStates.size (); ++i)
@@ -106,16 +106,16 @@ bool NSSurvivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
     return !PlayerLifeStates [AlonePlayer] || DeadChaserCount == 3;
 }
 
-void NSSurvivor3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
+void nsSurvivor3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, const std::vector<char>& Tokens, const vector<unsigned>& TurnCounters)
 {
-    NSMenu::Clear ();
+    nsMenu::Clear ();
 
     for (unsigned i = 0; i < 4; ++i)
     {
         stringstream Winner;
         Winner << "Player " << i + 1 << " lasted " << AlonePlayerTurnCounters [i] << " rounds.";
-        NSMenu::AddItem(Winner.str());
+        nsMenu::AddItem(Winner.str());
     }
 
-    NSMenu::Run (true);
+    nsMenu::Run (true);
 } // ShowWinScreen

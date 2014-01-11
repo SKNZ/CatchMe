@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace NSConsole
+namespace nsConsole
 {
     /**
      * 
@@ -83,4 +83,4 @@ namespace NSConsole
      * 
      **/
     void DisableCanonicalInputMode ();
-} // NSConsole
+} // nsConsole

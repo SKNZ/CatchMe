@@ -8,26 +8,26 @@ using namespace std;
 
 namespace
 {
-    NSGame::CPositions ObstaclesPositions;
+    nsGame::CPositions ObstaclesPositions;
 }
 
-void NSClassic2v2::GetSize (CPosition& Size)
+void nsClassic2v2::GetSize (CPosition& Size)
 {
-    NSMenu::Clear ();
+    nsMenu::Clear ();
 
-    NSMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
-    NSMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
-    NSMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
+    nsMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
+    nsMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
+    nsMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
 
-    NSMenu::Run ();
+    nsMenu::Run ();
 }
 
-void NSClassic2v2::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void nsClassic2v2::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
-    NSHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
+    nsHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void NSClassic2v2::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void nsClassic2v2::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
@@ -39,7 +39,7 @@ void NSClassic2v2::ValidatePlayerPositions (const CMatrix& Matrix, const CPositi
     }
 }
 
-void NSClassic2v2::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void nsClassic2v2::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -49,21 +49,21 @@ void NSClassic2v2::InitializeRound (CPositions& PlayerPositions, const unsigned 
     PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
 
     ObstaclesPositions.clear ();
-    NSHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
+    nsHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
 
-    NSMenu::Clear ();
+    nsMenu::Clear ();
 
-    NSMenu::AddItem ("The players 1 and 3 form a team against the players 2 and 4.");
+    nsMenu::AddItem ("The players 1 and 3 form a team against the players 2 and 4.");
 
-    NSMenu::Run ();
+    nsMenu::Run ();
 } // InitializeRound
 
-void NSClassic2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
+void nsClassic2v2::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
-    NSHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
+    nsHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
 }
 
-bool NSClassic2v2::IsGameOver (const vector<bool>& PlayerLifeStates)
+bool nsClassic2v2::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
     return (!PlayerLifeStates[0] && !PlayerLifeStates[2]) || (!PlayerLifeStates[1] && !PlayerLifeStates[3]);
 }

@@ -16,11 +16,11 @@
 #include "Console.h"
 #include "Game.h"
 
-namespace NSGame
+namespace nsGame
 {
-    namespace NSUI
+    namespace nsUI
     {
-        using namespace NSConsole;
+        using namespace nsConsole;
 
         /**
          * 
@@ -52,4 +52,4 @@ namespace NSGame
          **/
         void ShowControls (const unsigned CurrentPlayer);
     } // UI
-} // NSGame
+} // nsGame

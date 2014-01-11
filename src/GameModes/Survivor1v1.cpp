@@ -10,20 +10,20 @@ using namespace std;
 
 namespace
 {
-	NSGame::CPositions ObstaclesPositions;
+	nsGame::CPositions ObstaclesPositions;
 }
 
-void NSSurvivor1v1::GetSize (CPosition& Size)
+void nsSurvivor1v1::GetSize (CPosition& Size)
 {
-    NSMenu::Clear ();
+    nsMenu::Clear ();
 
-    NSMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
-    NSMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
+    nsMenu::AddItem ("Small map", [&Size] () { Size = { 5, 10 }; });
+    nsMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
 
-    NSMenu::Run ();
+    nsMenu::Run ();
 }
 
-void NSSurvivor1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void nsSurvivor1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     int DiffX = static_cast<int> (MoveX);
     int DiffY = static_cast<int> (MoveY);
@@ -36,9 +36,9 @@ void NSSurvivor1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition
         PlayerPosition.second += DiffX;
 } // MovePlayer
 
-void NSSurvivor1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void nsSurvivor1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-    NSHelpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
+    nsHelpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 
 	for (CPosition Position : ObstaclesPositions)
 			if (PlayerPositions [CurrentPlayer] == Position)
@@ -48,7 +48,7 @@ void NSSurvivor1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPosit
         ObstaclesPositions.push_back (PlayerPositions [CurrentPlayer]);
 } // ValidatePlayerPositions
 
-void NSSurvivor1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void nsSurvivor1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -56,15 +56,15 @@ void NSSurvivor1v1::InitializeRound (CPositions& PlayerPositions, const unsigned
     PlayerPositions [1] = { MaxSize.first - 1, 0 }; // Bottom left
 
     ObstaclesPositions.clear ();
-    NSHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
+    nsHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
 }
 
-void NSSurvivor1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
+void nsSurvivor1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
-    NSHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
+    nsHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
 }
 
-bool NSSurvivor1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
+bool nsSurvivor1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {    
     return !PlayerLifeStates [0] || !PlayerLifeStates [1];
 }

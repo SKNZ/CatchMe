@@ -5,11 +5,11 @@
 #include <string>
 #include <chrono>
 
-using namespace NSConsole;
+using namespace nsConsole;
 
-namespace NSGame
+namespace nsGame
 {
-    namespace NSConfig
+    namespace nsConfig
     {
         /**
          * 
@@ -83,5 +83,5 @@ namespace NSGame
           * 
           **/
          extern BackgroundColors MenuBorderColor;
-    } // NSConfig
-} // NSGame
+    } // nsConfig
+} // nsGame

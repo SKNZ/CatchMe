@@ -14,7 +14,7 @@
 #include <chrono>
 #include <vector>
 
-namespace NSMenu
+namespace nsMenu
 {
     /**
      * 
@@ -44,5 +44,5 @@ namespace NSMenu
      * @brief Shows a simple default winning screen announcing the player that won.
      * 
      **/
-    void ShowSimpleWinScreen (const std::vector<bool>& PlayerLifeStates, std::vector<char> Tokens, std::vector<unsigned> TurnCounters);
-} // NSMenu
+    void ShowSimpleWinScreen (const std::vector<bool>& PlayerLifeStates, const std::vector<char>& Tokens, const std::vector<unsigned>& TurnCounters);
+} // nsMenu

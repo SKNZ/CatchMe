@@ -7,7 +7,7 @@
 
 namespace
 {
-    using namespace NSGame;
+    using namespace nsGame;
 
     /**
      * 
@@ -118,7 +118,7 @@ namespace
     } // FindNextMove
 } // namespace
 
-void NSGame::NSBot::MakeMove (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer)
+void nsGame::nsBot::MakeMove (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer)
 {
     // Check if a there is a player in attack range, and kill him.
     bool HasKilledSomeOne = CheckForPlayerInRangeAndAttack (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer, PlayerMovesY::KStay,   PlayerMovesX::KRight)

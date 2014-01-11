@@ -26,7 +26,7 @@ using namespace std;
 
 namespace
 {
-    using namespace NSGame;
+    using namespace nsGame;
 
     /**
      *
@@ -38,7 +38,7 @@ namespace
      **/
     void SelectGameMode (SGameMode& GameMode)
     {
-        NSMenu::Clear ();
+        nsMenu::Clear ();
 
         set<string> GameModeTypes;
 
@@ -53,19 +53,19 @@ namespace
         std::string SelectedGameModeType;
 
         for (string GameModeType : GameModeTypes)
-            NSMenu::AddItem (GameModeType, [&SelectedGameModeType, GameModeType] () { SelectedGameModeType = GameModeType; });
+            nsMenu::AddItem (GameModeType, [&SelectedGameModeType, GameModeType] () { SelectedGameModeType = GameModeType; });
         
-        NSMenu::AddItem("Quitter", [] () { exit(0); });
+        nsMenu::AddItem("Quitter", [] () { exit(0); });
 
-        NSMenu::Run ();
+        nsMenu::Run ();
 
-        NSMenu::Clear ();
+        nsMenu::Clear ();
 
         for (SGameMode CurrentGameMode : KGameModes)
             if (CurrentGameMode.Name.find (SelectedGameModeType) != string::npos)
-                NSMenu::AddItem (CurrentGameMode.Name, [&GameMode, CurrentGameMode] () { GameMode = CurrentGameMode; });
+                nsMenu::AddItem (CurrentGameMode.Name, [&GameMode, CurrentGameMode] () { GameMode = CurrentGameMode; });
 
-        NSMenu::Run ();
+        nsMenu::Run ();
     } // SelectGameMode
 
     /**
@@ -77,7 +77,7 @@ namespace
      **/
     bool GetUserAction (size_t& Action, unsigned CurrentPlayer, bool AllowStay, const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions)
     {
-        if (NSConsole::WaitForKeyPress (NSConfig::TurnTimeoutDelay))
+        if (nsConsole::WaitForKeyPress (nsConfig::TurnTimeoutDelay))
         {
             char Opcode = tolower (cin.get ());
 
@@ -85,14 +85,14 @@ namespace
             if (Action == string::npos || (!AllowStay && Action == 4)) // 4 is the position of the stay (middle) key (such as S or 5).
             {
                 cout << "The key you entered wasn't valid." << endl;
-                NSConsole::WaitForKeyPress (NSConfig::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
+                nsConsole::WaitForKeyPress (nsConfig::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
 
                 return false;
             }
         }
         else
         {
-            NSBot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
+            nsBot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
         }
 
         return true;
@@ -110,12 +110,12 @@ namespace
 
         for (unsigned i = 1; i < IsPlayerBot.size (); ++i)
         {
-            NSMenu::Clear ();
+            nsMenu::Clear ();
 
-            NSMenu::AddItem ("The player " + to_string (i + 1) + " is a bot.",     [&IsPlayerBot, i] () { IsPlayerBot [i] = true; });
-            NSMenu::AddItem ("The player " + to_string (i + 1) + " is not a bot.", [&IsPlayerBot, i] () { IsPlayerBot [i] = false; });
+            nsMenu::AddItem ("The player " + to_string (i + 1) + " is a bot.",     [&IsPlayerBot, i] () { IsPlayerBot [i] = true; });
+            nsMenu::AddItem ("The player " + to_string (i + 1) + " is not a bot.", [&IsPlayerBot, i] () { IsPlayerBot [i] = false; });
 
-            NSMenu::Run ();
+            nsMenu::Run ();
         }
     } // AddBots
 
@@ -188,10 +188,10 @@ namespace
 
         for (;;)
         {
-            this_thread::sleep_for (std::chrono::milliseconds (NSConfig::RenderLoopInterval)); // Render loop interval
+            this_thread::sleep_for (std::chrono::milliseconds (nsConfig::RenderLoopInterval)); // Render loop interval
 
-            NSUI::ShowMatrix (Matrix);
-            NSUI::ShowControls (CurrentPlayer);
+            nsUI::ShowMatrix (Matrix);
+            nsUI::ShowControls (CurrentPlayer);
 
             if (GameMode.IsGameOver (PlayerLifeStates))
                 break;
@@ -202,8 +202,8 @@ namespace
 
                 if (IsPlayerBot [CurrentPlayer])
                 {
-                    NSBot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
-                    this_thread::sleep_for (std::chrono::milliseconds (NSConfig::BotPlayDelay));
+                    nsBot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
+                    this_thread::sleep_for (std::chrono::milliseconds (nsConfig::BotPlayDelay));
                 }
                 else
                 {
@@ -226,10 +226,10 @@ namespace
     } // DoRound
 } // namespace
 
-int NSGame::Run ()
+int nsGame::Run ()
 {
-    NSConsole::DisableCanonicalInputMode ();
-    NSConfig::LoadFile ();
+    nsConsole::DisableCanonicalInputMode ();
+    nsConfig::LoadFile ();
 
     for (;;)
     {
@@ -250,11 +250,11 @@ int NSGame::Run ()
 
             if (i != GameMode.RoundCount) // Don't show if its the last round
             {
-                NSMenu::Clear ();
+                nsMenu::Clear ();
 
-                NSMenu::AddItem ("Next round !");
+                nsMenu::AddItem ("Next round !");
 
-                NSMenu::Run ();
+                nsMenu::Run ();
             }
         }
 

@@ -3,19 +3,19 @@
 
 #include "Config.h"
 
-using namespace NSGame;
-using namespace NSConsole;
+using namespace nsGame;
+using namespace nsConsole;
 
-unsigned            NSConfig::RenderLoopInterval;
-unsigned            NSConfig::ErrorMessageDisplayTime;
-unsigned            NSConfig::TurnTimeoutDelay;
-unsigned            NSConfig::BotPlayDelay;
-BackgroundColors    NSConfig::BorderColor;
-BackgroundColors    NSConfig::CaseColor1;
-BackgroundColors    NSConfig::CaseColor2;
-BackgroundColors    NSConfig::MenuBorderColor;
+unsigned            nsConfig::RenderLoopInterval;
+unsigned            nsConfig::ErrorMessageDisplayTime;
+unsigned            nsConfig::TurnTimeoutDelay;
+unsigned            nsConfig::BotPlayDelay;
+BackgroundColors    nsConfig::BorderColor;
+BackgroundColors    nsConfig::CaseColor1;
+BackgroundColors    nsConfig::CaseColor2;
+BackgroundColors    nsConfig::MenuBorderColor;
 
-void NSGame::NSConfig::LoadFile ()
+void nsGame::nsConfig::LoadFile ()
 {
     using boost::property_tree::ptree;
     ptree PropertyTree;

@@ -10,9 +10,9 @@
  **/
 #include "GameMode.h"
 
-using namespace NSGame;
+using namespace nsGame;
 
-SGameMode NSGame::MakeGameMode (std::string Name, unsigned PlayerCount, unsigned RoundCount, bool AllowStay,
+SGameMode nsGame::MakeGameMode (std::string Name, unsigned PlayerCount, unsigned RoundCount, bool AllowStay,
     FGetSize GetSize,
     FMovePlayer MovePlayer,
     FInitializeRound InitializeRound,

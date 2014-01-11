@@ -19,8 +19,8 @@
 #include "Config.h"
 
 using namespace std;
-using namespace NSConsole;
-using namespace NSGame;
+using namespace nsConsole;
+using namespace nsGame;
 
 /**
  * 
@@ -29,12 +29,12 @@ using namespace NSGame;
  **/
 vector<pair<string, function<void (void)>>> MenuItems;
 
-void NSMenu::AddItem (string ItemName, function<void(void)> Callback)
+void nsMenu::AddItem (string ItemName, function<void(void)> Callback /*  = [] () { } */)
 {
     MenuItems.push_back (make_pair (ItemName, Callback));
 }
 
-void NSMenu::Clear ()
+void nsMenu::Clear ()
 {
     MenuItems.clear ();
 }
@@ -55,7 +55,7 @@ namespace
         for (unsigned i = 0; i < Quarter; ++i)
             cout << ' ';
 
-        cout << NSConfig::MenuBorderColor;
+        cout << nsConfig::MenuBorderColor;
 
         // It takes 2/4 of the screen.
         for (unsigned i = 0; i < Quarter * 2; ++i)
@@ -79,7 +79,7 @@ namespace
             cout << ' ';
         
         // Left border
-        cout << NSConfig::MenuBorderColor << ' ' << BackgroundColors ::KDefault;
+        cout << nsConfig::MenuBorderColor << ' ' << BackgroundColors ::KDefault;
 
         // Left padding
         // Minus one for the border
@@ -97,11 +97,11 @@ namespace
             cout << ' ';
 
         // Right border
-        cout << NSConfig::MenuBorderColor << ' ' << BackgroundColors::KDefault << endl;
+        cout << nsConfig::MenuBorderColor << ' ' << BackgroundColors::KDefault << endl;
     } // DrawItem
 } // namespace
 
-void NSMenu::Run (bool IsWinMenu)
+void nsMenu::Run (bool IsWinMenu /* = false */)
 {
     if (MenuItems.empty ())
         throw "Menu::Run - The menu was empty.";
@@ -111,9 +111,9 @@ void NSMenu::Run (bool IsWinMenu)
     for (;;)
     {
         unsigned SizeX = 0, SizeY = 0;
-        NSConsole::GetScreenSize (SizeX, SizeY);
+        nsConsole::GetScreenSize (SizeX, SizeY);
 
-        NSConsole::ClearScreen ();
+        nsConsole::ClearScreen ();
 
         // Top border
         DrawBorder (SizeX);
@@ -174,19 +174,19 @@ void NSMenu::Run (bool IsWinMenu)
                 Selection = Selection == MenuItems.size() - 1 ? 0 : Selection + 1; // If last item, then go to first item, else move next item
                 break;
             case '\n': // Validation
-                NSConsole::ClearScreen ();
+                nsConsole::ClearScreen ();
                 MenuItems[Selection].second (); // Call the Callback function
                 return;
                 break;
             default:
                 cout << "Use Z to go up, S to go down and Enter to validate." << endl;
-                NSConsole::WaitForKeyPress (NSConfig::ErrorMessageDisplayTime);
+                nsConsole::WaitForKeyPress (nsConfig::ErrorMessageDisplayTime);
                 break;
         } // switch
     } // for
 } // Run
 
-void NSMenu::ShowSimpleWinScreen (const vector<bool>& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
+void nsMenu::ShowSimpleWinScreen (const vector<bool>& PlayerLifeStates, const std::vector<char>& Tokens, const vector<unsigned>& TurnCounters)
 {
     Clear ();
 

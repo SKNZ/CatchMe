@@ -14,22 +14,22 @@
 
 #include "../Game.h"
 
-namespace NSHelpers
+namespace nsHelpers
 {
     /**
      * 
      * @brief Checks for boundaries, obstacles and moves the player.
      * 
      **/
-    void MovePlayer (const NSGame::CMatrix& Matrix, NSGame::CPosition& PlayerPosition, const NSGame::CPosition& MatrixSize,
-                     const NSGame::PlayerMovesY MoveY, const NSGame::PlayerMovesX MoveX);
+    void MovePlayer (const nsGame::CMatrix& Matrix, nsGame::CPosition& PlayerPosition, const nsGame::CPosition& MatrixSize,
+                     const nsGame::PlayerMovesY MoveY, const nsGame::PlayerMovesX MoveX);
     
     /**
      * 
      * @brief Checks if a player is in a position that is lethal, and if yes, KILL IT !
      * 
      **/
-	void ValidatePlayerPositionsNoTeam (const NSGame::CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
+	void ValidatePlayerPositionsNoTeam (const nsGame::CPositions& PlayerPositions, const unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
 
     /**
      * 
@@ -39,13 +39,13 @@ namespace NSHelpers
      * There is a single space between each value.
      * 
      **/
-	void LoadObstaclesFromFile (NSGame::CPositions& ObstaclesPositions, const NSGame::CPosition& MaxSize);
+	void LoadObstaclesFromFile (nsGame::CPositions& ObstaclesPositions, const nsGame::CPosition& MaxSize);
 
     /**
      * 
      * @brief Adds the obstacle and player tokens to the matrix.
      * 
      **/
-    void AddObstaclesAndPlayersToMatrix (NSGame::CMatrix& Matrix, const NSGame::CPositions& PlayerPositions,
-                                         const std::vector<bool>& PlayerLifeStates, const NSGame::CPositions& ObstaclesPositions, char EmptyToken);
-} // NSHelpers
+    void AddObstaclesAndPlayersToMatrix (nsGame::CMatrix& Matrix, const nsGame::CPositions& PlayerPositions,
+                                         const std::vector<bool>& PlayerLifeStates, const nsGame::CPositions& ObstaclesPositions, char EmptyToken);
+} // nsHelpers
