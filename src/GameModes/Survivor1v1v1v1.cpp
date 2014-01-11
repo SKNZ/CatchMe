@@ -13,7 +13,7 @@ namespace
 	NSGame::CPositions ObstaclesPositions;
 }
 
-void Survivor1v1v1v1::GetSize (CPosition& Size)
+void NSSurvivor1v1v1v1::GetSize (CPosition& Size)
 {
     NSMenu::Clear ();
 
@@ -24,24 +24,24 @@ void Survivor1v1v1v1::GetSize (CPosition& Size)
     NSMenu::Run ();
 }
 
-void Survivor1v1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void NSSurvivor1v1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
-    Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
+    NSHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Survivor1v1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void NSSurvivor1v1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-    Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
+    NSHelpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 
     for (CPosition Position : ObstaclesPositions)
             if (PlayerPositions [CurrentPlayer] == Position)
                 PlayerLifeStates [CurrentPlayer] = false;
 
-    if(PlayerLifeStates[CurrentPlayer] && find (ObstaclesPositions.cbegin(), ObstaclesPositions.cend(), PlayerPositions [CurrentPlayer]) == ObstaclesPositions.cend())
+    if(PlayerLifeStates [CurrentPlayer] && find (ObstaclesPositions.cbegin(), ObstaclesPositions.cend(), PlayerPositions [CurrentPlayer]) == ObstaclesPositions.cend())
         ObstaclesPositions.push_back (PlayerPositions [CurrentPlayer]);
-}
+} // ValidatePlayerPositions
 
-void Survivor1v1v1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void NSSurvivor1v1v1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -51,15 +51,15 @@ void Survivor1v1v1v1::InitializeRound (CPositions& PlayerPositions, const unsign
     PlayerPositions [3] = { MaxSize.first - 1, MaxSize.second - 1 }; // Bottom right
 
     ObstaclesPositions.clear ();
-    Helpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
-}
+    NSHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
+} // InitializeRound
 
-void Survivor1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
+void NSSurvivor1v1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
-    Helpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
+    NSHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
 }
 
-bool Survivor1v1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
+bool NSSurvivor1v1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
     unsigned DeadPlayerCount = 0;
 

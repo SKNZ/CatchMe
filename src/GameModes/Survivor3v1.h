@@ -14,7 +14,7 @@
 
 #include "../GameMode.h"
 
-namespace Survivor3v1
+namespace NSSurvivor3v1
 {
     using namespace NSGame;
 

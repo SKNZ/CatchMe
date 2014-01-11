@@ -18,9 +18,9 @@
 
 namespace NSGame
 {
-    namespace UI
+    namespace NSUI
     {
-        using namespace Console;
+        using namespace NSConsole;
 
         /**
          * 
@@ -51,5 +51,5 @@ namespace NSGame
          * 
          **/
         void ShowControls (const unsigned CurrentPlayer);
-    }
-}
+    } // UI
+} // NSGame

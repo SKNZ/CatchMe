@@ -4,7 +4,7 @@
 
 namespace NSGame
 {
-    namespace Bot
+    namespace NSBot
     {
         using namespace NSGame;
 
@@ -15,5 +15,5 @@ namespace NSGame
          * 
          */
         void MakeMove (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer);
-    }
-}
+    } // NSBot
+} // NSGame

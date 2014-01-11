@@ -66,7 +66,7 @@ namespace
                 NSMenu::AddItem (CurrentGameMode.Name, [&GameMode, CurrentGameMode] () { GameMode = CurrentGameMode; });
 
         NSMenu::Run ();
-    }
+    } // SelectGameMode
 
     /**
      * 
@@ -77,7 +77,7 @@ namespace
      **/
     bool GetUserAction (size_t& Action, unsigned CurrentPlayer, bool AllowStay, const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions)
     {
-        if (Console::WaitForKeyPress (Config::TurnTimeoutDelay))
+        if (NSConsole::WaitForKeyPress (NSConfig::TurnTimeoutDelay))
         {
             char Opcode = tolower (cin.get ());
 
@@ -85,18 +85,18 @@ namespace
             if (Action == string::npos || (!AllowStay && Action == 4)) // 4 is the position of the stay (middle) key (such as S or 5).
             {
                 cout << "The key you entered wasn't valid." << endl;
-                Console::WaitForKeyPress (Config::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
+                NSConsole::WaitForKeyPress (NSConfig::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
 
                 return false;
             }
         }
         else
         {
-            Bot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
+            NSBot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
         }
 
         return true;
-    }
+    } // GetUserAction
 
     /**
      *
@@ -117,7 +117,7 @@ namespace
 
             NSMenu::Run ();
         }
-    }
+    } // AddBots
 
     /**
      *
@@ -158,7 +158,7 @@ namespace
                 GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KDown, PlayerMovesX::KRight);
                 break;
         }
-    }
+    } // MovementHandler
 
     /**
      * 
@@ -188,10 +188,10 @@ namespace
 
         for (;;)
         {
-            this_thread::sleep_for (std::chrono::milliseconds (Config::RenderLoopInterval)); // Render loop interval
+            this_thread::sleep_for (std::chrono::milliseconds (NSConfig::RenderLoopInterval)); // Render loop interval
 
-            UI::ShowMatrix (Matrix);
-            UI::ShowControls (CurrentPlayer);
+            NSUI::ShowMatrix (Matrix);
+            NSUI::ShowControls (CurrentPlayer);
 
             if (GameMode.IsGameOver (PlayerLifeStates))
                 break;
@@ -202,8 +202,8 @@ namespace
 
                 if (IsPlayerBot [CurrentPlayer])
                 {
-                    Bot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
-                    this_thread::sleep_for (std::chrono::milliseconds (Config::BotPlayDelay));
+                    NSBot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
+                    this_thread::sleep_for (std::chrono::milliseconds (NSConfig::BotPlayDelay));
                 }
                 else
                 {
@@ -216,20 +216,20 @@ namespace
                 GameMode.ValidatePlayerPositions (Matrix, PlayerPositions, CurrentPlayer, PlayerLifeStates);
 
                 GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
-            }
+            } // if (PlayerLifeStates [CurrPlr])
 
             ++TurnCounters [CurrentPlayer];
             ++CurrentPlayer;
             if (CurrentPlayer >= GameMode.PlayerCount) // Go back to first player if last player reached
                 CurrentPlayer = 0;
-        }
-    }
-}
+        } // for (;;)
+    } // DoRound
+} // namespace
 
 int NSGame::Run ()
 {
-    Console::DisableCanonicalInputMode ();
-    Config::LoadFile ();
+    NSConsole::DisableCanonicalInputMode ();
+    NSConfig::LoadFile ();
 
     for (;;)
     {
@@ -262,4 +262,4 @@ int NSGame::Run ()
     }
 
     return 0;
-}
+} // Run

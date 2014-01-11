@@ -151,7 +151,7 @@ namespace NSGame
          * 
          **/
         FShowWinScreen ShowWinScreen;
-    };
+    }; // SGameMode
 
     /**
      * 

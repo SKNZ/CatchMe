@@ -8,23 +8,23 @@
 
 using namespace std;
 
-std::ostream& Console::operator<< (std::ostream& os, const Colors& Color)
+std::ostream& NSConsole::operator<< (std::ostream& os, const Colors& Color)
 {
     return os << "\033[" << static_cast<unsigned> (Color) << "m";
 }
 
-std::ostream& Console::operator<< (std::ostream& os, const BackgroundColors& Color)
+std::ostream& NSConsole::operator<< (std::ostream& os, const BackgroundColors& Color)
 {
     return os << "\033[" << static_cast<unsigned> (Color) << "m";
 }
 
-void Console::ClearScreen ()
+void NSConsole::ClearScreen ()
 {
     cout << "\033[H\033[2J";
 }
 
 // http://www.cplusplus.com/forum/general/5304/#msg23940
-bool Console::WaitForKeyPress (const unsigned TimeOut)
+bool NSConsole::WaitForKeyPress (const unsigned TimeOut)
 {
     pollfd pls[1];
     
@@ -35,7 +35,7 @@ bool Console::WaitForKeyPress (const unsigned TimeOut)
 }
 
 // http://stackoverflow.com/a/1022961
-void Console::GetScreenSize (unsigned& x, unsigned& y)
+void NSConsole::GetScreenSize (unsigned& x, unsigned& y)
 {
     winsize w;
 
@@ -56,7 +56,7 @@ void EnableCanonicalInputMode ()
 }
 
 // Manipulating the terminal requires sacrificing C++ :/
-void Console::DisableCanonicalInputMode ()
+void NSConsole::DisableCanonicalInputMode ()
 {
     termios term;
 
@@ -67,5 +67,5 @@ void Console::DisableCanonicalInputMode ()
     cin.sync_with_stdio(); // This is necessary for non-blocking timed I/O using poll.
 
     atexit (EnableCanonicalInputMode); // Once the program exits, put it back the way it was before
-}
+} // DisableCanonicalInputMode
 

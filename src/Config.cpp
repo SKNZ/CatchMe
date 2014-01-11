@@ -4,18 +4,18 @@
 #include "Config.h"
 
 using namespace NSGame;
-using namespace Console;
+using namespace NSConsole;
 
-unsigned            Config::RenderLoopInterval;
-unsigned            Config::ErrorMessageDisplayTime;
-unsigned            Config::TurnTimeoutDelay;
-unsigned            Config::BotPlayDelay;
-BackgroundColors    Config::BorderColor;
-BackgroundColors    Config::CaseColor1;
-BackgroundColors    Config::CaseColor2;
-BackgroundColors    Config::MenuBorderColor;
+unsigned            NSConfig::RenderLoopInterval;
+unsigned            NSConfig::ErrorMessageDisplayTime;
+unsigned            NSConfig::TurnTimeoutDelay;
+unsigned            NSConfig::BotPlayDelay;
+BackgroundColors    NSConfig::BorderColor;
+BackgroundColors    NSConfig::CaseColor1;
+BackgroundColors    NSConfig::CaseColor2;
+BackgroundColors    NSConfig::MenuBorderColor;
 
-void NSGame::Config::LoadFile ()
+void NSGame::NSConfig::LoadFile ()
 {
     using boost::property_tree::ptree;
     ptree PropertyTree;
@@ -30,4 +30,4 @@ void NSGame::Config::LoadFile ()
     CaseColor1              = static_cast<BackgroundColors> (PropertyTree.get ("Conf.CaseColor1",       static_cast<int> (BackgroundColors::KBlack)));
     CaseColor2              = static_cast<BackgroundColors> (PropertyTree.get ("Conf.CaseColor2",       static_cast<int> (BackgroundColors::KBlue)));
     MenuBorderColor         = static_cast<BackgroundColors> (PropertyTree.get ("Conf.MenuBorderColor",  static_cast<int> (BackgroundColors::KMagenta)));
-}
+} // LoadFile

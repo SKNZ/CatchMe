@@ -19,7 +19,7 @@
 #include "Config.h"
 
 using namespace std;
-using namespace Console;
+using namespace NSConsole;
 using namespace NSGame;
 
 /**
@@ -55,14 +55,14 @@ namespace
         for (unsigned i = 0; i < Quarter; ++i)
             cout << ' ';
 
-        cout << Config::MenuBorderColor;
+        cout << NSConfig::MenuBorderColor;
 
         // It takes 2/4 of the screen.
         for (unsigned i = 0; i < Quarter * 2; ++i)
             cout << ' ';
 
         cout << BackgroundColors ::KDefault << endl;
-    }
+    } // DrawBorder
 
     /**
     * 
@@ -79,7 +79,7 @@ namespace
             cout << ' ';
         
         // Left border
-        cout << Config::MenuBorderColor << ' ' << BackgroundColors ::KDefault;
+        cout << NSConfig::MenuBorderColor << ' ' << BackgroundColors ::KDefault;
 
         // Left padding
         // Minus one for the border
@@ -97,9 +97,9 @@ namespace
             cout << ' ';
 
         // Right border
-        cout << Config::MenuBorderColor << ' ' << BackgroundColors::KDefault << endl;
-    }
-}
+        cout << NSConfig::MenuBorderColor << ' ' << BackgroundColors::KDefault << endl;
+    } // DrawItem
+} // namespace
 
 void NSMenu::Run (bool IsWinMenu)
 {
@@ -111,9 +111,9 @@ void NSMenu::Run (bool IsWinMenu)
     for (;;)
     {
         unsigned SizeX = 0, SizeY = 0;
-        Console::GetScreenSize (SizeX, SizeY);
+        NSConsole::GetScreenSize (SizeX, SizeY);
 
-        Console::ClearScreen ();
+        NSConsole::ClearScreen ();
 
         // Top border
         DrawBorder (SizeX);
@@ -174,17 +174,17 @@ void NSMenu::Run (bool IsWinMenu)
                 Selection = Selection == MenuItems.size() - 1 ? 0 : Selection + 1; // If last item, then go to first item, else move next item
                 break;
             case '\n': // Validation
-                Console::ClearScreen ();
+                NSConsole::ClearScreen ();
                 MenuItems[Selection].second (); // Call the Callback function
                 return;
                 break;
             default:
                 cout << "Use Z to go up, S to go down and Enter to validate." << endl;
-                Console::WaitForKeyPress (Config::ErrorMessageDisplayTime);
+                NSConsole::WaitForKeyPress (NSConfig::ErrorMessageDisplayTime);
                 break;
-        }
-    }
-}
+        } // switch
+    } // for
+} // Run
 
 void NSMenu::ShowSimpleWinScreen (const vector<bool>& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
 {

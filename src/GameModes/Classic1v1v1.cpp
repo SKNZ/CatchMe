@@ -11,7 +11,7 @@ namespace
     NSGame::CPositions ObstaclesPositions;
 }
 
-void Classic1v1v1::GetSize (CPosition& Size)
+void NSClassic1v1v1::GetSize (CPosition& Size)
 {
     NSMenu::Clear ();
     
@@ -22,17 +22,17 @@ void Classic1v1v1::GetSize (CPosition& Size)
     NSMenu::Run ();
 }
 
-void Classic1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void NSClassic1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
-    Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
+    NSHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
+void NSClassic1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-	Helpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
+	NSHelpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
 }
 
-void Classic1v1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void NSClassic1v1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -41,15 +41,15 @@ void Classic1v1v1::InitializeRound (CPositions& PlayerPositions, const unsigned 
     PlayerPositions [2] = { 0, 0 }; // Top left
 
     ObstaclesPositions.clear ();
-    Helpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
+    NSHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
 }
 
-void Classic1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
+void NSClassic1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
-    Helpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
+    NSHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
 }
 
-bool Classic1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
+bool NSClassic1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
     unsigned DeadPlayerCount = 0;
 

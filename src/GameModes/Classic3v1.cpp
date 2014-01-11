@@ -20,9 +20,9 @@ namespace
     std::array<unsigned, 4> AlonePlayerTurnCounters;
 
     int AlonePlayer = -1;
-}
+} // anonymous ns
 
-void Classic3v1::GetSize (CPosition& Size)
+void NSClassic3v1::GetSize (CPosition& Size)
 {
     NSMenu::Clear ();
 
@@ -33,12 +33,12 @@ void Classic3v1::GetSize (CPosition& Size)
     NSMenu::Run ();
 }
 
-void Classic3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void NSClassic3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
-    Helpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
+    NSHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void Classic3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
+void NSClassic3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
 {
     if (PlayerPositions [CurrentPlayer] == PlayerPositions [AlonePlayer] && CurrentPlayer != AlonePlayer)
         PlayerLifeStates [AlonePlayer] = false;
@@ -47,7 +47,7 @@ void Classic3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPosition
 		AlonePlayerTurnCounters[AlonePlayer]++;
 }
 
-void Classic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
+void NSClassic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
     PlayerPositions.resize (PlayerCount);
 
@@ -67,21 +67,21 @@ void Classic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned Pl
     NSMenu::Run ();
 
     ObstaclesPositions.clear ();
-    Helpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
+    NSHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
     
     if (*AlonePlayerTurnCounters.crbegin() != 0) // If each player has played its turn, reset all state if they want to replay the round.
     {
         fill (AlonePlayerTurnCounters.begin (), AlonePlayerTurnCounters.end (), 0);
         AlonePlayer = 0;
     }
-}
+} // InitializeRound
 
-void Classic3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
+void NSClassic3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
-    Helpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
+    NSHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
 }
 
-bool Classic3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
+bool NSClassic3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
     unsigned DeadChaserCount = 0;
     for (unsigned i = 0; i < PlayerLifeStates.size (); ++i)
@@ -91,7 +91,7 @@ bool Classic3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
     return !PlayerLifeStates [AlonePlayer];
 }
 
-void Classic3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
+void NSClassic3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, std::vector<char> Tokens, vector<unsigned> TurnCounters)
 {
     NSMenu::Clear ();
 
@@ -103,4 +103,4 @@ void Classic3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, std
     }
 
     NSMenu::Run (true);
-}
+} // ShowWinScreen

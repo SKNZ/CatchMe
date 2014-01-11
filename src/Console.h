@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace Console
+namespace NSConsole
 {
     /**
      * 
@@ -20,8 +20,8 @@ namespace Console
         KMagenta    = 35,
         KCyan       = 36,
         KWhite      = 37
-    };
-	
+    }; // Colors
+
     enum struct BackgroundColors : unsigned
     {
         KDefault    = 0,
@@ -33,7 +33,7 @@ namespace Console
         KMagenta    = 45,
         KCyan       = 46,
         KWhite      = 47
-    };
+    }; // BackgroundColors
 
     /**
      * 
@@ -83,4 +83,4 @@ namespace Console
      * 
      **/
     void DisableCanonicalInputMode ();
-}
+} // NSConsole

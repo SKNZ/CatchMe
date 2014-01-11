@@ -15,7 +15,7 @@
 
 using namespace NSGame;
 
-void Helpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
+void NSHelpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     int DiffY = static_cast<int> (MoveY);
     int DiffX = static_cast<int> (MoveX);
@@ -41,9 +41,9 @@ void Helpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, cons
 
     PlayerPosition.first += DiffY;
     PlayerPosition.second += DiffX;
-}
+} // MovePlayer
 
-void Helpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
+void NSHelpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
 {
 	for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
@@ -56,9 +56,9 @@ void Helpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, 
             break;
         }
     }
-}
+} // ValidatePlayerPositionsNoTeam
 
-void Helpers::LoadObstaclesFromFile (CPositions& ObstaclesPositions, const CPosition& MaxSize)
+void NSHelpers::LoadObstaclesFromFile (CPositions& ObstaclesPositions, const CPosition& MaxSize)
 {
     std::stringstream FileName;
     FileName << "./" << MaxSize.first << "_" << MaxSize.second << ".map";
@@ -75,9 +75,9 @@ void Helpers::LoadObstaclesFromFile (CPositions& ObstaclesPositions, const CPosi
 	while (File >> Y >> X)
 		if (MaxSize.first > Y && MaxSize.second > X)
 			ObstaclesPositions.push_back ({ Y, X });
-}
+} // LoadObstaclesFromFile
 
-void Helpers::AddObstaclesAndPlayersToMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const CPositions& ObstaclesPositions, char EmptyToken)
+void NSHelpers::AddObstaclesAndPlayersToMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const std::vector<bool>& PlayerLifeStates, const CPositions& ObstaclesPositions, char EmptyToken)
 {
     for (CLine& Line : Matrix)
         fill (Line.begin (), Line.end (), EmptyToken);
@@ -88,6 +88,6 @@ void Helpers::AddObstaclesAndPlayersToMatrix (CMatrix& Matrix, const CPositions&
     for (unsigned i = 0; i < PlayerPositions.size (); ++i)
         if (PlayerLifeStates[i])
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = NSGame::KTokens [i];
-}
+} // AddObstaclesAndPlayersToMatrix
 
 

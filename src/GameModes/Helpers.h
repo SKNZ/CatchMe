@@ -14,7 +14,7 @@
 
 #include "../Game.h"
 
-namespace Helpers
+namespace NSHelpers
 {
     /**
      * 
@@ -48,4 +48,4 @@ namespace Helpers
      **/
     void AddObstaclesAndPlayersToMatrix (NSGame::CMatrix& Matrix, const NSGame::CPositions& PlayerPositions,
                                          const std::vector<bool>& PlayerLifeStates, const NSGame::CPositions& ObstaclesPositions, char EmptyToken);
-}
+} // NSHelpers

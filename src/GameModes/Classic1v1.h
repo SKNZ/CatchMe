@@ -14,7 +14,7 @@
 
 #include "../GameMode.h"
 
-namespace Classic1v1
+namespace NSClassic1v1
 {
     using namespace NSGame;
 

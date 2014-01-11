@@ -28,7 +28,7 @@ namespace
             return Position; // Return the initial position
 
         return { Y, X };
-    }
+    } // MakePosition
 
     /**
      * 
@@ -49,7 +49,7 @@ namespace
             }
 
         return false;
-    }
+    } // CheckForPlayerInRangeAndAttack
 
     /**
      * 
@@ -90,7 +90,7 @@ namespace
             }
 
         return PlayerPositions [NearestPlayerPositionIndex];
-    }
+    } // FindNearestPlayerPosition
 
     /**
      * 
@@ -115,10 +115,10 @@ namespace
         std::sort (PositionsNearby.begin (), PositionsNearby.end (), [Target] (CPosition a, CPosition b) { return FindDistance (a, Target) < FindDistance (b, Target); });
 
         return PositionsNearby [0];
-    }
-}
+    } // FindNextMove
+} // namespace
 
-void NSGame::Bot::MakeMove (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer)
+void NSGame::NSBot::MakeMove (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer)
 {
     // Check if a there is a player in attack range, and kill him.
     bool HasKilledSomeOne = CheckForPlayerInRangeAndAttack (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer, PlayerMovesY::KStay,   PlayerMovesX::KRight)
@@ -138,4 +138,4 @@ void NSGame::Bot::MakeMove (const CMatrix& Matrix, const std::vector<bool>& Play
     CPosition NextMove = FindNextMove (Matrix, PlayerPositions [CurrentPlayer], TargetPosition);    
 
     PlayerPositions [CurrentPlayer] = NextMove;
-}
+} // MakeMove
