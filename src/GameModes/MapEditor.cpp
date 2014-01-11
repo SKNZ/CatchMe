@@ -1,3 +1,13 @@
+/**
+ * @file   MapEditor.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Map editor for obstacles
+ *
+ **/
 #include <fstream>
 #include <sstream>
 #include <algorithm>

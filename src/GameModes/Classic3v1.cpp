@@ -1,3 +1,13 @@
+/**
+ * @file   Classic3v1.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Classic 3v1 game mode
+ *
+ **/
 #include <sstream>
 
 #include "Classic3v1.h"
@@ -38,7 +48,8 @@ void nsClassic3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition,
     nsHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 }
 
-void nsClassic3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
+void nsClassic3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions,
+                                            unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
 {
     if (PlayerPositions [CurrentPlayer] == PlayerPositions [AlonePlayer] && CurrentPlayer != AlonePlayer)
         PlayerLifeStates [AlonePlayer] = false;

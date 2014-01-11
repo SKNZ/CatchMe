@@ -1,3 +1,13 @@
+/**
+ * @file   Config.h
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  XML configuration parser
+ *
+ **/
 #pragma once
 
 #include "Console.h"

@@ -1,3 +1,13 @@
+/**
+ * @file   Survivor1v1.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Survivor 1v1 game mode
+ *
+ **/
 #include <algorithm>
 
 #include "Survivor1v1.h"

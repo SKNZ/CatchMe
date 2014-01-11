@@ -5,7 +5,7 @@
  *
  * @date   12/01/2014
  *
- * @brief  Main game header, contains game modes, tokens (+ enum), controls, and main function.
+ * @brief  Main game file header, contains game modes, tokens (+ enum), controls, and main function.
  *
  **/
 #pragma once

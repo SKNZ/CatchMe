@@ -1,3 +1,13 @@
+/**
+ * @file   Classic2v2.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Classic 2v2 game mode
+ *
+ **/
 #include "Classic2v2.h"
 #include "Helpers.h"
 

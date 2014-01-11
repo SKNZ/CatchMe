@@ -1,3 +1,13 @@
+/**
+ * @file   Survivor2v2.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Survivor 2v2 game mode
+ *
+ **/
 #include <algorithm>
 
 #include "Survivor2v2.h"

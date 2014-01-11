@@ -1,3 +1,13 @@
+/**
+ * @file   Console.cpp
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Console manipulation (colors, timed-out noncanonical input, VT100)
+ *
+ **/
 #include <sys/ioctl.h>
 #include <cstdio>
 #include <termios.h>

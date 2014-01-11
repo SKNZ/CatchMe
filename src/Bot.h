@@ -1,3 +1,13 @@
+/**
+ * @file   Bot.h
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Bot logic
+ *
+ **/
 #pragma once
 
 #include "GameMode.h"

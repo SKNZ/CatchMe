@@ -1,3 +1,13 @@
+/**
+ * @file   Console.h
+ * 
+ * @author F. Narenji, O. Richit, H. Morales, V. Pelegrin
+ *
+ * @date   12/01/2014
+ *
+ * @brief  Console manipulation (colors, timed-out noncanonical input, VT100)
+ *
+ **/
 #pragma once
 
 #include <iostream>
