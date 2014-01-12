@@ -14,6 +14,8 @@ Due to the broken computer setups that you might be working on (-> IUT), you'll 
 Should this not work for you, feel free to contact me at florandara@gmail.com for further information.
 For information, I did manage to have it build and run on a computer at the IUT.
 
+We processed to test our code by trying to identify all the corner cases. We then wrote them down and etablished a procedure to test each of them for each commit. Two persons who hadn't worked on the commit would test the changes in all the possible ways they could.
+
 Features
 ========
 
