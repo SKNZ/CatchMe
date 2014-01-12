@@ -19,6 +19,11 @@ using namespace nsConsole;
 
 namespace nsGame
 {
+    /**
+     * 
+     * @namespace nsConfig
+     * 
+     **/
     namespace nsConfig
     {
         /**

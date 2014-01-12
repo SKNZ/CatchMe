@@ -14,6 +14,11 @@
 
 namespace nsGame
 {
+    /**
+     * 
+     * @namespace nsBot
+     * 
+     **/
     namespace nsBot
     {
         using namespace nsGame;

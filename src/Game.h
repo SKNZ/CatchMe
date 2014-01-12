@@ -31,6 +31,11 @@
 
 #include "Menu.h"
 
+/**
+ * 
+ * @namespace nsGame
+ * 
+ **/
 namespace nsGame
 {
     /**

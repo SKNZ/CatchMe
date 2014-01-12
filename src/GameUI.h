@@ -18,6 +18,11 @@
 
 namespace nsGame
 {
+    /**
+     * 
+     * @namespace nsUI
+     * 
+     **/
     namespace nsUI
     {
         using namespace nsConsole;

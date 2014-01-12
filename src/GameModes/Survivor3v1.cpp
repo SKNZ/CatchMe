@@ -134,10 +134,17 @@ void nsSurvivor3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, 
 {
     nsMenu::Clear ();
 
+    vector<pair<unsigned, unsigned>> TurnCounterById;
     for (unsigned i = 0; i < 4; ++i)
+        TurnCounterById.push_back (make_pair (i, AlonePlayerTurnCounters [i]));
+    
+    std::sort (TurnCounterById.begin (), TurnCounterById.end (),
+               [] (pair<unsigned, unsigned> a, pair<unsigned, unsigned> b) { return a.second < b.second; });
+
+    for (pair<unsigned, unsigned> TurnCounter : TurnCounterById)
     {
         stringstream Winner;
-        Winner << "Player " << i + 1 << " lasted " << AlonePlayerTurnCounters [i] << " rounds.";
+        Winner << "Player " << KTokens [TurnCounter.first] << " lasted " << TurnCounter.second << " rounds.";
         nsMenu::AddItem(Winner.str());
     }
 

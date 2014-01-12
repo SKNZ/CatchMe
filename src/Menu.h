@@ -14,6 +14,11 @@
 #include <chrono>
 #include <vector>
 
+/**
+ * 
+ * @namespace nsMenu
+ * 
+ **/
 namespace nsMenu
 {
     /**

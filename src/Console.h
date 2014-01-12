@@ -12,6 +12,11 @@
 
 #include <iostream>
 
+/**
+ * 
+ * @namespace nsConsole
+ * 
+ **/
 namespace nsConsole
 {
     /**
