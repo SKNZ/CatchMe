@@ -106,16 +106,17 @@ namespace
     void AddBots (const SGameMode& GameMode, vector<bool>& IsPlayerBot)
     {
         IsPlayerBot.resize (GameMode.PlayerCount, false);
-        if (GameMode.PlayerCount < 2) // We only want bots for 1v1 games.
-
-        for (unsigned i = 1; i < IsPlayerBot.size (); ++i)
+        if (GameMode.PlayerCount <= 2) // We only want bots for 1v1 games.
         {
-            nsMenu::Clear ();
+            for (unsigned i = 1; i < IsPlayerBot.size (); ++i)
+            {
+                nsMenu::Clear ();
 
-            nsMenu::AddItem ("The player " + to_string (i + 1) + " is a bot.",     [&IsPlayerBot, i] () { IsPlayerBot [i] = true; });
-            nsMenu::AddItem ("The player " + to_string (i + 1) + " is not a bot.", [&IsPlayerBot, i] () { IsPlayerBot [i] = false; });
+                nsMenu::AddItem ("The player " + to_string (i + 1) + " is a bot.",     [&IsPlayerBot, i] () { IsPlayerBot [i] = true; });
+                nsMenu::AddItem ("The player " + to_string (i + 1) + " is not a bot.", [&IsPlayerBot, i] () { IsPlayerBot [i] = false; });
 
-            nsMenu::Run ();
+                nsMenu::Run ();
+            }
         }
     } // AddBots
 
