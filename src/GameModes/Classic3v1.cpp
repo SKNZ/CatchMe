@@ -30,7 +30,7 @@ namespace
     std::array<unsigned, 4> AlonePlayerTurnCounters;
 
     int AlonePlayer = -1;
-} // anonymous ns
+} // namespace
 
 void nsClassic3v1::GetSize (CPosition& Size)
 {
@@ -41,12 +41,12 @@ void nsClassic3v1::GetSize (CPosition& Size)
     nsMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
 
     nsMenu::Run ();
-}
+} // GetSize
 
 void nsClassic3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     nsHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
-}
+} // MovePlayer
 
 void nsClassic3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions,
                                             unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
@@ -56,7 +56,7 @@ void nsClassic3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositi
 
 	if (CurrentPlayer == AlonePlayer)
 		AlonePlayerTurnCounters[AlonePlayer]++;
-}
+} // ValidatePlayerPositions
 
 void nsClassic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
@@ -79,18 +79,19 @@ void nsClassic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned 
 
     ObstaclesPositions.clear ();
     nsHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
-    
-    if (*AlonePlayerTurnCounters.crbegin() != 0) // If each player has played its turn, reset all state if they want to replay the round.
+
+    // If each player has played its turn, reset all state if they want to replay the same game mode.
+    if (*AlonePlayerTurnCounters.crbegin() != 0)
     {
         fill (AlonePlayerTurnCounters.begin (), AlonePlayerTurnCounters.end (), 0);
         AlonePlayer = 0;
-    }
+    } // if (everyone played)
 } // InitializeRound
 
 void nsClassic3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
     nsHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
-}
+} // BuildMatrix
 
 bool nsClassic3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
@@ -100,7 +101,7 @@ bool nsClassic3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
             ++DeadChaserCount;
 
     return !PlayerLifeStates [AlonePlayer];
-}
+} // IsGameOver
 
 void nsClassic3v1::ShowWinScreen (const std::vector<bool>& PlayerLifeStates, const std::vector<char>& Tokens, const vector<unsigned>& TurnCounters)
 {

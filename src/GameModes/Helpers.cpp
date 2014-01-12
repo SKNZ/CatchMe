@@ -29,15 +29,16 @@ void nsHelpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, co
     if (PlayerPosition.first + DiffY >= 0 && PlayerPosition.second + DiffX >= 0
         && PlayerPosition.first + DiffY <= MatrixSize.first && PlayerPosition.second + DiffX <= MatrixSize.second)
     {
-        if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle]) // Is direct movement impossbru ? Try to keep just X or Y movement
+        // Is direct movement impossbru ? Try to keep just X or Y movement
+        if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
         {
             if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle])
                 DiffY = 0;
 
             if (Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
                 DiffX = 0;
-        }
-    }
+        } // if (is obstacle)
+    } // if (inbound)
 
     PlayerPosition.first += DiffY;
     PlayerPosition.second += DiffX;
@@ -54,8 +55,8 @@ void nsHelpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions
         {
             PlayerLifeStates[i] = false;
             break;
-        }
-    }
+        } // if (matching position)
+    } // foreach (player)
 } // ValidatePlayerPositionsNoTeam
 
 void nsHelpers::LoadObstaclesFromFile (CPositions& ObstaclesPositions, const CPosition& MaxSize)
@@ -69,7 +70,7 @@ void nsHelpers::LoadObstaclesFromFile (CPositions& ObstaclesPositions, const CPo
     {
         return;
         throw std::runtime_error("There was an error trying to open the file: " + FileName.str ());
-    }
+    } // if (file not exist)
 
     unsigned Y, X;
     while (File >> Y >> X)

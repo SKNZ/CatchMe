@@ -21,17 +21,17 @@ using namespace std;
 std::ostream& nsConsole::operator<< (std::ostream& os, const Colors& Color)
 {
     return os << "\033[" << static_cast<unsigned> (Color) << "m";
-}
+} // operator<< Colors
 
 std::ostream& nsConsole::operator<< (std::ostream& os, const BackgroundColors& Color)
 {
     return os << "\033[" << static_cast<unsigned> (Color) << "m";
-}
+} // operator<< BackgroundColors
 
 void nsConsole::ClearScreen ()
 {
     cout << "\033[H\033[2J";
-}
+} // ClearScreen
 
 // http://www.cplusplus.com/forum/general/5304/#msg23940
 bool nsConsole::WaitForKeyPress (const unsigned TimeOut)
@@ -42,7 +42,7 @@ bool nsConsole::WaitForKeyPress (const unsigned TimeOut)
     pls[0].events = POLLIN | POLLPRI;
     
     return poll (pls, 1, TimeOut ) > 0;
-}
+} // WaitForKeyPress
 
 // http://stackoverflow.com/a/1022961
 void nsConsole::GetScreenSize (unsigned& x, unsigned& y)
@@ -53,7 +53,7 @@ void nsConsole::GetScreenSize (unsigned& x, unsigned& y)
 
     x = w.ws_col;
     y = w.ws_row;
-}
+} // GetScreenSize
 
 // Restore previous mode
 void EnableCanonicalInputMode ()
@@ -63,7 +63,7 @@ void EnableCanonicalInputMode ()
     tcgetattr (STDIN_FILENO, &term);
     term.c_lflag |= ICANON | ECHO;
     tcsetattr (0, TCSANOW, &term);
-}
+} // EnableCanonicalInputMode
 
 // Manipulating the terminal requires sacrificing C++ :/
 void nsConsole::DisableCanonicalInputMode ()

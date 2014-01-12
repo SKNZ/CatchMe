@@ -21,7 +21,7 @@ using namespace std;
 namespace
 {
 	nsGame::CPositions ObstaclesPositions;
-}
+} // namespace
 
 void nsSurvivor1v1v1::GetSize (CPosition& Size)
 {
@@ -32,12 +32,12 @@ void nsSurvivor1v1v1::GetSize (CPosition& Size)
     nsMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
 
     nsMenu::Run ();
-}
+} // GetSize
 
 void nsSurvivor1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     nsHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
-}
+} // MovePlayer
 
 void nsSurvivor1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
@@ -67,7 +67,7 @@ void nsSurvivor1v1v1::InitializeRound (CPositions& PlayerPositions, const unsign
 void nsSurvivor1v1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
     nsHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
-}
+} // BuildMatrix
 
 bool nsSurvivor1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
@@ -78,4 +78,4 @@ bool nsSurvivor1v1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
             ++DeadPlayerCount;
 
     return DeadPlayerCount == 2;
-}
+} // IsGameOver

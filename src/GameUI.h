@@ -35,7 +35,7 @@ namespace nsGame
             { '@', { Colors::KYellow,   BackgroundColors::KDefault  } },
             { '|', { Colors::KBlack,    BackgroundColors::KWhite    } },
             { ' ', { Colors::KDefault,  BackgroundColors::KDefault  } } // Colors of empty token are not used as they come from config file.
-        };
+        }; // KTokenColors initializer list
 
         /**
          * 

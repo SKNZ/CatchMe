@@ -31,4 +31,4 @@ namespace nsClassic3v1
     bool IsGameOver (const std::vector<bool>& PlayerLifeStates);
 
     void ShowWinScreen (const std::vector<bool>& PlayerLifeStates, const std::vector<char>& Tokens, const std::vector<unsigned>& TurnCounters);
-}
+} // nsClassic3v1

@@ -33,8 +33,9 @@ namespace
 
         Y += static_cast<int> (MoveY);
         X += static_cast<int> (MoveX);
-        
-        if (Y < 0 || X < 0 || Y >= Matrix.size () ||  X >= Matrix.begin ()->size () || Matrix [Y] [X] == KTokens [KTokenObstacle]) // Out of bounds or obstacle
+
+        // Out of bounds or obstacle
+        if (Y < 0 || X < 0 || Y >= Matrix.size () ||  X >= Matrix.begin ()->size () || Matrix [Y] [X] == KTokens [KTokenObstacle])
             return Position; // Return the initial position
 
         return { Y, X };
@@ -75,7 +76,7 @@ namespace
         DeltaY *= DeltaY;
         
         return unsigned (sqrt (DeltaX + DeltaY));
-    }
+    } // FindDistance
 
     /**
      * 
@@ -97,7 +98,7 @@ namespace
                     NearestPlayerDistance = Distance;
                     NearestPlayerPositionIndex = i;
                 }
-            }
+            } // if (alive && not us)
 
         return PlayerPositions [NearestPlayerPositionIndex];
     } // FindNearestPlayerPosition

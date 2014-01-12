@@ -29,4 +29,4 @@ namespace nsClassic2v2
     void ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, const unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
 
     bool IsGameOver (const std::vector<bool>& PlayerLifeStates);
-}
+} // nsClassic2v2

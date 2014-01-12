@@ -25,7 +25,7 @@ namespace nsGame
         KUp   = -1,
         KStay = 0,
         KDown = 1,
-    };
+    }; // PlayerMovesY
 
     /**
      * 
@@ -37,7 +37,7 @@ namespace nsGame
         KLeft  = -1,
         KStay  = 0,
         KRight = 1,
-    };
+    }; // PlayerMovesX
 
     typedef std::vector<char>       CLine;
     typedef std::vector<CLine>      CMatrix;
@@ -46,10 +46,12 @@ namespace nsGame
 
     typedef std::function<void (CPosition& Size)> FGetSize;
 
-    typedef std::function<void (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize,
+    typedef std::function<void (const CMatrix& Matrix, CPosition& PlayerPosition,
+                                const CPosition& MatrixSize,
                                 const PlayerMovesY MoveY, const PlayerMovesX MoveX)> FMovePlayer;
 
-    typedef std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& Size)> FInitializeRound;
+    typedef std::function<void (CPositions& PlayerPositions, const unsigned PlayerCount,
+                                const CPosition& Size)> FInitializeRound;
 
     typedef std::function<void (CMatrix& Matrix, const CPositions& PlayerPositions,
                                 const std::vector<bool>& PlayerLifeStates, const char EmptyToken)> FBuildMatrix;

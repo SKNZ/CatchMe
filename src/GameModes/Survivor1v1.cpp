@@ -21,7 +21,7 @@ using namespace std;
 namespace
 {
 	nsGame::CPositions ObstaclesPositions;
-}
+} // namespace
 
 void nsSurvivor1v1::GetSize (CPosition& Size)
 {
@@ -31,7 +31,7 @@ void nsSurvivor1v1::GetSize (CPosition& Size)
     nsMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
 
     nsMenu::Run ();
-}
+} // GetSize
 
 void nsSurvivor1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
@@ -67,14 +67,14 @@ void nsSurvivor1v1::InitializeRound (CPositions& PlayerPositions, const unsigned
 
     ObstaclesPositions.clear ();
     nsHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
-}
+} // InitializeRound
 
 void nsSurvivor1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
     nsHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
-}
+} // BuildMatrix
 
 bool nsSurvivor1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {    
     return !PlayerLifeStates [0] || !PlayerLifeStates [1];
-}
+} // IsGameOver

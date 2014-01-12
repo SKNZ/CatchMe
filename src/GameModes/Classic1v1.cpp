@@ -19,7 +19,7 @@ using namespace std;
 namespace
 {
     nsGame::CPositions ObstaclesPositions;
-}
+} // namespace
 
 void nsClassic1v1::GetSize (CPosition& Size)
 {
@@ -29,17 +29,17 @@ void nsClassic1v1::GetSize (CPosition& Size)
     nsMenu::AddItem ("Medium map", [&Size] () { Size = { 10, 20 }; });
 
     nsMenu::Run ();
-}
+} // GetSize
 
 void nsClassic1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     nsHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
-}
+} // MovePlayer
 
 void nsClassic1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
     nsHelpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
-}
+} // ValidatePlayerPositions
 
 void nsClassic1v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)
 {
@@ -50,14 +50,14 @@ void nsClassic1v1::InitializeRound (CPositions& PlayerPositions, const unsigned 
     
     ObstaclesPositions.clear ();
     nsHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
-}
+} // InitializeRound
 
 void nsClassic1v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
     nsHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
-}
+} // BuildMatrix
 
 bool nsClassic1v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {    
     return !PlayerLifeStates [0] || !PlayerLifeStates [1];
-}
+} // IsGameOver

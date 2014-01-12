@@ -53,7 +53,7 @@ namespace nsGame
         MakeGameMode ("Survivor 3v1", 4, 4, false, nsSurvivor3v1::GetSize, nsSurvivor3v1::MovePlayer, nsSurvivor3v1::InitializeRound, nsSurvivor3v1::BuildMatrix, nsSurvivor3v1::ValidatePlayerPositions, nsSurvivor3v1::IsGameOver, nsSurvivor3v1::ShowWinScreen),
         
         MakeGameMode ("Tools Map Editor", 1, 1, true, nsMapEditor::GetSize, nsMapEditor::MovePlayer, nsMapEditor::InitializeRound, nsMapEditor::BuildMatrix, nsMapEditor::ValidatePlayerPositions, nsMapEditor::IsGameOver, nsMapEditor::ShowWinScreen)
-    };
+    }; // KGamesModes initializer list
 
     /**
     *
@@ -68,7 +68,7 @@ namespace nsGame
         KTokenPlayer4,
         KTokenObstacle,
         KTokenEmpty
-    };
+    }; // TokenIds
 
     /**
     *
@@ -87,7 +87,7 @@ namespace nsGame
         '@',
         '|',
         ' '
-    };
+    }; // KTokens initializer list
 
     /**
     *
@@ -105,7 +105,7 @@ namespace nsGame
         { KTokenPlayer2, "789456123" },
         { KTokenPlayer3, "uiojkl,;:" },
         { KTokenPlayer4, "rtyfghvbn" }
-    };
+    }; // KControlsByToken initializer list
 
     /**
     *

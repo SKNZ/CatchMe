@@ -88,8 +88,8 @@ namespace
                 nsConsole::WaitForKeyPress (nsConfig::ErrorMessageDisplayTime); // Wait a defined amount of time for the message to be shown.
 
                 return false;
-            }
-        }
+            } // if (valid key && !stay)
+        } // if (key pressed)
         else
         {
             nsBot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
@@ -157,7 +157,7 @@ namespace
             case 8: // Down & right
                 GameMode.MovePlayer (Matrix, PlayerPosition, Size, PlayerMovesY::KDown, PlayerMovesX::KRight);
                 break;
-        }
+        } //switch (Action)
     } // MovementHandler
 
     /**
@@ -204,7 +204,7 @@ namespace
                 {
                     nsBot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
                     this_thread::sleep_for (std::chrono::milliseconds (nsConfig::BotPlayDelay));
-                }
+                } // if (is bot)
                 else
                 {
                     if (!GetUserAction (Action, CurrentPlayer, GameMode.AllowStay, Matrix, PlayerLifeStates, PlayerPositions))
@@ -216,7 +216,7 @@ namespace
                 GameMode.ValidatePlayerPositions (Matrix, PlayerPositions, CurrentPlayer, PlayerLifeStates);
 
                 GameMode.BuildMatrix (Matrix, PlayerPositions, PlayerLifeStates, KTokens [KTokenEmpty]);
-            } // if (PlayerLifeStates [CurrPlr])
+            } // if (CurrPlr is alive)
 
             ++TurnCounters [CurrentPlayer];
             ++CurrentPlayer;
@@ -255,11 +255,11 @@ int nsGame::Run ()
                 nsMenu::AddItem ("Next round !");
 
                 nsMenu::Run ();
-            }
+            } // if (last round)
         }
 
         GameMode.ShowWinScreen (PlayerLifeStates, KTokens, TurnCounters);
-    }
+    } // for (;;)
 
     return 0;
 } // Run

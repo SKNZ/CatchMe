@@ -25,7 +25,7 @@ namespace
     array<unsigned, 4> AlonePlayerTurnCounters;
 
     int AlonePlayer = -1;
-}
+} // namespace
 
 void nsSurvivor3v1::GetSize (CPosition& Size)
 {
@@ -36,12 +36,12 @@ void nsSurvivor3v1::GetSize (CPosition& Size)
     nsMenu::AddItem ("Great map", [&Size] () { Size = { 20, 40 }; });
 
     nsMenu::Run ();
-}
+} // GetSize
 
 void nsSurvivor3v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, const CPosition& MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)
 {
     nsHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
-}
+} // MovePlayer
 
 void nsSurvivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
@@ -58,7 +58,7 @@ void nsSurvivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPosit
             ObstaclesPositions.push_back (PlayerPositions [CurrentPlayer]);
         else
             PlayerLifeStates [CurrentPlayer] = false;
-    }
+    } // else (not current player)
 
     int Y = PlayerPositions [CurrentPlayer].first, X = PlayerPositions [CurrentPlayer].second;
 
@@ -104,7 +104,7 @@ void nsSurvivor3v1::InitializeRound (CPositions& PlayerPositions, const unsigned
 void nsSurvivor3v1::BuildMatrix (CMatrix& Matrix, const CPositions& PlayerPositions, const vector<bool>& PlayerLifeStates, const char EmptyToken)
 {
     nsHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
-}
+} // BuildMatrix
 
 bool nsSurvivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
@@ -114,7 +114,7 @@ bool nsSurvivor3v1::IsGameOver (const vector<bool>& PlayerLifeStates)
             ++DeadChaserCount;
 
     return !PlayerLifeStates [AlonePlayer] || DeadChaserCount == 3;
-}
+} // IsGameOver
 
 void nsSurvivor3v1::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, const std::vector<char>& Tokens, const vector<unsigned>& TurnCounters)
 {

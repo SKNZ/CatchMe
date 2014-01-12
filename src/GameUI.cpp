@@ -66,13 +66,13 @@ void nsGame::nsUI::ShowMatrix (const CMatrix & Matrix)
 
             cout << ' ' << C << ' ';
             EmptyCasesCounter++;
-        }
+        } // foreach (token)
 
         // Right border
         cout << KBorderColor << ' ' << BackgroundColors::KDefault << endl;
 
         ++EmptyCasesCounter;
-    }
+    } // foreach (line)
 
     // Bottom border
     cout << ' ' << BackgroundColors::KGreen;
@@ -80,7 +80,7 @@ void nsGame::nsUI::ShowMatrix (const CMatrix & Matrix)
         cout << ' ';
 
     cout << BackgroundColors::KDefault << endl;
-}
+} // ShowMatrix
 
 void nsGame::nsUI::ShowControls (const unsigned int CurrentPlayer)
 {
@@ -95,5 +95,4 @@ void nsGame::nsUI::ShowControls (const unsigned int CurrentPlayer)
         << setw(16) <<  "DownLeft(" << KControlsByToken.at (CurrentPlayer) [6] << ") "
         << setw(16) <<  "Down(" << KControlsByToken.at (CurrentPlayer) [7] << ") "
         << setw(16) <<  "DownRight(" << KControlsByToken.at (CurrentPlayer) [8] << ") " << endl;
-}
-
+} // ShowControls

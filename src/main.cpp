@@ -12,7 +12,7 @@
 
 #include "Game.h"
 
-int main (int argc, char** argv)
+int main (int /*argc*/, char** /*argv*/)
 {
     try
     {
@@ -22,10 +22,10 @@ int main (int argc, char** argv)
     {
         std::cerr << "You failed to write proper code, but can still do error handling. " << e.what () << std::endl;
         return EXIT_FAILURE;
-    }
+    } // catch runtime_error
     catch (std::exception& e)
     {
         std::cerr << "Now you just suck... " << e.what () << std::endl;
         return EXIT_FAILURE;
-    }
-}
+    } // catch all
+} // main

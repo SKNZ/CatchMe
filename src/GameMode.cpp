@@ -36,4 +36,4 @@ SGameMode nsGame::MakeGameMode (std::string Name, unsigned PlayerCount, unsigned
     GameMode.ShowWinScreen              = ShowWinScreen;
 
     return GameMode;
-}
+} // MakeGameMode
