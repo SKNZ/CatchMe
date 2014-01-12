@@ -32,13 +32,11 @@ void nsHelpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, co
     {
         // Is direct movement impossbru ? Try to keep just X or Y movement
         if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
-        {
-            if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle])
-                DiffY = 0;
-
-            if (Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
-                DiffX = 0;
-        } // if (is obstacle)
+            DiffX = DiffY = 0;
+        else if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle])
+            DiffY = 0;
+        else if (Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
+            DiffX = 0;
     } // if (inbound)
 
     PlayerPosition.first += DiffY;
