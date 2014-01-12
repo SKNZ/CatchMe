@@ -48,4 +48,13 @@ namespace nsHelpers
      **/
     void AddObstaclesAndPlayersToMatrix (nsGame::CMatrix& Matrix, const nsGame::CPositions& PlayerPositions,
                                          const std::vector<bool>& PlayerLifeStates, const nsGame::CPositions& ObstaclesPositions, char EmptyToken);
+    
+    /**
+     * 
+     * @brief Adds MoveY and MoveX to Position if the position is inbound and if its not an obstacle.
+     *
+     * @return Modified position if inbound and not obstacle, original position otherwise. 
+     * 
+     **/
+    nsGame::CPosition MakePosition (const nsGame::CMatrix& Matrix, nsGame::CPosition Position, nsGame::PlayerMovesY MoveY, nsGame::PlayerMovesX MoveX);
 } // nsHelpers

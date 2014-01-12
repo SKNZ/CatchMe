@@ -93,4 +93,17 @@ void nsHelpers::AddObstaclesAndPlayersToMatrix (CMatrix& Matrix, const CPosition
             Matrix [PlayerPositions [i].first] [PlayerPositions [i].second] = nsGame::KTokens [i];
 } // AddObstaclesAndPlayersToMatrix
 
+CPosition nsHelpers::MakePosition (const CMatrix& Matrix, CPosition Position, PlayerMovesY MoveY, PlayerMovesX MoveX)
+{
+    int Y = Position.first;
+    int X = Position.second;
 
+    Y += static_cast<int> (MoveY);
+    X += static_cast<int> (MoveX);
+
+    // Out of bounds or obstacle
+    if (Y < 0 || X < 0 || Y >= Matrix.size () ||  X >= Matrix.begin ()->size () || Matrix [Y] [X] == KTokens [KTokenObstacle])
+        return Position; // Return the initial position
+
+    return { Y, X };
+} // MakePosition

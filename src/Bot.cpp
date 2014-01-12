@@ -14,32 +14,11 @@
 
 #include "Bot.h"
 #include "Game.h"
+#include "GameModes/Helpers.h"
 
 namespace
 {
     using namespace nsGame;
-
-    /**
-     * 
-     * @brief Adds MoveY and MoveX to Position if the position is inbound and if its not an obstacle.
-     *
-     * @return Modified position if inbound and not obstacle, original position otherwise. 
-     * 
-     **/
-    CPosition MakePosition (const CMatrix& Matrix, CPosition Position, PlayerMovesY MoveY, PlayerMovesX MoveX)
-    {
-        int Y = Position.first;
-        int X = Position.second;
-
-        Y += static_cast<int> (MoveY);
-        X += static_cast<int> (MoveX);
-
-        // Out of bounds or obstacle
-        if (Y < 0 || X < 0 || Y >= Matrix.size () ||  X >= Matrix.begin ()->size () || Matrix [Y] [X] == KTokens [KTokenObstacle])
-            return Position; // Return the initial position
-
-        return { Y, X };
-    } // MakePosition
 
     /**
      * 
@@ -50,7 +29,7 @@ namespace
      **/
     bool CheckForPlayerInRangeAndAttack (const CMatrix& Matrix, const std::vector<bool>& PlayerLifeStates, CPositions& PlayerPositions, unsigned CurrentPlayer, PlayerMovesY MoveY, PlayerMovesX MoveX)
     {
-        CPosition Position = MakePosition (Matrix, PlayerPositions [CurrentPlayer], MoveY, MoveX);
+        CPosition Position = nsHelpers::MakePosition (Matrix, PlayerPositions [CurrentPlayer], MoveY, MoveX);
         
         for (unsigned i = KTokenPlayer1; i < KTokenPlayer4; ++i) // Check if the Token at the position is a player token
             if (Matrix [Position.first] [Position.second] == KTokens [i] && i != CurrentPlayer && PlayerLifeStates[i])
@@ -114,14 +93,14 @@ namespace
     {
         std::vector<CPosition> PositionsNearby;
 
-        PositionsNearby.push_back (MakePosition (Matrix, CurrentPosition, PlayerMovesY::KStay, PlayerMovesX::KRight));
-        PositionsNearby.push_back (MakePosition (Matrix, CurrentPosition, PlayerMovesY::KStay, PlayerMovesX::KLeft));
-        PositionsNearby.push_back (MakePosition (Matrix, CurrentPosition, PlayerMovesY::KUp,   PlayerMovesX::KRight));
-        PositionsNearby.push_back (MakePosition (Matrix, CurrentPosition, PlayerMovesY::KUp,   PlayerMovesX::KLeft));
-        PositionsNearby.push_back (MakePosition (Matrix, CurrentPosition, PlayerMovesY::KUp,   PlayerMovesX::KStay));
-        PositionsNearby.push_back (MakePosition (Matrix, CurrentPosition, PlayerMovesY::KDown, PlayerMovesX::KRight));
-        PositionsNearby.push_back (MakePosition (Matrix, CurrentPosition, PlayerMovesY::KDown, PlayerMovesX::KLeft));
-        PositionsNearby.push_back (MakePosition (Matrix, CurrentPosition, PlayerMovesY::KDown, PlayerMovesX::KStay));
+        PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, CurrentPosition, PlayerMovesY::KStay, PlayerMovesX::KRight));
+        PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, CurrentPosition, PlayerMovesY::KStay, PlayerMovesX::KLeft));
+        PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, CurrentPosition, PlayerMovesY::KUp,   PlayerMovesX::KRight));
+        PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, CurrentPosition, PlayerMovesY::KUp,   PlayerMovesX::KLeft));
+        PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, CurrentPosition, PlayerMovesY::KUp,   PlayerMovesX::KStay));
+        PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, CurrentPosition, PlayerMovesY::KDown, PlayerMovesX::KRight));
+        PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, CurrentPosition, PlayerMovesY::KDown, PlayerMovesX::KLeft));
+        PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, CurrentPosition, PlayerMovesY::KDown, PlayerMovesX::KStay));
 
         std::sort (PositionsNearby.begin (), PositionsNearby.end (), [Target] (CPosition a, CPosition b) { return FindDistance (a, Target) < FindDistance (b, Target); });
 
