@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$_game_8h.html" title="Main game header, contains game modes, tokens (+ enum), controls, and main function." alt="" coords="1286,83,1366,112"/>
+<area shape="rect" id="node16" href="$_game_mode_8h.html" title="SGameMode definition, enum for axis moves, typedefs, constructor function declaration." alt="" coords="1045,237,1144,267"/>
+<area shape="rect" id="node21" href="$_classic1v1_8h.html" title="Classic 1v1 game mode." alt="" coords="41,160,217,189"/>
+<area shape="rect" id="node25" href="$_classic1v1v1_8h.html" title="Classic 1v1v1 game mode." alt="" coords="241,160,430,189"/>
+<area shape="rect" id="node29" href="$_classic1v1v1v1_8h.html" title="Classic 1v1v1v1 game mode." alt="" coords="454,160,657,189"/>
+<area shape="rect" id="node33" href="$_classic2v2_8h.html" title="Classic 2v2 game mode." alt="" coords="681,160,857,189"/>
+<area shape="rect" id="node37" href="$_classic3v1_8h.html" title="Classic 3v1 game mode." alt="" coords="881,160,1057,189"/>
+<area shape="rect" id="node41" href="$_survivor1v1_8h.html" title="Survivor 1v1 game mode." alt="" coords="1132,160,1310,189"/>
+<area shape="rect" id="node45" href="$_survivor1v1v1_8h.html" title="Survivor 1v1v1 game mode." alt="" coords="1334,160,1529,189"/>
+<area shape="rect" id="node49" href="$_survivor1v1v1v1_8h.html" title="Survivor 1v1v1v1 game mode." alt="" coords="1553,160,1761,189"/>
+<area shape="rect" id="node53" href="$_survivor2v2_8h.html" title="Survivor 2v2 game mode." alt="" coords="1785,160,1964,189"/>
+<area shape="rect" id="node57" href="$_survivor3v1_8h.html" title="Survivor 3v1 game mode." alt="" coords="1988,160,2166,189"/>
+<area shape="rect" id="node61" href="$_menu_8h.html" title="Add item to menu, clear menu, run menu declarations." alt="" coords="2190,160,2254,189"/>
+</map>

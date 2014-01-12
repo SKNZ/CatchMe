@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$namespacens_classic1v1.html#abc2f9ac65f4ad038e420b29580bea19a" title="nsClassic1v1::InitializeRound" alt="" coords="296,5,491,35"/>
+<area shape="rect" id="node7" href="$namespacens_classic1v1v1.html#ace9af570457c079ca8f7432044f0ce01" title="nsClassic1v1v1::InitializeRound" alt="" coords="289,59,497,88"/>
+<area shape="rect" id="node9" href="$namespacens_classic1v1v1v1.html#a9c54599e977bc0d9a8cd9cecb47f57c3" title="nsClassic1v1v1v1::InitializeRound" alt="" coords="283,112,504,141"/>
+<area shape="rect" id="node11" href="$namespacens_classic2v2.html#a14c3b80e5ab067dd59388ba54aca7d5e" title="nsClassic2v2::InitializeRound" alt="" coords="296,165,491,195"/>
+<area shape="rect" id="node13" href="$namespacens_classic3v1.html#a3766fe9f08e099da46ffcff1790cdad1" title="nsClassic3v1::InitializeRound" alt="" coords="296,219,491,248"/>
+<area shape="rect" id="node15" href="$namespacens_survivor1v1.html#a2517b59feb51514f63efcf35b001e976" title="nsSurvivor1v1::InitializeRound" alt="" coords="295,272,492,301"/>
+<area shape="rect" id="node17" href="$namespacens_survivor1v1v1.html#a1f00cb220c36f8e4ebfcae0ea4372576" title="nsSurvivor1v1v1::InitializeRound" alt="" coords="287,325,500,355"/>
+<area shape="rect" id="node19" href="$namespacens_survivor1v1v1v1.html#ac64e29e30e15055d91901441eda6b65e" title="nsSurvivor1v1v1v1::InitializeRound" alt="" coords="280,379,507,408"/>
+<area shape="rect" id="node21" href="$namespacens_survivor2v2.html#a3d6027ced6dd456bd67e571a9099c00e" title="nsSurvivor2v2::InitializeRound" alt="" coords="295,432,492,461"/>
+<area shape="rect" id="node23" href="$namespacens_survivor3v1.html#a886eb44acfcaa4cde1e0030a26e088d9" title="nsSurvivor3v1::InitializeRound" alt="" coords="295,485,492,515"/>
+<area shape="rect" id="node5" href="$namespacens_game.html#a73a55d4f4e2184ed18e72be5333f7390" title="Constructor of the SGameMode structure." alt="" coords="555,5,733,35"/>
+</map>

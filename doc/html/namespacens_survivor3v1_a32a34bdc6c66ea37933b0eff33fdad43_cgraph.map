@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu." alt="" coords="440,5,547,35"/>
+<area shape="rect" id="node5" href="$namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t..." alt="" coords="431,59,556,88"/>
+<area shape="rect" id="node7" href="$namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything." alt="" coords="215,111,316,140"/>
+<area shape="rect" id="node9" href="$namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu..." alt="" coords="367,112,620,141"/>
+<area shape="rect" id="node13" href="$namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f" title="Parse the configuration file." alt="" coords="400,165,587,195"/>
+<area shape="rect" id="node11" href="$_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2" title="EnableCanonicalInputMode" alt="" coords="669,112,851,141"/>
+</map>

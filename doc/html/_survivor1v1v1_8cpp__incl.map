@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$_survivor1v1v1_8h.html" title="Survivor 1v1v1 game mode." alt="" coords="2288,237,2403,267"/>
+<area shape="rect" id="node14" href="$_helpers_8h.html" title="Redundant code about player movement, player positions validation, obstacles loading, matrix building." alt="" coords="1360,83,1437,112"/>
+<area shape="rect" id="node17" href="$_game_8h.html" title="Main game header, contains game modes, tokens (+ enum), controls, and main function." alt="" coords="1359,160,1439,189"/>
+<area shape="rect" id="node66" href="$_menu_8h.html" title="Add item to menu, clear menu, run menu declarations." alt="" coords="2477,237,2541,267"/>
+<area shape="rect" id="node9" href="$_game_mode_8h.html" title="SGameMode definition, enum for axis moves, typedefs, constructor function declaration." alt="" coords="1452,315,1564,344"/>
+<area shape="rect" id="node29" href="$_classic1v1_8h.html" title="Classic 1v1 game mode." alt="" coords="1875,237,2051,267"/>
+<area shape="rect" id="node33" href="$_classic1v1v1_8h.html" title="Classic 1v1v1 game mode." alt="" coords="2075,237,2264,267"/>
+<area shape="rect" id="node37" href="$_classic1v1v1v1_8h.html" title="Classic 1v1v1v1 game mode." alt="" coords="133,237,336,267"/>
+<area shape="rect" id="node41" href="$_classic2v2_8h.html" title="Classic 2v2 game mode." alt="" coords="360,237,536,267"/>
+<area shape="rect" id="node45" href="$_classic3v1_8h.html" title="Classic 3v1 game mode." alt="" coords="560,237,736,267"/>
+<area shape="rect" id="node49" href="$_survivor1v1_8h.html" title="Survivor 1v1 game mode." alt="" coords="760,237,939,267"/>
+<area shape="rect" id="node54" href="$_survivor1v1v1v1_8h.html" title="Survivor 1v1v1v1 game mode." alt="" coords="1187,237,1395,267"/>
+<area shape="rect" id="node58" href="$_survivor2v2_8h.html" title="Survivor 2v2 game mode." alt="" coords="1419,237,1597,267"/>
+<area shape="rect" id="node62" href="$_survivor3v1_8h.html" title="Survivor 3v1 game mode." alt="" coords="1672,237,1851,267"/>
+</map>

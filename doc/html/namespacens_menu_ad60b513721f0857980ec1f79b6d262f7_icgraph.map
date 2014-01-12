@@ -1,0 +1,22 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything." alt="" coords="161,433,263,463"/>
+<area shape="rect" id="node5" href="$namespacens_classic1v1.html#a5e3bc9f450e6de789968c6192269bb6f" title="nsClassic1v1::GetSize" alt="" coords="341,5,496,35"/>
+<area shape="rect" id="node9" href="$namespacens_classic1v1v1.html#a4feaf5b5024554665c608efff5ef96f6" title="nsClassic1v1v1::GetSize" alt="" coords="333,112,504,141"/>
+<area shape="rect" id="node11" href="$namespacens_classic1v1v1v1.html#a4ad46349b3ae40f0bf65111538509ee5" title="nsClassic1v1v1v1::GetSize" alt="" coords="327,165,511,195"/>
+<area shape="rect" id="node13" href="$namespacens_classic2v2.html#a87f1612e82e4b1d2f21643397d376338" title="nsClassic2v2::GetSize" alt="" coords="341,219,496,248"/>
+<area shape="rect" id="node15" href="$namespacens_classic2v2.html#a14c3b80e5ab067dd59388ba54aca7d5e" title="nsClassic2v2::InitializeRound" alt="" coords="321,272,516,301"/>
+<area shape="rect" id="node17" href="$namespacens_classic3v1.html#aeb33e7889ffa6bfd6f0627bebc729438" title="nsClassic3v1::GetSize" alt="" coords="341,325,496,355"/>
+<area shape="rect" id="node19" href="$namespacens_classic3v1.html#a3766fe9f08e099da46ffcff1790cdad1" title="nsClassic3v1::InitializeRound" alt="" coords="321,379,516,408"/>
+<area shape="rect" id="node21" href="$namespacens_classic3v1.html#aa3eadeebdc244b88e44cc32e2f5512c9" title="nsClassic3v1::ShowWinScreen" alt="" coords="316,59,521,88"/>
+<area shape="rect" id="node24" href="$namespacens_survivor1v1.html#a4bc9d24a28719a53b494ebd337ea6d83" title="nsSurvivor1v1::GetSize" alt="" coords="339,485,499,515"/>
+<area shape="rect" id="node26" href="$namespacens_survivor1v1v1.html#a646fb3f90a749dc11da1d2629b044e30" title="nsSurvivor1v1v1::GetSize" alt="" coords="332,539,505,568"/>
+<area shape="rect" id="node28" href="$namespacens_survivor1v1v1v1.html#afa155031b70a9bb61657a8cfa9846fae" title="nsSurvivor1v1v1v1::GetSize" alt="" coords="325,592,512,621"/>
+<area shape="rect" id="node30" href="$namespacens_survivor2v2.html#ae5fb0a9adca561b6181b03281f559a83" title="nsSurvivor2v2::GetSize" alt="" coords="339,645,499,675"/>
+<area shape="rect" id="node32" href="$namespacens_survivor2v2.html#a3d6027ced6dd456bd67e571a9099c00e" title="nsSurvivor2v2::InitializeRound" alt="" coords="320,699,517,728"/>
+<area shape="rect" id="node34" href="$namespacens_survivor3v1.html#a32a34bdc6c66ea37933b0eff33fdad43" title="nsSurvivor3v1::GetSize" alt="" coords="339,752,499,781"/>
+<area shape="rect" id="node36" href="$namespacens_survivor3v1.html#a886eb44acfcaa4cde1e0030a26e088d9" title="nsSurvivor3v1::InitializeRound" alt="" coords="320,805,517,835"/>
+<area shape="rect" id="node38" href="$namespacens_survivor3v1.html#aaa03a2ef2c2762be7f51d109ea200852" title="nsSurvivor3v1::ShowWinScreen" alt="" coords="313,859,524,888"/>
+<area shape="rect" id="node42" href="$namespacens_menu.html#a54cbd7891375b0f725814f3ce2c20a90" title="Shows a simple default winning screen announcing the player that won." alt="" coords="312,912,525,941"/>
+<area shape="rect" id="node40" href="$main_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627" title="main" alt="" coords="393,432,444,461"/>
+<area shape="rect" id="node7" href="$namespacens_game.html#a73a55d4f4e2184ed18e72be5333f7390" title="Constructor of the SGameMode structure." alt="" coords="573,32,752,61"/>
+</map>

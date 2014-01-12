@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$namespacens_classic1v1.html#a5e3bc9f450e6de789968c6192269bb6f" title="nsClassic1v1::GetSize" alt="" coords="279,83,433,112"/>
+<area shape="rect" id="node19" href="$namespacens_classic1v1.html#a7e895573b65feaa0b48ff02c407fdc4a" title="nsClassic1v1::MovePlayer" alt="" coords="267,189,445,219"/>
+<area shape="rect" id="node21" href="$namespacens_classic1v1.html#abc2f9ac65f4ad038e420b29580bea19a" title="nsClassic1v1::InitializeRound" alt="" coords="259,243,453,272"/>
+<area shape="rect" id="node25" href="$namespacens_classic1v1.html#ac4b26b1d87364fa3766bd37f8f4e10e8" title="nsClassic1v1::BuildMatrix" alt="" coords="269,296,443,325"/>
+<area shape="rect" id="node29" href="$namespacens_classic1v1.html#ae6135a92cb2ba8c8b7dfca5971472ebe" title="nsClassic1v1::ValidatePlayerPositions" alt="" coords="233,349,479,379"/>
+<area shape="rect" id="node33" href="$namespacens_classic1v1.html#ad2628deaf9bf59037dd8a27774554d73" title="nsClassic1v1::IsGameOver" alt="" coords="265,403,447,432"/>
+<area shape="rect" id="node35" href="$namespacens_classic3v1.html#aa3eadeebdc244b88e44cc32e2f5512c9" title="nsClassic3v1::ShowWinScreen" alt="" coords="253,136,459,165"/>
+<area shape="rect" id="node5" href="$namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu." alt="" coords="941,5,1048,35"/>
+<area shape="rect" id="node7" href="$namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t..." alt="" coords="932,165,1057,195"/>
+<area shape="rect" id="node9" href="$namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything." alt="" coords="623,85,724,115"/>
+<area shape="rect" id="node11" href="$namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu..." alt="" coords="868,59,1121,88"/>
+<area shape="rect" id="node15" href="$namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f" title="Parse the configuration file." alt="" coords="901,112,1088,141"/>
+<area shape="rect" id="node13" href="$_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2" title="EnableCanonicalInputMode" alt="" coords="1171,59,1352,88"/>
+<area shape="rect" id="node23" href="$namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8" title="Loads the obstacles positions from file." alt="" coords="560,243,787,272"/>
+<area shape="rect" id="node27" href="$namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0" title="Adds the obstacle and player tokens to the matrix." alt="" coords="529,296,817,325"/>
+<area shape="rect" id="node31" href="$namespacens_helpers.html#a5d94aa155824a02b37011001affe7211" title="Checks if a player is in a position that is lethal, and if yes, KILL IT !" alt="" coords="535,349,812,379"/>
+</map>

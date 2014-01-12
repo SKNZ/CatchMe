@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node7" href="$_helpers_8h.html" title="Redundant code about player movement, player positions validation, obstacles loading, matrix building." alt="" coords="653,83,730,112"/>
+<area shape="rect" id="node11" href="$_game_8h.html" title="Main game header, contains game modes, tokens (+ enum), controls, and main function." alt="" coords="1285,160,1365,189"/>
+<area shape="rect" id="node22" href="$_game_mode_8h.html" title="SGameMode definition, enum for axis moves, typedefs, constructor function declaration." alt="" coords="1043,315,1142,344"/>
+<area shape="rect" id="node27" href="$_classic1v1_8h.html" title="Classic 1v1 game mode." alt="" coords="39,237,215,267"/>
+<area shape="rect" id="node31" href="$_classic1v1v1_8h.html" title="Classic 1v1v1 game mode." alt="" coords="239,237,429,267"/>
+<area shape="rect" id="node35" href="$_classic1v1v1v1_8h.html" title="Classic 1v1v1v1 game mode." alt="" coords="453,237,655,267"/>
+<area shape="rect" id="node39" href="$_classic2v2_8h.html" title="Classic 2v2 game mode." alt="" coords="679,237,855,267"/>
+<area shape="rect" id="node43" href="$_classic3v1_8h.html" title="Classic 3v1 game mode." alt="" coords="879,237,1055,267"/>
+<area shape="rect" id="node47" href="$_survivor1v1_8h.html" title="Survivor 1v1 game mode." alt="" coords="1130,237,1309,267"/>
+<area shape="rect" id="node51" href="$_survivor1v1v1_8h.html" title="Survivor 1v1v1 game mode." alt="" coords="1333,237,1527,267"/>
+<area shape="rect" id="node55" href="$_survivor1v1v1v1_8h.html" title="Survivor 1v1v1v1 game mode." alt="" coords="1551,237,1759,267"/>
+<area shape="rect" id="node59" href="$_survivor2v2_8h.html" title="Survivor 2v2 game mode." alt="" coords="1783,237,1962,267"/>
+<area shape="rect" id="node63" href="$_survivor3v1_8h.html" title="Survivor 3v1 game mode." alt="" coords="1986,237,2165,267"/>
+<area shape="rect" id="node67" href="$_menu_8h.html" title="Add item to menu, clear menu, run menu declarations." alt="" coords="2189,237,2253,267"/>
+</map>
