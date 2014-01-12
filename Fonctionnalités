@@ -12,3 +12,5 @@
 - Fichier de configuration XML
 - C++11 (lambdas, foreach, function)
 - Voir "feuille de route.txt" pour plus de détails techniques
+
+PS: l'executable doit être lancé depuis le dossier bin avec les fichiers adéquats (notamment conf.xml)
