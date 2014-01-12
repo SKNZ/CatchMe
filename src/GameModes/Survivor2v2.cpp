@@ -79,7 +79,7 @@ void nsSurvivor2v2::InitializeRound (CPositions& PlayerPositions, const unsigned
 
     nsMenu::Clear ();
 
-    nsMenu::AddItem ("The players 1 and 3 form a team against the players 2 and 4.");
+    nsMenu::AddItem ("The players 'O' and 'X' form a team against the players '#' and '@'.");
 
     nsMenu::Run ();
 } // InitializeRound
