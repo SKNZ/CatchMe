@@ -35,13 +35,21 @@ void nsHelpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, co
         {
             DiffX = DiffY = 0;
         }
-        else
+        else if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle])
         {
-            if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle])
-                DiffY = 0;
+            DiffY = 0;
+
             if (Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
                 DiffX = 0;
         }
+        else if (Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
+        {
+            DiffX = 0;
+
+            if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle])
+                DiffY = 0;            
+        }
+        
     } // if (inbound)
 
     PlayerPosition.first += DiffY;
