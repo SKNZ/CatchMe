@@ -31,23 +31,23 @@ void nsHelpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, co
         && PlayerPosition.first + DiffY <= MatrixSize.first && PlayerPosition.second + DiffX <= MatrixSize.second)
     {
         // Is direct movement impossbru ? Try to keep just X or Y movement
-        if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
+        if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle]
+            && Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle]
+            && Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
         {
             DiffX = DiffY = 0;
         }
-        else if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle])
+        else if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle]
+            && Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] != KTokens [KTokenObstacle]
+            && Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
         {
             DiffY = 0;
-
-            if (Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
-                DiffX = 0;
         }
-        else if (Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle])
+        else if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second + DiffX] == KTokens [KTokenObstacle]
+            && Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle]
+            && Matrix [PlayerPosition.first] [PlayerPosition.second + DiffX] != KTokens [KTokenObstacle])
         {
             DiffX = 0;
-
-            if (Matrix [PlayerPosition.first + DiffY] [PlayerPosition.second] == KTokens [KTokenObstacle])
-                DiffY = 0;            
         }
         
     } // if (inbound)
