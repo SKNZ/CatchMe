@@ -3,4 +3,8 @@
 	<RenderLoopInterval>100</RenderLoopInterval>
 	<TurnTimeoutDelay>15000</TurnTimeoutDelay>
 	<BotPlayDelay>0</BotPlayDelay>
+	<BorderColor>42</BorderColor>
+	<CaseColor1>40</CaseColor1>
+	<CaseColor2>44</CaseColor2>
+	<MenuBorderColor>45</MenuBorderColor>
 </Conf>
