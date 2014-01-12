@@ -1,6 +1,6 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_config_8cpp.html" title="src/Config.cpp" alt="" coords="5,83,112,112"/>
-<area shape="rect" id="node5" href="$_game_8cpp.html" title="Main game file, contains game loop, user interaction." alt="" coords="136,83,240,112"/>
-<area shape="rect" id="node7" href="$_game_u_i_8cpp.html" title="Matrix rendering function, current controls display function." alt="" coords="264,83,381,112"/>
-<area shape="rect" id="node9" href="$_menu_8cpp.html" title="Add item to menu, clear menu, draw menu helpers, run menu definitions." alt="" coords="405,83,507,112"/>
+<area shape="rect" id="node3" href="$_config_8cpp.html" title="XML configuration parser." alt="" coords="5,83,91,112"/>
+<area shape="rect" id="node5" href="$_game_8cpp.html" title="Main game file, contains game loop, user interaction." alt="" coords="115,83,197,112"/>
+<area shape="rect" id="node7" href="$_game_u_i_8cpp.html" title="Matrix rendering function, current controls display function." alt="" coords="221,83,317,112"/>
+<area shape="rect" id="node9" href="$_menu_8cpp.html" title="Add item to menu, clear menu, draw menu helpers, run menu definitions." alt="" coords="341,83,419,112"/>
 </map>

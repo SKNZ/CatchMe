@@ -21,7 +21,9 @@ namespace nsGame
 {
     /**
      * 
-     * @namespace nsConfig
+     * @namespace nsGame::nsConfig
+     * 
+     * @brief Namespace containing everything related to configuration file.
      * 
      **/
     namespace nsConfig

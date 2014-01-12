@@ -3,13 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: src/Console.cpp File Reference</title>
+<title>CatchMe: Console.cpp File Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -47,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -74,11 +80,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_console_8cpp.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">src/Console.cpp File Reference</div>  </div>
+<div class="title">Console.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -90,13 +109,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;unistd.h&gt;</code><br/>
 <code>#include &lt;poll.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="_console_8h_source.html">Console.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Console.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="_console_8cpp__incl.png" border="0" usemap="#_console_8cpp" alt=""/></div>
+<map name="_console_8cpp" id="_console_8cpp">
+<area shape="rect" id="node13" href="_console_8h.html" title="Console manipulation (colors, timed&#45;out noncanonical input, VT100)" alt="" coords="459,83,539,112"/></map>
+</div>
 </div>
 <p><a href="_console_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a11687f793d56ffdc12bdef8f29adf4e2"></a><!-- doxytag: member="Console.cpp::EnableCanonicalInputMode" ref="a11687f793d56ffdc12bdef8f29adf4e2" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>EnableCanonicalInputMode</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2">EnableCanonicalInputMode</a> ()</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Console manipulation (colors, timed-out noncanonical input, VT100) </p>
@@ -104,13 +129,49 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>EnableCanonicalInputM
 <dl class="date"><dt><b>Date:</b></dt><dd>12/01/2014 </dd></dl>
 
 <p>Definition in file <a class="el" href="_console_8cpp_source.html">Console.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a11687f793d56ffdc12bdef8f29adf4e2"></a><!-- doxytag: member="Console.cpp::EnableCanonicalInputMode" ref="a11687f793d56ffdc12bdef8f29adf4e2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2">EnableCanonicalInputMode</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_console_8cpp_source.html#l00059">59</a> of file <a class="el" href="_console_8cpp_source.html">Console.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    termios term;
+
+    tcgetattr (STDIN_FILENO, &amp;term);
+    term.c_lflag |= ICANON | ECHO;
+    tcsetattr (0, TCSANOW, &amp;term);
+} <span class="comment">// EnableCanonicalInputMode</span>
+</pre></div>
+<p><div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_console_8cpp_a11687f793d56ffdc12bdef8f29adf4e2_icgraph.png" border="0" usemap="#_console_8cpp_a11687f793d56ffdc12bdef8f29adf4e2_icgraph" alt=""/></div>
+<map name="_console_8cpp_a11687f793d56ffdc12bdef8f29adf4e2_icgraph" id="_console_8cpp_a11687f793d56ffdc12bdef8f29adf4e2_icgraph">
+<area shape="rect" id="node3" href="namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu..." alt="" coords="236,539,489,568"/><area shape="rect" id="node5" href="namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything." alt="" coords="540,539,641,568"/><area shape="rect" id="node7" href="namespacens_classic1v1.html#a5e3bc9f450e6de789968c6192269bb6f" title="nsClassic1v1::GetSize" alt="" coords="787,5,941,35"/><area shape="rect" id="node11" href="namespacens_classic1v1v1.html#a4feaf5b5024554665c608efff5ef96f6" title="nsClassic1v1v1::GetSize" alt="" coords="779,59,949,88"/><area shape="rect" id="node13" href="namespacens_classic1v1v1v1.html#a4ad46349b3ae40f0bf65111538509ee5" title="nsClassic1v1v1v1::GetSize" alt="" coords="772,112,956,141"/><area shape="rect" id="node15" href="namespacens_classic2v2.html#a87f1612e82e4b1d2f21643397d376338" title="nsClassic2v2::GetSize" alt="" coords="787,165,941,195"/><area shape="rect" id="node17" href="namespacens_classic2v2.html#a14c3b80e5ab067dd59388ba54aca7d5e" title="nsClassic2v2::InitializeRound" alt="" coords="767,219,961,248"/><area shape="rect" id="node19" href="namespacens_classic3v1.html#aeb33e7889ffa6bfd6f0627bebc729438" title="nsClassic3v1::GetSize" alt="" coords="787,272,941,301"/><area shape="rect" id="node21" href="namespacens_classic3v1.html#a3766fe9f08e099da46ffcff1790cdad1" title="nsClassic3v1::InitializeRound" alt="" coords="767,325,961,355"/><area shape="rect" id="node23" href="namespacens_classic3v1.html#aa3eadeebdc244b88e44cc32e2f5512c9" title="nsClassic3v1::ShowWinScreen" alt="" coords="761,379,967,408"/><area shape="rect" id="node26" href="namespaceanonymous__namespace_02_game_8cpp_03.html#ad06b7fa3e7542b9c50951fea4ee80633" title="Two step game mode selection screen. It finds all the different game mode type by taking the first pa..." alt="" coords="691,432,1037,461"/><area shape="rect" id="node29" href="namespaceanonymous__namespace_02_game_8cpp_03.html#abc419b9d8cd60452edd6f77163eaec4f" title="Asks the user whether he wants a certain player to be played by a bot." alt="" coords="717,485,1011,515"/><area shape="rect" id="node32" href="main_8cpp.html#a2c3f6775325c30275d11c6abee2db6a0" title="main" alt="" coords="839,539,889,568"/><area shape="rect" id="node34" href="namespacens_map_editor.html#a99bd4a66ae07a657b95abe92d8ccbb27" title="nsMapEditor::GetSize" alt="" coords="789,592,939,621"/><area shape="rect" id="node36" href="namespacens_map_editor.html#ad5d2f1c03c27fc2b691b6b5b424a0d70" title="nsMapEditor::InitializeRound" alt="" coords="769,645,959,675"/><area shape="rect" id="node38" href="namespacens_menu.html#a54cbd7891375b0f725814f3ce2c20a90" title="Shows a simple default winning screen announcing the player that won." alt="" coords="757,699,971,728"/><area shape="rect" id="node40" href="namespacens_survivor1v1.html#a4bc9d24a28719a53b494ebd337ea6d83" title="nsSurvivor1v1::GetSize" alt="" coords="784,752,944,781"/><area shape="rect" id="node42" href="namespacens_survivor1v1v1.html#a646fb3f90a749dc11da1d2629b044e30" title="nsSurvivor1v1v1::GetSize" alt="" coords="777,805,951,835"/><area shape="rect" id="node44" href="namespacens_survivor1v1v1v1.html#afa155031b70a9bb61657a8cfa9846fae" title="nsSurvivor1v1v1v1::GetSize" alt="" coords="771,859,957,888"/><area shape="rect" id="node46" href="namespacens_survivor2v2.html#ae5fb0a9adca561b6181b03281f559a83" title="nsSurvivor2v2::GetSize" alt="" coords="784,912,944,941"/><area shape="rect" id="node48" href="namespacens_survivor2v2.html#a3d6027ced6dd456bd67e571a9099c00e" title="nsSurvivor2v2::InitializeRound" alt="" coords="765,965,963,995"/><area shape="rect" id="node50" href="namespacens_survivor2v2.html#ad78ecd2e09fc606b621d5ca98df51132" title="nsSurvivor2v2::ShowWinScreen" alt="" coords="759,1019,969,1048"/><area shape="rect" id="node52" href="namespacens_survivor3v1.html#a32a34bdc6c66ea37933b0eff33fdad43" title="nsSurvivor3v1::GetSize" alt="" coords="784,1072,944,1101"/><area shape="rect" id="node54" href="namespacens_survivor3v1.html#a886eb44acfcaa4cde1e0030a26e088d9" title="nsSurvivor3v1::InitializeRound" alt="" coords="765,1125,963,1155"/><area shape="rect" id="node56" href="namespacens_survivor3v1.html#aaa03a2ef2c2762be7f51d109ea200852" title="nsSurvivor3v1::ShowWinScreen" alt="" coords="759,1179,969,1208"/><area shape="rect" id="node9" href="namespacens_game.html#a73a55d4f4e2184ed18e72be5333f7390" title="Constructor of the SGameMode structure." alt="" coords="1085,192,1264,221"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -119,13 +180,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>EnableCanonicalInputM
 </iframe>
 </div>
 
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_console_8cpp.html">Console.cpp</a>      </li>
 
+    <li class="footer">Generated on Sun Jan 12 2014 17:06:47 for CatchMe by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
 
 </body>
 </html>

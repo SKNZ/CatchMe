@@ -7,9 +7,14 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -47,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -74,51 +80,64 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('files.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">File List</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock">Here is a list of all documented files with brief descriptions:</div><table>
-  <tr><td class="indexkey">src/<a class="el" href="_bot_8cpp.html">Bot.cpp</a> <a href="_bot_8cpp_source.html">[code]</a></td><td class="indexvalue">Bot logic </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_bot_8h.html">Bot.h</a> <a href="_bot_8h_source.html">[code]</a></td><td class="indexvalue">Bot logic </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_config_8cpp.html">Config.cpp</a> <a href="_config_8cpp_source.html">[code]</a></td><td class="indexvalue">XML configuration parser </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_config_8h.html">Config.h</a> <a href="_config_8h_source.html">[code]</a></td><td class="indexvalue">XML configuration parser </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_console_8cpp.html">Console.cpp</a> <a href="_console_8cpp_source.html">[code]</a></td><td class="indexvalue">Console manipulation (colors, timed-out noncanonical input, VT100) </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_console_8h.html">Console.h</a> <a href="_console_8h_source.html">[code]</a></td><td class="indexvalue">Console manipulation (colors, timed-out noncanonical input, VT100) </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_game_8cpp.html">Game.cpp</a> <a href="_game_8cpp_source.html">[code]</a></td><td class="indexvalue">Main game file, contains game loop, user interaction </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_game_8h.html">Game.h</a> <a href="_game_8h_source.html">[code]</a></td><td class="indexvalue">Main game file header, contains game modes, tokens (+ enum), controls, and main function </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_game_mode_8cpp.html">GameMode.cpp</a> <a href="_game_mode_8cpp_source.html">[code]</a></td><td class="indexvalue">SGameMode constructor implementation </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_game_mode_8h.html">GameMode.h</a> <a href="_game_mode_8h_source.html">[code]</a></td><td class="indexvalue">SGameMode definition, enum for axis moves, typedefs, constructor function declaration </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_game_u_i_8cpp.html">GameUI.cpp</a> <a href="_game_u_i_8cpp_source.html">[code]</a></td><td class="indexvalue">Matrix rendering function, current controls display function </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_game_u_i_8h.html">GameUI.h</a> <a href="_game_u_i_8h_source.html">[code]</a></td><td class="indexvalue">Colors of each token, UI functions declarations </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="main_8cpp.html">main.cpp</a> <a href="main_8cpp_source.html">[code]</a></td><td class="indexvalue">Main file </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_menu_8cpp.html">Menu.cpp</a> <a href="_menu_8cpp_source.html">[code]</a></td><td class="indexvalue">Add item to menu, clear menu, draw menu helpers, run menu definitions </td></tr>
-  <tr><td class="indexkey">src/<a class="el" href="_menu_8h.html">Menu.h</a> <a href="_menu_8h_source.html">[code]</a></td><td class="indexvalue">Add item to menu, clear menu, run menu declarations </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_classic1v1_8cpp.html">Classic1v1.cpp</a> <a href="_classic1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Classic 1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_classic1v1_8h.html">Classic1v1.h</a> <a href="_classic1v1_8h_source.html">[code]</a></td><td class="indexvalue">Classic 1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_classic1v1v1_8cpp.html">Classic1v1v1.cpp</a> <a href="_classic1v1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Classic 1v1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_classic1v1v1_8h.html">Classic1v1v1.h</a> <a href="_classic1v1v1_8h_source.html">[code]</a></td><td class="indexvalue">Classic 1v1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_classic1v1v1v1_8cpp.html">Classic1v1v1v1.cpp</a> <a href="_classic1v1v1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Classic 1v1v1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_classic1v1v1v1_8h.html">Classic1v1v1v1.h</a> <a href="_classic1v1v1v1_8h_source.html">[code]</a></td><td class="indexvalue">Classic 1v1v1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_classic2v2_8cpp.html">Classic2v2.cpp</a> <a href="_classic2v2_8cpp_source.html">[code]</a></td><td class="indexvalue">Classic 2v2 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_classic2v2_8h.html">Classic2v2.h</a> <a href="_classic2v2_8h_source.html">[code]</a></td><td class="indexvalue">Classic 2v2 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_classic3v1_8cpp.html">Classic3v1.cpp</a> <a href="_classic3v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Classic 3v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_classic3v1_8h.html">Classic3v1.h</a> <a href="_classic3v1_8h_source.html">[code]</a></td><td class="indexvalue">Classic 3v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_helpers_8cpp.html">Helpers.cpp</a> <a href="_helpers_8cpp_source.html">[code]</a></td><td class="indexvalue">Redundant code about player movement, player positions validation, obstacles loading, matrix building </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_helpers_8h.html">Helpers.h</a> <a href="_helpers_8h_source.html">[code]</a></td><td class="indexvalue">Redundant code about player movement, player positions validation, obstacles loading, matrix building </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_map_editor_8cpp.html">MapEditor.cpp</a> <a href="_map_editor_8cpp_source.html">[code]</a></td><td class="indexvalue">Map editor for obstacles </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_map_editor_8h.html">MapEditor.h</a> <a href="_map_editor_8h_source.html">[code]</a></td><td class="indexvalue">Map editor for obstacles </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_survivor1v1_8cpp.html">Survivor1v1.cpp</a> <a href="_survivor1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Survivor 1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_survivor1v1_8h.html">Survivor1v1.h</a> <a href="_survivor1v1_8h_source.html">[code]</a></td><td class="indexvalue">Survivor 1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_survivor1v1v1_8cpp.html">Survivor1v1v1.cpp</a> <a href="_survivor1v1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Survivor 1v1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_survivor1v1v1_8h.html">Survivor1v1v1.h</a> <a href="_survivor1v1v1_8h_source.html">[code]</a></td><td class="indexvalue">Survivor 1v1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_survivor1v1v1v1_8cpp.html">Survivor1v1v1v1.cpp</a> <a href="_survivor1v1v1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Survivor1v1v1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_survivor1v1v1v1_8h.html">Survivor1v1v1v1.h</a> <a href="_survivor1v1v1v1_8h_source.html">[code]</a></td><td class="indexvalue">Survivor 1v1v1v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_survivor2v2_8cpp.html">Survivor2v2.cpp</a> <a href="_survivor2v2_8cpp_source.html">[code]</a></td><td class="indexvalue">Survivor 2v2 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_survivor2v2_8h.html">Survivor2v2.h</a> <a href="_survivor2v2_8h_source.html">[code]</a></td><td class="indexvalue">Survivor 2v2 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_survivor3v1_8cpp.html">Survivor3v1.cpp</a> <a href="_survivor3v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Survivor 3v1 game mode </td></tr>
-  <tr><td class="indexkey">src/GameModes/<a class="el" href="_survivor3v1_8h.html">Survivor3v1.h</a> <a href="_survivor3v1_8h_source.html">[code]</a></td><td class="indexvalue">Survivor 3v1 game mode </td></tr>
+<div class="textblock">Here is a list of all files with brief descriptions:</div><table>
+  <tr><td class="indexkey"><a class="el" href="_bot_8cpp.html">Bot.cpp</a> <a href="_bot_8cpp_source.html">[code]</a></td><td class="indexvalue">Bot logic </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_bot_8h.html">Bot.h</a> <a href="_bot_8h_source.html">[code]</a></td><td class="indexvalue">Bot logic </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_classic1v1_8cpp.html">Classic1v1.cpp</a> <a href="_classic1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Classic 1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_classic1v1_8h.html">Classic1v1.h</a> <a href="_classic1v1_8h_source.html">[code]</a></td><td class="indexvalue">Classic 1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_classic1v1v1_8cpp.html">Classic1v1v1.cpp</a> <a href="_classic1v1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Classic 1v1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_classic1v1v1_8h.html">Classic1v1v1.h</a> <a href="_classic1v1v1_8h_source.html">[code]</a></td><td class="indexvalue">Classic 1v1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_classic1v1v1v1_8cpp.html">Classic1v1v1v1.cpp</a> <a href="_classic1v1v1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Classic 1v1v1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_classic1v1v1v1_8h.html">Classic1v1v1v1.h</a> <a href="_classic1v1v1v1_8h_source.html">[code]</a></td><td class="indexvalue">Classic 1v1v1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_classic2v2_8cpp.html">Classic2v2.cpp</a> <a href="_classic2v2_8cpp_source.html">[code]</a></td><td class="indexvalue">Classic 2v2 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_classic2v2_8h.html">Classic2v2.h</a> <a href="_classic2v2_8h_source.html">[code]</a></td><td class="indexvalue">Classic 2v2 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_classic3v1_8cpp.html">Classic3v1.cpp</a> <a href="_classic3v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Classic 3v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_classic3v1_8h.html">Classic3v1.h</a> <a href="_classic3v1_8h_source.html">[code]</a></td><td class="indexvalue">Classic 3v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_config_8cpp.html">Config.cpp</a> <a href="_config_8cpp_source.html">[code]</a></td><td class="indexvalue">XML configuration parser </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_config_8h.html">Config.h</a> <a href="_config_8h_source.html">[code]</a></td><td class="indexvalue">XML configuration parser </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_console_8cpp.html">Console.cpp</a> <a href="_console_8cpp_source.html">[code]</a></td><td class="indexvalue">Console manipulation (colors, timed-out noncanonical input, VT100) </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_console_8h.html">Console.h</a> <a href="_console_8h_source.html">[code]</a></td><td class="indexvalue">Console manipulation (colors, timed-out noncanonical input, VT100) </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_game_8cpp.html">Game.cpp</a> <a href="_game_8cpp_source.html">[code]</a></td><td class="indexvalue">Main game file, contains game loop, user interaction </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_game_8h.html">Game.h</a> <a href="_game_8h_source.html">[code]</a></td><td class="indexvalue">Main game file header, contains game modes, tokens (+ enum), controls, and main function </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_game_mode_8cpp.html">GameMode.cpp</a> <a href="_game_mode_8cpp_source.html">[code]</a></td><td class="indexvalue">SGameMode constructor implementation </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_game_mode_8h.html">GameMode.h</a> <a href="_game_mode_8h_source.html">[code]</a></td><td class="indexvalue">SGameMode definition, enum for axis moves, typedefs, constructor function declaration </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_game_u_i_8cpp.html">GameUI.cpp</a> <a href="_game_u_i_8cpp_source.html">[code]</a></td><td class="indexvalue">Matrix rendering function, current controls display function </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_game_u_i_8h.html">GameUI.h</a> <a href="_game_u_i_8h_source.html">[code]</a></td><td class="indexvalue">Colors of each token, UI functions declarations </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_helpers_8cpp.html">Helpers.cpp</a> <a href="_helpers_8cpp_source.html">[code]</a></td><td class="indexvalue">Redundant code about player movement, player positions validation, obstacles loading, matrix building </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_helpers_8h.html">Helpers.h</a> <a href="_helpers_8h_source.html">[code]</a></td><td class="indexvalue">Redundant code about player movement, player positions validation, obstacles loading, matrix building </td></tr>
+  <tr><td class="indexkey"><a class="el" href="main_8cpp.html">main.cpp</a> <a href="main_8cpp_source.html">[code]</a></td><td class="indexvalue">Main file </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_map_editor_8cpp.html">MapEditor.cpp</a> <a href="_map_editor_8cpp_source.html">[code]</a></td><td class="indexvalue">Map editor for obstacles </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_map_editor_8h.html">MapEditor.h</a> <a href="_map_editor_8h_source.html">[code]</a></td><td class="indexvalue">Map editor for obstacles </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_menu_8cpp.html">Menu.cpp</a> <a href="_menu_8cpp_source.html">[code]</a></td><td class="indexvalue">Add item to menu, clear menu, draw menu helpers, run menu definitions </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_menu_8h.html">Menu.h</a> <a href="_menu_8h_source.html">[code]</a></td><td class="indexvalue">Add item to menu, clear menu, run menu declarations </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_survivor1v1_8cpp.html">Survivor1v1.cpp</a> <a href="_survivor1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Survivor 1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_survivor1v1_8h.html">Survivor1v1.h</a> <a href="_survivor1v1_8h_source.html">[code]</a></td><td class="indexvalue">Survivor 1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_survivor1v1v1_8cpp.html">Survivor1v1v1.cpp</a> <a href="_survivor1v1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Survivor 1v1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_survivor1v1v1_8h.html">Survivor1v1v1.h</a> <a href="_survivor1v1v1_8h_source.html">[code]</a></td><td class="indexvalue">Survivor 1v1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_survivor1v1v1v1_8cpp.html">Survivor1v1v1v1.cpp</a> <a href="_survivor1v1v1v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Survivor1v1v1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_survivor1v1v1v1_8h.html">Survivor1v1v1v1.h</a> <a href="_survivor1v1v1v1_8h_source.html">[code]</a></td><td class="indexvalue">Survivor 1v1v1v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_survivor2v2_8cpp.html">Survivor2v2.cpp</a> <a href="_survivor2v2_8cpp_source.html">[code]</a></td><td class="indexvalue">Survivor 2v2 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_survivor2v2_8h.html">Survivor2v2.h</a> <a href="_survivor2v2_8h_source.html">[code]</a></td><td class="indexvalue">Survivor 2v2 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_survivor3v1_8cpp.html">Survivor3v1.cpp</a> <a href="_survivor3v1_8cpp_source.html">[code]</a></td><td class="indexvalue">Survivor 3v1 game mode </td></tr>
+  <tr><td class="indexkey"><a class="el" href="_survivor3v1_8h.html">Survivor3v1.h</a> <a href="_survivor3v1_8h_source.html">[code]</a></td><td class="indexvalue">Survivor 3v1 game mode </td></tr>
 </table>
 </div><!-- contents -->
 <!-- window showing the filter options -->
@@ -126,7 +145,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -135,13 +154,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+</div>
+  <div id="nav-path" class="navpath">
+    <ul>
 
+    <li class="footer">Generated on Sun Jan 12 2014 17:06:47 for CatchMe by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
 
 </body>
 </html>

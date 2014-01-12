@@ -20,7 +20,9 @@ namespace nsGame
 {
     /**
      * 
-     * @namespace nsUI
+     * @namespace nsGame::nsUI
+     * 
+     * @brief Namespace containing everything related to the console rendering.
      * 
      **/
     namespace nsUI

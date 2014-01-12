@@ -16,6 +16,8 @@
  * 
  * @namespace nsConsole
  * 
+ * @brief Namespace containing everything related to Console manipulation.
+ * 
  **/
 namespace nsConsole
 {

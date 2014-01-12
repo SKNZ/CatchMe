@@ -14,6 +14,13 @@
 
 #include "../GameMode.h"
 
+/**
+ *
+ * @namespace nsMapEditor
+ * 
+ * @brief Namespace containing everything related to MapEditor functionality.
+ * 
+ **/
 namespace nsMapEditor
 {
     using namespace nsGame;

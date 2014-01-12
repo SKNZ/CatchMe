@@ -18,6 +18,9 @@
  * 
  * @namespace nsMenu
  * 
+ * @brief Namespace containing everything related to the menu system.
+ * 
+ * 
  **/
 namespace nsMenu
 {

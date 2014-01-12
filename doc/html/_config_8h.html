@@ -3,13 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: src/Config.h File Reference</title>
+<title>CatchMe: Config.h File Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -47,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -74,12 +80,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_config_8h.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">src/Config.h File Reference</div>  </div>
+<div class="title">Config.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -88,42 +108,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &quot;<a class="el" href="_console_8h_source.html">Console.h</a>&quot;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
 <code>#include &lt;chrono&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Config.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_config_8h__incl.png" border="0" usemap="#_config_8h" alt=""/></div>
+<map name="_config_8h" id="_config_8h">
+<area shape="rect" id="node3" href="_console_8h.html" title="Console manipulation (colors, timed&#45;out noncanonical input, VT100)" alt="" coords="5,83,85,112"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_config_8h__dep__incl.png" border="0" usemap="#_config_8hdep" alt=""/></div>
+<map name="_config_8hdep" id="_config_8hdep">
+<area shape="rect" id="node3" href="_config_8cpp.html" title="XML configuration parser." alt="" coords="5,83,91,112"/><area shape="rect" id="node5" href="_game_8cpp.html" title="Main game file, contains game loop, user interaction." alt="" coords="115,83,197,112"/><area shape="rect" id="node7" href="_game_u_i_8cpp.html" title="Matrix rendering function, current controls display function." alt="" coords="221,83,317,112"/><area shape="rect" id="node9" href="_menu_8cpp.html" title="Add item to menu, clear menu, draw menu helpers, run menu definitions." alt="" coords="341,83,419,112"/></map>
+</div>
 </div>
 <p><a href="_config_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game.html">nsGame</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Namespace containing everything related to main game logic. </p>
+<br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html">nsGame::nsConfig</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Namespace containing everything related to configuration file. </p>
+<br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a46aba20f254d0b313092aec44ce01f1f"></a><!-- doxytag: member="Config.h::LoadFile" ref="a46aba20f254d0b313092aec44ce01f1f" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::nsConfig::LoadFile</b> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the configuration file. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f">nsGame::nsConfig::LoadFile</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse the configuration file.  <a href="#a46aba20f254d0b313092aec44ce01f1f"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3ec071cffecb4d90e1301736358a5c8"></a><!-- doxytag: member="Config.h::KFileName" ref="af3ec071cffecb4d90e1301736358a5c8" args="" -->
-const std::string&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::nsConfig::KFileName</b> = &quot;conf.xml&quot;</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the config file. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::nsConfig::ErrorMessageDisplayTime</b></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html#af3ec071cffecb4d90e1301736358a5c8">nsGame::nsConfig::KFileName</a> = &quot;conf.xml&quot;</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the config file.  <a href="#af3ec071cffecb4d90e1301736358a5c8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html#a9857fc6e26e70dd33e0b361d6fdbab03">nsGame::nsConfig::ErrorMessageDisplayTime</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The duration during which the game will be suspended to let the player read the error message.  <a href="#a9857fc6e26e70dd33e0b361d6fdbab03"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a177402f6759e85b27f51aa9e073de896"></a><!-- doxytag: member="Config.h::RenderLoopInterval" ref="a177402f6759e85b27f51aa9e073de896" args="" -->
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::nsConfig::RenderLoopInterval</b></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The interval between each render loop. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac99eba4e33c080bb9edc80d5cff37762"></a><!-- doxytag: member="Config.h::TurnTimeoutDelay" ref="ac99eba4e33c080bb9edc80d5cff37762" args="" -->
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::nsConfig::TurnTimeoutDelay</b></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">How long should we wait for a player to give us something before we fuck him up ? <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae369bb47bd2970a41e1228f479f404bd"></a><!-- doxytag: member="Config.h::BotPlayDelay" ref="ae369bb47bd2970a41e1228f479f404bd" args="" -->
-unsigned&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::nsConfig::BotPlayDelay</b></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">How long the bot should wait before making his move (its aimed at making it look more real). <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab315290eca6fc0a908ed88f18f4e3d45"></a><!-- doxytag: member="Config.h::BorderColor" ref="ab315290eca6fc0a908ed88f18f4e3d45" args="" -->
-BackgroundColors&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::nsConfig::BorderColor</b></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The color of the the game matrix border. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7b7a70126d734498983c2863139c120d"></a><!-- doxytag: member="Config.h::CaseColor1" ref="a7b7a70126d734498983c2863139c120d" args="" -->
-BackgroundColors&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::nsConfig::CaseColor1</b></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The color of the the game matrix case (even) <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f03de439e2ef6ce0f76d53a0cb15370"></a><!-- doxytag: member="Config.h::CaseColor2" ref="a3f03de439e2ef6ce0f76d53a0cb15370" args="" -->
-BackgroundColors&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::nsConfig::CaseColor2</b></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The color of the the game matrix case (uneven) <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab5f445715a4948903379970b3e49e78d"></a><!-- doxytag: member="Config.h::MenuBorderColor" ref="ab5f445715a4948903379970b3e49e78d" args="" -->
-BackgroundColors&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::nsConfig::MenuBorderColor</b></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The color of the the menu border. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html#a177402f6759e85b27f51aa9e073de896">nsGame::nsConfig::RenderLoopInterval</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The interval between each render loop.  <a href="#a177402f6759e85b27f51aa9e073de896"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html#ac99eba4e33c080bb9edc80d5cff37762">nsGame::nsConfig::TurnTimeoutDelay</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">How long should we wait for a player to give us something before we fuck him up ?  <a href="#ac99eba4e33c080bb9edc80d5cff37762"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html#ae369bb47bd2970a41e1228f479f404bd">nsGame::nsConfig::BotPlayDelay</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">How long the bot should wait before making his move (its aimed at making it look more real).  <a href="#ae369bb47bd2970a41e1228f479f404bd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html#ab315290eca6fc0a908ed88f18f4e3d45">nsGame::nsConfig::BorderColor</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The color of the the game matrix border.  <a href="#ab315290eca6fc0a908ed88f18f4e3d45"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html#a7b7a70126d734498983c2863139c120d">nsGame::nsConfig::CaseColor1</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The color of the the game matrix case (even)  <a href="#a7b7a70126d734498983c2863139c120d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html#a3f03de439e2ef6ce0f76d53a0cb15370">nsGame::nsConfig::CaseColor2</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The color of the the game matrix case (uneven)  <a href="#a3f03de439e2ef6ce0f76d53a0cb15370"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_game_1_1ns_config.html#ab5f445715a4948903379970b3e49e78d">nsGame::nsConfig::MenuBorderColor</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The color of the the menu border.  <a href="#ab5f445715a4948903379970b3e49e78d"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>XML configuration parser. </p>
@@ -132,12 +165,13 @@ BackgroundColors&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::n
 
 <p>Definition in file <a class="el" href="_config_8h_source.html">Config.h</a>.</p>
 </div></div><!-- contents -->
+</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -146,13 +180,16 @@ BackgroundColors&#160;</td><td class="memItemRight" valign="bottom"><b>nsGame::n
 </iframe>
 </div>
 
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_config_8h.html">Config.h</a>      </li>
 
+    <li class="footer">Generated on Sun Jan 12 2014 17:06:47 for CatchMe by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
 
 </body>
 </html>

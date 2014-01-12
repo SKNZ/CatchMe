@@ -3,13 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: src/GameModes/Helpers.h File Reference</title>
+<title>CatchMe: Helpers.h File Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -47,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -74,11 +80,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_helpers_8h.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">src/GameModes/Helpers.h File Reference</div>  </div>
+<div class="title">Helpers.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -86,23 +106,39 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;vector&gt;</code><br/>
 <code>#include &quot;<a class="el" href="_game_8h_source.html">../Game.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Helpers.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_helpers_8h__incl.png" border="0" usemap="#_helpers_8h" alt=""/></div>
+<map name="_helpers_8h" id="_helpers_8h">
+<area shape="rect" id="node5" href="_game_8h.html" title="Main game file header, contains game modes, tokens (+ enum), controls, and main function." alt="" coords="1611,83,1691,112"/><area shape="rect" id="node16" href="_game_mode_8h.html" title="SGameMode definition, enum for axis moves, typedefs, constructor function declaration." alt="" coords="1272,237,1371,267"/><area shape="rect" id="node21" href="_classic1v1_8h.html" title="Classic 1v1 game mode." alt="" coords="1959,160,2135,189"/><area shape="rect" id="node25" href="_classic1v1v1_8h.html" title="Classic 1v1v1 game mode." alt="" coords="2159,160,2348,189"/><area shape="rect" id="node29" href="_classic1v1v1v1_8h.html" title="Classic 1v1v1v1 game mode." alt="" coords="28,160,231,189"/><area shape="rect" id="node33" href="_classic2v2_8h.html" title="Classic 2v2 game mode." alt="" coords="255,160,431,189"/><area shape="rect" id="node37" href="_classic3v1_8h.html" title="Classic 3v1 game mode." alt="" coords="455,160,631,189"/><area shape="rect" id="node41" href="_survivor1v1_8h.html" title="Survivor 1v1 game mode." alt="" coords="655,160,834,189"/><area shape="rect" id="node45" href="_survivor1v1v1_8h.html" title="Survivor 1v1v1 game mode." alt="" coords="858,160,1052,189"/><area shape="rect" id="node49" href="_survivor1v1v1v1_8h.html" title="Survivor 1v1v1v1 game mode." alt="" coords="1076,160,1284,189"/><area shape="rect" id="node53" href="_survivor2v2_8h.html" title="Survivor 2v2 game mode." alt="" coords="1359,160,1538,189"/><area shape="rect" id="node57" href="_survivor3v1_8h.html" title="Survivor 3v1 game mode." alt="" coords="1562,160,1740,189"/><area shape="rect" id="node61" href="_map_editor_8h.html" title="Map editor for obstacles." alt="" coords="1764,160,1935,189"/><area shape="rect" id="node65" href="_menu_8h.html" title="Add item to menu, clear menu, run menu declarations." alt="" coords="2698,160,2762,189"/></map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_helpers_8h__dep__incl.png" border="0" usemap="#_helpers_8hdep" alt=""/></div>
+<map name="_helpers_8hdep" id="_helpers_8hdep">
+<area shape="rect" id="node3" href="_bot_8cpp.html" title="Bot logic." alt="" coords="5,83,72,112"/><area shape="rect" id="node5" href="_classic1v1_8cpp.html" title="Classic 1v1 game mode." alt="" coords="96,83,208,112"/><area shape="rect" id="node7" href="_classic1v1v1_8cpp.html" title="Classic 1v1v1 game mode." alt="" coords="232,83,357,112"/><area shape="rect" id="node9" href="_classic1v1v1v1_8cpp.html" title="Classic 1v1v1v1 game mode." alt="" coords="381,83,520,112"/><area shape="rect" id="node11" href="_classic2v2_8cpp.html" title="Classic 2v2 game mode." alt="" coords="544,83,656,112"/><area shape="rect" id="node13" href="_classic3v1_8cpp.html" title="Classic 3v1 game mode." alt="" coords="680,83,792,112"/><area shape="rect" id="node15" href="_helpers_8cpp.html" title="Redundant code about player movement, player positions validation, obstacles loading, matrix building." alt="" coords="816,83,907,112"/><area shape="rect" id="node17" href="_map_editor_8cpp.html" title="Map editor for obstacles." alt="" coords="931,83,1037,112"/><area shape="rect" id="node19" href="_survivor1v1_8cpp.html" title="Survivor 1v1 game mode." alt="" coords="1061,83,1176,112"/><area shape="rect" id="node21" href="_survivor1v1v1_8cpp.html" title="Survivor 1v1v1 game mode." alt="" coords="1200,83,1331,112"/><area shape="rect" id="node23" href="_survivor1v1v1v1_8cpp.html" title="Survivor1v1v1v1 game mode." alt="" coords="1355,83,1499,112"/><area shape="rect" id="node25" href="_survivor2v2_8cpp.html" title="Survivor 2v2 game mode." alt="" coords="1523,83,1637,112"/><area shape="rect" id="node27" href="_survivor3v1_8cpp.html" title="Survivor 3v1 game mode." alt="" coords="1661,83,1776,112"/></map>
+</div>
 </div>
 <p><a href="_helpers_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html">nsHelpers</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Namespace containing everything related to Helpers. </p>
+<br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a260d611c360bb964f70fa13f0579c133"></a><!-- doxytag: member="Helpers.h::MovePlayer" ref="a260d611c360bb964f70fa13f0579c133" args="(const nsGame::CMatrix &amp;Matrix, nsGame::CPosition &amp;PlayerPosition, const nsGame::CPosition &amp;MatrixSize, const nsGame::PlayerMovesY MoveY, const nsGame::PlayerMovesX MoveX)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>nsHelpers::MovePlayer</b> (const nsGame::CMatrix &amp;Matrix, nsGame::CPosition &amp;PlayerPosition, const nsGame::CPosition &amp;MatrixSize, const nsGame::PlayerMovesY MoveY, const nsGame::PlayerMovesX MoveX)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for boundaries, obstacles and moves the player. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af3bb3748a81f3f30f189ded3bf4fa802"></a><!-- doxytag: member="Helpers.h::ValidatePlayerPositionsNoTeam" ref="af3bb3748a81f3f30f189ded3bf4fa802" args="(const nsGame::CPositions &amp;PlayerPositions, const unsigned CurrentPlayer, std::vector&lt; bool &gt; &amp;PlayerLifeStates, nsGame::CPositions &amp;ObstaclesPositions)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>nsHelpers::ValidatePlayerPositionsNoTeam</b> (const nsGame::CPositions &amp;PlayerPositions, const unsigned CurrentPlayer, std::vector&lt; bool &gt; &amp;PlayerLifeStates, nsGame::CPositions &amp;ObstaclesPositions)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a player is in a position that is lethal, and if yes, KILL IT ! <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>nsHelpers::LoadObstaclesFromFile</b> (nsGame::CPositions &amp;ObstaclesPositions, const nsGame::CPosition &amp;MaxSize)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html#a260d611c360bb964f70fa13f0579c133">nsHelpers::MovePlayer</a> (const <a class="el" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">nsGame::CMatrix</a> &amp;Matrix, <a class="el" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a> &amp;PlayerPosition, const <a class="el" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a> &amp;MatrixSize, const <a class="el" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e">nsGame::PlayerMovesY</a> MoveY, const <a class="el" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa">nsGame::PlayerMovesX</a> MoveX)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks for boundaries, obstacles and moves the player.  <a href="#a260d611c360bb964f70fa13f0579c133"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html#af3bb3748a81f3f30f189ded3bf4fa802">nsHelpers::ValidatePlayerPositionsNoTeam</a> (const <a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a> &amp;PlayerPositions, const unsigned CurrentPlayer, std::vector&lt; bool &gt; &amp;PlayerLifeStates, <a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a> &amp;ObstaclesPositions)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a player is in a position that is lethal, and if yes, KILL IT !  <a href="#af3bb3748a81f3f30f189ded3bf4fa802"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8">nsHelpers::LoadObstaclesFromFile</a> (<a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a> &amp;ObstaclesPositions, const <a class="el" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a> &amp;MaxSize)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the obstacles positions from file.  <a href="#ac1e2b3710370dbd82816df53984ff5f8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06706a9d239c8345638bf3dc45961fc0"></a><!-- doxytag: member="Helpers.h::AddObstaclesAndPlayersToMatrix" ref="a06706a9d239c8345638bf3dc45961fc0" args="(nsGame::CMatrix &amp;Matrix, const nsGame::CPositions &amp;PlayerPositions, const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const nsGame::CPositions &amp;ObstaclesPositions, char EmptyToken)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>nsHelpers::AddObstaclesAndPlayersToMatrix</b> (nsGame::CMatrix &amp;Matrix, const nsGame::CPositions &amp;PlayerPositions, const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const nsGame::CPositions &amp;ObstaclesPositions, char EmptyToken)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the obstacle and player tokens to the matrix. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">nsGame::CPosition&#160;</td><td class="memItemRight" valign="bottom"><b>nsHelpers::MakePosition</b> (const nsGame::CMatrix &amp;Matrix, nsGame::CPosition Position, nsGame::PlayerMovesY MoveY, nsGame::PlayerMovesX MoveX)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0">nsHelpers::AddObstaclesAndPlayersToMatrix</a> (<a class="el" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">nsGame::CMatrix</a> &amp;Matrix, const <a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a> &amp;PlayerPositions, const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const <a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a> &amp;ObstaclesPositions, char EmptyToken)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the obstacle and player tokens to the matrix.  <a href="#a06706a9d239c8345638bf3dc45961fc0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_helpers.html#adfc1ee78df2b1ac67c9f142bd07b55ab">nsHelpers::MakePosition</a> (const <a class="el" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">nsGame::CMatrix</a> &amp;Matrix, <a class="el" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a> Position, <a class="el" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e">nsGame::PlayerMovesY</a> MoveY, <a class="el" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa">nsGame::PlayerMovesX</a> MoveX)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds MoveY and MoveX to Position if the position is inbound and if its not an obstacle.  <a href="#adfc1ee78df2b1ac67c9f142bd07b55ab"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
@@ -112,12 +148,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>nsHelpers::AddObstacl
 
 <p>Definition in file <a class="el" href="_helpers_8h_source.html">Helpers.h</a>.</p>
 </div></div><!-- contents -->
+</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -126,13 +163,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>nsHelpers::AddObstacl
 </iframe>
 </div>
 
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_helpers_8h.html">Helpers.h</a>      </li>
 
+    <li class="footer">Generated on Sun Jan 12 2014 17:06:47 for CatchMe by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
 
 </body>
 </html>

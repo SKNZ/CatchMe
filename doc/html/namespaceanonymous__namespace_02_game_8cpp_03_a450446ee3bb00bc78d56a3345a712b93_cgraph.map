@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$namespacens_game_1_1ns_u_i.html#a7e8819457b239da8caa0d8bfce795401" title="Displays the borders and the game matrix, applying the correct colors to the tokens." alt="" coords="435,5,619,35"/>
+<area shape="rect" id="node7" href="$namespacens_game_1_1ns_u_i.html#aa35b115a727779c618ee3cb5bcfd92db" title="Indicates which controls the current player should be using to move." alt="" coords="428,59,625,88"/>
+<area shape="rect" id="node9" href="$namespacens_game_1_1ns_bot.html#a672d5900fd2b28cc26555bd384311099" title="Finds if a player is in attack range, attack if yes else find neareast player and calculate first ele..." alt="" coords="755,111,939,140"/>
+<area shape="rect" id="node23" href="$namespaceanonymous__namespace_02_game_8cpp_03.html#ad258cfc94a9cbf7d1406073bcdf890f0" title="Gets the user input and if it is a valid control for the current player. If the user doesn&#39;t give any..." alt="" coords="363,163,691,192"/>
+<area shape="rect" id="node28" href="$namespaceanonymous__namespace_02_game_8cpp_03.html#a61468c5167822964f1edaceb52e19c4d" title="Converts an action into a grid axis movement and makes the move." alt="" coords="352,216,701,245"/>
+<area shape="rect" id="node5" href="$namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760" title="Clears the screen with VT100 syntax." alt="" coords="765,5,928,35"/>
+<area shape="rect" id="node11" href="$namespaceanonymous__namespace_02_bot_8cpp_03.html#ac75166c7ed5b17702e8288ac787fa16d" title="Check if a player is within one case of distance and attack if yes." alt="" coords="992,57,1424,87"/>
+<area shape="rect" id="node15" href="$namespaceanonymous__namespace_02_bot_8cpp_03.html#a4e3486084a0523d45c3c9b0e737f354f" title="Returns the position of the nearest player." alt="" coords="1017,164,1399,193"/>
+<area shape="rect" id="node19" href="$namespaceanonymous__namespace_02_bot_8cpp_03.html#ae7a63e32f73e736b1062c1e2db4859dd" title="Uses a simplified implementation of the A* (all movements of the same cost) algorithm to find the nex..." alt="" coords="1052,111,1364,140"/>
+<area shape="rect" id="node13" href="$namespacens_helpers.html#adfc1ee78df2b1ac67c9f142bd07b55ab" title="Adds MoveY and MoveX to Position if the position is inbound and if its not an obstacle." alt="" coords="1541,84,1709,113"/>
+<area shape="rect" id="node17" href="$namespaceanonymous__namespace_02_bot_8cpp_03.html#a990e6016cead22889fa9863d71c2ea8f" title="Calculates the distances between two points of the grid." alt="" coords="1473,137,1777,167"/>
+<area shape="rect" id="node25" href="$namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0" title="Waits for a key to be pressed (blocking) or until the timeout expires." alt="" coords="749,164,944,193"/>
+</map>

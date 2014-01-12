@@ -3,13 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: src/GameModes/Classic1v1.cpp Source File</title>
+<title>CatchMe: Classic1v1.cpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -47,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -74,9 +80,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_classic1v1_8cpp.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">src/GameModes/Classic1v1.cpp</div>  </div>
+<div class="title">Classic1v1.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="_classic1v1_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
@@ -88,58 +107,59 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00016"></a>00016 
 <a name="l00017"></a>00017 <span class="keyword">using namespace </span>std;
 <a name="l00018"></a>00018 
-<a name="l00019"></a>00019 <span class="keyword">namespace</span>
+<a name="l00019"></a><a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html">00019</a> <span class="keyword">namespace</span>
 <a name="l00020"></a>00020 {
-<a name="l00021"></a>00021     nsGame::CPositions ObstaclesPositions;
+<a name="l00021"></a><a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">00021</a>     <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a> <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>;
 <a name="l00022"></a>00022 } <span class="comment">// namespace</span>
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="keywordtype">void</span> nsClassic1v1::GetSize (CPosition&amp; Size)
+<a name="l00024"></a><a class="code" href="namespacens_classic1v1.html#a5e3bc9f450e6de789968c6192269bb6f">00024</a> <span class="keywordtype">void</span> <a class="code" href="namespacens_classic1v1.html#a5e3bc9f450e6de789968c6192269bb6f">nsClassic1v1::GetSize</a> (<a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; Size)
 <a name="l00025"></a>00025 {
-<a name="l00026"></a>00026     nsMenu::Clear ();
+<a name="l00026"></a>00026     <a class="code" href="namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu.">nsMenu::Clear</a> ();
 <a name="l00027"></a>00027 
-<a name="l00028"></a>00028     nsMenu::AddItem (<span class="stringliteral">&quot;Small map&quot;</span>, [&amp;Size] () { Size = { 5, 10 }; });
-<a name="l00029"></a>00029     nsMenu::AddItem (<span class="stringliteral">&quot;Medium map&quot;</span>, [&amp;Size] () { Size = { 10, 20 }; });
+<a name="l00028"></a>00028     <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">nsMenu::AddItem</a> (<span class="stringliteral">&quot;Small map&quot;</span>, [&amp;Size] () { Size = { 5, 10 }; });
+<a name="l00029"></a>00029     <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">nsMenu::AddItem</a> (<span class="stringliteral">&quot;Medium map&quot;</span>, [&amp;Size] () { Size = { 10, 20 }; });
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031     nsMenu::Run ();
+<a name="l00031"></a>00031     <a class="code" href="namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything.">nsMenu::Run</a> ();
 <a name="l00032"></a>00032 } <span class="comment">// GetSize</span>
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keywordtype">void</span> nsClassic1v1::MovePlayer (<span class="keyword">const</span> CMatrix&amp; Matrix, CPosition&amp; PlayerPosition, <span class="keyword">const</span> CPosition&amp; MatrixSize, <span class="keyword">const</span> PlayerMovesY MoveY, <span class="keyword">const</span> PlayerMovesX MoveX)
+<a name="l00034"></a><a class="code" href="namespacens_classic1v1.html#a7e895573b65feaa0b48ff02c407fdc4a">00034</a> <span class="keywordtype">void</span> <a class="code" href="namespacens_classic1v1.html#a7e895573b65feaa0b48ff02c407fdc4a">nsClassic1v1::MovePlayer</a> (<span class="keyword">const</span> <a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">CMatrix</a>&amp; Matrix, <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; PlayerPosition, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; MatrixSize, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e" title="Moves on the Y axis.">PlayerMovesY</a> MoveY, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa" title="Moves on the X axis.">PlayerMovesX</a> MoveX)
 <a name="l00035"></a>00035 {
-<a name="l00036"></a>00036     nsHelpers::MovePlayer (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
+<a name="l00036"></a>00036     <a class="code" href="namespacens_classic1v1.html#a7e895573b65feaa0b48ff02c407fdc4a">nsHelpers::MovePlayer</a> (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
 <a name="l00037"></a>00037 } <span class="comment">// MovePlayer</span>
 <a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="keywordtype">void</span> nsClassic1v1::ValidatePlayerPositions (<span class="keyword">const</span> CMatrix&amp; Matrix, <span class="keyword">const</span> CPositions&amp; PlayerPositions, <span class="keywordtype">unsigned</span> CurrentPlayer, vector&lt;bool&gt;&amp; PlayerLifeStates)
+<a name="l00039"></a><a class="code" href="namespacens_classic1v1.html#ae6135a92cb2ba8c8b7dfca5971472ebe">00039</a> <span class="keywordtype">void</span> <a class="code" href="namespacens_classic1v1.html#ae6135a92cb2ba8c8b7dfca5971472ebe">nsClassic1v1::ValidatePlayerPositions</a> (<span class="keyword">const</span> <a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">CPositions</a>&amp; PlayerPositions, <span class="keywordtype">unsigned</span> CurrentPlayer, vector&lt;bool&gt;&amp; PlayerLifeStates)
 <a name="l00040"></a>00040 {
-<a name="l00041"></a>00041     nsHelpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates, ObstaclesPositions);
+<a name="l00041"></a>00041     <a class="code" href="namespacens_helpers.html#af3bb3748a81f3f30f189ded3bf4fa802" title="Checks if a player is in a position that is lethal, and if yes, KILL IT !">nsHelpers::ValidatePlayerPositionsNoTeam</a> (PlayerPositions, CurrentPlayer, PlayerLifeStates, <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>);
 <a name="l00042"></a>00042 } <span class="comment">// ValidatePlayerPositions</span>
 <a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="keywordtype">void</span> nsClassic1v1::InitializeRound (CPositions&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> PlayerCount, <span class="keyword">const</span> CPosition&amp; MaxSize)
+<a name="l00044"></a><a class="code" href="namespacens_classic1v1.html#abc2f9ac65f4ad038e420b29580bea19a">00044</a> <span class="keywordtype">void</span> <a class="code" href="namespacens_classic1v1.html#abc2f9ac65f4ad038e420b29580bea19a">nsClassic1v1::InitializeRound</a> (<a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> PlayerCount, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; MaxSize)
 <a name="l00045"></a>00045 {
 <a name="l00046"></a>00046     PlayerPositions.resize (PlayerCount);
 <a name="l00047"></a>00047 
 <a name="l00048"></a>00048     PlayerPositions [0] = { 0, MaxSize.second - 1 }; <span class="comment">// Top right</span>
 <a name="l00049"></a>00049     PlayerPositions [1] = { MaxSize.first - 1, 0 }; <span class="comment">// Bottom left</span>
 <a name="l00050"></a>00050     
-<a name="l00051"></a>00051     ObstaclesPositions.clear ();
-<a name="l00052"></a>00052     nsHelpers::LoadObstaclesFromFile (ObstaclesPositions, MaxSize);
+<a name="l00051"></a>00051     <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>.clear ();
+<a name="l00052"></a>00052     <a class="code" href="namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8" title="Loads the obstacles positions from file.">nsHelpers::LoadObstaclesFromFile</a> (<a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>, MaxSize);
 <a name="l00053"></a>00053 } <span class="comment">// InitializeRound</span>
 <a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <span class="keywordtype">void</span> nsClassic1v1::BuildMatrix (CMatrix&amp; Matrix, <span class="keyword">const</span> CPositions&amp; PlayerPositions, <span class="keyword">const</span> vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> <span class="keywordtype">char</span> EmptyToken)
+<a name="l00055"></a><a class="code" href="namespacens_classic1v1.html#ac4b26b1d87364fa3766bd37f8f4e10e8">00055</a> <span class="keywordtype">void</span> <a class="code" href="namespacens_classic1v1.html#ac4b26b1d87364fa3766bd37f8f4e10e8">nsClassic1v1::BuildMatrix</a> (<a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> <span class="keywordtype">char</span> EmptyToken)
 <a name="l00056"></a>00056 {
-<a name="l00057"></a>00057     nsHelpers::AddObstaclesAndPlayersToMatrix (Matrix, PlayerPositions, PlayerLifeStates, ObstaclesPositions, EmptyToken);
+<a name="l00057"></a>00057     <a class="code" href="namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0" title="Adds the obstacle and player tokens to the matrix.">nsHelpers::AddObstaclesAndPlayersToMatrix</a> (Matrix, PlayerPositions, PlayerLifeStates, <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>, EmptyToken);
 <a name="l00058"></a>00058 } <span class="comment">// BuildMatrix</span>
 <a name="l00059"></a>00059 
-<a name="l00060"></a>00060 <span class="keywordtype">bool</span> nsClassic1v1::IsGameOver (<span class="keyword">const</span> vector&lt;bool&gt;&amp; PlayerLifeStates)
+<a name="l00060"></a><a class="code" href="namespacens_classic1v1.html#ad2628deaf9bf59037dd8a27774554d73">00060</a> <span class="keywordtype">bool</span> <a class="code" href="namespacens_classic1v1.html#ad2628deaf9bf59037dd8a27774554d73">nsClassic1v1::IsGameOver</a> (<span class="keyword">const</span> vector&lt;bool&gt;&amp; PlayerLifeStates)
 <a name="l00061"></a>00061 {    
 <a name="l00062"></a>00062     <span class="keywordflow">return</span> !PlayerLifeStates [0] || !PlayerLifeStates [1];
 <a name="l00063"></a>00063 } <span class="comment">// IsGameOver</span>
 </pre></div></div><!-- contents -->
+</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -148,13 +168,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_classic1v1_8cpp.html">Classic1v1.cpp</a>      </li>
 
+    <li class="footer">Generated on Sun Jan 12 2014 17:06:47 for CatchMe by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
 
 </body>
 </html>

@@ -1,16 +1,17 @@
 <map id="G" name="G">
-<area shape="rect" id="node5" href="$_survivor1v1_8h.html" title="Survivor 1v1 game mode." alt="" coords="2307,237,2408,267"/>
-<area shape="rect" id="node14" href="$_helpers_8h.html" title="Redundant code about player movement, player positions validation, obstacles loading, matrix building." alt="" coords="1379,83,1456,112"/>
-<area shape="rect" id="node17" href="$_game_8h.html" title="Main game header, contains game modes, tokens (+ enum), controls, and main function." alt="" coords="1378,160,1458,189"/>
-<area shape="rect" id="node66" href="$_menu_8h.html" title="Add item to menu, clear menu, run menu declarations." alt="" coords="2483,237,2547,267"/>
-<area shape="rect" id="node9" href="$_game_mode_8h.html" title="SGameMode definition, enum for axis moves, typedefs, constructor function declaration." alt="" coords="1471,315,1583,344"/>
-<area shape="rect" id="node29" href="$_classic1v1_8h.html" title="Classic 1v1 game mode." alt="" coords="1894,237,2070,267"/>
-<area shape="rect" id="node33" href="$_classic1v1v1_8h.html" title="Classic 1v1v1 game mode." alt="" coords="2094,237,2283,267"/>
-<area shape="rect" id="node37" href="$_classic1v1v1v1_8h.html" title="Classic 1v1v1v1 game mode." alt="" coords="136,237,339,267"/>
-<area shape="rect" id="node41" href="$_classic2v2_8h.html" title="Classic 2v2 game mode." alt="" coords="363,237,539,267"/>
-<area shape="rect" id="node45" href="$_classic3v1_8h.html" title="Classic 3v1 game mode." alt="" coords="563,237,739,267"/>
-<area shape="rect" id="node50" href="$_survivor1v1v1_8h.html" title="Survivor 1v1v1 game mode." alt="" coords="763,237,958,267"/>
-<area shape="rect" id="node54" href="$_survivor1v1v1v1_8h.html" title="Survivor 1v1v1v1 game mode." alt="" coords="1206,237,1414,267"/>
-<area shape="rect" id="node58" href="$_survivor2v2_8h.html" title="Survivor 2v2 game mode." alt="" coords="1438,237,1616,267"/>
-<area shape="rect" id="node62" href="$_survivor3v1_8h.html" title="Survivor 3v1 game mode." alt="" coords="1691,237,1870,267"/>
+<area shape="rect" id="node5" href="$_survivor1v1_8h.html" title="Survivor 1v1 game mode." alt="" coords="37,237,138,267"/>
+<area shape="rect" id="node14" href="$_helpers_8h.html" title="Redundant code about player movement, player positions validation, obstacles loading, matrix building." alt="" coords="1233,83,1310,112"/>
+<area shape="rect" id="node17" href="$_game_8h.html" title="Main game file header, contains game modes, tokens (+ enum), controls, and main function." alt="" coords="1307,160,1387,189"/>
+<area shape="rect" id="node70" href="$_menu_8h.html" title="Add item to menu, clear menu, run menu declarations." alt="" coords="2629,237,2693,267"/>
+<area shape="rect" id="node9" href="$_game_mode_8h.html" title="SGameMode definition, enum for axis moves, typedefs, constructor function declaration." alt="" coords="1301,315,1413,344"/>
+<area shape="rect" id="node29" href="$_classic1v1_8h.html" title="Classic 1v1 game mode." alt="" coords="407,237,583,267"/>
+<area shape="rect" id="node33" href="$_classic1v1v1_8h.html" title="Classic 1v1v1 game mode." alt="" coords="607,237,797,267"/>
+<area shape="rect" id="node37" href="$_classic1v1v1v1_8h.html" title="Classic 1v1v1v1 game mode." alt="" coords="821,237,1023,267"/>
+<area shape="rect" id="node41" href="$_classic2v2_8h.html" title="Classic 2v2 game mode." alt="" coords="1047,237,1223,267"/>
+<area shape="rect" id="node45" href="$_classic3v1_8h.html" title="Classic 3v1 game mode." alt="" coords="1522,237,1698,267"/>
+<area shape="rect" id="node50" href="$_survivor1v1v1_8h.html" title="Survivor 1v1v1 game mode." alt="" coords="1722,237,1917,267"/>
+<area shape="rect" id="node54" href="$_survivor1v1v1v1_8h.html" title="Survivor 1v1v1v1 game mode." alt="" coords="1941,237,2149,267"/>
+<area shape="rect" id="node58" href="$_survivor2v2_8h.html" title="Survivor 2v2 game mode." alt="" coords="2173,237,2351,267"/>
+<area shape="rect" id="node62" href="$_survivor3v1_8h.html" title="Survivor 3v1 game mode." alt="" coords="2375,237,2554,267"/>
+<area shape="rect" id="node66" href="$_map_editor_8h.html" title="Map editor for obstacles." alt="" coords="213,237,383,267"/>
 </map>

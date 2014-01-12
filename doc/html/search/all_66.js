@@ -2,6 +2,9 @@ var searchData=
 [
   ['fbuildmatrix',['FBuildMatrix',['../namespacens_game.html#ab8d04e687323030d33b4459425687120',1,'nsGame']]],
   ['fgetsize',['FGetSize',['../namespacens_game.html#a42aed30e26cb4c1b135a4a79c05e1cd8',1,'nsGame']]],
+  ['finddistance',['FindDistance',['../namespaceanonymous__namespace_02_bot_8cpp_03.html#a990e6016cead22889fa9863d71c2ea8f',1,'anonymous_namespace{Bot.cpp}']]],
+  ['findnearestplayerposition',['FindNearestPlayerPosition',['../namespaceanonymous__namespace_02_bot_8cpp_03.html#a4e3486084a0523d45c3c9b0e737f354f',1,'anonymous_namespace{Bot.cpp}']]],
+  ['findnextmove',['FindNextMove',['../namespaceanonymous__namespace_02_bot_8cpp_03.html#ae7a63e32f73e736b1062c1e2db4859dd',1,'anonymous_namespace{Bot.cpp}']]],
   ['finitializeround',['FInitializeRound',['../namespacens_game.html#ae2c0b38407cfe08bc43baedfcf5594c5',1,'nsGame']]],
   ['fisgameover',['FIsGameOver',['../namespacens_game.html#acf17db36f58b1cde2d4711c07497e938',1,'nsGame']]],
   ['fmoveplayer',['FMovePlayer',['../namespacens_game.html#a8eccf8769b4b292af96a85df2cd01b19',1,'nsGame']]],

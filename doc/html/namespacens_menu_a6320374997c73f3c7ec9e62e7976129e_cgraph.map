@@ -1,5 +1,7 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$namespacens_console.html#abb271f7b7c031e51203ef89c1bed1526" title="Gets the count of rows and columns in the terminal." alt="" coords="163,5,341,35"/>
-<area shape="rect" id="node5" href="$namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760" title="Clears the screen with VT100 syntax." alt="" coords="171,59,333,88"/>
-<area shape="rect" id="node7" href="$namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0" title="Waits for a key to be pressed (blocking) or until the timeout expires." alt="" coords="155,112,349,141"/>
+<area shape="rect" id="node3" href="$namespacens_console.html#abb271f7b7c031e51203ef89c1bed1526" title="Gets the count of rows and columns in the terminal." alt="" coords="220,5,399,35"/>
+<area shape="rect" id="node5" href="$namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760" title="Clears the screen with VT100 syntax." alt="" coords="228,59,391,88"/>
+<area shape="rect" id="node7" href="$namespaceanonymous__namespace_02_menu_8cpp_03.html#a441e77660f0b509a0d4bb58799e8fe15" title="Draws a horizontal border." alt="" coords="155,112,464,141"/>
+<area shape="rect" id="node9" href="$namespaceanonymous__namespace_02_menu_8cpp_03.html#a4a17b4e7c0d229823a8ec9e2e91dffe6" title="Center and display item." alt="" coords="161,165,457,195"/>
+<area shape="rect" id="node11" href="$namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0" title="Waits for a key to be pressed (blocking) or until the timeout expires." alt="" coords="212,219,407,248"/>
 </map>

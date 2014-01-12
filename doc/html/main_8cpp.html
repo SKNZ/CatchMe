@@ -3,13 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: src/main.cpp File Reference</title>
+<title>CatchMe: main.cpp File Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -47,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -74,11 +80,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('main_8cpp.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">src/main.cpp File Reference</div>  </div>
+<div class="title">main.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -86,13 +105,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
 <code>#include &quot;<a class="el" href="_game_8h_source.html">Game.h</a>&quot;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for main.cpp:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8cpp__incl.png" border="0" usemap="#main_8cpp" alt=""/></div>
+<map name="main_8cpp" id="main_8cpp">
+<area shape="rect" id="node5" href="_game_8h.html" title="Main game file header, contains game modes, tokens (+ enum), controls, and main function." alt="" coords="1429,83,1496,112"/><area shape="rect" id="node17" href="_game_mode_8h.html" title="SGameMode definition, enum for axis moves, typedefs, constructor function declaration." alt="" coords="1332,237,1431,267"/><area shape="rect" id="node22" href="_classic1v1_8h.html" title="Classic 1v1 game mode." alt="" coords="1184,160,1360,189"/><area shape="rect" id="node26" href="_classic1v1v1_8h.html" title="Classic 1v1v1 game mode." alt="" coords="1435,160,1624,189"/><area shape="rect" id="node30" href="_classic1v1v1v1_8h.html" title="Classic 1v1v1v1 game mode." alt="" coords="1648,160,1851,189"/><area shape="rect" id="node34" href="_classic2v2_8h.html" title="Classic 2v2 game mode." alt="" coords="1875,160,2051,189"/><area shape="rect" id="node38" href="_classic3v1_8h.html" title="Classic 3v1 game mode." alt="" coords="2075,160,2251,189"/><area shape="rect" id="node42" href="_survivor1v1_8h.html" title="Survivor 1v1 game mode." alt="" coords="2275,160,2453,189"/><area shape="rect" id="node46" href="_survivor1v1v1_8h.html" title="Survivor 1v1v1 game mode." alt="" coords="133,160,328,189"/><area shape="rect" id="node50" href="_survivor1v1v1v1_8h.html" title="Survivor 1v1v1v1 game mode." alt="" coords="352,160,560,189"/><area shape="rect" id="node54" href="_survivor2v2_8h.html" title="Survivor 2v2 game mode." alt="" coords="584,160,763,189"/><area shape="rect" id="node58" href="_survivor3v1_8h.html" title="Survivor 3v1 game mode." alt="" coords="787,160,965,189"/><area shape="rect" id="node62" href="_map_editor_8h.html" title="Map editor for obstacles." alt="" coords="989,160,1160,189"/><area shape="rect" id="node66" href="_menu_8h.html" title="Add item to menu, clear menu, run menu declarations." alt="" coords="2477,160,2541,189"/></map>
+</div>
 </div>
 <p><a href="main_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c3f6775325c30275d11c6abee2db6a0"></a><!-- doxytag: member="main.cpp::main" ref="a2c3f6775325c30275d11c6abee2db6a0" args="(int, char **)" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int, char **)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8cpp.html#a2c3f6775325c30275d11c6abee2db6a0">main</a> (int, char **)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Main file. </p>
@@ -100,13 +125,69 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int, char **
 <dl class="date"><dt><b>Date:</b></dt><dd>12/01/2014 </dd></dl>
 
 <p>Definition in file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
-</div></div><!-- contents -->
+</div><hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a2c3f6775325c30275d11c6abee2db6a0"></a><!-- doxytag: member="main.cpp::main" ref="a2c3f6775325c30275d11c6abee2db6a0" args="(int, char **)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int <a class="el" href="main_8cpp.html#a2c3f6775325c30275d11c6abee2db6a0">main</a> </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="main_8cpp_source.html#l00015">15</a> of file <a class="el" href="main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">try</span>
+    {
+        <span class="keywordflow">return</span> <a class="code" href="namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything.">nsGame::Run</a> ();
+    }
+    <span class="keywordflow">catch</span> (std::runtime_error&amp; e)
+    {
+        std::cerr &lt;&lt; <span class="stringliteral">&quot;You failed to write proper code, but can still do error handling. &quot;</span> &lt;&lt; e.what () &lt;&lt; std::endl;
+        <span class="keywordflow">return</span> EXIT_FAILURE;
+    } <span class="comment">// catch runtime_error</span>
+    <span class="keywordflow">catch</span> (std::exception&amp; e)
+    {
+        std::cerr &lt;&lt; <span class="stringliteral">&quot;Now you just suck... &quot;</span> &lt;&lt; e.what () &lt;&lt; std::endl;
+        <span class="keywordflow">return</span> EXIT_FAILURE;
+    } <span class="comment">// catch all</span>
+} <span class="comment">// main</span>
+</pre></div>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="main_8cpp_a2c3f6775325c30275d11c6abee2db6a0_cgraph.png" border="0" usemap="#main_8cpp_a2c3f6775325c30275d11c6abee2db6a0_cgraph" alt=""/></div>
+<map name="main_8cpp_a2c3f6775325c30275d11c6abee2db6a0_cgraph" id="main_8cpp_a2c3f6775325c30275d11c6abee2db6a0_cgraph">
+<area shape="rect" id="node3" href="namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything." alt="" coords="105,163,207,192"/><area shape="rect" id="node5" href="namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu..." alt="" coords="303,5,556,35"/><area shape="rect" id="node9" href="namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f" title="Parse the configuration file." alt="" coords="336,59,523,88"/><area shape="rect" id="node11" href="namespaceanonymous__namespace_02_game_8cpp_03.html#ad06b7fa3e7542b9c50951fea4ee80633" title="Two step game mode selection screen. It finds all the different game mode type by taking the first pa..." alt="" coords="256,216,603,245"/><area shape="rect" id="node13" href="namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu." alt="" coords="772,163,879,192"/><area shape="rect" id="node15" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t..." alt="" coords="763,216,888,245"/><area shape="rect" id="node18" href="namespaceanonymous__namespace_02_game_8cpp_03.html#abc419b9d8cd60452edd6f77163eaec4f" title="Asks the user whether he wants a certain player to be played by a bot." alt="" coords="283,163,576,192"/><area shape="rect" id="node23" href="namespaceanonymous__namespace_02_game_8cpp_03.html#a450446ee3bb00bc78d56a3345a712b93" title="Round logic code (player positions, current player, game over etc)" alt="" coords="280,348,579,377"/><area shape="rect" id="node7" href="_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2" title="EnableCanonicalInputMode" alt="" coords="735,5,916,35"/><area shape="rect" id="node25" href="namespacens_game_1_1ns_u_i.html#a7e8819457b239da8caa0d8bfce795401" title="Displays the borders and the game matrix, applying the correct colors to the tokens." alt="" coords="733,480,917,509"/><area shape="rect" id="node29" href="namespacens_game_1_1ns_u_i.html#aa35b115a727779c618ee3cb5bcfd92db" title="Indicates which controls the current player should be using to move." alt="" coords="727,269,924,299"/><area shape="rect" id="node31" href="namespacens_game_1_1ns_bot.html#a672d5900fd2b28cc26555bd384311099" title="Finds if a player is in attack range, attack if yes else find neareast player and calculate first ele..." alt="" coords="1053,321,1237,351"/><area shape="rect" id="node45" href="namespaceanonymous__namespace_02_game_8cpp_03.html#ad258cfc94a9cbf7d1406073bcdf890f0" title="Gets the user input and if it is a valid control for the current player. If the user doesn&#39;t give any..." alt="" coords="661,373,989,403"/><area shape="rect" id="node50" href="namespaceanonymous__namespace_02_game_8cpp_03.html#a61468c5167822964f1edaceb52e19c4d" title="Converts an action into a grid axis movement and makes the move." alt="" coords="651,427,1000,456"/><area shape="rect" id="node27" href="namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760" title="Clears the screen with VT100 syntax." alt="" coords="1064,480,1227,509"/><area shape="rect" id="node33" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#ac75166c7ed5b17702e8288ac787fa16d" title="Check if a player is within one case of distance and attack if yes." alt="" coords="1291,268,1723,297"/><area shape="rect" id="node37" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#a4e3486084a0523d45c3c9b0e737f354f" title="Returns the position of the nearest player." alt="" coords="1316,375,1697,404"/><area shape="rect" id="node41" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#ae7a63e32f73e736b1062c1e2db4859dd" title="Uses a simplified implementation of the A* (all movements of the same cost) algorithm to find the nex..." alt="" coords="1351,321,1663,351"/><area shape="rect" id="node35" href="namespacens_helpers.html#adfc1ee78df2b1ac67c9f142bd07b55ab" title="Adds MoveY and MoveX to Position if the position is inbound and if its not an obstacle." alt="" coords="1840,295,2008,324"/><area shape="rect" id="node39" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#a990e6016cead22889fa9863d71c2ea8f" title="Calculates the distances between two points of the grid." alt="" coords="1772,348,2076,377"/><area shape="rect" id="node47" href="namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0" title="Waits for a key to be pressed (blocking) or until the timeout expires." alt="" coords="1048,375,1243,404"/></map>
+</div>
+</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,13 +196,16 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> (int, char **
 </iframe>
 </div>
 
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="main_8cpp.html">main.cpp</a>      </li>
 
+    <li class="footer">Generated on Sun Jan 12 2014 17:06:47 for CatchMe by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
 
 </body>
 </html>

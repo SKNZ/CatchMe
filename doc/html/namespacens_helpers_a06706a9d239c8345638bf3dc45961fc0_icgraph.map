@@ -4,10 +4,11 @@
 <area shape="rect" id="node9" href="$namespacens_classic1v1v1v1.html#a6a03b3a556d2ca473102003c896517c3" title="nsClassic1v1v1v1::BuildMatrix" alt="" coords="347,112,549,141"/>
 <area shape="rect" id="node11" href="$namespacens_classic2v2.html#ae45f4070b54bbb099fbf06d00f1ae401" title="nsClassic2v2::BuildMatrix" alt="" coords="361,165,535,195"/>
 <area shape="rect" id="node13" href="$namespacens_classic3v1.html#a5bc6eb2c87faf1590fb108757bae4ab7" title="nsClassic3v1::BuildMatrix" alt="" coords="361,219,535,248"/>
-<area shape="rect" id="node15" href="$namespacens_survivor1v1.html#a3678c14819e49c9ca8420b1c46b19fcb" title="nsSurvivor1v1::BuildMatrix" alt="" coords="359,272,537,301"/>
-<area shape="rect" id="node17" href="$namespacens_survivor1v1v1.html#a91a51a6396e40a7677d6c45a2d03718b" title="nsSurvivor1v1v1::BuildMatrix" alt="" coords="352,325,544,355"/>
-<area shape="rect" id="node19" href="$namespacens_survivor1v1v1v1.html#a1385798c205bfc2d9500a7ac47325948" title="nsSurvivor1v1v1v1::BuildMatrix" alt="" coords="345,379,551,408"/>
-<area shape="rect" id="node21" href="$namespacens_survivor2v2.html#a870ad08a4841e5a3901c3e4eca5ffc91" title="nsSurvivor2v2::BuildMatrix" alt="" coords="359,432,537,461"/>
-<area shape="rect" id="node23" href="$namespacens_survivor3v1.html#af9aa5866157055b033627a3142b9d570" title="nsSurvivor3v1::BuildMatrix" alt="" coords="359,485,537,515"/>
+<area shape="rect" id="node15" href="$namespacens_map_editor.html#a66842d4c7d658111020ed8103ce05d53" title="nsMapEditor::BuildMatrix" alt="" coords="364,272,532,301"/>
+<area shape="rect" id="node17" href="$namespacens_survivor1v1.html#a3678c14819e49c9ca8420b1c46b19fcb" title="nsSurvivor1v1::BuildMatrix" alt="" coords="359,325,537,355"/>
+<area shape="rect" id="node19" href="$namespacens_survivor1v1v1.html#a91a51a6396e40a7677d6c45a2d03718b" title="nsSurvivor1v1v1::BuildMatrix" alt="" coords="352,379,544,408"/>
+<area shape="rect" id="node21" href="$namespacens_survivor1v1v1v1.html#a1385798c205bfc2d9500a7ac47325948" title="nsSurvivor1v1v1v1::BuildMatrix" alt="" coords="345,432,551,461"/>
+<area shape="rect" id="node23" href="$namespacens_survivor2v2.html#a870ad08a4841e5a3901c3e4eca5ffc91" title="nsSurvivor2v2::BuildMatrix" alt="" coords="359,485,537,515"/>
+<area shape="rect" id="node25" href="$namespacens_survivor3v1.html#af9aa5866157055b033627a3142b9d570" title="nsSurvivor3v1::BuildMatrix" alt="" coords="359,539,537,568"/>
 <area shape="rect" id="node5" href="$namespacens_game.html#a73a55d4f4e2184ed18e72be5333f7390" title="Constructor of the SGameMode structure." alt="" coords="600,5,779,35"/>
 </map>

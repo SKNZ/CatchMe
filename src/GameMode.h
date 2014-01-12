@@ -70,7 +70,7 @@ namespace nsGame
 
     /**
      * 
-     * @struct SGame GameMode.h
+     * @struct SGameMode GameMode.h
      * 
      * @brief A game mode !
      * 

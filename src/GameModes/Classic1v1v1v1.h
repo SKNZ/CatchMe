@@ -14,6 +14,13 @@
 
 #include "../GameMode.h"
 
+/**
+ *
+ * @namespace nsClassic1v1v1v1
+ * 
+ * @brief Namespace containing everything related to Classic1v1v1v1 game mode.
+ * 
+ **/
 namespace nsClassic1v1v1v1
 {
     using namespace nsGame;

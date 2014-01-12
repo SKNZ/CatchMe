@@ -1,8 +1,23 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu." alt="" coords="451,5,557,35"/>
-<area shape="rect" id="node5" href="$namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t..." alt="" coords="441,59,567,88"/>
-<area shape="rect" id="node7" href="$namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything." alt="" coords="225,111,327,140"/>
-<area shape="rect" id="node9" href="$namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu..." alt="" coords="377,112,631,141"/>
-<area shape="rect" id="node13" href="$namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f" title="Parse the configuration file." alt="" coords="411,165,597,195"/>
-<area shape="rect" id="node11" href="$_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2" title="EnableCanonicalInputMode" alt="" coords="680,112,861,141"/>
+<area shape="rect" id="node3" href="$namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu." alt="" coords="892,368,999,397"/>
+<area shape="rect" id="node5" href="$namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t..." alt="" coords="883,492,1008,521"/>
+<area shape="rect" id="node7" href="$namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything." alt="" coords="225,412,327,441"/>
+<area shape="rect" id="node9" href="$namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu..." alt="" coords="423,255,676,284"/>
+<area shape="rect" id="node13" href="$namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f" title="Parse the configuration file." alt="" coords="456,359,643,388"/>
+<area shape="rect" id="node15" href="$namespaceanonymous__namespace_02_game_8cpp_03.html#ad06b7fa3e7542b9c50951fea4ee80633" title="Two step game mode selection screen. It finds all the different game mode type by taking the first pa..." alt="" coords="376,412,723,441"/>
+<area shape="rect" id="node20" href="$namespaceanonymous__namespace_02_game_8cpp_03.html#abc419b9d8cd60452edd6f77163eaec4f" title="Asks the user whether he wants a certain player to be played by a bot." alt="" coords="403,465,696,495"/>
+<area shape="rect" id="node25" href="$namespaceanonymous__namespace_02_game_8cpp_03.html#a450446ee3bb00bc78d56a3345a712b93" title="Round logic code (player positions, current player, game over etc)" alt="" coords="400,137,699,167"/>
+<area shape="rect" id="node11" href="$_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2" title="EnableCanonicalInputMode" alt="" coords="855,269,1036,299"/>
+<area shape="rect" id="node27" href="$namespacens_game_1_1ns_u_i.html#a7e8819457b239da8caa0d8bfce795401" title="Displays the borders and the game matrix, applying the correct colors to the tokens." alt="" coords="853,59,1037,88"/>
+<area shape="rect" id="node31" href="$namespacens_game_1_1ns_u_i.html#aa35b115a727779c618ee3cb5bcfd92db" title="Indicates which controls the current player should be using to move." alt="" coords="847,112,1044,141"/>
+<area shape="rect" id="node33" href="$namespacens_game_1_1ns_bot.html#a672d5900fd2b28cc26555bd384311099" title="Finds if a player is in attack range, attack if yes else find neareast player and calculate first ele..." alt="" coords="1173,164,1357,193"/>
+<area shape="rect" id="node47" href="$namespaceanonymous__namespace_02_game_8cpp_03.html#ad258cfc94a9cbf7d1406073bcdf890f0" title="Gets the user input and if it is a valid control for the current player. If the user doesn&#39;t give any..." alt="" coords="781,216,1109,245"/>
+<area shape="rect" id="node52" href="$namespaceanonymous__namespace_02_game_8cpp_03.html#a61468c5167822964f1edaceb52e19c4d" title="Converts an action into a grid axis movement and makes the move." alt="" coords="771,5,1120,35"/>
+<area shape="rect" id="node29" href="$namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760" title="Clears the screen with VT100 syntax." alt="" coords="1184,59,1347,88"/>
+<area shape="rect" id="node35" href="$namespaceanonymous__namespace_02_bot_8cpp_03.html#ac75166c7ed5b17702e8288ac787fa16d" title="Check if a player is within one case of distance and attack if yes." alt="" coords="1411,111,1843,140"/>
+<area shape="rect" id="node39" href="$namespaceanonymous__namespace_02_bot_8cpp_03.html#a4e3486084a0523d45c3c9b0e737f354f" title="Returns the position of the nearest player." alt="" coords="1436,217,1817,247"/>
+<area shape="rect" id="node43" href="$namespaceanonymous__namespace_02_bot_8cpp_03.html#ae7a63e32f73e736b1062c1e2db4859dd" title="Uses a simplified implementation of the A* (all movements of the same cost) algorithm to find the nex..." alt="" coords="1471,164,1783,193"/>
+<area shape="rect" id="node37" href="$namespacens_helpers.html#adfc1ee78df2b1ac67c9f142bd07b55ab" title="Adds MoveY and MoveX to Position if the position is inbound and if its not an obstacle." alt="" coords="1960,137,2128,167"/>
+<area shape="rect" id="node41" href="$namespaceanonymous__namespace_02_bot_8cpp_03.html#a990e6016cead22889fa9863d71c2ea8f" title="Calculates the distances between two points of the grid." alt="" coords="1892,191,2196,220"/>
+<area shape="rect" id="node49" href="$namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0" title="Waits for a key to be pressed (blocking) or until the timeout expires." alt="" coords="1168,217,1363,247"/>
 </map>

@@ -1,6 +1,9 @@
 var searchData=
 [
+  ['backgroundcolors',['BackgroundColors',['../namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92',1,'nsConsole']]],
+  ['bordercolor',['BorderColor',['../namespacens_game_1_1ns_config.html#ab315290eca6fc0a908ed88f18f4e3d45',1,'nsGame::nsConfig']]],
   ['bot_2ecpp',['Bot.cpp',['../_bot_8cpp.html',1,'']]],
   ['bot_2eh',['Bot.h',['../_bot_8h.html',1,'']]],
-  ['buildmatrix',['BuildMatrix',['../structns_game_1_1_s_game_mode.html#acafa4ee432a6d419da5b1a84002cf99e',1,'nsGame::SGameMode']]]
+  ['botplaydelay',['BotPlayDelay',['../namespacens_game_1_1ns_config.html#ae369bb47bd2970a41e1228f479f404bd',1,'nsGame::nsConfig']]],
+  ['buildmatrix',['BuildMatrix',['../structns_game_1_1_s_game_mode.html#acafa4ee432a6d419da5b1a84002cf99e',1,'nsGame::SGameMode::BuildMatrix()'],['../namespacens_classic1v1.html#ac4b26b1d87364fa3766bd37f8f4e10e8',1,'nsClassic1v1::BuildMatrix()'],['../namespacens_classic1v1v1.html#ad4986be200ccb4e277e1abcf992eb4bc',1,'nsClassic1v1v1::BuildMatrix()'],['../namespacens_classic1v1v1v1.html#a6a03b3a556d2ca473102003c896517c3',1,'nsClassic1v1v1v1::BuildMatrix()'],['../namespacens_classic2v2.html#ae45f4070b54bbb099fbf06d00f1ae401',1,'nsClassic2v2::BuildMatrix()'],['../namespacens_classic3v1.html#a5bc6eb2c87faf1590fb108757bae4ab7',1,'nsClassic3v1::BuildMatrix()'],['../namespacens_map_editor.html#a66842d4c7d658111020ed8103ce05d53',1,'nsMapEditor::BuildMatrix()'],['../namespacens_survivor1v1.html#a3678c14819e49c9ca8420b1c46b19fcb',1,'nsSurvivor1v1::BuildMatrix()'],['../namespacens_survivor1v1v1.html#a91a51a6396e40a7677d6c45a2d03718b',1,'nsSurvivor1v1v1::BuildMatrix()'],['../namespacens_survivor1v1v1v1.html#a1385798c205bfc2d9500a7ac47325948',1,'nsSurvivor1v1v1v1::BuildMatrix()'],['../namespacens_survivor2v2.html#a870ad08a4841e5a3901c3e4eca5ffc91',1,'nsSurvivor2v2::BuildMatrix()'],['../namespacens_survivor3v1.html#af9aa5866157055b033627a3142b9d570',1,'nsSurvivor3v1::BuildMatrix()']]]
 ];

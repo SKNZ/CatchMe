@@ -35,6 +35,8 @@
  * 
  * @namespace nsGame
  * 
+ * @brief Namespace containing everything related to main game logic.
+ * 
  **/
 namespace nsGame
 {

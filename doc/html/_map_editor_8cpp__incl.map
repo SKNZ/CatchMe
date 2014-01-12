@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node9" href="$_map_editor_8h.html" title="Map editor for obstacles." alt="" coords="34,237,125,267"/>
+<area shape="rect" id="node18" href="$_helpers_8h.html" title="Redundant code about player movement, player positions validation, obstacles loading, matrix building." alt="" coords="1228,83,1305,112"/>
+<area shape="rect" id="node21" href="$_game_8h.html" title="Main game file header, contains game modes, tokens (+ enum), controls, and main function." alt="" coords="1302,160,1382,189"/>
+<area shape="rect" id="node74" href="$_menu_8h.html" title="Add item to menu, clear menu, run menu declarations." alt="" coords="2624,237,2688,267"/>
+<area shape="rect" id="node13" href="$_game_mode_8h.html" title="SGameMode definition, enum for axis moves, typedefs, constructor function declaration." alt="" coords="1296,315,1408,344"/>
+<area shape="rect" id="node33" href="$_classic1v1_8h.html" title="Classic 1v1 game mode." alt="" coords="402,237,578,267"/>
+<area shape="rect" id="node37" href="$_classic1v1v1_8h.html" title="Classic 1v1v1 game mode." alt="" coords="602,237,792,267"/>
+<area shape="rect" id="node41" href="$_classic1v1v1v1_8h.html" title="Classic 1v1v1v1 game mode." alt="" coords="816,237,1018,267"/>
+<area shape="rect" id="node45" href="$_classic2v2_8h.html" title="Classic 2v2 game mode." alt="" coords="1042,237,1218,267"/>
+<area shape="rect" id="node49" href="$_classic3v1_8h.html" title="Classic 3v1 game mode." alt="" coords="1517,237,1693,267"/>
+<area shape="rect" id="node53" href="$_survivor1v1_8h.html" title="Survivor 1v1 game mode." alt="" coords="1717,237,1896,267"/>
+<area shape="rect" id="node57" href="$_survivor1v1v1_8h.html" title="Survivor 1v1v1 game mode." alt="" coords="1920,237,2114,267"/>
+<area shape="rect" id="node61" href="$_survivor1v1v1v1_8h.html" title="Survivor 1v1v1v1 game mode." alt="" coords="2138,237,2346,267"/>
+<area shape="rect" id="node65" href="$_survivor2v2_8h.html" title="Survivor 2v2 game mode." alt="" coords="2370,237,2549,267"/>
+<area shape="rect" id="node69" href="$_survivor3v1_8h.html" title="Survivor 3v1 game mode." alt="" coords="200,237,378,267"/>
+</map>

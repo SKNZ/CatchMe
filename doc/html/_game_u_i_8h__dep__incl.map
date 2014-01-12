@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_game_8cpp.html" title="Main game file, contains game loop, user interaction." alt="" coords="5,83,109,112"/>
-<area shape="rect" id="node5" href="$_game_u_i_8cpp.html" title="Matrix rendering function, current controls display function." alt="" coords="133,83,251,112"/>
+<area shape="rect" id="node3" href="$_game_8cpp.html" title="Main game file, contains game loop, user interaction." alt="" coords="5,83,88,112"/>
+<area shape="rect" id="node5" href="$_game_u_i_8cpp.html" title="Matrix rendering function, current controls display function." alt="" coords="112,83,208,112"/>
 </map>

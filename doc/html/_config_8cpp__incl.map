@@ -1,4 +1,4 @@
 <map id="G" name="G">
-<area shape="rect" id="node7" href="$_config_8h.html" title="Config.h" alt="" coords="472,83,541,112"/>
-<area shape="rect" id="node9" href="$_console_8h.html" title="Console.h" alt="" coords="376,160,456,189"/>
+<area shape="rect" id="node7" href="$_config_8h.html" title="XML configuration parser." alt="" coords="472,83,541,112"/>
+<area shape="rect" id="node9" href="$_console_8h.html" title="Console manipulation (colors, timed&#45;out noncanonical input, VT100)" alt="" coords="376,160,456,189"/>
 </map>

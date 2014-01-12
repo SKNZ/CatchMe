@@ -14,6 +14,13 @@
 
 #include "../Game.h"
 
+/**
+ *
+ * @namespace nsHelpers
+ * 
+ * @brief Namespace containing everything related to Helpers.
+ * 
+ **/
 namespace nsHelpers
 {
     /**

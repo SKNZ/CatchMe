@@ -100,6 +100,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">nsSurvivor1v1v1 Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Namespace containing everything related to Survivor1v1v1 game mode.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -110,7 +113,9 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_survivor1v1v1.html#a1160f195b95f59628f4c562c4fdf47ec">ValidatePlayerPositions</a> (const <a class="el" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">CMatrix</a> &amp;Matrix, const <a class="el" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">CPositions</a> &amp;PlayerPositions, const unsigned CurrentPlayer, std::vector&lt; bool &gt; &amp;PlayerLifeStates)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_survivor1v1v1.html#acc62d966e5c6f859891617c41c1764fd">IsGameOver</a> (const std::vector&lt; bool &gt; &amp;PlayerLifeStates)</td></tr>
 </table>
-<hr/><h2>Function Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Namespace containing everything related to Survivor1v1v1 game mode. </p>
+</div><hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a91a51a6396e40a7677d6c45a2d03718b"></a><!-- doxytag: member="nsSurvivor1v1v1::BuildMatrix" ref="a91a51a6396e40a7677d6c45a2d03718b" args="(CMatrix &amp;Matrix, const CPositions &amp;PlayerPositions, const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const char EmptyToken)" -->
 <div class="memitem">
 <div class="memproto">
@@ -148,7 +153,19 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00057">57</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00067">67</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0" title="Adds the obstacle and player tokens to the matrix.">nsHelpers::AddObstaclesAndPlayersToMatrix</a> (Matrix, PlayerPositions, PlayerLifeStates, <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>, EmptyToken);
+} <span class="comment">// BuildMatrix</span>
+</pre></div>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacens_survivor1v1v1_a91a51a6396e40a7677d6c45a2d03718b_cgraph.png" border="0" usemap="#namespacens_survivor1v1v1_a91a51a6396e40a7677d6c45a2d03718b_cgraph" alt=""/></div>
+<map name="namespacens_survivor1v1v1_a91a51a6396e40a7677d6c45a2d03718b_cgraph" id="namespacens_survivor1v1v1_a91a51a6396e40a7677d6c45a2d03718b_cgraph">
+<area shape="rect" id="node3" href="namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0" title="Adds the obstacle and player tokens to the matrix." alt="" coords="247,5,535,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -167,7 +184,25 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00016">16</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00026">26</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu.">nsMenu::Clear</a> ();
+
+    <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">nsMenu::AddItem</a> (<span class="stringliteral">&quot;Small map&quot;</span>, [&amp;Size] () { Size = { 5, 10 }; });
+    <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">nsMenu::AddItem</a> (<span class="stringliteral">&quot;Medium map&quot;</span>, [&amp;Size] () { Size = { 10, 20 }; });
+    <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">nsMenu::AddItem</a> (<span class="stringliteral">&quot;Great map&quot;</span>, [&amp;Size] () { Size = { 20, 40 }; });
+
+    <a class="code" href="namespacens_menu.html#a6320374997c73f3c7ec9e62e7976129e" title="Displays the menu, and gets the user selection.">nsMenu::Run</a> ();
+} <span class="comment">// GetSize</span>
+</pre></div>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacens_survivor1v1v1_a646fb3f90a749dc11da1d2629b044e30_cgraph.png" border="0" usemap="#namespacens_survivor1v1v1_a646fb3f90a749dc11da1d2629b044e30_cgraph" alt=""/></div>
+<map name="namespacens_survivor1v1v1_a646fb3f90a749dc11da1d2629b044e30_cgraph" id="namespacens_survivor1v1v1_a646fb3f90a749dc11da1d2629b044e30_cgraph">
+<area shape="rect" id="node3" href="namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu." alt="" coords="897,368,1004,397"/><area shape="rect" id="node5" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t..." alt="" coords="888,492,1013,521"/><area shape="rect" id="node7" href="namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything." alt="" coords="231,412,332,441"/><area shape="rect" id="node9" href="namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu..." alt="" coords="428,255,681,284"/><area shape="rect" id="node13" href="namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f" title="Parse the configuration file." alt="" coords="461,359,648,388"/><area shape="rect" id="node15" href="namespaceanonymous__namespace_02_game_8cpp_03.html#ad06b7fa3e7542b9c50951fea4ee80633" title="Two step game mode selection screen. It finds all the different game mode type by taking the first pa..." alt="" coords="381,412,728,441"/><area shape="rect" id="node20" href="namespaceanonymous__namespace_02_game_8cpp_03.html#abc419b9d8cd60452edd6f77163eaec4f" title="Asks the user whether he wants a certain player to be played by a bot." alt="" coords="408,465,701,495"/><area shape="rect" id="node25" href="namespaceanonymous__namespace_02_game_8cpp_03.html#a450446ee3bb00bc78d56a3345a712b93" title="Round logic code (player positions, current player, game over etc)" alt="" coords="405,137,704,167"/><area shape="rect" id="node11" href="_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2" title="EnableCanonicalInputMode" alt="" coords="860,269,1041,299"/><area shape="rect" id="node27" href="namespacens_game_1_1ns_u_i.html#a7e8819457b239da8caa0d8bfce795401" title="Displays the borders and the game matrix, applying the correct colors to the tokens." alt="" coords="859,59,1043,88"/><area shape="rect" id="node31" href="namespacens_game_1_1ns_u_i.html#aa35b115a727779c618ee3cb5bcfd92db" title="Indicates which controls the current player should be using to move." alt="" coords="852,112,1049,141"/><area shape="rect" id="node33" href="namespacens_game_1_1ns_bot.html#a672d5900fd2b28cc26555bd384311099" title="Finds if a player is in attack range, attack if yes else find neareast player and calculate first ele..." alt="" coords="1179,164,1363,193"/><area shape="rect" id="node47" href="namespaceanonymous__namespace_02_game_8cpp_03.html#ad258cfc94a9cbf7d1406073bcdf890f0" title="Gets the user input and if it is a valid control for the current player. If the user doesn&#39;t give any..." alt="" coords="787,216,1115,245"/><area shape="rect" id="node52" href="namespaceanonymous__namespace_02_game_8cpp_03.html#a61468c5167822964f1edaceb52e19c4d" title="Converts an action into a grid axis movement and makes the move." alt="" coords="776,5,1125,35"/><area shape="rect" id="node29" href="namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760" title="Clears the screen with VT100 syntax." alt="" coords="1189,59,1352,88"/><area shape="rect" id="node35" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#ac75166c7ed5b17702e8288ac787fa16d" title="Check if a player is within one case of distance and attack if yes." alt="" coords="1416,111,1848,140"/><area shape="rect" id="node39" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#a4e3486084a0523d45c3c9b0e737f354f" title="Returns the position of the nearest player." alt="" coords="1441,217,1823,247"/><area shape="rect" id="node43" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#ae7a63e32f73e736b1062c1e2db4859dd" title="Uses a simplified implementation of the A* (all movements of the same cost) algorithm to find the nex..." alt="" coords="1476,164,1788,193"/><area shape="rect" id="node37" href="namespacens_helpers.html#adfc1ee78df2b1ac67c9f142bd07b55ab" title="Adds MoveY and MoveX to Position if the position is inbound and if its not an obstacle." alt="" coords="1965,137,2133,167"/><area shape="rect" id="node41" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#a990e6016cead22889fa9863d71c2ea8f" title="Calculates the distances between two points of the grid." alt="" coords="1897,191,2201,220"/><area shape="rect" id="node49" href="namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0" title="Waits for a key to be pressed (blocking) or until the timeout expires." alt="" coords="1173,217,1368,247"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -202,7 +237,26 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00045">45</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00055">55</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    PlayerPositions.resize (PlayerCount);
+
+    PlayerPositions [0] = { 0, MaxSize.second - 1 }; <span class="comment">// Top right</span>
+    PlayerPositions [1] = { MaxSize.first - 1, 0 }; <span class="comment">// Bottom left</span>
+    PlayerPositions [2] = { 0, 0 }; <span class="comment">// Top left</span>
+
+    <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>.clear ();
+    <a class="code" href="namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8" title="Loads the obstacles positions from file.">nsHelpers::LoadObstaclesFromFile</a> (<a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>, MaxSize);
+} <span class="comment">// InitializeRound</span>
+</pre></div>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacens_survivor1v1v1_a1f00cb220c36f8e4ebfcae0ea4372576_cgraph.png" border="0" usemap="#namespacens_survivor1v1v1_a1f00cb220c36f8e4ebfcae0ea4372576_cgraph" alt=""/></div>
+<map name="namespacens_survivor1v1v1_a1f00cb220c36f8e4ebfcae0ea4372576_cgraph" id="namespacens_survivor1v1v1_a1f00cb220c36f8e4ebfcae0ea4372576_cgraph">
+<area shape="rect" id="node3" href="namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8" title="Loads the obstacles positions from file." alt="" coords="267,5,493,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -221,8 +275,17 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00062">62</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00072">72</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordtype">unsigned</span> DeadPlayerCount = 0;
 
+    <span class="keywordflow">for</span> (<span class="keywordtype">bool</span> PlayerState : PlayerLifeStates)
+        <span class="keywordflow">if</span> (!PlayerState)
+            ++DeadPlayerCount;
+
+    <span class="keywordflow">return</span> DeadPlayerCount == 2;
+} <span class="comment">// IsGameOver</span>
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a50231cc9e31f67d85746a25b9075607b"></a><!-- doxytag: member="nsSurvivor1v1v1::MovePlayer" ref="a50231cc9e31f67d85746a25b9075607b" args="(const CMatrix &amp;Matrix, CPosition &amp;PlayerPosition, const CPosition &amp;MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)" -->
@@ -268,7 +331,19 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00027">27</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00037">37</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="namespacens_helpers.html#a260d611c360bb964f70fa13f0579c133" title="Checks for boundaries, obstacles and moves the player.">nsHelpers::MovePlayer</a> (Matrix, PlayerPosition, MatrixSize, MoveY, MoveX);
+} <span class="comment">// MovePlayer</span>
+</pre></div>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacens_survivor1v1v1_a50231cc9e31f67d85746a25b9075607b_cgraph.png" border="0" usemap="#namespacens_survivor1v1v1_a50231cc9e31f67d85746a25b9075607b_cgraph" alt=""/></div>
+<map name="namespacens_survivor1v1v1_a50231cc9e31f67d85746a25b9075607b_cgraph" id="namespacens_survivor1v1v1_a50231cc9e31f67d85746a25b9075607b_cgraph">
+<area shape="rect" id="node3" href="namespacens_classic1v1.html#a7e895573b65feaa0b48ff02c407fdc4a" title="nsClassic1v1::MovePlayer" alt="" coords="251,5,429,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -309,7 +384,27 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00032">32</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_survivor1v1v1_8cpp_source.html#l00042">42</a> of file <a class="el" href="_survivor1v1v1_8cpp_source.html">Survivor1v1v1.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="namespacens_helpers.html#af3bb3748a81f3f30f189ded3bf4fa802" title="Checks if a player is in a position that is lethal, and if yes, KILL IT !">nsHelpers::ValidatePlayerPositionsNoTeam</a> (PlayerPositions, CurrentPlayer, PlayerLifeStates, <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>);
+
+    <span class="keywordflow">for</span> (<a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a> Position : <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>)
+        <span class="keywordflow">if</span> (PlayerPositions [CurrentPlayer] == Position)
+            PlayerLifeStates [CurrentPlayer] = <span class="keyword">false</span>;
+
+    <span class="comment">// If he just died, there will be someone else on his spot, so no obstacle yet.</span>
+    <span class="keywordflow">if</span>(PlayerLifeStates[CurrentPlayer] &amp;&amp; find (ObstaclesPositions.cbegin(), ObstaclesPositions.cend(), PlayerPositions [CurrentPlayer]) == ObstaclesPositions.cend())
+        ObstaclesPositions.push_back (PlayerPositions [CurrentPlayer]);
+} <span class="comment">// ValidatePlayerPositions</span>
+</pre></div>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacens_survivor1v1v1_a1160f195b95f59628f4c562c4fdf47ec_cgraph.png" border="0" usemap="#namespacens_survivor1v1v1_a1160f195b95f59628f4c562c4fdf47ec_cgraph" alt=""/></div>
+<map name="namespacens_survivor1v1v1_a1160f195b95f59628f4c562c4fdf47ec_cgraph" id="namespacens_survivor1v1v1_a1160f195b95f59628f4c562c4fdf47ec_cgraph">
+<area shape="rect" id="node3" href="namespacens_helpers.html#af3bb3748a81f3f30f189ded3bf4fa802" title="Checks if a player is in a position that is lethal, and if yes, KILL IT !" alt="" coords="320,5,597,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -333,7 +428,7 @@ Functions</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="namespacens_survivor1v1v1.html">nsSurvivor1v1v1</a>      </li>
 
-    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
+    <li class="footer">Generated on Sun Jan 12 2014 17:06:47 for CatchMe by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

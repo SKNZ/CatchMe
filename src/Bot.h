@@ -16,7 +16,9 @@ namespace nsGame
 {
     /**
      * 
-     * @namespace nsBot
+     * @namespace nsGame::nsBot
+     * 
+     * @brief Namespace containing everything related to the bot logic.
      * 
      **/
     namespace nsBot

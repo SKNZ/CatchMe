@@ -1,9 +1,9 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$namespacens_game.html#a73a55d4f4e2184ed18e72be5333f7390" title="Constructor of the SGameMode structure." alt="" coords="248,5,427,35"/>
-<area shape="rect" id="node5" href="$namespacens_classic1v1v1.html#a8e70dc02fa41c67c1986f64ecd4b3587" title="nsClassic1v1v1::MovePlayer" alt="" coords="241,59,433,88"/>
-<area shape="rect" id="node7" href="$namespacens_classic1v1v1v1.html#ab89b7541f4e4d6c87ef2d0af4685b4d4" title="nsClassic1v1v1v1::MovePlayer" alt="" coords="235,112,440,141"/>
-<area shape="rect" id="node9" href="$namespacens_classic2v2.html#a394f02e6fa6ffbce2f2d742b86b0ef5a" title="nsClassic2v2::MovePlayer" alt="" coords="248,165,427,195"/>
-<area shape="rect" id="node11" href="$namespacens_classic3v1.html#ac95f832d4ad0a1abbb2ad59a04df7ee1" title="nsClassic3v1::MovePlayer" alt="" coords="248,219,427,248"/>
+<area shape="rect" id="node3" href="$namespacens_classic1v1v1.html#a8e70dc02fa41c67c1986f64ecd4b3587" title="nsClassic1v1v1::MovePlayer" alt="" coords="241,5,433,35"/>
+<area shape="rect" id="node5" href="$namespacens_classic1v1v1v1.html#ab89b7541f4e4d6c87ef2d0af4685b4d4" title="nsClassic1v1v1v1::MovePlayer" alt="" coords="235,59,440,88"/>
+<area shape="rect" id="node7" href="$namespacens_classic2v2.html#a394f02e6fa6ffbce2f2d742b86b0ef5a" title="nsClassic2v2::MovePlayer" alt="" coords="248,112,427,141"/>
+<area shape="rect" id="node9" href="$namespacens_classic3v1.html#ac95f832d4ad0a1abbb2ad59a04df7ee1" title="nsClassic3v1::MovePlayer" alt="" coords="248,165,427,195"/>
+<area shape="rect" id="node11" href="$namespacens_game.html#a73a55d4f4e2184ed18e72be5333f7390" title="Constructor of the SGameMode structure." alt="" coords="248,219,427,248"/>
 <area shape="rect" id="node13" href="$namespacens_survivor1v1v1.html#a50231cc9e31f67d85746a25b9075607b" title="nsSurvivor1v1v1::MovePlayer" alt="" coords="240,272,435,301"/>
 <area shape="rect" id="node15" href="$namespacens_survivor1v1v1v1.html#af299b3e3b933a73543f98bae12fdf73b" title="nsSurvivor1v1v1v1::MovePlayer" alt="" coords="232,325,443,355"/>
 <area shape="rect" id="node17" href="$namespacens_survivor2v2.html#a7d00a03e2b4082f6474261d922f8b68f" title="nsSurvivor2v2::MovePlayer" alt="" coords="247,379,428,408"/>

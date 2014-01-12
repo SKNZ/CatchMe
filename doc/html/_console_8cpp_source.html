@@ -3,13 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: src/Console.cpp Source File</title>
+<title>CatchMe: Console.cpp Source File</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -47,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -74,9 +80,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_console_8cpp.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="headertitle">
-<div class="title">src/Console.cpp</div>  </div>
+<div class="title">Console.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
 <a href="_console_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
@@ -90,23 +109,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00018"></a>00018 
 <a name="l00019"></a>00019 <span class="keyword">using namespace </span>std;
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021 std::ostream&amp; nsConsole::operator&lt;&lt; (std::ostream&amp; os, <span class="keyword">const</span> Colors&amp; Color)
+<a name="l00021"></a><a class="code" href="namespacens_console.html#a319f543b9617b49511d3f15601d0fafe">00021</a> std::ostream&amp; <a class="code" href="namespacens_console.html#a319f543b9617b49511d3f15601d0fafe" title="Colors output with VT100 syntax.">nsConsole::operator&lt;&lt; </a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespacens_console.html#a2b006a25b9fd8113d60201aa69d2547e" title="Color codes for each.">Colors</a>&amp; Color)
 <a name="l00022"></a>00022 {
 <a name="l00023"></a>00023     <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;\033[&quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span> (Color) &lt;&lt; <span class="stringliteral">&quot;m&quot;</span>;
 <a name="l00024"></a>00024 } <span class="comment">// operator&lt;&lt; Colors</span>
 <a name="l00025"></a>00025 
-<a name="l00026"></a>00026 std::ostream&amp; nsConsole::operator&lt;&lt; (std::ostream&amp; os, <span class="keyword">const</span> BackgroundColors&amp; Color)
+<a name="l00026"></a><a class="code" href="namespacens_console.html#a1b3bc93290449637f067ffbb1d066be2">00026</a> std::ostream&amp; <a class="code" href="namespacens_console.html#a319f543b9617b49511d3f15601d0fafe" title="Colors output with VT100 syntax.">nsConsole::operator&lt;&lt; </a>(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a>&amp; Color)
 <a name="l00027"></a>00027 {
 <a name="l00028"></a>00028     <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;\033[&quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span> (Color) &lt;&lt; <span class="stringliteral">&quot;m&quot;</span>;
 <a name="l00029"></a>00029 } <span class="comment">// operator&lt;&lt; BackgroundColors</span>
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="keywordtype">void</span> nsConsole::ClearScreen ()
+<a name="l00031"></a><a class="code" href="namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760">00031</a> <span class="keywordtype">void</span> <a class="code" href="namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760" title="Clears the screen with VT100 syntax.">nsConsole::ClearScreen</a> ()
 <a name="l00032"></a>00032 {
 <a name="l00033"></a>00033     cout &lt;&lt; <span class="stringliteral">&quot;\033[H\033[2J&quot;</span>;
 <a name="l00034"></a>00034 } <span class="comment">// ClearScreen</span>
 <a name="l00035"></a>00035 
 <a name="l00036"></a>00036 <span class="comment">// http://www.cplusplus.com/forum/general/5304/#msg23940</span>
-<a name="l00037"></a>00037 <span class="keywordtype">bool</span> nsConsole::WaitForKeyPress (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> TimeOut)
+<a name="l00037"></a><a class="code" href="namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0">00037</a> <span class="keywordtype">bool</span> <a class="code" href="namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0" title="Waits for a key to be pressed (blocking) or until the timeout expires.">nsConsole::WaitForKeyPress</a> (<span class="keyword">const</span> <span class="keywordtype">unsigned</span> TimeOut)
 <a name="l00038"></a>00038 {
 <a name="l00039"></a>00039     pollfd pls[1];
 <a name="l00040"></a>00040     
@@ -117,7 +136,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00045"></a>00045 } <span class="comment">// WaitForKeyPress</span>
 <a name="l00046"></a>00046 
 <a name="l00047"></a>00047 <span class="comment">// http://stackoverflow.com/a/1022961</span>
-<a name="l00048"></a>00048 <span class="keywordtype">void</span> nsConsole::GetScreenSize (<span class="keywordtype">unsigned</span>&amp; x, <span class="keywordtype">unsigned</span>&amp; y)
+<a name="l00048"></a><a class="code" href="namespacens_console.html#abb271f7b7c031e51203ef89c1bed1526">00048</a> <span class="keywordtype">void</span> <a class="code" href="namespacens_console.html#abb271f7b7c031e51203ef89c1bed1526" title="Gets the count of rows and columns in the terminal.">nsConsole::GetScreenSize</a> (<span class="keywordtype">unsigned</span>&amp; x, <span class="keywordtype">unsigned</span>&amp; y)
 <a name="l00049"></a>00049 {
 <a name="l00050"></a>00050     winsize w;
 <a name="l00051"></a>00051 
@@ -128,7 +147,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00056"></a>00056 } <span class="comment">// GetScreenSize</span>
 <a name="l00057"></a>00057 
 <a name="l00058"></a>00058 <span class="comment">// Restore previous mode</span>
-<a name="l00059"></a>00059 <span class="keywordtype">void</span> EnableCanonicalInputMode ()
+<a name="l00059"></a><a class="code" href="_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2">00059</a> <span class="keywordtype">void</span> <a class="code" href="_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2">EnableCanonicalInputMode</a> ()
 <a name="l00060"></a>00060 {
 <a name="l00061"></a>00061     termios term;
 <a name="l00062"></a>00062 
@@ -138,7 +157,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00066"></a>00066 } <span class="comment">// EnableCanonicalInputMode</span>
 <a name="l00067"></a>00067 
 <a name="l00068"></a>00068 <span class="comment">// Manipulating the terminal requires sacrificing C++ :/</span>
-<a name="l00069"></a>00069 <span class="keywordtype">void</span> nsConsole::DisableCanonicalInputMode ()
+<a name="l00069"></a><a class="code" href="namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2">00069</a> <span class="keywordtype">void</span> <a class="code" href="namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu...">nsConsole::DisableCanonicalInputMode</a> ()
 <a name="l00070"></a>00070 {
 <a name="l00071"></a>00071     termios term;
 <a name="l00072"></a>00072 
@@ -148,16 +167,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00076"></a>00076 
 <a name="l00077"></a>00077     cin.sync_with_stdio(); <span class="comment">// This is necessary for non-blocking timed I/O using poll.</span>
 <a name="l00078"></a>00078 
-<a name="l00079"></a>00079     atexit (EnableCanonicalInputMode); <span class="comment">// Once the program exits, put it back the way it was before</span>
+<a name="l00079"></a>00079     atexit (<a class="code" href="_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2">EnableCanonicalInputMode</a>); <span class="comment">// Once the program exits, put it back the way it was before</span>
 <a name="l00080"></a>00080 } <span class="comment">// DisableCanonicalInputMode</span>
 <a name="l00081"></a>00081 
 </pre></div></div><!-- contents -->
+</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -166,13 +186,16 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_console_8cpp.html">Console.cpp</a>      </li>
 
+    <li class="footer">Generated on Sun Jan 12 2014 17:06:47 for CatchMe by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
 
 </body>
 </html>

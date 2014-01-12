@@ -3,13 +3,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<title>CatchMe: src/Menu.h File Reference</title>
+<title>CatchMe: Menu.h File Reference</title>
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-
-<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -47,6 +52,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -74,11 +80,25 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+  initNavTree('_menu_8h.html','');
+</script>
+<div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">src/Menu.h File Reference</div>  </div>
+<div class="title">Menu.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -87,22 +107,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="textblock"><code>#include &lt;functional&gt;</code><br/>
 <code>#include &lt;chrono&gt;</code><br/>
 <code>#include &lt;vector&gt;</code><br/>
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for Menu.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="_menu_8h__incl.png" border="0" usemap="#_menu_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="_menu_8h__dep__incl.png" border="0" usemap="#_menu_8hdep" alt=""/></div>
+<map name="_menu_8hdep" id="_menu_8hdep">
+<area shape="rect" id="node3" href="_game_8h.html" title="Main game file header, contains game modes, tokens (+ enum), controls, and main function." alt="" coords="959,83,1025,112"/><area shape="rect" id="node10" href="_classic1v1_8cpp.html" title="Classic 1v1 game mode." alt="" coords="368,237,480,267"/><area shape="rect" id="node12" href="_classic1v1v1_8cpp.html" title="Classic 1v1v1 game mode." alt="" coords="504,237,629,267"/><area shape="rect" id="node14" href="_classic1v1v1v1_8cpp.html" title="Classic 1v1v1v1 game mode." alt="" coords="1451,237,1589,267"/><area shape="rect" id="node16" href="_classic2v2_8cpp.html" title="Classic 2v2 game mode." alt="" coords="1752,237,1864,267"/><area shape="rect" id="node18" href="_classic3v1_8cpp.html" title="Classic 3v1 game mode." alt="" coords="232,237,344,267"/><area shape="rect" id="node22" href="_map_editor_8cpp.html" title="Map editor for obstacles." alt="" coords="1320,237,1427,267"/><area shape="rect" id="node24" href="_survivor1v1_8cpp.html" title="Survivor 1v1 game mode." alt="" coords="1888,237,2003,267"/><area shape="rect" id="node26" href="_survivor1v1v1_8cpp.html" title="Survivor 1v1v1 game mode." alt="" coords="792,237,923,267"/><area shape="rect" id="node28" href="_survivor1v1v1v1_8cpp.html" title="Survivor1v1v1v1 game mode." alt="" coords="1152,237,1296,267"/><area shape="rect" id="node30" href="_survivor2v2_8cpp.html" title="Survivor 2v2 game mode." alt="" coords="653,237,768,267"/><area shape="rect" id="node32" href="_survivor3v1_8cpp.html" title="Survivor 3v1 game mode." alt="" coords="1613,237,1728,267"/><area shape="rect" id="node34" href="_game_8cpp.html" title="Main game file, contains game loop, user interaction." alt="" coords="125,237,208,267"/><area shape="rect" id="node39" href="_game_u_i_8cpp.html" title="Matrix rendering function, current controls display function." alt="" coords="5,237,101,267"/><area shape="rect" id="node67" href="_menu_8cpp.html" title="Add item to menu, clear menu, draw menu helpers, run menu definitions." alt="" coords="1800,83,1877,112"/><area shape="rect" id="node5" href="_bot_8cpp.html" title="Bot logic." alt="" coords="947,237,1013,267"/><area shape="rect" id="node7" href="_helpers_8h.html" title="Redundant code about player movement, player positions validation, obstacles loading, matrix building." alt="" coords="992,160,1069,189"/><area shape="rect" id="node36" href="_game_u_i_8h.html" title="Colors of each token, UI functions declarations." alt="" coords="125,160,208,189"/><area shape="rect" id="node52" href="main_8cpp.html" title="Main file." alt="" coords="1195,160,1269,189"/><area shape="rect" id="node20" href="_helpers_8cpp.html" title="Redundant code about player movement, player positions validation, obstacles loading, matrix building." alt="" coords="1037,237,1128,267"/></map>
+</div>
 </div>
 <p><a href="_menu_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_menu.html">nsMenu</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Namespace containing everything related to the menu system. </p>
+<br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3f22dc2deebf95258a29617923f342e4"></a><!-- doxytag: member="Menu.h::AddItem" ref="a3f22dc2deebf95258a29617923f342e4" args="(std::string ItemName, std::function&lt; void(void)&gt; Callback=[](){})" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>nsMenu::AddItem</b> (std::string ItemName, std::function&lt; void(void)&gt; Callback=[](){})</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an item to menu, which is associated to a callback function, that will be used if said item is the users final choice. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad60b513721f0857980ec1f79b6d262f7"></a><!-- doxytag: member="Menu.h::Clear" ref="ad60b513721f0857980ec1f79b6d262f7" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>nsMenu::Clear</b> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears up the previous entries of the menu. <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>nsMenu::Run</b> (bool IsWinMenu=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4">nsMenu::AddItem</a> (std::string ItemName, std::function&lt; void(void)&gt; Callback=[](){})</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an item to menu, which is associated to a callback function, that will be used if said item is the users final choice.  <a href="#a3f22dc2deebf95258a29617923f342e4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7">nsMenu::Clear</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears up the previous entries of the menu.  <a href="#ad60b513721f0857980ec1f79b6d262f7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_menu.html#a6320374997c73f3c7ec9e62e7976129e">nsMenu::Run</a> (bool IsWinMenu=false)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Displays the menu, and gets the user selection.  <a href="#a6320374997c73f3c7ec9e62e7976129e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54cbd7891375b0f725814f3ce2c20a90"></a><!-- doxytag: member="Menu.h::ShowSimpleWinScreen" ref="a54cbd7891375b0f725814f3ce2c20a90" args="(const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const std::vector&lt; char &gt; &amp;Tokens, const std::vector&lt; unsigned &gt; &amp;TurnCounters)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>nsMenu::ShowSimpleWinScreen</b> (const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const std::vector&lt; char &gt; &amp;Tokens, const std::vector&lt; unsigned &gt; &amp;TurnCounters)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows a simple default winning screen announcing the player that won. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_menu.html#a54cbd7891375b0f725814f3ce2c20a90">nsMenu::ShowSimpleWinScreen</a> (const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const std::vector&lt; char &gt; &amp;Tokens, const std::vector&lt; unsigned &gt; &amp;TurnCounters)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows a simple default winning screen announcing the player that won.  <a href="#a54cbd7891375b0f725814f3ce2c20a90"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Add item to menu, clear menu, run menu declarations. </p>
@@ -111,12 +145,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>nsMenu::ShowSimpleWin
 
 <p>Definition in file <a class="el" href="_menu_8h_source.html">Menu.h</a>.</p>
 </div></div><!-- contents -->
+</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -125,13 +160,16 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>nsMenu::ShowSimpleWin
 </iframe>
 </div>
 
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="_menu_8h.html">Menu.h</a>      </li>
 
+    <li class="footer">Generated on Sun Jan 12 2014 17:06:47 for CatchMe by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
+   </ul>
+ </div>
 
-<hr class="footer"/><address class="footer"><small>
-Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.7.6.1
-</small></address>
 
 </body>
 </html>

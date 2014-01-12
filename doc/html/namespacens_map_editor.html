@@ -100,6 +100,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">nsMapEditor Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Namespace containing everything related to MapEditor functionality.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -111,7 +114,9 @@ Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_map_editor.html#a9af6cd002027e68135cacf29223962f2">IsGameOver</a> (const std::vector&lt; bool &gt; &amp;PlayerLifeStates)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_map_editor.html#a4e65839e892d7df446fae14564c5eb90">ShowWinScreen</a> (const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const std::vector&lt; char &gt; &amp;Tokens, const std::vector&lt; unsigned &gt; &amp;TurnCounters)</td></tr>
 </table>
-<hr/><h2>Function Documentation</h2>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Namespace containing everything related to MapEditor functionality. </p>
+</div><hr/><h2>Function Documentation</h2>
 <a class="anchor" id="a66842d4c7d658111020ed8103ce05d53"></a><!-- doxytag: member="nsMapEditor::BuildMatrix" ref="a66842d4c7d658111020ed8103ce05d53" args="(CMatrix &amp;Matrix, const CPositions &amp;PlayerPositions, const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const char EmptyToken)" -->
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +154,35 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00075">75</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00086">86</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0" title="Adds the obstacle and player tokens to the matrix.">nsHelpers::AddObstaclesAndPlayersToMatrix</a> (Matrix, PlayerPositions, PlayerLifeStates, <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>, EmptyToken);
+    
+    std::stringstream FileName;
+    FileName &lt;&lt; <span class="stringliteral">&quot;./&quot;</span> &lt;&lt; Matrix.size () &lt;&lt; <span class="stringliteral">&quot;_&quot;</span> &lt;&lt; Matrix.begin ()-&gt;size () &lt;&lt; <span class="stringliteral">&quot;.map&quot;</span>;
+
+    std::ofstream File (FileName.str ());
+
+    <span class="keywordflow">if</span> (!File)
+    {
+        <span class="keywordflow">return</span>;
+        <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;There was an error trying to open the file: &quot;</span> + FileName.str ());
+    } <span class="comment">// if (file not exist)</span>
+    
+    <span class="keywordflow">for</span> (<a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a> Obstacle : <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>)
+        <span class="keywordflow">if</span> (Obstacle != make_pair (0, 0) &amp;&amp; Obstacle != make_pair (0, <span class="keywordtype">int</span> (Matrix.begin ()-&gt;size () -1)) <span class="comment">// No spawn points</span>
+        &amp;&amp; Obstacle != make_pair (<span class="keywordtype">int</span> (Matrix.size ()), <span class="keywordtype">int</span> (Matrix.begin ()-&gt;size () - 1)) &amp;&amp; Obstacle != make_pair (<span class="keywordtype">int</span> (Matrix.size ()), 0))
+            File &lt;&lt; Obstacle.first &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; Obstacle.second &lt;&lt; endl;
+} <span class="comment">// BuildMatrix</span>
+</pre></div>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacens_map_editor_a66842d4c7d658111020ed8103ce05d53_cgraph.png" border="0" usemap="#namespacens_map_editor_a66842d4c7d658111020ed8103ce05d53_cgraph" alt=""/></div>
+<map name="namespacens_map_editor_a66842d4c7d658111020ed8103ce05d53_cgraph" id="namespacens_map_editor_a66842d4c7d658111020ed8103ce05d53_cgraph">
+<area shape="rect" id="node3" href="namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0" title="Adds the obstacle and player tokens to the matrix." alt="" coords="223,5,511,35"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -168,7 +201,25 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00018">18</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00028">28</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <a class="code" href="namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu.">nsMenu::Clear</a> ();
+
+    <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">nsMenu::AddItem</a> (<span class="stringliteral">&quot;Small map&quot;</span>, [&amp;Size] () { Size = { 5, 10 }; });
+    <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">nsMenu::AddItem</a> (<span class="stringliteral">&quot;Medium map&quot;</span>, [&amp;Size] () { Size = { 10, 20 }; });
+    <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">nsMenu::AddItem</a> (<span class="stringliteral">&quot;Great map&quot;</span>, [&amp;Size] () { Size = { 20, 40 }; });
+
+    <a class="code" href="namespacens_menu.html#a6320374997c73f3c7ec9e62e7976129e" title="Displays the menu, and gets the user selection.">nsMenu::Run</a> ();
+} <span class="comment">// GetSize</span>
+</pre></div>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacens_map_editor_a99bd4a66ae07a657b95abe92d8ccbb27_cgraph.png" border="0" usemap="#namespacens_map_editor_a99bd4a66ae07a657b95abe92d8ccbb27_cgraph" alt=""/></div>
+<map name="namespacens_map_editor_a99bd4a66ae07a657b95abe92d8ccbb27_cgraph" id="namespacens_map_editor_a99bd4a66ae07a657b95abe92d8ccbb27_cgraph">
+<area shape="rect" id="node3" href="namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu." alt="" coords="873,368,980,397"/><area shape="rect" id="node5" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t..." alt="" coords="864,492,989,521"/><area shape="rect" id="node7" href="namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything." alt="" coords="207,412,308,441"/><area shape="rect" id="node9" href="namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu..." alt="" coords="404,255,657,284"/><area shape="rect" id="node13" href="namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f" title="Parse the configuration file." alt="" coords="437,359,624,388"/><area shape="rect" id="node15" href="namespaceanonymous__namespace_02_game_8cpp_03.html#ad06b7fa3e7542b9c50951fea4ee80633" title="Two step game mode selection screen. It finds all the different game mode type by taking the first pa..." alt="" coords="357,412,704,441"/><area shape="rect" id="node20" href="namespaceanonymous__namespace_02_game_8cpp_03.html#abc419b9d8cd60452edd6f77163eaec4f" title="Asks the user whether he wants a certain player to be played by a bot." alt="" coords="384,465,677,495"/><area shape="rect" id="node25" href="namespaceanonymous__namespace_02_game_8cpp_03.html#a450446ee3bb00bc78d56a3345a712b93" title="Round logic code (player positions, current player, game over etc)" alt="" coords="381,137,680,167"/><area shape="rect" id="node11" href="_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2" title="EnableCanonicalInputMode" alt="" coords="836,269,1017,299"/><area shape="rect" id="node27" href="namespacens_game_1_1ns_u_i.html#a7e8819457b239da8caa0d8bfce795401" title="Displays the borders and the game matrix, applying the correct colors to the tokens." alt="" coords="835,59,1019,88"/><area shape="rect" id="node31" href="namespacens_game_1_1ns_u_i.html#aa35b115a727779c618ee3cb5bcfd92db" title="Indicates which controls the current player should be using to move." alt="" coords="828,112,1025,141"/><area shape="rect" id="node33" href="namespacens_game_1_1ns_bot.html#a672d5900fd2b28cc26555bd384311099" title="Finds if a player is in attack range, attack if yes else find neareast player and calculate first ele..." alt="" coords="1155,164,1339,193"/><area shape="rect" id="node47" href="namespaceanonymous__namespace_02_game_8cpp_03.html#ad258cfc94a9cbf7d1406073bcdf890f0" title="Gets the user input and if it is a valid control for the current player. If the user doesn&#39;t give any..." alt="" coords="763,216,1091,245"/><area shape="rect" id="node52" href="namespaceanonymous__namespace_02_game_8cpp_03.html#a61468c5167822964f1edaceb52e19c4d" title="Converts an action into a grid axis movement and makes the move." alt="" coords="752,5,1101,35"/><area shape="rect" id="node29" href="namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760" title="Clears the screen with VT100 syntax." alt="" coords="1165,59,1328,88"/><area shape="rect" id="node35" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#ac75166c7ed5b17702e8288ac787fa16d" title="Check if a player is within one case of distance and attack if yes." alt="" coords="1392,111,1824,140"/><area shape="rect" id="node39" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#a4e3486084a0523d45c3c9b0e737f354f" title="Returns the position of the nearest player." alt="" coords="1417,217,1799,247"/><area shape="rect" id="node43" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#ae7a63e32f73e736b1062c1e2db4859dd" title="Uses a simplified implementation of the A* (all movements of the same cost) algorithm to find the nex..." alt="" coords="1452,164,1764,193"/><area shape="rect" id="node37" href="namespacens_helpers.html#adfc1ee78df2b1ac67c9f142bd07b55ab" title="Adds MoveY and MoveX to Position if the position is inbound and if its not an obstacle." alt="" coords="1941,137,2109,167"/><area shape="rect" id="node41" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#a990e6016cead22889fa9863d71c2ea8f" title="Calculates the distances between two points of the grid." alt="" coords="1873,191,2177,220"/><area shape="rect" id="node49" href="namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0" title="Waits for a key to be pressed (blocking) or until the timeout expires." alt="" coords="1149,217,1344,247"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -203,7 +254,29 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00061">61</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00071">71</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    PlayerPositions.resize (PlayerCount);
+
+    PlayerPositions [0] = { 0, 0 }; <span class="comment">// Top right</span>
+
+    <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>.clear ();
+    <a class="code" href="namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8" title="Loads the obstacles positions from file.">nsHelpers::LoadObstaclesFromFile</a> (<a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>, MaxSize);
+
+    <a class="code" href="namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu.">nsMenu::Clear</a> ();
+    <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">nsMenu::AddItem</a> (<span class="stringliteral">&quot;To add or remove an obstacle use the &#39;S&#39; key.&quot;</span>);
+    <a class="code" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t...">nsMenu::AddItem</a> (<span class="stringliteral">&quot;To quit, you must go the top left square.&quot;</span>);
+    <a class="code" href="namespacens_menu.html#a6320374997c73f3c7ec9e62e7976129e" title="Displays the menu, and gets the user selection.">nsMenu::Run</a> ();
+} <span class="comment">// InitializeRound</span>
+</pre></div>
+<p><div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="namespacens_map_editor_ad5d2f1c03c27fc2b691b6b5b424a0d70_cgraph.png" border="0" usemap="#namespacens_map_editor_ad5d2f1c03c27fc2b691b6b5b424a0d70_cgraph" alt=""/></div>
+<map name="namespacens_map_editor_ad5d2f1c03c27fc2b691b6b5b424a0d70_cgraph" id="namespacens_map_editor_ad5d2f1c03c27fc2b691b6b5b424a0d70_cgraph">
+<area shape="rect" id="node3" href="namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8" title="Loads the obstacles positions from file." alt="" coords="243,151,469,180"/><area shape="rect" id="node5" href="namespacens_menu.html#ad60b513721f0857980ec1f79b6d262f7" title="Clears up the previous entries of the menu." alt="" coords="1033,368,1140,397"/><area shape="rect" id="node7" href="namespacens_menu.html#a3f22dc2deebf95258a29617923f342e4" title="Adds an item to menu, which is associated to a callback function, that will be used if said item is t..." alt="" coords="1024,492,1149,521"/><area shape="rect" id="node9" href="namespacens_game.html#a65ba644eceafea8b89f17e95c481d201" title="Main loop, handles just about everything." alt="" coords="305,385,407,415"/><area shape="rect" id="node11" href="namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2" title="Allows getting input without buffering, which means that the user need not press &#39;Enter&#39; to send inpu..." alt="" coords="564,255,817,284"/><area shape="rect" id="node15" href="namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f" title="Parse the configuration file." alt="" coords="597,359,784,388"/><area shape="rect" id="node17" href="namespaceanonymous__namespace_02_game_8cpp_03.html#ad06b7fa3e7542b9c50951fea4ee80633" title="Two step game mode selection screen. It finds all the different game mode type by taking the first pa..." alt="" coords="517,412,864,441"/><area shape="rect" id="node22" href="namespaceanonymous__namespace_02_game_8cpp_03.html#abc419b9d8cd60452edd6f77163eaec4f" title="Asks the user whether he wants a certain player to be played by a bot." alt="" coords="544,465,837,495"/><area shape="rect" id="node27" href="namespaceanonymous__namespace_02_game_8cpp_03.html#a450446ee3bb00bc78d56a3345a712b93" title="Round logic code (player positions, current player, game over etc)" alt="" coords="541,137,840,167"/><area shape="rect" id="node13" href="_console_8cpp.html#a11687f793d56ffdc12bdef8f29adf4e2" title="EnableCanonicalInputMode" alt="" coords="996,269,1177,299"/><area shape="rect" id="node29" href="namespacens_game_1_1ns_u_i.html#a7e8819457b239da8caa0d8bfce795401" title="Displays the borders and the game matrix, applying the correct colors to the tokens." alt="" coords="995,59,1179,88"/><area shape="rect" id="node33" href="namespacens_game_1_1ns_u_i.html#aa35b115a727779c618ee3cb5bcfd92db" title="Indicates which controls the current player should be using to move." alt="" coords="988,112,1185,141"/><area shape="rect" id="node35" href="namespacens_game_1_1ns_bot.html#a672d5900fd2b28cc26555bd384311099" title="Finds if a player is in attack range, attack if yes else find neareast player and calculate first ele..." alt="" coords="1315,164,1499,193"/><area shape="rect" id="node49" href="namespaceanonymous__namespace_02_game_8cpp_03.html#ad258cfc94a9cbf7d1406073bcdf890f0" title="Gets the user input and if it is a valid control for the current player. If the user doesn&#39;t give any..." alt="" coords="923,216,1251,245"/><area shape="rect" id="node54" href="namespaceanonymous__namespace_02_game_8cpp_03.html#a61468c5167822964f1edaceb52e19c4d" title="Converts an action into a grid axis movement and makes the move." alt="" coords="912,5,1261,35"/><area shape="rect" id="node31" href="namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760" title="Clears the screen with VT100 syntax." alt="" coords="1325,59,1488,88"/><area shape="rect" id="node37" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#ac75166c7ed5b17702e8288ac787fa16d" title="Check if a player is within one case of distance and attack if yes." alt="" coords="1552,111,1984,140"/><area shape="rect" id="node41" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#a4e3486084a0523d45c3c9b0e737f354f" title="Returns the position of the nearest player." alt="" coords="1577,217,1959,247"/><area shape="rect" id="node45" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#ae7a63e32f73e736b1062c1e2db4859dd" title="Uses a simplified implementation of the A* (all movements of the same cost) algorithm to find the nex..." alt="" coords="1612,164,1924,193"/><area shape="rect" id="node39" href="namespacens_helpers.html#adfc1ee78df2b1ac67c9f142bd07b55ab" title="Adds MoveY and MoveX to Position if the position is inbound and if its not an obstacle." alt="" coords="2101,137,2269,167"/><area shape="rect" id="node43" href="namespaceanonymous__namespace_02_bot_8cpp_03.html#a990e6016cead22889fa9863d71c2ea8f" title="Calculates the distances between two points of the grid." alt="" coords="2033,191,2337,220"/><area shape="rect" id="node51" href="namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0" title="Waits for a key to be pressed (blocking) or until the timeout expires." alt="" coords="1309,217,1504,247"/></map>
+</div>
+</p>
 
 </div>
 </div>
@@ -222,8 +295,11 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00096">96</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
-
+<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00107">107</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">return</span> !PlayerLifeStates [0];
+} <span class="comment">// IsGameOver</span>
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a6a33702b7126ed006b78b28afc5ef4d4"></a><!-- doxytag: member="nsMapEditor::MovePlayer" ref="a6a33702b7126ed006b78b28afc5ef4d4" args="(const CMatrix &amp;Matrix, CPosition &amp;PlayerPosition, const CPosition &amp;MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)" -->
@@ -269,8 +345,32 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00029">29</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00039">39</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordtype">int</span> DiffY = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span> (MoveY);
+    <span class="keywordtype">int</span> DiffX = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span> (MoveX);
+    
+    <span class="keywordflow">if</span> (0 == DiffX &amp;&amp; 0 == DiffY) <span class="comment">// Stay case, used for add/remove obstacles</span>
+    {
+        CPositions::iterator Iterator = find (<a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>.begin (), <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>.end (), make_pair(PlayerPosition.first + DiffY, PlayerPosition.second + DiffX));
 
+        <span class="keywordflow">if</span> (Iterator == <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>.end ())
+            <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>.push_back (PlayerPosition);
+        <span class="keywordflow">else</span> <a class="code" href="namespaceanonymous__namespace_02_classic1v1_8cpp_03.html#aa2858d23829ba4e8b19f3cfbdf199ac4">ObstaclesPositions</a>.erase (Iterator);
+
+        <span class="keywordflow">return</span>;
+    } <span class="comment">// if (stay)</span>
+
+    <span class="keywordflow">if</span> (PlayerPosition.first + DiffY &lt; 0 || PlayerPosition.first + DiffY &gt;= MatrixSize.first)
+        DiffY = 0;
+
+    <span class="keywordflow">if</span> (PlayerPosition.second + DiffX &lt; 0 || PlayerPosition.second + DiffX &gt;= MatrixSize.second)
+        DiffX = 0;
+
+    PlayerPosition.first += DiffY;
+    PlayerPosition.second += DiffX;
+} <span class="comment">// MovePlayer</span>
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="a4e65839e892d7df446fae14564c5eb90"></a><!-- doxytag: member="nsMapEditor::ShowWinScreen" ref="a4e65839e892d7df446fae14564c5eb90" args="(const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const std::vector&lt; char &gt; &amp;Tokens, const std::vector&lt; unsigned &gt; &amp;TurnCounters)" -->
@@ -304,8 +404,10 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00101">101</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
-
+<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00112">112</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+} <span class="comment">// ShowWinScreen</span>
+</pre></div>
 </div>
 </div>
 <a class="anchor" id="aa361086011ba23a520e471051484be53"></a><!-- doxytag: member="nsMapEditor::ValidatePlayerPositions" ref="aa361086011ba23a520e471051484be53" args="(const CMatrix &amp;Matrix, const CPositions &amp;PlayerPositions, const unsigned CurrentPlayer, std::vector&lt; bool &gt; &amp;PlayerLifeStates)" -->
@@ -345,8 +447,12 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00055">55</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
-
+<p>Definition at line <a class="el" href="_map_editor_8cpp_source.html#l00065">65</a> of file <a class="el" href="_map_editor_8cpp_source.html">MapEditor.cpp</a>.</p>
+<div class="fragment"><pre class="fragment">{
+    <span class="keywordflow">if</span> (PlayerPositions [CurrentPlayer] == make_pair (0, 0)) <span class="comment">// The map editor quits if the player is back to its original position</span>
+        PlayerLifeStates [CurrentPlayer] = <span class="keyword">false</span>;
+} <span class="comment">// ValidatePlayerPositions</span>
+</pre></div>
 </div>
 </div>
 </div><!-- contents -->
@@ -369,7 +475,7 @@ Functions</h2></td></tr>
     <ul>
       <li class="navelem"><a class="el" href="namespacens_map_editor.html">nsMapEditor</a>      </li>
 
-    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
+    <li class="footer">Generated on Sun Jan 12 2014 17:06:47 for CatchMe by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
    </ul>

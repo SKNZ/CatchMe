@@ -14,6 +14,13 @@
 
 #include "../GameMode.h"
 
+/**
+ *
+ * @namespace nsSurvivor2v2
+ * 
+ * @brief Namespace containing everything related to Survivor2v2 game mode.
+ * 
+ **/
 namespace nsSurvivor2v2
 {
     using namespace nsGame;

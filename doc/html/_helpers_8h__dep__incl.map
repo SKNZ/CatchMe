@@ -1,13 +1,15 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_classic1v1_8cpp.html" title="src/GameModes/Classic1v1.cpp" alt="" coords="5,83,216,112"/>
-<area shape="rect" id="node5" href="$_classic1v1v1_8cpp.html" title="src/GameModes/Classic1v1v1.cpp" alt="" coords="240,83,467,112"/>
-<area shape="rect" id="node7" href="$_classic1v1v1v1_8cpp.html" title="src/GameModes/Classic1v1v1v1.cpp" alt="" coords="491,83,731,112"/>
-<area shape="rect" id="node9" href="$_classic2v2_8cpp.html" title="src/GameModes/Classic2v2.cpp" alt="" coords="755,83,965,112"/>
-<area shape="rect" id="node11" href="$_classic3v1_8cpp.html" title="src/GameModes/Classic3v1.cpp" alt="" coords="989,83,1200,112"/>
-<area shape="rect" id="node13" href="$_helpers_8cpp.html" title="Redundant code about player movement, player positions validation, obstacles loading, matrix building." alt="" coords="1224,83,1416,112"/>
-<area shape="rect" id="node15" href="$_survivor1v1_8cpp.html" title="src/GameModes/Survivor1v1.cpp" alt="" coords="1440,83,1656,112"/>
-<area shape="rect" id="node17" href="$_survivor1v1v1_8cpp.html" title="src/GameModes/Survivor1v1v1.cpp" alt="" coords="1680,83,1909,112"/>
-<area shape="rect" id="node19" href="$_survivor1v1v1v1_8cpp.html" title="src/GameModes/Survivor1v1v1v1.cpp" alt="" coords="1933,83,2176,112"/>
-<area shape="rect" id="node21" href="$_survivor2v2_8cpp.html" title="src/GameModes/Survivor2v2.cpp" alt="" coords="2200,83,2416,112"/>
-<area shape="rect" id="node23" href="$_survivor3v1_8cpp.html" title="src/GameModes/Survivor3v1.cpp" alt="" coords="2440,83,2656,112"/>
+<area shape="rect" id="node3" href="$_bot_8cpp.html" title="Bot logic." alt="" coords="5,83,72,112"/>
+<area shape="rect" id="node5" href="$_classic1v1_8cpp.html" title="Classic 1v1 game mode." alt="" coords="96,83,208,112"/>
+<area shape="rect" id="node7" href="$_classic1v1v1_8cpp.html" title="Classic 1v1v1 game mode." alt="" coords="232,83,357,112"/>
+<area shape="rect" id="node9" href="$_classic1v1v1v1_8cpp.html" title="Classic 1v1v1v1 game mode." alt="" coords="381,83,520,112"/>
+<area shape="rect" id="node11" href="$_classic2v2_8cpp.html" title="Classic 2v2 game mode." alt="" coords="544,83,656,112"/>
+<area shape="rect" id="node13" href="$_classic3v1_8cpp.html" title="Classic 3v1 game mode." alt="" coords="680,83,792,112"/>
+<area shape="rect" id="node15" href="$_helpers_8cpp.html" title="Redundant code about player movement, player positions validation, obstacles loading, matrix building." alt="" coords="816,83,907,112"/>
+<area shape="rect" id="node17" href="$_map_editor_8cpp.html" title="Map editor for obstacles." alt="" coords="931,83,1037,112"/>
+<area shape="rect" id="node19" href="$_survivor1v1_8cpp.html" title="Survivor 1v1 game mode." alt="" coords="1061,83,1176,112"/>
+<area shape="rect" id="node21" href="$_survivor1v1v1_8cpp.html" title="Survivor 1v1v1 game mode." alt="" coords="1200,83,1331,112"/>
+<area shape="rect" id="node23" href="$_survivor1v1v1v1_8cpp.html" title="Survivor1v1v1v1 game mode." alt="" coords="1355,83,1499,112"/>
+<area shape="rect" id="node25" href="$_survivor2v2_8cpp.html" title="Survivor 2v2 game mode." alt="" coords="1523,83,1637,112"/>
+<area shape="rect" id="node27" href="$_survivor3v1_8cpp.html" title="Survivor 3v1 game mode." alt="" coords="1661,83,1776,112"/>
 </map>

@@ -1,9 +1,9 @@
 <map id="G" name="G">
-<area shape="rect" id="node3" href="$_config_8h.html" title="src/Config.h" alt="" coords="256,83,349,112"/>
-<area shape="rect" id="node7" href="$_game_8cpp.html" title="Main game file, contains game loop, user interaction." alt="" coords="5,160,109,189"/>
-<area shape="rect" id="node11" href="$_menu_8cpp.html" title="Add item to menu, clear menu, draw menu helpers, run menu definitions." alt="" coords="405,160,507,189"/>
-<area shape="rect" id="node13" href="$_console_8cpp.html" title="src/Console.cpp" alt="" coords="424,83,541,112"/>
-<area shape="rect" id="node15" href="$_game_u_i_8h.html" title="Colors of each token, UI functions declarations." alt="" coords="128,83,232,112"/>
-<area shape="rect" id="node5" href="$_config_8cpp.html" title="src/Config.cpp" alt="" coords="275,160,381,189"/>
-<area shape="rect" id="node9" href="$_game_u_i_8cpp.html" title="Matrix rendering function, current controls display function." alt="" coords="133,160,251,189"/>
+<area shape="rect" id="node3" href="$_config_8h.html" title="XML configuration parser." alt="" coords="216,83,285,112"/>
+<area shape="rect" id="node7" href="$_game_8cpp.html" title="Main game file, contains game loop, user interaction." alt="" coords="5,160,88,189"/>
+<area shape="rect" id="node11" href="$_menu_8cpp.html" title="Add item to menu, clear menu, draw menu helpers, run menu definitions." alt="" coords="341,160,419,189"/>
+<area shape="rect" id="node13" href="$_console_8cpp.html" title="Console manipulation (colors, timed&#45;out noncanonical input, VT100)" alt="" coords="360,83,453,112"/>
+<area shape="rect" id="node15" href="$_game_u_i_8h.html" title="Colors of each token, UI functions declarations." alt="" coords="109,83,192,112"/>
+<area shape="rect" id="node5" href="$_config_8cpp.html" title="XML configuration parser." alt="" coords="232,160,317,189"/>
+<area shape="rect" id="node9" href="$_game_u_i_8cpp.html" title="Matrix rendering function, current controls display function." alt="" coords="112,160,208,189"/>
 </map>
