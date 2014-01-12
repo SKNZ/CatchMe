@@ -62,12 +62,23 @@ void nsSurvivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPosit
 
     int Y = PlayerPositions [CurrentPlayer].first, X = PlayerPositions [CurrentPlayer].second;
 
+    
     bool SurroundedByObstacles = true;
-    for (int i = -1; i < 1; ++i)
-        for (int j = -1; i < 1; ++i)
-            if (Matrix.size () <= Y + i && Y + i >= 0 && Matrix.begin ()->size () <= X + j && X + j >= 0)
-                if (Matrix [Y + i] [X + j] != KTokens [KTokenObstacle])
-                    SurroundedByObstacles = false;
+    std::vector<CPosition> PositionsNearby;
+
+    PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, PlayerPositions [CurrentPlayer], PlayerMovesY::KStay, PlayerMovesX::KRight));
+    PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, PlayerPositions [CurrentPlayer], PlayerMovesY::KStay, PlayerMovesX::KLeft));
+    PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, PlayerPositions [CurrentPlayer], PlayerMovesY::KUp,   PlayerMovesX::KRight));
+    PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, PlayerPositions [CurrentPlayer], PlayerMovesY::KUp,   PlayerMovesX::KLeft));
+    PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, PlayerPositions [CurrentPlayer], PlayerMovesY::KUp,   PlayerMovesX::KStay));
+    PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, PlayerPositions [CurrentPlayer], PlayerMovesY::KDown, PlayerMovesX::KRight));
+    PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, PlayerPositions [CurrentPlayer], PlayerMovesY::KDown, PlayerMovesX::KLeft));
+    PositionsNearby.push_back (nsHelpers::MakePosition (Matrix, PlayerPositions [CurrentPlayer], PlayerMovesY::KDown, PlayerMovesX::KStay));
+    
+    for (CPosition Position : PositionsNearby)
+        if (Matrix [Position.first] [Position.second] != KTokens [KTokenObstacle])
+            SurroundedByObstacles = false;
+
 
     if (SurroundedByObstacles)
         PlayerLifeStates [CurrentPlayer] = false;
