@@ -55,7 +55,13 @@ void nsClassic3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositi
         PlayerLifeStates [AlonePlayer] = false;
 
 	if (CurrentPlayer == AlonePlayer)
+    {
 		AlonePlayerTurnCounters[AlonePlayer]++;
+        
+        for (unsigned i = 0; i < PlayerPositions.size (); ++i)
+            if (PlayerPositions [i] == PlayerPositions [CurrentPlayer] && i != CurrentPlayer)
+                PlayerLifeStates [CurrentPlayer] = false;
+    }
 } // ValidatePlayerPositions
 
 void nsClassic3v1::InitializeRound (CPositions& PlayerPositions, const unsigned PlayerCount, const CPosition& MaxSize)

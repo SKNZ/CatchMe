@@ -90,9 +90,15 @@ namespace
                 return false;
             } // if (valid key && !stay)
         } // if (key pressed)
-        else
+        else if (PlayerLifeStates.size () < 2) // Box only in 1v1
         {
             nsBot::MakeMove (Matrix, PlayerLifeStates, PlayerPositions, CurrentPlayer);
+        }
+        else
+        {
+            srand (time (NULL) );
+            
+            Action = rand () % 9;
         }
 
         return true;

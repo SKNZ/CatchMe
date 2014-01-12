@@ -47,7 +47,11 @@ void nsSurvivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPosit
 {
     if (CurrentPlayer == AlonePlayer)
     {
-		AlonePlayerTurnCounters [AlonePlayer]++;
+		++AlonePlayerTurnCounters [AlonePlayer];
+        
+        for (unsigned i = 0; i < PlayerPositions.size (); ++i)
+            if (PlayerPositions [i] == PlayerPositions [CurrentPlayer] && i != CurrentPlayer)
+                PlayerLifeStates [CurrentPlayer] = false;
     }
     else
     {
@@ -62,7 +66,6 @@ void nsSurvivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPosit
 
     int Y = PlayerPositions [CurrentPlayer].first, X = PlayerPositions [CurrentPlayer].second;
 
-    
     bool SurroundedByObstacles = true;
     std::vector<CPosition> PositionsNearby;
 
