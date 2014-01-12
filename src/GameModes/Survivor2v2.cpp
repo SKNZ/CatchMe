@@ -103,11 +103,11 @@ void nsSurvivor2v2::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, 
         if (PlayerLifeStates [i])
         {
             stringstream Winner;
-            Winner << "Player " << i + 1 << " lasted " << TurnCounters [i] << " rounds.";
+            Winner << "Player " << KTokens [i + 1] << " lasted " << TurnCounters [i] << " rounds.";
             nsMenu::AddItem(Winner.str());
             
             Winner.str (std::string ());
-            Winner << "Player " << ((i + 2) % 2) + 1 << " lasted " << TurnCounters [(i + 2) % 2] << " rounds.";
+            Winner << "Player " << KTokens [(i + 2) % 2] + 1 << " lasted " << TurnCounters [(i + 2) % 2] << " rounds.";
             nsMenu::AddItem(Winner.str());
             break;
         }
