@@ -10,6 +10,7 @@
  **/
 #include <fstream>
 #include <sstream>
+#include <algorithm>
 
 #include "Helpers.h"
 
@@ -44,16 +45,21 @@ void nsHelpers::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosition, co
     PlayerPosition.second += DiffX;
 } // MovePlayer
 
-void nsHelpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates)
+void nsHelpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions, unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates, nsGame::CPositions& ObstaclesPositions)
 {
 	for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
-        if (i == CurrentPlayer || !PlayerLifeStates[i] || !PlayerLifeStates [CurrentPlayer])
+        if (i == CurrentPlayer || !PlayerLifeStates [i])
             continue;
 
         if (PlayerPositions [CurrentPlayer] == PlayerPositions [i])
         {
-            PlayerLifeStates[i] = false;
+            PlayerLifeStates [i] = false;
+
+            CPositions::iterator Iterator = find (ObstaclesPositions.begin (), ObstaclesPositions.end (), PlayerPositions [i]);
+            if (Iterator != ObstaclesPositions.end ())
+                ObstaclesPositions.erase (Iterator);
+
             break;
         } // if (matching position)
     } // foreach (player)

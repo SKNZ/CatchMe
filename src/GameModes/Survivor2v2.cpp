@@ -9,6 +9,7 @@
  *
  **/
 #include <algorithm>
+#include <sstream>
 
 #include "Survivor2v2.h"
 #include "Helpers.h"
@@ -47,7 +48,13 @@ void nsSurvivor2v2::ValidatePlayerPositions (const CMatrix& Matrix, const CPosit
             continue;
 
         if (PlayerPositions [CurrentPlayer] == PlayerPositions [i])
+        {
             PlayerLifeStates[i] = false;
+
+            CPositions::iterator Iterator = find (ObstaclesPositions.begin (), ObstaclesPositions.end (), PlayerPositions [i]);
+            if (Iterator != ObstaclesPositions.end ())
+                ObstaclesPositions.erase (Iterator);
+        }
     } // foreach (player)
 
     for (CPosition Position : ObstaclesPositions)
@@ -86,3 +93,22 @@ bool nsSurvivor2v2::IsGameOver (const vector<bool>& PlayerLifeStates)
 {
     return (!PlayerLifeStates[0] && !PlayerLifeStates[2]) || (!PlayerLifeStates[1] && !PlayerLifeStates[3]);
 } // IsGameOver
+
+void nsSurvivor2v2::ShowWinScreen (const std::vector< bool >& PlayerLifeStates, const std::vector<char>& Tokens, const vector<unsigned>& TurnCounters)
+{
+    nsMenu::Clear ();
+
+    for (unsigned i = 0; i < 4; ++i)
+    {
+        if (PlayerLifeStates [i])
+        {
+            stringstream Winner;
+            Winner << "Player " << i + 1 << " lasted " << TurnCounters [i] << " rounds.";
+            Winner << "Player " << ((i + 2) % 2) + 1 << " lasted " << TurnCounters [(i + 2) % 2] << " rounds.";
+            nsMenu::AddItem(Winner.str());
+            break;
+        }
+    }
+
+    nsMenu::Run (true);
+} // ShowWinScreen

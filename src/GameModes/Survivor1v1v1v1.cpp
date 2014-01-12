@@ -41,7 +41,7 @@ void nsSurvivor1v1v1v1::MovePlayer (const CMatrix& Matrix, CPosition& PlayerPosi
 
 void nsSurvivor1v1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, unsigned CurrentPlayer, vector<bool>& PlayerLifeStates)
 {
-    nsHelpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates);
+    nsHelpers::ValidatePlayerPositionsNoTeam (PlayerPositions, CurrentPlayer, PlayerLifeStates, ObstaclesPositions);
 
     for (CPosition Position : ObstaclesPositions)
             if (PlayerPositions [CurrentPlayer] == Position)

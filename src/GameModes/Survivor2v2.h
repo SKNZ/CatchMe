@@ -29,4 +29,6 @@ namespace nsSurvivor2v2
     void ValidatePlayerPositions (const CMatrix& Matrix, const CPositions& PlayerPositions, const unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
 
     bool IsGameOver (const std::vector<bool>& PlayerLifeStates);
+    
+    void ShowWinScreen (const std::vector< bool >& PlayerLifeStates, const std::vector<char>& Tokens, const std::vector<unsigned>& TurnCounters);
 } // nsSurvivor2v2

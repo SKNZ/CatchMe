@@ -29,7 +29,7 @@ namespace nsHelpers
      * @brief Checks if a player is in a position that is lethal, and if yes, KILL IT !
      * 
      **/
-	void ValidatePlayerPositionsNoTeam (const nsGame::CPositions& PlayerPositions, const unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates);
+	void ValidatePlayerPositionsNoTeam (const nsGame::CPositions& PlayerPositions, const unsigned CurrentPlayer, std::vector<bool>& PlayerLifeStates, nsGame::CPositions& ObstaclesPositions);
 
     /**
      * 
