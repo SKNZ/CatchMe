@@ -9,6 +9,7 @@
  *
  **/
 #include <algorithm>
+#include <iostream>
 
 #include "Survivor1v1v1.h"
 #include "Helpers.h"
@@ -48,7 +49,7 @@ void nsSurvivor1v1v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPos
             PlayerLifeStates [CurrentPlayer] = false;
 
     // If he just died, there will be someone else on his spot, so no obstacle yet.
-    if(PlayerLifeStates [CurrentPlayer] && find (ObstaclesPositions.cbegin(), ObstaclesPositions.cend(), PlayerPositions [CurrentPlayer]) == ObstaclesPositions.cend())
+    if(PlayerLifeStates[CurrentPlayer] && find (ObstaclesPositions.cbegin(), ObstaclesPositions.cend(), PlayerPositions [CurrentPlayer]) == ObstaclesPositions.cend())
         ObstaclesPositions.push_back (PlayerPositions [CurrentPlayer]);
 } // ValidatePlayerPositions
 

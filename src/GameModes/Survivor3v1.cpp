@@ -79,7 +79,6 @@ void nsSurvivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPosit
         if (Matrix [Position.first] [Position.second] != KTokens [KTokenObstacle])
             SurroundedByObstacles = false;
 
-
     if (SurroundedByObstacles)
         PlayerLifeStates [CurrentPlayer] = false;
 } // ValidatePlayerPositions

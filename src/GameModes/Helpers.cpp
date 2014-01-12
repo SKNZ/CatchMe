@@ -48,7 +48,7 @@ void nsHelpers::ValidatePlayerPositionsNoTeam (const CPositions& PlayerPositions
 {
 	for (unsigned i = 0; i < PlayerPositions.size (); ++i)
     {
-        if (i == CurrentPlayer || !PlayerLifeStates[i])
+        if (i == CurrentPlayer || !PlayerLifeStates[i] || !PlayerLifeStates [CurrentPlayer])
             continue;
 
         if (PlayerPositions [CurrentPlayer] == PlayerPositions [i])
