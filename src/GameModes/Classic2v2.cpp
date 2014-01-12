@@ -63,7 +63,7 @@ void nsClassic2v2::InitializeRound (CPositions& PlayerPositions, const unsigned 
 
     nsMenu::Clear ();
 
-    nsMenu::AddItem ("The players 'O' and 'X' form a team against the players '#' and '@'.");
+    nsMenu::AddItem ("The players 'X' and '#' form a team against the players 'O' and '@'.");
 
     nsMenu::Run ();
 } // InitializeRound
