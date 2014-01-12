@@ -7,14 +7,9 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -52,7 +47,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -80,89 +74,83 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-  initNavTree('_console_8h.html','');
-</script>
-<div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">src/Console.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Console manipulation (colors, timed-out noncanonical input, VT100)  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
 </div>
 <p><a href="_console_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_console.html">nsConsole</a></td></tr>
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_console.html#a2b006a25b9fd8113d60201aa69d2547e">nsConsole::Colors</a> { <br/>
-&#160;&#160;<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a7a8296fbe4d5e2043d7736f0f5b6987a">nsConsole::KDefault</a> =  0, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92afa943eacac0bdc032fc2ef6dd5039c0f">nsConsole::KBlack</a> =  30, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a10370085561d03aa99491ed31d0938b8">nsConsole::KRed</a> =  31, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a79865a02b967a317000fa48ee51fe30f">nsConsole::KGreen</a> =  32, 
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>Colors</b> { <br/>
+&#160;&#160;<b>KDefault</b> =  0, 
+<b>KBlack</b> =  30, 
+<b>KRed</b> =  31, 
+<b>KGreen</b> =  32, 
 <br/>
-&#160;&#160;<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92af13a0deff682377c3445964086b1294a">nsConsole::KYellow</a> =  33, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a8c9b58f4f4aafacaf2a542a126dde8a8">nsConsole::KBlue</a> =  34, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92adc0059da01eea3f9724259730bcd5f6f">nsConsole::KMagenta</a> =  35, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a158b783615a72b4514b887314b732346">nsConsole::KCyan</a> =  36, 
+&#160;&#160;<b>KYellow</b> =  33, 
+<b>KBlue</b> =  34, 
+<b>KMagenta</b> =  35, 
+<b>KCyan</b> =  36, 
 <br/>
-&#160;&#160;<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92aace553821de04a5d0957b70c23209631">nsConsole::KWhite</a> =  37
+&#160;&#160;<b>KWhite</b> =  37
 <br/>
  }</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Color codes for each.  <a href="namespacens_console.html#a2b006a25b9fd8113d60201aa69d2547e">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">nsConsole::BackgroundColors</a> { <br/>
-&#160;&#160;<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a7a8296fbe4d5e2043d7736f0f5b6987a">nsConsole::KDefault</a> =  0, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92afa943eacac0bdc032fc2ef6dd5039c0f">nsConsole::KBlack</a> =  30, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a10370085561d03aa99491ed31d0938b8">nsConsole::KRed</a> =  31, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a79865a02b967a317000fa48ee51fe30f">nsConsole::KGreen</a> =  32, 
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Color codes for each. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>BackgroundColors</b> { <br/>
+&#160;&#160;<b>KDefault</b> =  0, 
+<b>KBlack</b> =  30, 
+<b>KRed</b> =  31, 
+<b>KGreen</b> =  32, 
 <br/>
-&#160;&#160;<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92af13a0deff682377c3445964086b1294a">nsConsole::KYellow</a> =  33, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a8c9b58f4f4aafacaf2a542a126dde8a8">nsConsole::KBlue</a> =  34, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92adc0059da01eea3f9724259730bcd5f6f">nsConsole::KMagenta</a> =  35, 
-<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a158b783615a72b4514b887314b732346">nsConsole::KCyan</a> =  36, 
+&#160;&#160;<b>KYellow</b> =  33, 
+<b>KBlue</b> =  34, 
+<b>KMagenta</b> =  35, 
+<b>KCyan</b> =  36, 
 <br/>
-&#160;&#160;<a class="el" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92aace553821de04a5d0957b70c23209631">nsConsole::KWhite</a> =  37
+&#160;&#160;<b>KWhite</b> =  37
 <br/>
  }</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_console.html#a319f543b9617b49511d3f15601d0fafe">nsConsole::operator&lt;&lt;</a> (std::ostream &amp;os, const Colors &amp;Color)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Colors output with VT100 syntax.  <a href="#a319f543b9617b49511d3f15601d0fafe"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_console.html#a1b3bc93290449637f067ffbb1d066be2">nsConsole::operator&lt;&lt;</a> (std::ostream &amp;os, const BackgroundColors &amp;Color)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Colors output background with VT100 syntax.  <a href="#a1b3bc93290449637f067ffbb1d066be2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_console.html#ac8b1a3aaab212002544047d5e4dc7760">nsConsole::ClearScreen</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a319f543b9617b49511d3f15601d0fafe"></a><!-- doxytag: member="Console.h::operator&lt;&lt;" ref="a319f543b9617b49511d3f15601d0fafe" args="(std::ostream &amp;os, const Colors &amp;Color)" -->
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>nsConsole::operator&lt;&lt;</b> (std::ostream &amp;os, const Colors &amp;Color)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Colors output with VT100 syntax. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b3bc93290449637f067ffbb1d066be2"></a><!-- doxytag: member="Console.h::operator&lt;&lt;" ref="a1b3bc93290449637f067ffbb1d066be2" args="(std::ostream &amp;os, const BackgroundColors &amp;Color)" -->
+std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>nsConsole::operator&lt;&lt;</b> (std::ostream &amp;os, const BackgroundColors &amp;Color)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Colors output background with VT100 syntax. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>nsConsole::ClearScreen</b> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the screen with VT100 syntax.  <a href="#ac8b1a3aaab212002544047d5e4dc7760"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_console.html#ac5958f532f21346c94f1ec7673f8bbc0">nsConsole::WaitForKeyPress</a> (const unsigned TimeOut)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><b>nsConsole::WaitForKeyPress</b> (const unsigned TimeOut)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for a key to be pressed (blocking) or until the timeout expires.  <a href="#ac5958f532f21346c94f1ec7673f8bbc0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_console.html#abb271f7b7c031e51203ef89c1bed1526">nsConsole::GetScreenSize</a> (unsigned &amp;x, unsigned &amp;y)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the count of rows and columns in the terminal.  <a href="#abb271f7b7c031e51203ef89c1bed1526"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_console.html#ab0125c89d85be43034d3934b9ec504f2">nsConsole::DisableCanonicalInputMode</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abb271f7b7c031e51203ef89c1bed1526"></a><!-- doxytag: member="Console.h::GetScreenSize" ref="abb271f7b7c031e51203ef89c1bed1526" args="(unsigned &amp;x, unsigned &amp;y)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nsConsole::GetScreenSize</b> (unsigned &amp;x, unsigned &amp;y)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the count of rows and columns in the terminal. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><b>nsConsole::DisableCanonicalInputMode</b> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows getting input without buffering, which means that the user need not press 'Enter' to send input.  <a href="#ab0125c89d85be43034d3934b9ec504f2"></a><br/></td></tr>
 </table>
-</div><!-- contents -->
-</div>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Console manipulation (colors, timed-out noncanonical input, VT100) </p>
+<dl class="author"><dt><b>Author:</b></dt><dd>F. Narenji, O. Richit, H. Morales, V. Pelegrin</dd></dl>
+<dl class="date"><dt><b>Date:</b></dt><dd>12/01/2014 </dd></dl>
+
+<p>Definition in file <a class="el" href="_console_8h_source.html">Console.h</a>.</p>
+</div></div><!-- contents -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -171,16 +159,13 @@ Functions</h2></td></tr>
 </iframe>
 </div>
 
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="_console_8h.html">Console.h</a>      </li>
 
-    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
-   </ul>
- </div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
 
 </body>
 </html>

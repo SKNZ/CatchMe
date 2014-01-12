@@ -7,14 +7,9 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -52,7 +47,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -80,19 +74,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-  initNavTree('_map_editor_8h.html','');
-</script>
-<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">src/GameModes/MapEditor.h</div>  </div>
@@ -105,32 +86,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00014"></a>00014 
 <a name="l00015"></a>00015 <span class="preprocessor">#include &quot;../GameMode.h&quot;</span>
 <a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="namespacens_map_editor.html">00017</a> <span class="keyword">namespace </span>nsMapEditor
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>nsMapEditor
 <a name="l00018"></a>00018 {
 <a name="l00019"></a>00019     <span class="keyword">using namespace </span>nsGame;
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021     <span class="keywordtype">void</span> <a class="code" href="namespacens_map_editor.html#a99bd4a66ae07a657b95abe92d8ccbb27">GetSize</a> (<a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; Size);
+<a name="l00021"></a>00021     <span class="keywordtype">void</span> GetSize (CPosition&amp; Size);
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023     <span class="keywordtype">void</span> <a class="code" href="namespacens_map_editor.html#a6a33702b7126ed006b78b28afc5ef4d4">MovePlayer</a> (<span class="keyword">const</span> <a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">CMatrix</a>&amp; Matrix, <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; PlayerPosition, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; MatrixSize, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e" title="Moves on the Y axis.">PlayerMovesY</a> MoveY, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa" title="Moves on the X axis.">PlayerMovesX</a> MoveX);
+<a name="l00023"></a>00023     <span class="keywordtype">void</span> MovePlayer (<span class="keyword">const</span> CMatrix&amp; Matrix, CPosition&amp; PlayerPosition, <span class="keyword">const</span> CPosition&amp; MatrixSize, <span class="keyword">const</span> PlayerMovesY MoveY, <span class="keyword">const</span> PlayerMovesX MoveX);
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025     <span class="keywordtype">void</span> <a class="code" href="namespacens_map_editor.html#ad5d2f1c03c27fc2b691b6b5b424a0d70">InitializeRound</a> (<a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> PlayerCount, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">CPosition</a>&amp; MaxSize);
+<a name="l00025"></a>00025     <span class="keywordtype">void</span> InitializeRound (CPositions&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> PlayerCount, <span class="keyword">const</span> CPosition&amp; MaxSize);
 <a name="l00026"></a>00026 
-<a name="l00027"></a>00027     <span class="keywordtype">void</span> <a class="code" href="namespacens_map_editor.html#a66842d4c7d658111020ed8103ce05d53">BuildMatrix</a> (<a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> <span class="keywordtype">char</span> EmptyToken);
+<a name="l00027"></a>00027     <span class="keywordtype">void</span> BuildMatrix (CMatrix&amp; Matrix, <span class="keyword">const</span> CPositions&amp; PlayerPositions, <span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> <span class="keywordtype">char</span> EmptyToken);
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029     <span class="keywordtype">void</span> <a class="code" href="namespacens_map_editor.html#aa361086011ba23a520e471051484be53">ValidatePlayerPositions</a> (<span class="keyword">const</span> <a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> CurrentPlayer, std::vector&lt;bool&gt;&amp; PlayerLifeStates);
+<a name="l00029"></a>00029     <span class="keywordtype">void</span> ValidatePlayerPositions (<span class="keyword">const</span> CMatrix&amp; Matrix, <span class="keyword">const</span> CPositions&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> CurrentPlayer, std::vector&lt;bool&gt;&amp; PlayerLifeStates);
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031     <span class="keywordtype">bool</span> <a class="code" href="namespacens_map_editor.html#a9af6cd002027e68135cacf29223962f2">IsGameOver</a> (<span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates);
+<a name="l00031"></a>00031     <span class="keywordtype">bool</span> IsGameOver (<span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates);
 <a name="l00032"></a>00032 
-<a name="l00033"></a>00033     <span class="keywordtype">void</span> <a class="code" href="namespacens_map_editor.html#a4e65839e892d7df446fae14564c5eb90">ShowWinScreen</a> (<span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> std::vector&lt;char&gt;&amp; Tokens, <span class="keyword">const</span> std::vector&lt;unsigned&gt;&amp; TurnCounters);
-<a name="l00034"></a>00034 }
+<a name="l00033"></a>00033     <span class="keywordtype">void</span> ShowWinScreen (<span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> std::vector&lt;char&gt;&amp; Tokens, <span class="keyword">const</span> std::vector&lt;unsigned&gt;&amp; TurnCounters);
+<a name="l00034"></a>00034 } <span class="comment">// nsMapEditor</span>
 </pre></div></div><!-- contents -->
-</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -139,16 +119,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="_map_editor_8h.html">MapEditor.h</a>      </li>
 
-    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
-   </ul>
- </div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
 
 </body>
 </html>

@@ -1,22 +1,4 @@
 var searchData=
 [
-  ['name',['Name',['../structns_game_1_1_s_game_mode.html#a04fb507bb38cabe3d8db0f3da8e4f642',1,'nsGame::SGameMode']]],
-  ['nsbot',['nsBot',['../namespacens_game_1_1ns_bot.html',1,'nsGame']]],
-  ['nsclassic1v1',['nsClassic1v1',['../namespacens_classic1v1.html',1,'']]],
-  ['nsclassic1v1v1',['nsClassic1v1v1',['../namespacens_classic1v1v1.html',1,'']]],
-  ['nsclassic1v1v1v1',['nsClassic1v1v1v1',['../namespacens_classic1v1v1v1.html',1,'']]],
-  ['nsclassic2v2',['nsClassic2v2',['../namespacens_classic2v2.html',1,'']]],
-  ['nsclassic3v1',['nsClassic3v1',['../namespacens_classic3v1.html',1,'']]],
-  ['nsconfig',['nsConfig',['../namespacens_game_1_1ns_config.html',1,'nsGame']]],
-  ['nsconsole',['nsConsole',['../namespacens_console.html',1,'']]],
-  ['nsgame',['nsGame',['../namespacens_game.html',1,'']]],
-  ['nshelpers',['nsHelpers',['../namespacens_helpers.html',1,'']]],
-  ['nsmapeditor',['nsMapEditor',['../namespacens_map_editor.html',1,'']]],
-  ['nsmenu',['nsMenu',['../namespacens_menu.html',1,'']]],
-  ['nssurvivor1v1',['nsSurvivor1v1',['../namespacens_survivor1v1.html',1,'']]],
-  ['nssurvivor1v1v1',['nsSurvivor1v1v1',['../namespacens_survivor1v1v1.html',1,'']]],
-  ['nssurvivor1v1v1v1',['nsSurvivor1v1v1v1',['../namespacens_survivor1v1v1v1.html',1,'']]],
-  ['nssurvivor2v2',['nsSurvivor2v2',['../namespacens_survivor2v2.html',1,'']]],
-  ['nssurvivor3v1',['nsSurvivor3v1',['../namespacens_survivor3v1.html',1,'']]],
-  ['nsui',['nsUI',['../namespacens_game_1_1ns_u_i.html',1,'nsGame']]]
+  ['name',['Name',['../structns_game_1_1_s_game_mode.html#a04fb507bb38cabe3d8db0f3da8e4f642',1,'nsGame::SGameMode']]]
 ];

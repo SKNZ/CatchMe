@@ -7,14 +7,9 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -52,7 +47,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -80,65 +74,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-  initNavTree('_config_8cpp.html','');
-</script>
-<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">src/Config.cpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="_config_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span>
-<a name="l00002"></a>00002 <span class="preprocessor">#include &lt;boost/property_tree/xml_parser.hpp&gt;</span>
-<a name="l00003"></a>00003 
-<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;<a class="code" href="_config_8h.html">Config.h</a>&quot;</span>
-<a name="l00005"></a>00005 
-<a name="l00006"></a>00006 <span class="keyword">using namespace </span>nsGame;
-<a name="l00007"></a>00007 <span class="keyword">using namespace </span>nsConsole;
-<a name="l00008"></a>00008 
-<a name="l00009"></a><a class="code" href="namespacens_game_1_1ns_config.html#a177402f6759e85b27f51aa9e073de896">00009</a> <span class="keywordtype">unsigned</span>            <a class="code" href="namespacens_game_1_1ns_config.html#a177402f6759e85b27f51aa9e073de896" title="The interval between each render loop.">nsConfig::RenderLoopInterval</a>;
-<a name="l00010"></a><a class="code" href="namespacens_game_1_1ns_config.html#a9857fc6e26e70dd33e0b361d6fdbab03">00010</a> <span class="keywordtype">unsigned</span>            <a class="code" href="namespacens_game_1_1ns_config.html#a9857fc6e26e70dd33e0b361d6fdbab03" title="The duration during which the game will be suspended to let the player read the error message...">nsConfig::ErrorMessageDisplayTime</a>;
-<a name="l00011"></a><a class="code" href="namespacens_game_1_1ns_config.html#ac99eba4e33c080bb9edc80d5cff37762">00011</a> <span class="keywordtype">unsigned</span>            <a class="code" href="namespacens_game_1_1ns_config.html#ac99eba4e33c080bb9edc80d5cff37762" title="How long should we wait for a player to give us something before we fuck him up ?">nsConfig::TurnTimeoutDelay</a>;
-<a name="l00012"></a><a class="code" href="namespacens_game_1_1ns_config.html#ae369bb47bd2970a41e1228f479f404bd">00012</a> <span class="keywordtype">unsigned</span>            <a class="code" href="namespacens_game_1_1ns_config.html#ae369bb47bd2970a41e1228f479f404bd" title="How long the bot should wait before making his move (its aimed at making it look more real)...">nsConfig::BotPlayDelay</a>;
-<a name="l00013"></a><a class="code" href="namespacens_game_1_1ns_config.html#ab315290eca6fc0a908ed88f18f4e3d45">00013</a> <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a>    <a class="code" href="namespacens_game_1_1ns_config.html#ab315290eca6fc0a908ed88f18f4e3d45" title="The color of the the game matrix border.">nsConfig::BorderColor</a>;
-<a name="l00014"></a><a class="code" href="namespacens_game_1_1ns_config.html#a7b7a70126d734498983c2863139c120d">00014</a> <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a>    <a class="code" href="namespacens_game_1_1ns_config.html#a7b7a70126d734498983c2863139c120d" title="The color of the the game matrix case (even)">nsConfig::CaseColor1</a>;
-<a name="l00015"></a><a class="code" href="namespacens_game_1_1ns_config.html#a3f03de439e2ef6ce0f76d53a0cb15370">00015</a> <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a>    <a class="code" href="namespacens_game_1_1ns_config.html#a3f03de439e2ef6ce0f76d53a0cb15370" title="The color of the the game matrix case (uneven)">nsConfig::CaseColor2</a>;
-<a name="l00016"></a><a class="code" href="namespacens_game_1_1ns_config.html#ab5f445715a4948903379970b3e49e78d">00016</a> <a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a>    <a class="code" href="namespacens_game_1_1ns_config.html#ab5f445715a4948903379970b3e49e78d" title="The color of the the menu border.">nsConfig::MenuBorderColor</a>;
-<a name="l00017"></a>00017 
-<a name="l00018"></a><a class="code" href="namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f">00018</a> <span class="keywordtype">void</span> <a class="code" href="namespacens_game_1_1ns_config.html#a46aba20f254d0b313092aec44ce01f1f" title="Parse the configuration file.">nsGame::nsConfig::LoadFile</a> ()
-<a name="l00019"></a>00019 {
-<a name="l00020"></a>00020     <span class="keyword">using</span> boost::property_tree::ptree;
-<a name="l00021"></a>00021     ptree PropertyTree;
-<a name="l00022"></a>00022     
-<a name="l00023"></a>00023     read_xml (<a class="code" href="namespacens_game_1_1ns_config.html#af3ec071cffecb4d90e1301736358a5c8" title="The name of the config file.">KFileName</a>, PropertyTree);
-<a name="l00024"></a>00024     
-<a name="l00025"></a>00025     <a class="code" href="namespacens_game_1_1ns_config.html#a177402f6759e85b27f51aa9e073de896" title="The interval between each render loop.">RenderLoopInterval</a>      = PropertyTree.get (<span class="stringliteral">&quot;Conf.RenderLoopInterval&quot;</span>,         100);
-<a name="l00026"></a>00026     <a class="code" href="namespacens_game_1_1ns_config.html#a9857fc6e26e70dd33e0b361d6fdbab03" title="The duration during which the game will be suspended to let the player read the error message...">ErrorMessageDisplayTime</a> = PropertyTree.get (<span class="stringliteral">&quot;Conf.ErrorMessageDisplayTime&quot;</span>,    1000);
-<a name="l00027"></a>00027     <a class="code" href="namespacens_game_1_1ns_config.html#ac99eba4e33c080bb9edc80d5cff37762" title="How long should we wait for a player to give us something before we fuck him up ?">TurnTimeoutDelay</a>        = PropertyTree.get (<span class="stringliteral">&quot;Conf.TurnTimeoutDelay&quot;</span>,           15000);
-<a name="l00028"></a>00028     <a class="code" href="namespacens_game_1_1ns_config.html#ae369bb47bd2970a41e1228f479f404bd" title="How long the bot should wait before making his move (its aimed at making it look more real)...">BotPlayDelay</a>            = PropertyTree.get (<span class="stringliteral">&quot;Conf.BotPlayDelay&quot;</span>,               500);
-<a name="l00029"></a>00029     <a class="code" href="namespacens_game_1_1ns_config.html#ab315290eca6fc0a908ed88f18f4e3d45" title="The color of the the game matrix border.">BorderColor</a>             = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a><span class="keyword">&gt;</span> (PropertyTree.get (<span class="stringliteral">&quot;Conf.BorderColor&quot;</span>,      static_cast&lt;int&gt; (<a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a79865a02b967a317000fa48ee51fe30f">BackgroundColors::KGreen</a>)));
-<a name="l00030"></a>00030     <a class="code" href="namespacens_game_1_1ns_config.html#a7b7a70126d734498983c2863139c120d" title="The color of the the game matrix case (even)">CaseColor1</a>              = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a><span class="keyword">&gt;</span> (PropertyTree.get (<span class="stringliteral">&quot;Conf.CaseColor1&quot;</span>,       static_cast&lt;int&gt; (<a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92afa943eacac0bdc032fc2ef6dd5039c0f">BackgroundColors::KBlack</a>)));
-<a name="l00031"></a>00031     <a class="code" href="namespacens_game_1_1ns_config.html#a3f03de439e2ef6ce0f76d53a0cb15370" title="The color of the the game matrix case (uneven)">CaseColor2</a>              = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a><span class="keyword">&gt;</span> (PropertyTree.get (<span class="stringliteral">&quot;Conf.CaseColor2&quot;</span>,       static_cast&lt;int&gt; (<a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92a8c9b58f4f4aafacaf2a542a126dde8a8">BackgroundColors::KBlue</a>)));
-<a name="l00032"></a>00032     <a class="code" href="namespacens_game_1_1ns_config.html#ab5f445715a4948903379970b3e49e78d" title="The color of the the menu border.">MenuBorderColor</a>         = <span class="keyword">static_cast&lt;</span><a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92">BackgroundColors</a><span class="keyword">&gt;</span> (PropertyTree.get (<span class="stringliteral">&quot;Conf.MenuBorderColor&quot;</span>,  static_cast&lt;int&gt; (<a class="code" href="namespacens_console.html#a8382acd23e0cb9d131bf423741b43a92adc0059da01eea3f9724259730bcd5f6f">BackgroundColors::KMagenta</a>)));
-<a name="l00033"></a>00033 } <span class="comment">// LoadFile</span>
+<a href="_config_8cpp.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 
+<a name="l00011"></a>00011 <span class="preprocessor">#include &lt;boost/property_tree/ptree.hpp&gt;</span>
+<a name="l00012"></a>00012 <span class="preprocessor">#include &lt;boost/property_tree/xml_parser.hpp&gt;</span>
+<a name="l00013"></a>00013 
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_config_8h.html" title="XML configuration parser.">Config.h</a>&quot;</span>
+<a name="l00015"></a>00015 
+<a name="l00016"></a>00016 <span class="keyword">using namespace </span>nsGame;
+<a name="l00017"></a>00017 <span class="keyword">using namespace </span>nsConsole;
+<a name="l00018"></a>00018 
+<a name="l00019"></a>00019 <span class="keywordtype">unsigned</span>            nsConfig::RenderLoopInterval;
+<a name="l00020"></a>00020 <span class="keywordtype">unsigned</span>            nsConfig::ErrorMessageDisplayTime;
+<a name="l00021"></a>00021 <span class="keywordtype">unsigned</span>            nsConfig::TurnTimeoutDelay;
+<a name="l00022"></a>00022 <span class="keywordtype">unsigned</span>            nsConfig::BotPlayDelay;
+<a name="l00023"></a>00023 BackgroundColors    nsConfig::BorderColor;
+<a name="l00024"></a>00024 BackgroundColors    nsConfig::CaseColor1;
+<a name="l00025"></a>00025 BackgroundColors    nsConfig::CaseColor2;
+<a name="l00026"></a>00026 BackgroundColors    nsConfig::MenuBorderColor;
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keywordtype">void</span> nsGame::nsConfig::LoadFile ()
+<a name="l00029"></a>00029 {
+<a name="l00030"></a>00030     <span class="keyword">using</span> boost::property_tree::ptree;
+<a name="l00031"></a>00031     ptree PropertyTree;
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033     read_xml (KFileName, PropertyTree);
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035     RenderLoopInterval      = PropertyTree.get (<span class="stringliteral">&quot;Conf.RenderLoopInterval&quot;</span>,         100);
+<a name="l00036"></a>00036     ErrorMessageDisplayTime = PropertyTree.get (<span class="stringliteral">&quot;Conf.ErrorMessageDisplayTime&quot;</span>,    1000);
+<a name="l00037"></a>00037     TurnTimeoutDelay        = PropertyTree.get (<span class="stringliteral">&quot;Conf.TurnTimeoutDelay&quot;</span>,           15000);
+<a name="l00038"></a>00038     BotPlayDelay            = PropertyTree.get (<span class="stringliteral">&quot;Conf.BotPlayDelay&quot;</span>,               500);
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040     BorderColor             = <span class="keyword">static_cast&lt;</span>BackgroundColors<span class="keyword">&gt;</span> (PropertyTree.get (<span class="stringliteral">&quot;Conf.BorderColor&quot;</span>,      static_cast&lt;int&gt; (BackgroundColors::KGreen)));
+<a name="l00041"></a>00041     CaseColor1              = <span class="keyword">static_cast&lt;</span>BackgroundColors<span class="keyword">&gt;</span> (PropertyTree.get (<span class="stringliteral">&quot;Conf.CaseColor1&quot;</span>,       static_cast&lt;int&gt; (BackgroundColors::KBlack)));
+<a name="l00042"></a>00042     CaseColor2              = <span class="keyword">static_cast&lt;</span>BackgroundColors<span class="keyword">&gt;</span> (PropertyTree.get (<span class="stringliteral">&quot;Conf.CaseColor2&quot;</span>,       static_cast&lt;int&gt; (BackgroundColors::KBlue)));
+<a name="l00043"></a>00043     MenuBorderColor         = <span class="keyword">static_cast&lt;</span>BackgroundColors<span class="keyword">&gt;</span> (PropertyTree.get (<span class="stringliteral">&quot;Conf.MenuBorderColor&quot;</span>,  static_cast&lt;int&gt; (BackgroundColors::KMagenta)));
+<a name="l00044"></a>00044 } <span class="comment">// LoadFile</span>
 </pre></div></div><!-- contents -->
-</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -147,16 +129,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="_config_8cpp.html">Config.cpp</a>      </li>
 
-    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
-   </ul>
- </div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
 
 </body>
 </html>

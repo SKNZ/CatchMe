@@ -17,6 +17,8 @@ namespace nsGame
 {
     /**
      * 
+     * @enum PlayerMovesY
+     * 
      * @brief Moves on the Y axis.
      * 
      **/
@@ -28,6 +30,8 @@ namespace nsGame
     }; // PlayerMovesY
 
     /**
+     * 
+     * @enum PlayerMovesX
      * 
      * @brief Moves on the X axis.
      * 
@@ -65,6 +69,8 @@ namespace nsGame
                                 std::vector<unsigned> TurnCounters)> FShowWinScreen;
 
     /**
+     * 
+     * @struct SGame GameMode.h
      * 
      * @brief A game mode !
      * 

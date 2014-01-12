@@ -7,14 +7,9 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -52,7 +47,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -80,20 +74,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
 </div>
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
+
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><b>nsGame</b>      </li>
+      <li class="navelem"><a class="el" href="structns_game_1_1_s_game_mode.html">SGameMode</a>      </li>
+    </ul>
   </div>
 </div>
-<script type="text/javascript">
-  initNavTree('structns_game_1_1_s_game_mode.html','');
-</script>
-<div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-attribs">Public Attributes</a>  </div>
@@ -106,103 +107,55 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <a href="structns_game_1_1_s_game_mode.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_game_mode_8h_source.html">GameMode.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for nsGame::SGameMode:</div>
-<div class="dyncontent">
-<div class="center"><img src="structns_game_1_1_s_game_mode__coll__graph.png" border="0" usemap="#ns_game_1_1_s_game_mode_coll__map" alt="Collaboration graph"/></div>
-<map name="ns_game_1_1_s_game_mode_coll__map" id="ns_game_1_1_s_game_mode_coll__map">
-<area shape="rect" id="node2" title="STL class." alt="" coords="48,85,128,115"/><area shape="rect" id="node4" title="STL class." alt="" coords="5,5,171,35"/></map>
-<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 
 <p><a href="structns_game_1_1_s_game_mode-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a04fb507bb38cabe3d8db0f3da8e4f642">Name</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the game mode.  <a href="#a04fb507bb38cabe3d8db0f3da8e4f642"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a27860a9c7777b0b14dd90ef0d8185e6e">PlayerCount</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of players that will play the game. Limited to 4 because max 4 sets of controls...  <a href="#a27860a9c7777b0b14dd90ef0d8185e6e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a7565197ae8453df86f14d5cb0d40d19c">RoundCount</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of rounds that must be played before a winner can be declared.  <a href="#a7565197ae8453df86f14d5cb0d40d19c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a6eec70491ecf2edb07713577d82a93d5">AllowStay</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If a player is allowed not to move on purpose at any time (skip his turn).  <a href="#a6eec70491ecf2edb07713577d82a93d5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_game.html#a42aed30e26cb4c1b135a4a79c05e1cd8">FGetSize</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a2b920fec1fcaee07e81073d9dd8ab028">GetSize</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the grid.  <a href="#a2b920fec1fcaee07e81073d9dd8ab028"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_game.html#a8eccf8769b4b292af96a85df2cd01b19">FMovePlayer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#ab78305fade6652d6a551edbced103f6e">MovePlayer</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a player in a certain direction, checks for walls and plays beeping sound if wall is hit (last part is not tested).  <a href="#ab78305fade6652d6a551edbced103f6e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_game.html#ae2c0b38407cfe08bc43baedfcf5594c5">FInitializeRound</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a67262bc8fbd448e6bd48394e5231b161">InitializeRound</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a04fb507bb38cabe3d8db0f3da8e4f642"></a><!-- doxytag: member="nsGame::SGameMode::Name" ref="a04fb507bb38cabe3d8db0f3da8e4f642" args="" -->
+std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a04fb507bb38cabe3d8db0f3da8e4f642">Name</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the game mode. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27860a9c7777b0b14dd90ef0d8185e6e"></a><!-- doxytag: member="nsGame::SGameMode::PlayerCount" ref="a27860a9c7777b0b14dd90ef0d8185e6e" args="" -->
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a27860a9c7777b0b14dd90ef0d8185e6e">PlayerCount</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of players that will play the game. Limited to 4 because max 4 sets of controls... <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7565197ae8453df86f14d5cb0d40d19c"></a><!-- doxytag: member="nsGame::SGameMode::RoundCount" ref="a7565197ae8453df86f14d5cb0d40d19c" args="" -->
+unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a7565197ae8453df86f14d5cb0d40d19c">RoundCount</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The number of rounds that must be played before a winner can be declared. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6eec70491ecf2edb07713577d82a93d5"></a><!-- doxytag: member="nsGame::SGameMode::AllowStay" ref="a6eec70491ecf2edb07713577d82a93d5" args="" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a6eec70491ecf2edb07713577d82a93d5">AllowStay</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If a player is allowed not to move on purpose at any time (skip his turn). <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b920fec1fcaee07e81073d9dd8ab028"></a><!-- doxytag: member="nsGame::SGameMode::GetSize" ref="a2b920fec1fcaee07e81073d9dd8ab028" args="" -->
+FGetSize&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a2b920fec1fcaee07e81073d9dd8ab028">GetSize</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the grid. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab78305fade6652d6a551edbced103f6e"></a><!-- doxytag: member="nsGame::SGameMode::MovePlayer" ref="ab78305fade6652d6a551edbced103f6e" args="" -->
+FMovePlayer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#ab78305fade6652d6a551edbced103f6e">MovePlayer</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves a player in a certain direction, checks for walls and plays beeping sound if wall is hit (last part is not tested). <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">FInitializeRound&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a67262bc8fbd448e6bd48394e5231b161">InitializeRound</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Each player gets a corner of the grid.  <a href="#a67262bc8fbd448e6bd48394e5231b161"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_game.html#ab8d04e687323030d33b4459425687120">FBuildMatrix</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#acafa4ee432a6d419da5b1a84002cf99e">BuildMatrix</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the Matrix to reflect the new positions of the players, barriers etc etc.  <a href="#acafa4ee432a6d419da5b1a84002cf99e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_game.html#aeb2effdbf1997d66839bc85351c1755a">FValidatePlayerPositions</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a2add636f2490c13f6de6e084b58ae652">ValidatePlayerPositions</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a players position overlaps with another one.  <a href="#a2add636f2490c13f6de6e084b58ae652"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_game.html#acf17db36f58b1cde2d4711c07497e938">FIsGameOver</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#ad8b3e82a1b21ea0d6931c299b167eba5">IsGameOver</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not the game is over.  <a href="#ad8b3e82a1b21ea0d6931c299b167eba5"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacens_game.html#a53bfd68f423d2342b57a22a41da67331">FShowWinScreen</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a82d6f10456594a7dcad56349161c7f57">ShowWinScreen</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Show the win screen.  <a href="#a82d6f10456594a7dcad56349161c7f57"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acafa4ee432a6d419da5b1a84002cf99e"></a><!-- doxytag: member="nsGame::SGameMode::BuildMatrix" ref="acafa4ee432a6d419da5b1a84002cf99e" args="" -->
+FBuildMatrix&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#acafa4ee432a6d419da5b1a84002cf99e">BuildMatrix</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the Matrix to reflect the new positions of the players, barriers etc etc. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2add636f2490c13f6de6e084b58ae652"></a><!-- doxytag: member="nsGame::SGameMode::ValidatePlayerPositions" ref="a2add636f2490c13f6de6e084b58ae652" args="" -->
+FValidatePlayerPositions&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a2add636f2490c13f6de6e084b58ae652">ValidatePlayerPositions</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a players position overlaps with another one. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8b3e82a1b21ea0d6931c299b167eba5"></a><!-- doxytag: member="nsGame::SGameMode::IsGameOver" ref="ad8b3e82a1b21ea0d6931c299b167eba5" args="" -->
+FIsGameOver&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#ad8b3e82a1b21ea0d6931c299b167eba5">IsGameOver</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether or not the game is over. <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a82d6f10456594a7dcad56349161c7f57"></a><!-- doxytag: member="nsGame::SGameMode::ShowWinScreen" ref="a82d6f10456594a7dcad56349161c7f57" args="" -->
+FShowWinScreen&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structns_game_1_1_s_game_mode.html#a82d6f10456594a7dcad56349161c7f57">ShowWinScreen</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Show the win screen. <br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A game mode ! </p>
 
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00070">70</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
+<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00072">72</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
 </div><hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a6eec70491ecf2edb07713577d82a93d5"></a><!-- doxytag: member="nsGame::SGameMode::AllowStay" ref="a6eec70491ecf2edb07713577d82a93d5" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="structns_game_1_1_s_game_mode.html#a6eec70491ecf2edb07713577d82a93d5">nsGame::SGameMode::AllowStay</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>If a player is allowed not to move on purpose at any time (skip his turn). </p>
-
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00098">98</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acafa4ee432a6d419da5b1a84002cf99e"></a><!-- doxytag: member="nsGame::SGameMode::BuildMatrix" ref="acafa4ee432a6d419da5b1a84002cf99e" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacens_game.html#ab8d04e687323030d33b4459425687120">FBuildMatrix</a> <a class="el" href="structns_game_1_1_s_game_mode.html#acafa4ee432a6d419da5b1a84002cf99e">nsGame::SGameMode::BuildMatrix</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Update the Matrix to reflect the new positions of the players, barriers etc etc. </p>
-
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00132">132</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2b920fec1fcaee07e81073d9dd8ab028"></a><!-- doxytag: member="nsGame::SGameMode::GetSize" ref="a2b920fec1fcaee07e81073d9dd8ab028" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacens_game.html#a42aed30e26cb4c1b135a4a79c05e1cd8">FGetSize</a> <a class="el" href="structns_game_1_1_s_game_mode.html#a2b920fec1fcaee07e81073d9dd8ab028">nsGame::SGameMode::GetSize</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Size of the grid. </p>
-
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00105">105</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="a67262bc8fbd448e6bd48394e5231b161"></a><!-- doxytag: member="nsGame::SGameMode::InitializeRound" ref="a67262bc8fbd448e6bd48394e5231b161" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacens_game.html#ae2c0b38407cfe08bc43baedfcf5594c5">FInitializeRound</a> <a class="el" href="structns_game_1_1_s_game_mode.html#a67262bc8fbd448e6bd48394e5231b161">nsGame::SGameMode::InitializeRound</a></td>
+          <td class="memname">FInitializeRound <a class="el" href="structns_game_1_1_s_game_mode.html#a67262bc8fbd448e6bd48394e5231b161">nsGame::SGameMode::InitializeRound</a></td>
         </tr>
       </table>
 </div>
@@ -211,126 +164,7 @@ Public Attributes</h2></td></tr>
 <p>Each player gets a corner of the grid. </p>
 <p>Ex: Player 1 is top right. Player 2 is bottom left. Player 3 is top left. Player 4 is bottom right. </p>
 
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00125">125</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad8b3e82a1b21ea0d6931c299b167eba5"></a><!-- doxytag: member="nsGame::SGameMode::IsGameOver" ref="ad8b3e82a1b21ea0d6931c299b167eba5" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacens_game.html#acf17db36f58b1cde2d4711c07497e938">FIsGameOver</a> <a class="el" href="structns_game_1_1_s_game_mode.html#ad8b3e82a1b21ea0d6931c299b167eba5">nsGame::SGameMode::IsGameOver</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Whether or not the game is over. </p>
-
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00146">146</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab78305fade6652d6a551edbced103f6e"></a><!-- doxytag: member="nsGame::SGameMode::MovePlayer" ref="ab78305fade6652d6a551edbced103f6e" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacens_game.html#a8eccf8769b4b292af96a85df2cd01b19">FMovePlayer</a> <a class="el" href="structns_game_1_1_s_game_mode.html#ab78305fade6652d6a551edbced103f6e">nsGame::SGameMode::MovePlayer</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Moves a player in a certain direction, checks for walls and plays beeping sound if wall is hit (last part is not tested). </p>
-
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00112">112</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a04fb507bb38cabe3d8db0f3da8e4f642"></a><!-- doxytag: member="nsGame::SGameMode::Name" ref="a04fb507bb38cabe3d8db0f3da8e4f642" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string <a class="el" href="structns_game_1_1_s_game_mode.html#a04fb507bb38cabe3d8db0f3da8e4f642">nsGame::SGameMode::Name</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>The name of the game mode. </p>
-
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00077">77</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a27860a9c7777b0b14dd90ef0d8185e6e"></a><!-- doxytag: member="nsGame::SGameMode::PlayerCount" ref="a27860a9c7777b0b14dd90ef0d8185e6e" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned <a class="el" href="structns_game_1_1_s_game_mode.html#a27860a9c7777b0b14dd90ef0d8185e6e">nsGame::SGameMode::PlayerCount</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>The number of players that will play the game. Limited to 4 because max 4 sets of controls... </p>
-
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00084">84</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7565197ae8453df86f14d5cb0d40d19c"></a><!-- doxytag: member="nsGame::SGameMode::RoundCount" ref="a7565197ae8453df86f14d5cb0d40d19c" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned <a class="el" href="structns_game_1_1_s_game_mode.html#a7565197ae8453df86f14d5cb0d40d19c">nsGame::SGameMode::RoundCount</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>The number of rounds that must be played before a winner can be declared. </p>
-
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00091">91</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a82d6f10456594a7dcad56349161c7f57"></a><!-- doxytag: member="nsGame::SGameMode::ShowWinScreen" ref="a82d6f10456594a7dcad56349161c7f57" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacens_game.html#a53bfd68f423d2342b57a22a41da67331">FShowWinScreen</a> <a class="el" href="structns_game_1_1_s_game_mode.html#a82d6f10456594a7dcad56349161c7f57">nsGame::SGameMode::ShowWinScreen</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Show the win screen. </p>
-
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00153">153</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2add636f2490c13f6de6e084b58ae652"></a><!-- doxytag: member="nsGame::SGameMode::ValidatePlayerPositions" ref="a2add636f2490c13f6de6e084b58ae652" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="namespacens_game.html#aeb2effdbf1997d66839bc85351c1755a">FValidatePlayerPositions</a> <a class="el" href="structns_game_1_1_s_game_mode.html#a2add636f2490c13f6de6e084b58ae652">nsGame::SGameMode::ValidatePlayerPositions</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Checks if a players position overlaps with another one. </p>
-
-<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00139">139</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
+<p>Definition at line <a class="el" href="_game_mode_8h_source.html#l00127">127</a> of file <a class="el" href="_game_mode_8h_source.html">GameMode.h</a>.</p>
 
 </div>
 </div>
@@ -338,13 +172,12 @@ Public Attributes</h2></td></tr>
 <li>src/<a class="el" href="_game_mode_8h_source.html">GameMode.h</a></li>
 </ul>
 </div><!-- contents -->
-</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -353,17 +186,13 @@ Public Attributes</h2></td></tr>
 </iframe>
 </div>
 
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="namespacens_game.html">nsGame</a>      </li>
-      <li class="navelem"><a class="el" href="structns_game_1_1_s_game_mode.html">SGameMode</a>      </li>
 
-    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
-   </ul>
- </div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
 
 </body>
 </html>

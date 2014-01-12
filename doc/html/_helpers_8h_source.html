@@ -7,14 +7,9 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -52,7 +47,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -80,19 +74,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-  initNavTree('_helpers_8h.html','');
-</script>
-<div id="doc-content">
 <div class="header">
   <div class="headertitle">
 <div class="title">src/GameModes/Helpers.h</div>  </div>
@@ -105,26 +86,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00014"></a>00014 
 <a name="l00015"></a>00015 <span class="preprocessor">#include &quot;../Game.h&quot;</span>
 <a name="l00016"></a>00016 
-<a name="l00017"></a><a class="code" href="namespacens_helpers.html">00017</a> <span class="keyword">namespace </span>nsHelpers
+<a name="l00017"></a>00017 <span class="keyword">namespace </span>nsHelpers
 <a name="l00018"></a>00018 {
-<a name="l00024"></a>00024     <span class="keywordtype">void</span> <a class="code" href="namespacens_helpers.html#a260d611c360bb964f70fa13f0579c133" title="Checks for boundaries, obstacles and moves the player.">MovePlayer</a> (<span class="keyword">const</span> <a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">nsGame::CMatrix</a>&amp; Matrix, <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a>&amp; PlayerPosition, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a>&amp; MatrixSize,
-<a name="l00025"></a>00025                      <span class="keyword">const</span> <a class="code" href="namespacens_game.html#a26711499d9e9d8fa8a04af03feca561e" title="Moves on the Y axis.">nsGame::PlayerMovesY</a> MoveY, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#ae52b72192ea038ac392f6657d0c5ecaa" title="Moves on the X axis.">nsGame::PlayerMovesX</a> MoveX);
+<a name="l00024"></a>00024     <span class="keywordtype">void</span> MovePlayer (<span class="keyword">const</span> nsGame::CMatrix&amp; Matrix, nsGame::CPosition&amp; PlayerPosition, <span class="keyword">const</span> nsGame::CPosition&amp; MatrixSize,
+<a name="l00025"></a>00025                      <span class="keyword">const</span> nsGame::PlayerMovesY MoveY, <span class="keyword">const</span> nsGame::PlayerMovesX MoveX);
 <a name="l00026"></a>00026     
-<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="namespacens_helpers.html#a5d94aa155824a02b37011001affe7211" title="Checks if a player is in a position that is lethal, and if yes, KILL IT !">ValidatePlayerPositionsNoTeam</a> (<span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a>&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> CurrentPlayer, std::vector&lt;bool&gt;&amp; PlayerLifeStates);
+<a name="l00032"></a>00032         <span class="keywordtype">void</span> ValidatePlayerPositionsNoTeam (<span class="keyword">const</span> nsGame::CPositions&amp; PlayerPositions, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> CurrentPlayer, std::vector&lt;bool&gt;&amp; PlayerLifeStates, nsGame::CPositions&amp; ObstaclesPositions);
 <a name="l00033"></a>00033 
-<a name="l00042"></a>00042     <span class="keywordtype">void</span> <a class="code" href="namespacens_helpers.html#ac1e2b3710370dbd82816df53984ff5f8" title="Loads the obstacles positions from file.">LoadObstaclesFromFile</a> (<a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a>&amp; ObstaclesPositions, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aec9fd4d40895df9af2c04685df937156">nsGame::CPosition</a>&amp; MaxSize);
+<a name="l00042"></a>00042         <span class="keywordtype">void</span> LoadObstaclesFromFile (nsGame::CPositions&amp; ObstaclesPositions, <span class="keyword">const</span> nsGame::CPosition&amp; MaxSize);
 <a name="l00043"></a>00043 
-<a name="l00049"></a>00049     <span class="keywordtype">void</span> <a class="code" href="namespacens_helpers.html#a06706a9d239c8345638bf3dc45961fc0" title="Adds the obstacle and player tokens to the matrix.">AddObstaclesAndPlayersToMatrix</a> (<a class="code" href="namespacens_game.html#a55b3bddada4e337a7ea108e3712ce27b">nsGame::CMatrix</a>&amp; Matrix, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a>&amp; PlayerPositions,
-<a name="l00050"></a>00050                                          <span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> <a class="code" href="namespacens_game.html#aa45c6366c68b396fadce8312a909bf67">nsGame::CPositions</a>&amp; ObstaclesPositions, <span class="keywordtype">char</span> EmptyToken);
-<a name="l00051"></a>00051 } <span class="comment">// nsHelpers</span>
+<a name="l00049"></a>00049     <span class="keywordtype">void</span> AddObstaclesAndPlayersToMatrix (nsGame::CMatrix&amp; Matrix, <span class="keyword">const</span> nsGame::CPositions&amp; PlayerPositions,
+<a name="l00050"></a>00050                                          <span class="keyword">const</span> std::vector&lt;bool&gt;&amp; PlayerLifeStates, <span class="keyword">const</span> nsGame::CPositions&amp; ObstaclesPositions, <span class="keywordtype">char</span> EmptyToken);
+<a name="l00051"></a>00051     
+<a name="l00059"></a>00059     nsGame::CPosition MakePosition (<span class="keyword">const</span> nsGame::CMatrix&amp; Matrix, nsGame::CPosition Position, nsGame::PlayerMovesY MoveY, nsGame::PlayerMovesX MoveX);
+<a name="l00060"></a>00060 } <span class="comment">// nsHelpers</span>
 </pre></div></div><!-- contents -->
-</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -133,16 +115,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="_helpers_8h.html">Helpers.h</a>      </li>
 
-    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
-   </ul>
- </div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
 
 </body>
 </html>

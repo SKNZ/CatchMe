@@ -7,14 +7,9 @@
 
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="jquery.js"></script>
-<script type="text/javascript" src="resize.js"></script>
-<script type="text/javascript" src="navtree.js"></script>
-<script type="text/javascript">
-  $(document).ready(initResizable);
-</script>
+
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
   $(document).ready(function() { searchBox.OnSelectItem(0); });
@@ -52,7 +47,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -80,22 +74,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     </ul>
   </div>
 </div>
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-    </div>
-  </div>
-  <div id="splitbar" style="-moz-user-select:none;" 
-       class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-  initNavTree('_survivor2v2_8h.html','');
-</script>
-<div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">src/GameModes/Survivor2v2.h File Reference</div>  </div>
@@ -109,17 +89,22 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <p><a href="_survivor2v2_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_survivor2v2.html">nsSurvivor2v2</a></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_survivor2v2.html#ae5fb0a9adca561b6181b03281f559a83">nsSurvivor2v2::GetSize</a> (CPosition &amp;Size)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_survivor2v2.html#a7d00a03e2b4082f6474261d922f8b68f">nsSurvivor2v2::MovePlayer</a> (const CMatrix &amp;Matrix, CPosition &amp;PlayerPosition, const CPosition &amp;MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_survivor2v2.html#a3d6027ced6dd456bd67e571a9099c00e">nsSurvivor2v2::InitializeRound</a> (CPositions &amp;PlayerPositions, const unsigned PlayerCount, const CPosition &amp;MaxSize)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_survivor2v2.html#a870ad08a4841e5a3901c3e4eca5ffc91">nsSurvivor2v2::BuildMatrix</a> (CMatrix &amp;Matrix, const CPositions &amp;PlayerPositions, const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const char EmptyToken)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_survivor2v2.html#a4d27c5f8ddeacc4f7ae90889751d455a">nsSurvivor2v2::ValidatePlayerPositions</a> (const CMatrix &amp;Matrix, const CPositions &amp;PlayerPositions, const unsigned CurrentPlayer, std::vector&lt; bool &gt; &amp;PlayerLifeStates)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacens_survivor2v2.html#a06831dfaeb52392c22a32b86202de5b9">nsSurvivor2v2::IsGameOver</a> (const std::vector&lt; bool &gt; &amp;PlayerLifeStates)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5fb0a9adca561b6181b03281f559a83"></a><!-- doxytag: member="Survivor2v2.h::GetSize" ref="ae5fb0a9adca561b6181b03281f559a83" args="(CPosition &amp;Size)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nsSurvivor2v2::GetSize</b> (CPosition &amp;Size)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d00a03e2b4082f6474261d922f8b68f"></a><!-- doxytag: member="Survivor2v2.h::MovePlayer" ref="a7d00a03e2b4082f6474261d922f8b68f" args="(const CMatrix &amp;Matrix, CPosition &amp;PlayerPosition, const CPosition &amp;MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nsSurvivor2v2::MovePlayer</b> (const CMatrix &amp;Matrix, CPosition &amp;PlayerPosition, const CPosition &amp;MatrixSize, const PlayerMovesY MoveY, const PlayerMovesX MoveX)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d6027ced6dd456bd67e571a9099c00e"></a><!-- doxytag: member="Survivor2v2.h::InitializeRound" ref="a3d6027ced6dd456bd67e571a9099c00e" args="(CPositions &amp;PlayerPositions, const unsigned PlayerCount, const CPosition &amp;MaxSize)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nsSurvivor2v2::InitializeRound</b> (CPositions &amp;PlayerPositions, const unsigned PlayerCount, const CPosition &amp;MaxSize)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a870ad08a4841e5a3901c3e4eca5ffc91"></a><!-- doxytag: member="Survivor2v2.h::BuildMatrix" ref="a870ad08a4841e5a3901c3e4eca5ffc91" args="(CMatrix &amp;Matrix, const CPositions &amp;PlayerPositions, const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const char EmptyToken)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nsSurvivor2v2::BuildMatrix</b> (CMatrix &amp;Matrix, const CPositions &amp;PlayerPositions, const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const char EmptyToken)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4d27c5f8ddeacc4f7ae90889751d455a"></a><!-- doxytag: member="Survivor2v2.h::ValidatePlayerPositions" ref="a4d27c5f8ddeacc4f7ae90889751d455a" args="(const CMatrix &amp;Matrix, const CPositions &amp;PlayerPositions, const unsigned CurrentPlayer, std::vector&lt; bool &gt; &amp;PlayerLifeStates)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nsSurvivor2v2::ValidatePlayerPositions</b> (const CMatrix &amp;Matrix, const CPositions &amp;PlayerPositions, const unsigned CurrentPlayer, std::vector&lt; bool &gt; &amp;PlayerLifeStates)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06831dfaeb52392c22a32b86202de5b9"></a><!-- doxytag: member="Survivor2v2.h::IsGameOver" ref="a06831dfaeb52392c22a32b86202de5b9" args="(const std::vector&lt; bool &gt; &amp;PlayerLifeStates)" -->
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>nsSurvivor2v2::IsGameOver</b> (const std::vector&lt; bool &gt; &amp;PlayerLifeStates)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad78ecd2e09fc606b621d5ca98df51132"></a><!-- doxytag: member="Survivor2v2.h::ShowWinScreen" ref="ad78ecd2e09fc606b621d5ca98df51132" args="(const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const std::vector&lt; char &gt; &amp;Tokens, const std::vector&lt; unsigned &gt; &amp;TurnCounters)" -->
+void&#160;</td><td class="memItemRight" valign="bottom"><b>nsSurvivor2v2::ShowWinScreen</b> (const std::vector&lt; bool &gt; &amp;PlayerLifeStates, const std::vector&lt; char &gt; &amp;Tokens, const std::vector&lt; unsigned &gt; &amp;TurnCounters)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Survivor 2v2 game mode. </p>
@@ -128,13 +113,12 @@ Functions</h2></td></tr>
 
 <p>Definition in file <a class="el" href="_survivor2v2_8h_source.html">Survivor2v2.h</a>.</p>
 </div></div><!-- contents -->
-</div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Namespaces</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Enumerator</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -143,16 +127,13 @@ Functions</h2></td></tr>
 </iframe>
 </div>
 
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="_survivor2v2_8h.html">Survivor2v2.h</a>      </li>
 
-    <li class="footer">Generated on Sat Jan 11 2014 19:42:14 for CatchMe by
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.6.1 </li>
-   </ul>
- </div>
 
+<hr class="footer"/><address class="footer"><small>
+Generated on Sun Jan 12 2014 16:23:31 for CatchMe by &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.7.6.1
+</small></address>
 
 </body>
 </html>
