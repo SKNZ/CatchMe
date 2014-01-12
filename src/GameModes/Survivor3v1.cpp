@@ -65,8 +65,9 @@ void nsSurvivor3v1::ValidatePlayerPositions (const CMatrix& Matrix, const CPosit
     bool SurroundedByObstacles = true;
     for (int i = -1; i < 1; ++i)
         for (int j = -1; i < 1; ++i)
-            if (Matrix [Y + i] [X + j] != KTokens [KTokenObstacle])
-                SurroundedByObstacles = false;
+            if (Matrix.size () < Y + i && Y + i > 0 && Matrix.begin ()->size () < X + j && X + j > 0)
+                if (Matrix [Y + i] [X + j] != KTokens [KTokenObstacle])
+                    SurroundedByObstacles = false;
 
     if (SurroundedByObstacles)
         PlayerLifeStates [CurrentPlayer] = false;
