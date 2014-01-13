@@ -10,6 +10,7 @@
  **/
 #include <algorithm>
 #include <sstream>
+#include <array>
 
 #include "Survivor3v1.h"
 #include "Helpers.h"
@@ -21,7 +22,7 @@ using namespace std;
 
 namespace
 {
-	nsGame::CPositions ObstaclesPositions;
+    nsGame::CPositions ObstaclesPositions;
     array<unsigned, 4> AlonePlayerTurnCounters;
 
     int AlonePlayer = -1;
