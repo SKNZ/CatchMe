@@ -9,6 +9,7 @@
  *
  **/
 #include <sstream>
+#include <array>
 
 #include "Classic3v1.h"
 #include "Helpers.h"
